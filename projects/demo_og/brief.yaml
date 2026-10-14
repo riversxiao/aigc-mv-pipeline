@@ -1,0 +1,16 @@
+name: demo_og
+concept: >-
+  古人开麦 · The OGs — Tang poet takes the tavern stage with a vintage mic,
+  singing about surviving hard years; lantern light meets concert spotlights.
+characters:
+  - example_poet
+style: >-
+  anachronistic historical concert, warm wood tavern, crowd holding phone lights,
+  cinematic, restrained color grade
+target_duration_sec: 30
+language: zh
+constraints:
+  - adult characters only
+  - no modern brand logos
+  - keep poet face identity locked via canon
+budget_notes: Local stub preview only; no paid APIs required for demo.

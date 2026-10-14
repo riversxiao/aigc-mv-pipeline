@@ -1,0 +1,24 @@
+# Original demo character for 古人开麦-style MV (not affiliated with Claudia IP)
+id: example_poet
+display_name: 酒楼诗人 · Du-style Open Mic Poet
+identity: >-
+  a dignified Tang-dynasty poet in his forties, square jaw, thin mustache and
+  goatee, calm sharp eyes, tall black scholar's hat (futou), hair tied in a topknot,
+  weathered but proud face, adult male
+wardrobe_default: >-
+  deep indigo wide-sleeve robe with subtle cloud embroidery, white inner collar,
+  dark sash, holding a vintage chrome stage microphone
+style_family: >-
+  cinematic still, warm tavern lantern light mixed with cool concert spotlights,
+  shallow depth of field, film grain, anachronistic ancient-meets-hip-hop aesthetic
+forbidden:
+  - child
+  - teenager
+  - logos
+  - watermarks
+  - modern eyeglasses
+  - cartoon chibi proportions
+refs: []
+notes: >-
+  Demo-only open character for the aigc-mv pipeline. Swap identity text for your
+  own cast; keep the verbatim-identity discipline in build_prompt.

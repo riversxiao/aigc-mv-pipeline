@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aigc-mv"
+version = "0.1.0"
+description = "AI music-video pipeline: canon knowledge layer + align/storyboard/preview workflow"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "AIGC教父" }]
+dependencies = [
+  "pydantic>=2.0",
+  "typer>=0.12",
+  "pyyaml>=6.0",
+  "pillow>=10.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+whisperx = []  # install whisperx separately when ready: pip install whisperx
+mcp = ["mcp>=1.0"]  # optional FastMCP server deps
+
+[project.scripts]
+aigc-mv = "aigc_mv.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
