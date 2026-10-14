@@ -1,0 +1,18 @@
+name: demo_guanbao
+concept: >-
+  管鲍之交 · 酒楼开麦 — 诗人把「知己与成全」唱成过来人故事：
+  分金不问、败仗有酒、聚光灯让给你。借古讽今友情与信任，不碰政治。
+characters:
+  - example_poet
+lore_id: guan_bao_zhi_jiao
+style: >-
+  warm tavern lanterns, two empty cups on a wooden table, concert spotlights,
+  cinematic, restrained color grade, friendship anthem mood
+target_duration_sec: 32
+language: zh
+constraints:
+  - adult characters only
+  - no modern brand logos
+  - no political satire
+  - keep poet face identity locked via canon
+budget_notes: Local stub preview only; no paid APIs required for demo.

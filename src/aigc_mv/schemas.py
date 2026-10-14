@@ -23,6 +23,34 @@ class Character(BaseModel):
     notes: str = ""
 
 
+class LoreStory(BaseModel):
+    """Classical anecdote card for allegorical MV plot + lyric background (借古讽今)."""
+
+    id: str
+    source: str = Field(..., description="e.g. 史记 / 左传")
+    classic_title: str
+    classic_summary: str = Field(
+        ...,
+        description="Short neutral historical facts; no modern political framing.",
+    )
+    modern_allegory: str = Field(
+        ...,
+        description="借古讽今 angle on non-political topics (work, friendship, craft, etc.).",
+    )
+    themes: list[str] = Field(default_factory=list)
+    lyric_seeds: list[str] = Field(default_factory=list)
+    scene_beats: list[str] = Field(default_factory=list)
+    avoid: list[str] = Field(
+        default_factory=lambda: [
+            "政治讽刺",
+            "political satire",
+            "当代政局影射",
+        ],
+        description="Hard creative bans; must include political-satire related items.",
+    )
+    notes: str = ""
+
+
 class LyricSegment(BaseModel):
     text: str
     t0: float
@@ -74,6 +102,7 @@ class ProjectBrief(BaseModel):
     name: str
     concept: str
     characters: list[str] = Field(default_factory=list)
+    lore_id: str | None = None
     style: str = ""
     target_duration_sec: float = 30.0
     language: str = "zh"

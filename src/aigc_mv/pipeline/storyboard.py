@@ -8,7 +8,8 @@ from pathlib import Path
 import yaml
 
 from aigc_mv.canon import build_prompt
-from aigc_mv.schemas import Beatmap, ProjectBrief, Shot
+from aigc_mv.lore import load_lore
+from aigc_mv.schemas import Beatmap, LoreStory, ProjectBrief, Shot
 
 FRAMING_CYCLE = ["WS", "MCU", "CU", "MS", "MCU"]
 CAMERA_CYCLE = ["slow push-in", "static", "gentle pan left", "static", "orbit soft"]
@@ -33,25 +34,53 @@ def _load_beatmap(project_dir: Path) -> Beatmap:
     return Beatmap.model_validate_json(path.read_text(encoding="utf-8"))
 
 
+def _optional_lore(brief: ProjectBrief, knowledge_dir: Path | None) -> LoreStory | None:
+    if not brief.lore_id:
+        return None
+    try:
+        return load_lore(brief.lore_id, knowledge_dir)
+    except FileNotFoundError:
+        return None
+
+
 def storyboard_project(project_dir: Path, knowledge_dir: Path | None = None) -> list[Shot]:
     """One shot per lyric segment; rotate framing/camera; attach build_prompt plates."""
     project_dir = Path(project_dir)
     brief = _load_brief(project_dir)
     beatmap = _load_beatmap(project_dir)
+    lore = _optional_lore(brief, knowledge_dir)
 
     cast = brief.characters or ["example_poet"]
     primary = cast[0]
     shots: list[Shot] = []
 
+    lore_theme_hint = ""
+    lore_allegory_hint = ""
+    if lore:
+        lore_theme_hint = " · ".join(lore.themes[:3]) if lore.themes else lore.classic_title
+        lore_allegory_hint = lore.modern_allegory.strip().split("。")[0][:80]
+
     for i, seg in enumerate(beatmap.segments):
         framing = FRAMING_CYCLE[i % len(FRAMING_CYCLE)]
         camera = CAMERA_CYCLE[i % len(CAMERA_CYCLE)]
         who = [cast[i % len(cast)]]
+        beat_hint = ""
+        if lore and lore.scene_beats:
+            beat_hint = lore.scene_beats[i % len(lore.scene_beats)]
         action = f"performing on stage, lip-sync feel, lyric vibe: {seg.text[:40]}"
-        scene = (
-            f"{brief.concept}. {action}. "
-            f"Ancient-meets-concert aesthetic, stage lights, vintage microphone."
+        if beat_hint:
+            action = f"{beat_hint}; {action}"
+        if lore_theme_hint:
+            action = f"{action} [themes: {lore_theme_hint}]"
+
+        scene_bits = [brief.concept, action]
+        if lore_allegory_hint:
+            scene_bits.append(f"allegory mood: {lore_allegory_hint}")
+        scene_bits.append(
+            "Ancient-meets-concert aesthetic, stage lights, vintage microphone."
         )
+        scene = ". ".join(scene_bits)
+
         try:
             built = build_prompt(
                 who[0],
@@ -93,6 +122,7 @@ def storyboard_project(project_dir: Path, knowledge_dir: Path | None = None) -> 
         "project": brief.name,
         "concept": brief.concept,
         "primary_character": primary,
+        "lore_id": brief.lore_id,
         "shots": [s.model_dump() for s in shots],
     }
     out.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

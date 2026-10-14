@@ -12,13 +12,14 @@ import yaml
 
 from aigc_mv import __version__
 from aigc_mv.canon import DEFAULT_KNOWLEDGE_DIR, build_prompt, get_canon, list_character_ids
+from aigc_mv.lore import get_lore, list_lore_ids, load_lore, render_lyric_brief
 from aigc_mv.pipeline.align import align_project
 from aigc_mv.pipeline.storyboard import storyboard_project
 from aigc_mv.pipeline.timeline import render_preview
 
 app = typer.Typer(
     name="aigc-mv",
-    help="AIGC music-video pipeline: canon + align → storyboard → preview",
+    help="AIGC music-video pipeline: canon + lore + align → storyboard → preview",
     no_args_is_help=True,
 )
 
@@ -131,6 +132,50 @@ def build_prompt_cmd(
         typer.echo(result["mj_string"])
     else:
         typer.echo(json.dumps(result, ensure_ascii=False, indent=2))
+
+
+@app.command("list-lore")
+def list_lore_cmd(
+    knowledge: Path = typer.Option(None, "--knowledge", help="Knowledge directory"),
+) -> None:
+    """List lore / 典故 card IDs."""
+    kd = knowledge or _knowledge_opt()
+    ids = list_lore_ids(kd)
+    if not ids:
+        typer.echo("(no lore)")
+        return
+    for lid in ids:
+        typer.echo(lid)
+
+
+@app.command("get-lore")
+def get_lore_cmd(
+    lore_id: str = typer.Argument(...),
+    knowledge: Path = typer.Option(None, "--knowledge", help="Knowledge directory"),
+) -> None:
+    """Print lore card as JSON."""
+    kd = knowledge or _knowledge_opt()
+    try:
+        data = get_lore(lore_id, kd)
+    except FileNotFoundError as e:
+        typer.echo(str(e), err=True)
+        raise typer.Exit(code=1)
+    typer.echo(json.dumps(data, ensure_ascii=False, indent=2))
+
+
+@app.command("lyric-brief")
+def lyric_brief_cmd(
+    lore_id: str = typer.Argument(...),
+    knowledge: Path = typer.Option(None, "--knowledge", help="Knowledge directory"),
+) -> None:
+    """Print a Chinese-friendly lyric writing brief from a lore card."""
+    kd = knowledge or _knowledge_opt()
+    try:
+        lore = load_lore(lore_id, kd)
+    except FileNotFoundError as e:
+        typer.echo(str(e), err=True)
+        raise typer.Exit(code=1)
+    typer.echo(render_lyric_brief(lore))
 
 
 @app.command("align")
