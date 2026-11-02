@@ -23,6 +23,10 @@ app = typer.Typer(
     no_args_is_help=True,
 )
 
+from aigc_mv.cli_ep import app as ep_app  # noqa: E402
+
+app.add_typer(ep_app, name="ep")
+
 _REPO_ROOT = Path(__file__).resolve().parents[2]
 _DEMO_SRC = _REPO_ROOT / "projects" / "demo_og"
 

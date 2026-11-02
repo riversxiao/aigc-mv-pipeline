@@ -1,0 +1,33 @@
+# 项羽 · casting canon for photoreal battles. Paste identity text verbatim; never write "young" or "handsome".
+id: xiang_yu
+display_name: 项羽 · 西楚霸王
+age: 30
+identity: >-
+  a 30-year-old Chinese man, very tall and broad-shouldered with a heavy warrior's build, a long face with a
+  strong square jaw and high cheekbones, thick straight black eyebrows, deep-set fierce dark eyes, a short rough
+  black beard with stubble on the cheeks, sun-darkened weathered skin with visible pores and a small old scar
+  through his left eyebrow, long black hair pulled into a high topknot held by a dark bronze crown
+identity_short: >-
+  a very tall broad-shouldered Chinese warrior of 30 with a short rough black beard, a high topknot and a dark
+  bronze crown
+identity_cn: >-
+  30 岁的中国男人，个子很高、肩膀很宽，武将的厚实身板；长脸，方下巴，颧骨高，浓而平直的黑眉，眼窝深、眼神凶；
+  脸颊有胡茬，留着短而粗硬的黑胡子；皮肤晒得黝黑粗糙，毛孔清楚，左眉上有一道旧疤；长发在头顶束成高髻，戴暗铜色发冠
+wardrobe_default: >-
+  black lacquered leather lamellar armour over a dark crimson robe, scuffed bronze fittings, a wide worn leather
+  belt, a dark red cloak frayed at the hem, plain fabric with no lettering
+wardrobe_cn: >-
+  黑色漆皮札甲套在暗红色长袍外，铜扣件有磨损和划痕，宽皮腰带用旧了，暗红色披风下摆起毛，衣服上没有任何文字
+props_cn: 右手始终握着一支银色有线话筒，话筒线垂下来
+voice: aggressive male rapper, deep powerful chest voice, shouting energy, hard-hitting flow
+style_family: >-
+  photographed on 35mm motion picture film, practical firelight, fine grain, historical war film realism
+forbidden:
+  - teenager
+  - boyish face
+  - idol makeup
+  - clean-shaven
+  - modern logos
+refs: []
+notes: >-
+  史记·项羽本纪：「长八尺余，力能扛鼎」。死于垓下之后，年三十一。面部原创，不要像任何演过项羽的演员。

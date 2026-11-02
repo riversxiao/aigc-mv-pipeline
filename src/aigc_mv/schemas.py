@@ -22,6 +22,18 @@ class Character(BaseModel):
     refs: list[str] = Field(default_factory=list, description="Paths or URLs to reference images.")
     notes: str = ""
 
+    # --- casting fields for photoreal battles / MVs (all optional, backward compatible) ---
+    identity_short: str = Field(
+        "", description="Short identity for wide shots (long text makes image models crop to the face)."
+    )
+    identity_cn: str = Field("", description="中文身份描述, pasted verbatim into Dreamina/Seedance prompts")
+    wardrobe_cn: str = Field("", description="中文服装描述 (材质、颜色、磨损)")
+    props_cn: str = Field(
+        "", description="Locked prop wording, e.g. 右手握一支银色有线话筒，左手拿白色鹤羽扇（圆形、短柄，绝不是折扇）"
+    )
+    age: int | None = Field(None, description="Explicit age; never write 'young' (models drift to teen faces)")
+    voice: str = Field("", description="Suno voice description")
+
 
 class LoreStory(BaseModel):
     """Classical anecdote card for allegorical MV plot + lyric background (借古讽今)."""
