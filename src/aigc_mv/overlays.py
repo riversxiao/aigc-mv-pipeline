@@ -147,6 +147,63 @@ class Sheet:
         img.alpha_composite(self._shadow(layer, 8, 0.7))
         return img
 
+    def show_title(self, show_name: str, episode_no: str, a: str, b: str, disclaimer: str) -> Image.Image:
+        """Programme logo card for the cold open: show name large, episode number, 'A VS B', disclaimer."""
+        S, W, H = self.S, self.W, self.H
+        img, layer = self.canvas(), self.canvas()
+        d = ImageDraw.Draw(layer)
+        red = (220, 30, 36, 255)
+        f_show = self._fit(d, show_name, "brush", 180, "Regular", W - 200 * S)
+        d.text((W / 2, int(H * 0.40)), show_name, font=f_show, fill=(255, 255, 255, 255), anchor="ms",
+               stroke_width=int(7 * S), stroke_fill=(150, 10, 16, 255))
+        if episode_no:
+            fe = _font("sans", int(44 * S), "Black")
+            tw = d.textlength(episode_no, font=fe)
+            y = int(H * 0.47)
+            d.rectangle([W / 2 - tw / 2 - 22 * S, y - 46 * S, W / 2 + tw / 2 + 22 * S, y + 12 * S], fill=red)
+            d.text((W / 2, y), episode_no, font=fe, fill=(255, 255, 255, 255), anchor="ms")
+        vs = f"{a}  VS  {b}"
+        fv = self._fit(d, vs, "sans", 76, "Black", W - 240 * S)
+        d.text((W / 2, int(H * 0.60)), vs, font=fv, fill=(255, 255, 255, 255), anchor="ms",
+               stroke_width=int(4 * S), stroke_fill=(10, 10, 10, 230))
+        d.text((W / 2, int(H * 0.67)), disclaimer, font=_font("sans", int(32 * S), "Bold"),
+               fill=(240, 240, 240, 255), anchor="ms", stroke_width=int(2 * S), stroke_fill=INK)
+        img.alpha_composite(self._shadow(layer, 8, 0.7))
+        return img
+
+    def logo_bug(self, text: str) -> Image.Image:
+        """Small programme badge in the bottom-right corner (the reference's corner logo)."""
+        S, W, H = self.S, self.W, self.H
+        img = self.canvas()
+        d = ImageDraw.Draw(img)
+        f = _font("sans", int(30 * S), "Black")
+        tw = d.textlength(text, font=f)
+        pad = 14 * S
+        x1, y1 = W - 48 * S, H - 40 * S
+        x0, y0 = x1 - tw - 2 * pad, y1 - 52 * S
+        d.rounded_rectangle([x0, y0, x1, y1], radius=int(8 * S), fill=(200, 20, 28, 210),
+                            outline=(255, 255, 255, 230), width=max(1, int(3 * S)))
+        d.text(((x0 + x1) / 2, (y0 + y1) / 2), text, font=f, fill=(255, 255, 255, 245), anchor="mm")
+        return img
+
+    def lower_third(self, name: str, title: str) -> Image.Image:
+        """Name + caption, bottom-left, above the subtitle zone (judges / hosts / cameos)."""
+        S, H = self.S, self.H
+        img, layer = self.canvas(), self.canvas()
+        d = ImageDraw.Draw(layer)
+        fn, ft = _font("sans", int(56 * S), "Black"), _font("sans", int(30 * S), "Bold")
+        x, y = int(90 * S), int(H * 0.78)
+        wn = d.textlength(name, font=fn)
+        wt = d.textlength(title, font=ft) if title else 0
+        d.rectangle([x - 18 * S, y - 64 * S, x - 8 * S, y + (46 if title else 6) * S], fill=(220, 30, 36, 255))
+        d.text((x, y), name, font=fn, fill=(255, 255, 255, 255), anchor="ls", stroke_width=max(2, int(3 * S)),
+               stroke_fill=(10, 10, 10, 220))
+        if title:
+            d.rectangle([x - 4 * S, y + 8 * S, x + max(wn, wt) + 16 * S, y + 46 * S], fill=(15, 15, 15, 190))
+            d.text((x + 6 * S, y + 38 * S), title, font=ft, fill=(255, 255, 255, 240), anchor="ls")
+        img.alpha_composite(self._shadow(layer, 4, 0.5))
+        return img
+
     def end(self, l1: str, l2: str) -> Image.Image:
         S, W, H = self.S, self.W, self.H
         img, layer = self.canvas(), self.canvas()

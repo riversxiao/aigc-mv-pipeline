@@ -32,9 +32,14 @@ def _downscale(src: Path, dst: Path, size: tuple[int, int]) -> None:
 def write_refs_doc(project_dir: Path, ep: Episode, board: Board, knowledge_dir: Path | None = None) -> Path:
     chars = characters(ep, knowledge_dir)
     plan = refs_plan(ep, board, chars)
-    rows = [f"# 定妆图与场景图 · {ep.title}", "",
-            "每张图生成 4 张挑 1 张，存成下面的文件名放进 `refs/`。挑图标准：像真人实拍（毛孔、细纹、不对称），"
-            "不像任何真实演员；道具和服装在每张图里一致；场景图正面对称。", "",
+    if ep.realism == "idol_show":
+        crit = ("每张图生成 4 张挑 1 张，存成下面的文件名放进 `refs/`。挑图标准：好看但像真人上节目：皮肤有真实纹理、不塑料；"
+                "脸是原创的，不像任何真人演员（包括真人剧《异人之下》的演员）；表情像真人；同一角色每张图服装道具一致；"
+                "场景图正面对称。")
+    else:
+        crit = ("每张图生成 4 张挑 1 张，存成下面的文件名放进 `refs/`。挑图标准：像真人实拍（毛孔、细纹、不对称），"
+                "不像任何真实演员；道具和服装在每张图里一致；场景图正面对称。")
+    rows = [f"# 定妆图与场景图 · {ep.title}", "", crit, "",
             "Midjourney 用 EN（`--style raw --stylize 60`，不要加 8k / masterpiece 之类的词）；即梦图片用 CN。", ""]
     for item in plan:
         rows += [f"## `{item['file']}`", f"用途：{item['use']}", "", "EN:", "```", item["en"], "```", "CN:", "```",

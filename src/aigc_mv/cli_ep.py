@@ -204,15 +204,17 @@ def render_cmd(
     test: Optional[str] = typer.Option(None, "--test", help="from:to seconds"),
     no_look: bool = typer.Option(False, "--no-look"),
     no_text: bool = typer.Option(False, "--no-text"),
+    previz: Optional[bool] = typer.Option(None, "--previz/--no-previz",
+                                          help="Placeholder plates for shots without take / plate (default: on for shows)"),
 ) -> None:
-    """Conform the cut (takes > plates > cards), grade, subtitles, music → final/<title>.mp4."""
+    """Conform the cut (takes > plates > previz > cards), grade, subtitles, music → final/<title>.mp4."""
     from aigc_mv.edit import render
     from aigc_mv.timing import load_timing
 
     ep = load_episode(ep_dir)
     rng = tuple(float(x) for x in test.split(":")) if test else None
     out = render(ep_dir, ep, load_board(ep_dir), load_timing(ep_dir), resolution=res, test=rng,  # type: ignore[arg-type]
-                 look=not no_look, overlays=not no_text)
+                 look=not no_look, overlays=not no_text, previz=previz)
     edl = json.loads((ep_dir / "edit" / "edl.json").read_text(encoding="utf-8"))
     src = {}
     for e in edl["entries"]:
@@ -222,14 +224,38 @@ def render_cmd(
     typer.echo(f"sources {src} → {out}")
 
 
+@app.command("previz")
+def previz_cmd(ep_dir: Path) -> None:
+    """Free previz: audio/previz_beat.wav + edit/previz/sheet_NN.png contact sheets of the placeholder plates."""
+    from aigc_mv.previz import contact_sheets, synth_beat
+    from aigc_mv.timing import load_timing
+
+    ep = load_episode(ep_dir)
+    timing, b = load_timing(ep_dir), load_board(ep_dir)
+    typer.echo(f"wrote {synth_beat(timing, ep_dir / 'audio' / 'previz_beat.wav', ep)}")
+    for p in contact_sheets(ep, b.shots, ep_dir / "edit" / "previz"):
+        typer.echo(f"wrote {p}")
+    typer.echo(f"next: aigc-mv ep render {ep_dir} --res 480p --previz")
+
+
+_ROLE_CN = {"rapper": "选手", "teammate": "队友", "judge": "评委", "host": "主持", "dj": "DJ", "hook": "副歌",
+            "cameo": "客串"}
+
+
 @app.command("status")
 def status_cmd(ep_dir: Path) -> None:
     """What exists and what is next."""
     ep = load_episode(ep_dir)
+    typer.echo(f"{ep.title} · {ep.format} · {ep.realism} · look {ep.look} · {len(ep.cast)} cast")
+    for role, cn in _ROLE_CN.items():
+        keys = ep.members(role)
+        if keys:
+            typer.echo(f"  {cn}: " + "、".join(f"{ep.cast[k].name_cn}({k})" for k in keys))
     checks = [
         ("song", ep_dir / ep.song), ("vocal stem", ep_dir / (ep.vocals or "-")),
         ("timing", ep_dir / "analysis" / "timing.json"), ("board", ep_dir / "board" / "board.json"),
         ("refs plan", ep_dir / "refs" / "REFS.md"), ("prompts", ep_dir / "units" / "summary.json"),
+        ("previz beat", ep_dir / "audio" / "previz_beat.wav"),
     ]
     for name, p in checks:
         typer.echo(f"{'✓' if p.exists() else '·'} {name:10s} {p}")

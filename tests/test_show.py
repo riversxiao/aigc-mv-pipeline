@@ -154,3 +154,140 @@ def test_show_grammar_rules(ep, timing, board):
     for sid, st in cinema.SHOW_STAGINGS.items():
         assert sum(1 for s in shots if s.staging == sid) <= st.max_per_film
     assert sum(1 for s in shots if s.camera == "snap_zoom") <= 3
+
+
+# --------------------------------------------------------------------------- downstream stages (FEAT-003)
+
+
+def test_idol_realism_and_luotian_look_are_clean():
+    for text in (cinema.realism_cn("idol_show"), cinema.realism_cn("idol_show", sung=True),
+                 cinema.realism_en("idol_show"), cinema.negative_en("idol_show"), cinema.ORIGINAL_FACE_CN,
+                 cinema.LOOKS["luotian_show"].cn, cinema.LOOKS["luotian_show"].en):
+        assert not cinema.banned_hits(text), (text, cinema.banned_hits(text))
+    assert cinema.ORIGINAL_FACE_CN in cinema.realism_cn("idol_show")
+    assert cinema.realism_cn("gritty") == cinema.REALISM_CN
+    assert cinema.negative_en("gritty") == cinema.NO_EN
+
+
+def test_show_sung_prompt(ep, timing, board):
+    from aigc_mv.prompts import AUDIO_COPY_CN, characters, sides_cn, video_prompt
+
+    chars = characters(ep)
+    u = next(x for x in board.units if x.kind == "sung" and x.singer == "a"
+             and any(s.background for s in board.unit_shots(x)))
+    up = video_prompt(ep, board, timing, u, chars)
+    t = up.text
+    assert t.startswith(AUDIO_COPY_CN) and t.rstrip().endswith(AUDIO_COPY_CN)
+    s0 = board.unit_shots(u)[0]
+    assert cinema.SHOW_STAGINGS[s0.staging].cn in t
+    assert "范增站在项羽身后，虚化在背景里，不抢画面" in t
+    assert sides_cn(ep) in t
+    assert "秒「" in t
+    assert cinema.realism_cn("idol_show", sung=True) in t
+    assert ep.show_name + "现场" in t and "说唱对决里正面开火" not in t
+    assert not cinema.banned_hits(t)
+    # judge reaction by seat, spoken host lines
+    judge_u = next(x for x in board.units if any(s.staging == "judge_react" for s in board.unit_shots(x)))
+    jt = video_prompt(ep, board, timing, judge_u, chars)
+    assert "老夫子坐在评委席中间的王座，" in jt.text
+    assert ("judges.png", "是评委席（三张王座）的样子") in jt.uploads
+    host_u = next(x for x in board.units if x.kind == "sung" and x.singer == "host")
+    assert "说：" in video_prompt(ep, board, timing, host_u, chars).text
+    for x in board.units:
+        faces = [f for f, _ in video_prompt(ep, board, timing, x, chars).uploads if f.endswith("_sheet.png")]
+        assert len(faces) <= 6
+
+
+def test_show_refs_plan_and_header(ep, board, tmp_path):
+    import shutil
+
+    from aigc_mv.packs import write_refs_doc
+    from aigc_mv.prompts import characters, refs_plan
+
+    plan_ = refs_plan(ep, board, characters(ep))
+    files = {x["file"] for x in plan_}
+    assert {f"{k}_sheet.png" for k in ep.cast} <= files
+    assert {"judges.png", "dj_booth.png", "venue.png", "crowd.png"} <= files
+    judge = next(x for x in plan_ if x["file"] == "judge_sheet.png")
+    assert "评委" in judge["use"] and "straight on" in judge["en"]
+    assert cinema.ORIGINAL_FACE_CN in judge["cn"] and "35mm" not in judge["en"]
+    d = tmp_path / "ep"
+    shutil.copytree(FIXTURE, d, ignore=shutil.ignore_patterns("analysis", "board", "units", "edit", "final",
+                                                              "audio", "refs", "suno.md"))
+    doc = write_refs_doc(d, ep, board).read_text(encoding="utf-8")
+    assert "《异人之下》" in doc
+
+
+def test_show_suno_passes(ep):
+    from aigc_mv.prompts import characters, suno_passes, suno_sheets
+
+    passes = suno_passes(ep)
+    assert len(passes) == 3
+    sheet = suno_sheets(ep, characters(ep))
+    assert sheet.count("Styles:") == len(passes)
+    assert "[Chorus: 唱曲人]" in sheet and "[Spoken Word: 说书人]" in sheet
+    assert "[Verse: 项羽]" in sheet and "[Break: silence]" in sheet and "[Interlude" in sheet
+    assert "[Outro" in sheet and sheet.count("Extend：") == 2 and "TTS" in sheet
+
+
+def test_synth_beat(timing, tmp_path):
+    import numpy as np
+    import soundfile as sf
+
+    from aigc_mv.previz import synth_beat
+
+    p = synth_beat(timing, tmp_path / "beat.wav")
+    x, sr = sf.read(p)
+    assert sr == 44100 and x.ndim == 2 and x.shape[1] == 2
+    assert abs(len(x) / sr - timing.duration) <= 0.05
+    mono = np.abs(x).mean(1)
+    beat = 60 / timing.grid.bpm
+    w = int(0.04 * sr)
+
+    def energy(ts):
+        return float(np.mean([mono[int(t * sr): int(t * sr) + w].mean() for t in ts if t * sr + w < len(mono)]))
+
+    on = energy(timing.grid.beats[:64])
+    off = energy([b + beat * 0.3 for b in timing.grid.beats[:64]])
+    assert on > 1.5 * off, (on, off)
+
+
+def test_shot_plates_for_every_staging(ep, timing, board):
+    from aigc_mv.previz import shot_plate
+
+    seen = {}
+    for s in board.shots:
+        seen.setdefault(s.staging, s)
+    assert len(seen) >= 15
+    for s in seen.values():
+        im = shot_plate(ep, s, (320, 180), timing)
+        assert im.size == (320, 180) and im.mode == "RGB"
+
+
+needs_ffmpeg = pytest.mark.skipif(not __import__("aigc_mv.tools", fromlist=["has_ffmpeg"]).has_ffmpeg(),
+                                  reason="ffmpeg not available")
+
+
+@needs_ffmpeg
+def test_show_previz_render_excerpt(tmp_path):
+    import json
+    import shutil
+    import subprocess
+
+    from aigc_mv.edit import render
+    from aigc_mv.tools import ffmpeg_exe
+
+    d = tmp_path / "ep"
+    shutil.copytree(FIXTURE, d, ignore=shutil.ignore_patterns("analysis", "board", "units", "edit", "final",
+                                                              "audio", "refs", "suno.md"))
+    e = load_episode(d)
+    t = analyze(d, e, mode="grid", bpm=BPM)
+    b = plan(e, t)
+    out = render(d, e, b, t, resolution="480p", test=(0.0, 8.0))
+    assert out.is_file() and out.stat().st_size > 10_000
+    assert (d / "audio" / "previz_beat.wav").is_file()
+    assert not (d / "refs").exists() or not any((d / "refs").glob("*.png"))
+    edl = json.loads((d / "edit" / "edl.json").read_text(encoding="utf-8"))
+    assert any(x["source"] == "previz" for x in edl["entries"])
+    probe = subprocess.run([ffmpeg_exe(), "-i", str(out)], capture_output=True, text=True).stderr
+    assert "Audio:" in probe

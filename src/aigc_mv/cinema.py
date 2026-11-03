@@ -202,6 +202,46 @@ REALISM_EN = (
     "natural facial asymmetry, worn and creased costume fabric, no retouching"
 )
 NO_EN = "cgi, 3d render, plastic skin, airbrushed, smooth skin, doll, porcelain, anime, illustration, beauty filter, idol, oversaturated, text, letters, logo, watermark"
+# the short sentence that closes every gritty sung prompt (sung prompts must stay short)
+REALISM_SUNG_CN = "真实实拍质感：真实的成年演员，皮肤有毛孔、细纹和汗光，不磨皮、不加滤镜。动作正常速度、有重量感，不要慢动作。"
+
+# 'idol_show': good-looking people on a real TV show. Still real skin, still original faces. The wording avoids
+# every BANNED_WORDS entry, even in negated form (substring match).
+ORIGINAL_FACE_CN = "原创面孔，不像任何真实的明星或演员"
+REALISM_IDOL_CN = (
+    "真人综艺节目现场实拍质感，像电视台多机位直播里截下来的画面，不是 CG、不是游戏、不是动画。"
+    "人物是上镜、五官端正耐看的成年演员，年龄以角色设定为准；皮肤是真实的：细小毛孔、自然的肤色变化，"
+    "舞台灯下有自然的油光和细汗，化的是综艺节目的淡妆；不磨皮，皮肤不能光滑得像塑料、蜡像或手办。"
+    "表情有真实的微表情：眨眼、抿嘴、挑眉、忍笑。每张脸都是" + ORIGINAL_FACE_CN + "。"
+    "服装是真实的布料，有褶皱和穿着痕迹。"
+)
+REALISM_IDOL_SUNG_CN = (
+    "真人综艺现场实拍质感：上镜耐看的成年演员，皮肤有细小毛孔、自然油光和细汗，综艺淡妆，不磨皮、不像塑料；"
+    "有眨眼、抿嘴、挑眉这样的真实微表情；" + ORIGINAL_FACE_CN + "。动作正常速度、有重量感，不要慢动作。"
+)
+REALISM_IDOL_EN = (
+    "on-camera adult performer with pleasant, well-proportioned features, real skin with fine pores, natural "
+    "skin tone variation, a natural sheen and fine sweat under the stage lights, light TV-show makeup, real "
+    "micro-expressions, an original face that does not resemble any real celebrity or actor, real creased fabric"
+)
+NO_IDOL_EN = ("cgi, 3d render, plastic skin, airbrushed, wax figure, doll, figurine, porcelain, anime, illustration, "
+              "oversaturated, text, letters, logo, watermark")
+
+
+def realism_cn(style: str = "gritty", sung: bool = False) -> str:
+    """Realism block for Chinese prompts; `sung` = the short closing sentence of lip-sync prompts."""
+    if style == "idol_show":
+        return REALISM_IDOL_SUNG_CN if sung else REALISM_IDOL_CN
+    return REALISM_SUNG_CN if sung else REALISM_CN
+
+
+def realism_en(style: str = "gritty") -> str:
+    return REALISM_IDOL_EN if style == "idol_show" else REALISM_EN
+
+
+def negative_en(style: str = "gritty") -> str:
+    return NO_IDOL_EN if style == "idol_show" else NO_EN
+
 
 # Words that pull image/video models toward the glossy AI look. The audit flags them in prompts.
 BANNED_WORDS = [
@@ -255,6 +295,18 @@ LOOKS: dict[str, Look] = {lk.id: lk for lk in [
         "indoor rap battle TV show arena, tiered crowd, red light boxes and stage lights melted into bokeh, "
         "hard top stage light, broadcast realism with cinematic grain",
         "舞台顶光和观众席的灯牌",
+        {"warm": 0.0},
+    ),
+    Look(
+        "luotian_show",
+        "罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），"
+        "背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；"
+        "长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒。",
+        "indoor rap variety show arena rebuilt from a Taoist tournament ring at night, black square stage, a giant "
+        "taiji-bagua pattern on the floor with no lettering, a full red LED wall and red light strips behind, tiered "
+        "audience, hard top stage light with red side light, thin haze, long lens melting crowd and lights into "
+        "bokeh, broadcast realism with fine grain",
+        "舞台顶光、红色 LED 大屏和红色灯带",
         {"warm": 0.0},
     ),
 ]}

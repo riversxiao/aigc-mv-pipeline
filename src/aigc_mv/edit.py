@@ -42,7 +42,7 @@ class EdlEntry(BaseModel):
     shot: str
     t0: float
     t1: float
-    source: str = Field(..., description="take | plate | card")
+    source: str = Field(..., description="take | plate | previz | card")
     file: str | None = None
     src_in: float = 0.0
     move: str = "locked"
@@ -64,7 +64,8 @@ def _pick_take(project_dir: Path, unit: str):
     return t, ut
 
 
-def build_edl(project_dir: Path, ep: Episode, board: Board, size: tuple[int, int]) -> Edl:
+def build_edl(project_dir: Path, ep: Episode, board: Board, size: tuple[int, int], previz: bool = False) -> Edl:
+    """Source per shot: take > real plate in refs/ > previz placeholder (edit/parts/previz_<shot>.png) > card."""
     project_dir = Path(project_dir)
     units = {u.id: u for u in board.units}
     entries = []
@@ -89,6 +90,9 @@ def build_edl(project_dir: Path, ep: Episode, board: Board, size: tuple[int, int
                 if cand and (project_dir / cand).is_file():
                     e.source, e.file = "plate", cand
                     break
+            else:
+                if previz:
+                    e.source, e.file = "previz", f"edit/parts/previz_{s.id}.png"
         entries.append(e)
     return Edl(fps=ep.fps, size=size, entries=entries)
 
@@ -173,24 +177,34 @@ def _segment(project_dir: Path, ep: Episode, e: EdlEntry, s: BoardShot, out: Pat
         return
     if e.source == "plate":
         img = project_dir / e.file
+    elif e.source == "previz":
+        from aigc_mv.previz import shot_plate
+
+        img = project_dir / e.file
+        img.parent.mkdir(parents=True, exist_ok=True)
+        shot_plate(ep, s, (W * 2, H * 2), timing).save(img)
     else:
         img = tmp / f"card_{s.id}.png"
         text = {ln.idx: ln.text for ln in timing.lines}
         who = "、".join(ep.cast[w].name_cn for w in s.who) or "—"
         sheet.card([f"{s.id}  {s.framing} · {s.lens} · {s.camera}", f"{s.kind} · {who}", s.action_cn[:60],
                     " / ".join(text[i] for i in s.lines)]).save(img)
-    z, x, y = zoompan_expr(e.move if e.source == "plate" else "locked", n, fps)
+    z, x, y = zoompan_expr(e.move if e.source in ("plate", "previz") else "locked", n, fps)
     vf = (f"scale={W * 2}:{H * 2}:force_original_aspect_ratio=increase,crop={W * 2}:{H * 2},"
           f"zoompan=z='{z}':x='{x}':y='{y}':d={n}:s={W}x{H}:fps={fps},setsar=1,setpts=N/({fps}*TB)")
     run_ffmpeg(["-loop", "1", "-i", str(img), "-vf", vf, "-frames:v", str(n), *enc, str(out)])
 
 
 def render(project_dir: Path, ep: Episode, board: Board, timing: Timing, resolution: str = "720p",
-           test: tuple[float, float] | None = None, look: bool = True, overlays: bool = True) -> Path:
+           test: tuple[float, float] | None = None, look: bool = True, overlays: bool = True,
+           previz: bool | None = None) -> Path:
+    """previz: draw placeholder plates for shots without take / plate (default: on for format show)."""
     project_dir = Path(project_dir)
     size = SIZES[resolution]
     fps = ep.fps
-    edl = build_edl(project_dir, ep, board, size)
+    if previz is None:
+        previz = ep.format == "show"
+    edl = build_edl(project_dir, ep, board, size, previz=previz)
     tmp = project_dir / "edit" / "parts"
     tmp.mkdir(parents=True, exist_ok=True)
     sheet = Sheet(*size, style=ep.subtitle_style)
@@ -213,6 +227,65 @@ def render(project_dir: Path, ep: Episode, board: Board, timing: Timing, resolut
                    suffix="_test" if test else "")
 
 
+ROLE_TITLE = {"judge": "评委", "host": "主持人", "dj": "DJ", "hook": "副歌", "cameo": "特邀观众"}
+LOWER_THIRD_S = 2.5
+
+
+def previz_beat(project_dir: Path, ep: Episode, timing: Timing) -> Path | None:
+    """audio/previz_beat.wav (made by previz.synth_beat when absent); None when it cannot be made."""
+    out = Path(project_dir) / "audio" / "previz_beat.wav"
+    if not out.is_file():
+        try:
+            from aigc_mv.previz import synth_beat
+
+            synth_beat(timing, out, ep)
+        except Exception as e:  # pragma: no cover - fall back to silence
+            print(f"previz beat failed ({e}); rendering silent")
+            return None
+    print(f"no song yet: using previz beat {out}")
+    return out
+
+
+def _show_layers(ep: Episode, board: Board, timing: Timing, sheet: Sheet, tmp: Path, layers: list) -> None:
+    """Show packaging: programme title card, rapper name cards, lower thirds, corner logo bug."""
+    lines = timing.lines
+    left, right = (ep.cast[k] for k in ep.rappers())
+    secs = timing.sections
+    t_end = secs[0].t1 if secs and secs[0].kind == "cold_open" else max(0.5, lines[0].t0 - 0.1)
+    sheet.show_title(ep.show_name or ep.title, ep.episode_no, left.name_cn, right.name_cn,
+                     ep.disclaimer).save(tmp / "title.png")
+    layers.append(("title.png", 0.0, t_end, 0.3))
+    for k in ep.rappers():
+        c = ep.cast[k]
+        entr = next((s for s in board.shots if s.kind == "entrance" and s.who == [k]), None)
+        mine = [ln for ln in lines if ln.who == k]
+        if entr is None and not mine:
+            continue
+        sheet.name(c.name_cn, c.aka, c.side == "right").save(tmp / f"name_{k}.png")
+        if entr is not None:
+            layers.append((f"name_{k}.png", entr.t0 + 0.2, entr.t1 - 0.1, 0.25))
+        else:
+            end = mine[1].t1 if len(mine) > 1 else mine[0].t1
+            layers.append((f"name_{k}.png", mine[0].t0 - 0.08, end - 0.1, 0.25))
+    busy = 0.0  # lower thirds never stack: one waits for the previous to clear
+    for k, c in sorted(((k, c) for k, c in ep.cast.items() if c.role in ROLE_TITLE),
+                       key=lambda kc: next((s.t0 for s in board.shots if kc[0] in s.who), 1e9)):
+        first = next((s for s in board.shots if k in s.who), None)
+        if first is None:
+            continue
+        t0 = max(first.t0 + 0.2, busy)
+        t1 = min(t0 + LOWER_THIRD_S, board.duration)
+        if t1 - t0 < 1.0:
+            continue
+        sheet.lower_third(c.name_cn, c.title_cn or ROLE_TITLE[c.role]).save(tmp / f"lt_{k}.png")
+        layers.append((f"lt_{k}.png", t0, t1, 0.2))
+        busy = t1 + 0.1
+    bug = ep.logo_bug or ep.show_name
+    if bug:
+        sheet.logo_bug(bug).save(tmp / "bug.png")
+        layers.append(("bug.png", 0.0, board.duration, 0.0))
+
+
 def package(project_dir: Path, ep: Episode, board: Board, timing: Timing, picture: Path, size, t_from: float,
             t_to: float, look: bool, overlays: bool, suffix: str = "") -> Path:
     W, H = size
@@ -222,17 +295,22 @@ def package(project_dir: Path, ep: Episode, board: Board, timing: Timing, pictur
     sheet = Sheet(W, H, style=ep.subtitle_style)
     layers: list[tuple[str, float, float, float]] = []
     lines = timing.lines
+    show = ep.format == "show"
     if overlays:
         left, right = (ep.cast[k] for k in ep.rappers())
-        sheet.title(left.name_cn, right.name_cn, ep.disclaimer).save(tmp / "title.png")
-        layers.append(("title.png", 0.0, max(0.5, lines[0].t0 - 0.1), 0.3))
-        for k, c in ep.cast.items():
-            mine = [ln for ln in lines if ln.who == k]
-            if mine:
-                sheet.name(c.name_cn, c.aka, c.side == "right").save(tmp / f"name_{k}.png")
-                end = mine[1].t1 if len(mine) > 1 else mine[0].t1
-                layers.append((f"name_{k}.png", mine[0].t0 - 0.08, end - 0.1, 0.25))
-        notes = {(ln_v, ln_l): ep.verses[ln_v].lines[ln_l].note for ln_v, ln_l in ((x.verse, x.line) for x in lines)}
+        if show:
+            _show_layers(ep, board, timing, sheet, tmp, layers)
+        else:
+            sheet.title(left.name_cn, right.name_cn, ep.disclaimer).save(tmp / "title.png")
+            layers.append(("title.png", 0.0, max(0.5, lines[0].t0 - 0.1), 0.3))
+            for k, c in ep.cast.items():
+                mine = [ln for ln in lines if ln.who == k]
+                if mine:
+                    sheet.name(c.name_cn, c.aka, c.side == "right").save(tmp / f"name_{k}.png")
+                    end = mine[1].t1 if len(mine) > 1 else mine[0].t1
+                    layers.append((f"name_{k}.png", mine[0].t0 - 0.08, end - 0.1, 0.25))
+        notes = {(ln_v, ln_l): ep.verses[ln_v].lines[ln_l].note if ep.show_notes else ""
+                 for ln_v, ln_l in ((x.verse, x.line) for x in lines)}
         for i, ln in enumerate(lines):
             sheet.lyric(ln.text, notes[(ln.verse, ln.line)], i).save(tmp / f"line_{i:03d}.png")
             last = i + 1 == len(lines) or lines[i + 1].verse != ln.verse
@@ -249,6 +327,8 @@ def package(project_dir: Path, ep: Episode, board: Board, timing: Timing, pictur
     fc = [f"[0:v]{LOOK_FILTER.format(**look_cfg) if look else 'null'},format=yuv420p,setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709[base]"]
     inputs = ["-i", str(picture)]
     song = project_dir / ep.song
+    if not song.is_file():
+        song = previz_beat(project_dir, ep, timing) or song
     if song.is_file():
         inputs += ["-ss", f"{t_from:.3f}", "-t", f"{t_to - t_from:.3f}", "-i", str(song)]
     else:
