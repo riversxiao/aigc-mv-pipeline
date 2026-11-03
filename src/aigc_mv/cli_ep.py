@@ -158,6 +158,25 @@ def refs_cmd(ep_dir: Path, knowledge: Path = typer.Option(None, "--knowledge")) 
     typer.echo(f"wrote {write_refs_doc(ep_dir, ep, load_board(ep_dir), knowledge)}")
 
 
+@app.command("plates")
+def plates_cmd(ep_dir: Path, candidates: int = typer.Option(4, "--candidates", help="Candidates per plate")) -> None:
+    """Show episodes: the arena plate set, the units uploading each plate, and a cost estimate (no API call)."""
+    from aigc_mv import plates
+    from aigc_mv.prompts import plate_items
+
+    ep = load_episode(ep_dir)
+    if ep.format != "show":
+        _fail("plates are for show episodes (format: show)")
+    env = plate_items(ep, load_board(ep_dir))
+    per = plates.per_image_from_ledger(Path(ep_dir) / "ledger.jsonl")
+    cost = plates.cost_estimate([x["file"] for x in env], candidates=candidates, per_image=per)
+    for x, r in zip(env, cost["rows"]):
+        typer.echo(f"{x['file']:<18} {len(x['shots']):>3} shots  units {','.join(x['units']) or '-'}  "
+                   f"{r['candidates']} x ${per:.2f} = ${r['usd']:.2f} (upper ${r['usd_upper']:.2f})")
+    typer.echo(f"total {cost['images']} images: ${cost['total']:.2f} (upper ${cost['total_upper']:.2f}); "
+               "estimate only, nothing generated")
+
+
 @app.command("canon")
 def canon_cmd(
     ep_dir: Path,

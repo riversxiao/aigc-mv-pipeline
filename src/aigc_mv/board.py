@@ -28,6 +28,7 @@ from pydantic import BaseModel, Field
 
 from aigc_mv import cinema
 from aigc_mv.episode import Episode
+from aigc_mv.plates import plate_for
 from aigc_mv.timing import TimedLine, Timing
 from aigc_mv.tools import han
 
@@ -541,8 +542,9 @@ def render_sheet(ep: Episode, board: Board, timing: Timing, result: AuditResult)
             f"平均镜头 {result.stats['mean_shot_s']} 秒", ""]
     show = board.grammar == "show"  # battle sheets keep their original columns
     if show:
-        rows += ["| 镜头 | 时间 | 段落 | 类型 | 调度 | 景别 / 镜头 | 运镜 | 画面 | 歌词 | 生成 |",
-                 "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+        rows += ["场景图列是这个镜头对应的背景板（refs/ 里的文件，见 refs/REFS.md「场景图 / 背景板」）。", "",
+                 "| 镜头 | 时间 | 段落 | 类型 | 调度 | 场景图 | 景别 / 镜头 | 运镜 | 画面 | 歌词 | 生成 |",
+                 "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     else:
         rows += ["| 镜头 | 时间 | 段落 | 类型 | 景别 / 镜头 | 运镜 | 画面 | 歌词 | 生成 |",
                  "| --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
@@ -553,8 +555,9 @@ def render_sheet(ep: Episode, board: Board, timing: Timing, result: AuditResult)
         lyr = " / ".join(text[i] for i in s.lines)
         if show:
             stg = cinema.SHOW_STAGINGS[s.staging].cn if s.staging in cinema.SHOW_STAGINGS else ""
+            env = plate_for(ep, s.staging).file.removesuffix(".png") if s.location == "venue" else s.location
             rows.append(
-                f"| {s.id} | {s.t0:.2f}–{s.t1:.2f} | {s.section} | {s.kind} | {stg} | {s.framing} · {s.lens} | "
+                f"| {s.id} | {s.t0:.2f}–{s.t1:.2f} | {s.section} | {s.kind} | {stg} | {env} | {s.framing} · {s.lens} | "
                 f"{s.camera} | {who}：{s.action_cn} | {lyr} | {s.unit} |")
         else:
             rows.append(

@@ -191,7 +191,7 @@ def test_show_sung_prompt(ep, timing, board):
     judge_u = next(x for x in board.units if any(s.staging == "judge_react" for s in board.unit_shots(x)))
     jt = video_prompt(ep, board, timing, judge_u, chars)
     assert "老夫子坐在评委席中间的王座，" in jt.text
-    assert ("judges.png", "是评委席（三张王座）的样子") in jt.uploads
+    assert any(f == "judges.png" and "评委席" in r for f, r in jt.uploads)
     host_u = next(x for x in board.units if x.kind == "sung" and x.singer == "host")
     assert "说：" in video_prompt(ep, board, timing, host_u, chars).text
     for x in board.units:
@@ -623,3 +623,179 @@ def test_battle_refs_keep_one_text_sheet():
     assert [x["file"] for x in people] == [f"{k}_sheet.png" for k in e.cast]
     assert all("a three-quarter view, a profile" in x["en"] and "step" not in x and x["cn"] for x in people)
     assert not any(x["file"].endswith("_face.png") for x in plan_)
+
+
+# --------------------------------------------------------------------------- arena plates
+
+
+DARK_STAGINGS = {"blackout_spot", "empty_stage_ws", "head_down_cu", "spot_cu"}
+
+
+def _env(ups):
+    from aigc_mv import plates
+
+    return [f for f, _ in ups if f in plates.BY_FILE]
+
+
+def test_every_staging_maps_to_a_planned_plate(demo):
+    from aigc_mv import plates
+    from aigc_mv.prompts import characters, refs_plan
+
+    e, t, b = demo
+    assert set(cinema.SHOW_STAGINGS) <= set(plates.STAGING_PLATE)
+    files = {x["file"] for x in refs_plan(e, b, characters(e))}
+    for s in b.shots:
+        assert plates.plate_for(e, s.staging).file in files, (s.id, s.staging)
+    by = {x["file"]: x for x in refs_plan(e, b, characters(e)) if x.get("plate")}
+    assert set(by) == {p.file for p in plates.PLATES}  # this cast has judges, DJ, hooks and cameos
+    for x in by.values():
+        assert x["cn"] and x["en"] and x["gpt"] and "--ar 16:9" in x["en"] and "--" not in x["gpt"]
+        assert x["shots"], x["file"]
+        assert "—" not in x["cn"] + x["en"] + x["gpt"] and "火影" not in x["cn"] + x["en"] + x["gpt"]
+        assert not cinema.banned_hits(x["cn"] + " " + x["en"] + " " + x["gpt"]), x["file"]
+        if x["crowd"] == "dark":
+            assert "empty seats" not in x["en"] and "没有空座位" not in x["cn"]
+        else:
+            assert "empty seats" in x["en"]
+        if x["crowd"] == "full":
+            assert "没有空座位" in x["cn"] and "每个人长得都不一样" in x["cn"]
+    for k in e.members("cameo"):  # cameos are never baked into a plate: their seats are left empty
+        assert plates.cameo_seat_cn(e.cast[k].position_cn) + "留一个空座位" in by["cameo_seats.png"]["cn"]
+        assert e.cast[k].name_cn not in by["cameo_seats.png"]["cn"]
+    assert by["cameo_seats.png"]["uploads"][0]["file"] == "venue_high.png"
+    assert by["venue.png"]["uploads"] == []
+    # first frames sit in their environment plate
+    for x in refs_plan(e, b, characters(e)):
+        if x["file"].startswith("plate_u"):
+            assert x["uploads"][0]["file"] == x["env_plate"] and x["cn"].startswith("图1是场景图 ")
+
+
+def test_unit_uploads_one_sheet_per_person_then_plates(demo):
+    from aigc_mv import plates
+    from aigc_mv.prompts import MAX_UPLOADS, characters, video_prompt
+
+    e, t, b = demo
+    chars = characters(e)
+    for u in b.units:
+        shots = b.unit_shots(u)
+        ups = video_prompt(e, b, t, u, chars).uploads
+        files = [f for f, _ in ups]
+        env = _env(ups)
+        sheets = [f for f in files if f.endswith("_sheet.png")]
+        assert len(files) <= MAX_UPLOADS, u.id
+        assert len(sheets) == len(set(sheets)), u.id
+        assert files == sheets + env, u.id  # people first, then plates
+        assert 1 <= len(env) <= plates.MAX_UNIT_PLATES, u.id
+        mine = {plates.plate_for(e, s.staging).file for s in shots}
+        assert set(env) <= mine, u.id
+        stg = {s.staging for s in shots}
+        if stg & {"crowd_ws", "high_ws", "mic_to_crowd"}:
+            assert {"crowd.png", "venue_high.png", "crowd_reverse.png"} & set(env), u.id
+        if stg & DARK_STAGINGS:
+            assert "venue_dark.png" in env and not {"crowd.png", "crowd_reverse.png"} & set(env), u.id
+        if stg <= DARK_STAGINGS:
+            assert env == ["venue_dark.png"], u.id
+        if "judge_react" in stg and "cameo_react" not in stg:
+            assert "judges.png" in env, u.id
+        if stg <= {"dj_booth", "dj_cu"}:
+            assert env == ["dj_booth.png"], u.id
+
+
+def test_cameo_units_upload_sheet_and_seats(demo):
+    from aigc_mv import plates
+    from aigc_mv.prompts import characters, video_prompt
+
+    e, t, b = demo
+    chars = characters(e)
+    seen = 0
+    for u in b.units:
+        for s in b.unit_shots(u):
+            if s.staging != "cameo_react":
+                continue
+            seen += 1
+            up = video_prompt(e, b, t, u, chars)
+            files = [f for f, _ in up.uploads]
+            k = s.who[0]
+            assert f"{k}_sheet.png" in files and "cameo_seats.png" in files, u.id
+            n = files.index("cameo_seats.png") + 1
+            seat = plates.cameo_seat_cn(e.cast[k].position_cn)
+            assert f"{e.cast[k].name_cn}坐在{seat}（@图片{n} 里留空的那个座位）" in up.text, u.id
+            assert e.cast[k].position_cn in seat
+    assert seen >= 2
+
+
+def test_crowd_density_and_blackout_in_unit_prompts(demo):
+    from aigc_mv.prompts import characters, video_prompt
+
+    e, t, b = demo
+    chars = characters(e)
+    for u in b.units:
+        stg = {s.staging for s in b.unit_shots(u)}
+        text = video_prompt(e, b, t, u, chars).text
+        assert "【观众】" in text, u.id
+        if stg & {"crowd_ws", "high_ws", "mic_to_crowd", "cameo_react"}:
+            assert "没有空座位" in text and "不要空看台" in text, u.id
+        if stg <= DARK_STAGINGS:
+            assert "不要把观众照亮" in text and "不要空看台" not in text, u.id
+        for i, (f, _) in enumerate(video_prompt(e, b, t, u, chars).uploads, 1):
+            if f.endswith(".png") and not f.endswith("_sheet.png"):
+                assert f"背景照 @图片{i}。" in text, (u.id, f)
+
+
+def test_upload_cap_drops_background_people_first(demo, monkeypatch):
+    from aigc_mv import prompts
+
+    e, t, b = demo
+    u = next(x for x in b.units if any(s.background for s in b.unit_shots(x))
+             and len(prompts._show_people(b.unit_shots(x))[0]) >= 1)
+    fg, bg = prompts._show_people(b.unit_shots(u))
+    full, _ = prompts.show_unit_uploads(e, b, u)
+    n_env = len(_env(full))
+    monkeypatch.setattr(prompts, "MAX_UPLOADS", len(fg) + n_env)
+    ups, warn = prompts.show_unit_uploads(e, b, u)
+    files = [f for f, _ in ups]
+    assert files == [f"{w}_sheet.png" for w in fg] + _env(full)
+    assert all(f"{w}_sheet.png" not in files for w in bg)
+    assert any("background" in w for w in warn)
+    monkeypatch.setattr(prompts, "MAX_UPLOADS", len(fg) + 1)
+    ups, warn = prompts.show_unit_uploads(e, b, u)
+    assert len(ups) == len(fg) + 1 and len(_env(ups)) == 1
+
+
+def test_plate_cost_is_arithmetic_only(demo, tmp_path, monkeypatch):
+    import socket
+    import urllib.request
+
+    from aigc_mv import plates
+    from aigc_mv.packs import write_refs_doc
+
+    def no_net(*a, **k):
+        raise AssertionError("network used")
+
+    monkeypatch.setattr(socket.socket, "connect", no_net)
+    monkeypatch.setattr(urllib.request, "urlopen", no_net)
+    c = plates.cost_estimate(["a.png", "b.png", "c.png"], candidates=4, per_image=0.06, upper=0.12)
+    assert c["images"] == 12 and c["total"] == 0.72 and c["total_upper"] == 1.44
+    assert [r["usd"] for r in c["rows"]] == [0.24] * 3 and sum(r["usd"] for r in c["rows"]) == pytest.approx(c["total"])
+    led = tmp_path / "ledger.jsonl"
+    led.write_text('{"provider": "openrouter", "kind": "image", "real_usd": 0.054984}\n'
+                   '{"provider": "openrouter", "kind": "image", "real_usd": 0.059802}\n'
+                   '{"provider": "dreamina", "kind": "video", "real_usd": 3.0}\nnot json\n', encoding="utf-8")
+    before = led.read_bytes()
+    assert plates.ledger_image_usd(led) == [0.054984, 0.059802]
+    assert plates.per_image_from_ledger(led) == 0.06 and plates.per_image_from_ledger(tmp_path / "none") == 0.06
+    assert led.read_bytes() == before
+    e, t, b = demo
+    d = tmp_path / "ep"
+    d.mkdir()
+    doc = write_refs_doc(d, e, b).read_text(encoding="utf-8")
+    assert "## 场景图 / 背景板" in doc and "| 合计 | 36 | $2.16 | $4.32 |" in doc and "—" not in doc
+    assert "cameo_seats.png" in doc and "venue_dark.png" in doc and "没有调用任何接口" in doc
+
+
+def test_show_sheet_names_the_plate(demo):
+    e, t, b = demo
+    md = render_sheet(e, b, t, audit(e, b, t))
+    assert "| 调度 | 场景图 |" in md
+    s = next(x for x in b.shots if x.staging == "blackout_spot")
+    assert next(r for r in md.splitlines() if r.startswith(f"| {s.id} |")).count("| venue_dark |") == 1

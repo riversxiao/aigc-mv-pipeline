@@ -94,7 +94,8 @@ E=projects/wangye_vs_zhugeqing
 aigc-mv ep analyze $E --bpm 92     # 还没有歌：合成节拍网格（约 3:40）
 aigc-mv ep board $E                # 分镜 + 审核（audit: PASS）
 aigc-mv ep canon $E --src <本地官方图文件夹>   # 原作图放进 refs/canon/（gitignore，不进 git）
-aigc-mv ep refs $E                 # 15 人三步定妆（原作图 → 正面像 → 五个角度）+ 场馆 / 评委席 / DJ台 / 观众的提示词
+aigc-mv ep refs $E                 # 15 人三步定妆（原作图 → 正面像 → 五个角度）+ 9 张场馆背景板（满场观众）的提示词
+aigc-mv ep plates $E               # 背景板清单：每张用在哪些单元、费用估算（不调用接口）
 aigc-mv ep sheets $E               # 第三步：把锁定的 face/34/profile/half/full 拼成 <key>_sheet.png
 aigc-mv ep prompts $E              # 每个生成单元的即梦提示词
 aigc-mv ep suno $E                 # 多声部 Suno 栏（分段 Extend，主持念白）
@@ -120,6 +121,7 @@ aigc-mv ep render $E --res 480p    # 全长预演动画：占位画面 + 合成�
 | `edit.py` / `overlays.py` | EDL、按帧对齐渲染、逐镜头调色、胶片感、字幕 / 注释 / 名字卡 / 标题 |
 | `packs.py` | 写出每个单元的上传清单和请求；refs/REFS.md（综艺按人物和三步定妆分组） |
 | `sheets.py` | `ep sheets`：把锁定的五个角度拼成每人一张定妆组图 |
+| `plates.py` | 综艺场馆背景板：调度对应哪张图、每单元最多两张、满场观众和客串座位的写法、费用估算 |
 | `providers/` | 花钱闸门 + Dreamina / Suno 适配器（待接口，见 [docs/接口对接.md](docs/接口对接.md)） |
 
 旧的知识层命令（`list-characters`、`get-canon`、`build-prompt`、`list-lore`、`lyric-brief`、`align`、`storyboard`、`preview`）保留不变，MCP 服务见 [`mcp_server/README.md`](mcp_server/README.md)。
