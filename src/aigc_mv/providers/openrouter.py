@@ -4,7 +4,9 @@ Request (https://openrouter.ai/docs/guides/overview/multimodal/image-generation)
     {"model", "prompt", "n", "aspect_ratio", "quality", "input_references": [{"type": "image_url",
      "image_url": {"url": "data:image/jpeg;base64,..."}}]}
 Response: {"data": [{"b64_json", "media_type"}], "usage": {"cost": <USD>, ...}}. Billing is all-or-nothing:
-failed generations return an error and are not billed.
+generations that come back as an HTTP error are not billed (OpenRouterError, last_cost=0.0). Client-side failures
+after the server accepted the request (timeout, connection drop, undecodable image on a 200) may still be billed:
+those raise other exceptions, with last_cost set to usage.cost when the response was read, else None.
 
 The key is read from OPENROUTER_API_KEY only. It is never logged, stored, or put into an exception message.
 """

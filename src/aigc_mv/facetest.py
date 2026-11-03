@@ -112,12 +112,21 @@ def run_facetest(ep_dir: Path, gate: SpendGate, provider, specs: list[FaceSpec],
             try:
                 paths = provider.generate(req, dst)
             except Exception as e:  # recorded, then continue within the caps
-                job = getattr(e, "job", None) or getattr(provider, "last_job", None)
-                status = job.status if job else "failed"
-                gate.record(provider.name, model, "image", 0, 0.0, job or Job(id="local", status="failed"),
-                            real_usd=0.0, tag=TAG, note=f"{s.key}: {e}")
-                res.failed.append((s.key, status, str(e)))
-                log(f"  {s.key} #{idx}: {status}: {e}")
+                job = getattr(e, "job", None)
+                if job is not None:
+                    # the provider got an HTTP error response: nothing generated, nothing billed
+                    units, real = 0, 0.0
+                else:
+                    # transport/decode failure (timeout, URLError, bad b64 on a 200 ...): the call may have been
+                    # billed. Fail closed: count the reported cost if known, else the estimate (real_usd=None),
+                    # and count the image against max_images.
+                    job = Job(id=f"local-{s.key}-{idx}", status="failed")
+                    units, real = 1, getattr(provider, "last_cost", None)
+                gate.record(provider.name, model, "image", units, est_usd, job, real_usd=real, tag=TAG,
+                            note=f"{s.key}: {e}")
+                res.failed.append((s.key, job.status, str(e)))
+                log(f"  {s.key} #{idx}: {job.status}: {e}"
+                    + ("" if units == 0 else f" (counted as billed: ${real if real is not None else est_usd:.4f})"))
                 continue
             cost = provider.last_cost
             gate.record(provider.name, model, "image", len(paths), est_usd, provider.last_job, real_usd=cost,

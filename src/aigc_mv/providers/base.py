@@ -140,12 +140,15 @@ class SpendGate:
         return [r for r in recs if tag is None or r.get("tag") == tag]
 
     def tag_totals(self, tag: str) -> tuple[float, int]:
-        """(USD spent, images made) for one tagged run series, counted from the ledger."""
+        """(USD spent, images made or possibly billed) for one tagged run series, counted from the ledger.
+
+        Lines with real_usd=None count at est_usd. Units count whatever the status, so a failed line that may
+        have been billed (units=1) also counts against the image limit; unbilled HTTP errors are logged with 0.
+        """
         usd, n = 0.0, 0
         for r in self.entries(tag):
             usd += float(r.get("real_usd") if r.get("real_usd") is not None else r.get("est_usd") or 0)
-            if r.get("status") == "done":
-                n += int(r.get("units") or 0)
+            n += int(r.get("units") or 0)
         return usd, n
 
     def check_image(self, est_usd: float, cap_usd: float, max_images: int, spent_usd: float, images: int) -> float:

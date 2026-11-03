@@ -123,6 +123,58 @@ def test_cap_refuses_next_call_and_failures_are_recorded(tmp_path, monkeypatch, 
     assert sheet.name == "face_candidates_sheet.png" and Image.open(sheet).width > 0
 
 
+def _recs(tmp_path):
+    return [json.loads(ln) for ln in (tmp_path / "ledger.jsonl").read_text().splitlines()]
+
+
+def test_timeout_is_counted_at_estimate(tmp_path, monkeypatch, key):
+    def boom(*_a, **_k):
+        raise TimeoutError("timed out")
+
+    monkeypatch.setattr(openrouter, "_post", boom)
+    gate = SpendGate(tmp_path, Budget(cap_usd=100))
+    res = facetest.run_facetest(tmp_path, gate, openrouter.OpenRouterImage(), _specs(tmp_path), n=4, cap_usd=1.0,
+                                max_images=8, est_usd=0.3, log=lambda *_: None)
+    # unknown outcome -> fail closed: 0.3 each, so after 3 calls (0.9) the next one (1.2 > 1.0) is refused
+    assert len(res.failed) == 3 and "run cap" in res.stopped
+    assert res.spent_usd == pytest.approx(0.9) and res.images == 3
+    recs = _recs(tmp_path)
+    assert all(r["status"] == "failed" and r["real_usd"] is None and r["est_usd"] == 0.3 and r["units"] == 1
+               for r in recs)
+    assert gate.spent() == pytest.approx(0.9)
+
+
+def test_bad_image_on_200_keeps_billed_cost(tmp_path, monkeypatch, key):
+    bad = (200, {"data": [{"b64_json": "!!not-base64!!"}], "usage": {"cost": 0.07}})
+    monkeypatch.setattr(openrouter, "_post", FakeHTTP([bad]))
+    gate = SpendGate(tmp_path, Budget(cap_usd=100))
+    res = facetest.run_facetest(tmp_path, gate, openrouter.OpenRouterImage(), _specs(tmp_path)[:1], n=1,
+                                cap_usd=3, max_images=8, est_usd=0.3, log=lambda *_: None)
+    assert res.failed and not res.made
+    (r,) = _recs(tmp_path)
+    assert r["status"] == "failed" and r["real_usd"] == pytest.approx(0.07) and r["units"] == 1
+    assert res.spent_usd == pytest.approx(0.07) and res.images == 1
+
+
+def test_missing_cost_counts_estimate(tmp_path, monkeypatch, key):
+    no_cost = (200, {"data": [{"b64_json": _png_b64()}], "usage": {}})
+    monkeypatch.setattr(openrouter, "_post", FakeHTTP([no_cost]))
+    gate = SpendGate(tmp_path, Budget(cap_usd=100))
+    res = facetest.run_facetest(tmp_path, gate, openrouter.OpenRouterImage(), _specs(tmp_path)[:1], n=1,
+                                cap_usd=3, max_images=8, est_usd=0.3, log=lambda *_: None)
+    assert len(res.made) == 1 and res.made[0][2] is None
+    (r,) = _recs(tmp_path)
+    assert r["status"] == "done" and r["real_usd"] is None
+    assert res.spent_usd == pytest.approx(0.3) and res.images == 1
+
+
+def test_episode_cap_refuses(tmp_path):
+    gate = SpendGate(tmp_path, Budget(cap_usd=1.0))
+    (tmp_path / "ledger.jsonl").write_text(json.dumps({"est_usd": 0.5, "real_usd": 0.9, "status": "done"}) + "\n")
+    with pytest.raises(SpendRefused, match="episode cap"):
+        gate.check_image(0.2, 3, 8, 0, 0)
+
+
 def test_frozen_budget_refuses(tmp_path):
     gate = SpendGate(tmp_path, Budget(frozen=True))
     with pytest.raises(SpendRefused, match="frozen"):
