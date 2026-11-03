@@ -95,6 +95,25 @@ def test_line_only_in_fallback_stem_gets_that_source(ep, grid_t):
     assert all(not ln.flags for ln in lines), [(ln.text, ln.flags) for ln in lines if ln.flags]
 
 
+def test_well_heard_line_stays_on_the_lead_stem(ep, grid_t):
+    """The lead stem missed one character of a line (conf >= CONF_OK); the mix hears all of it 0.25 s early. One
+    extra character is not worth the mix's blurrier timing: the line keeps the lead-stem source and start. A line
+    the lead stem heard only partly (but still >= CONF_OK) moves when the mix hears FALLBACK_GAIN more."""
+    k = _idx(grid_t, "你说你力气大 力气能当饭吃吗")
+    n = len(han(grid_t.lines[k].text))
+    lead = [h for h in _heard(grid_t) if not (h[1] == round(grid_t.lines[k].chars[-1], 3))]
+    lines = align_asr(ep, grid_t.grid, {"vocals": lead, "song": _heard(grid_t, jitter=-0.25)})
+    ln = lines[k]
+    assert ln.source == "vocals" and abs(ln.conf - (n - 1) / n) < 1e-3
+    assert abs(ln.t0 - grid_t.lines[k].t0) < 0.05
+    # drop 4 of the line's characters on the lead stem (still >= CONF_OK): now the mix wins
+    drop = {round(x, 3) for x in grid_t.lines[k].chars[-4:]}
+    assert (n - 4) / n >= tm.CONF_OK and 4 / n >= tm.FALLBACK_GAIN
+    lead = [h for h in _heard(grid_t) if h[1] not in drop]
+    lines = align_asr(ep, grid_t.grid, {"vocals": lead, "song": _heard(grid_t, jitter=-0.25)})
+    assert lines[k].source == "song" and lines[k].conf == 1
+
+
 def test_fallback_only_searches_between_the_neighbours(ep, grid_t):
     """The repeated hook line 啦啦啦 谁是第一 is missing from the lead stem; the mix holds only the LAST one. The first
     occurrence must not borrow the last one's audio (it is outside its neighbours' window)."""

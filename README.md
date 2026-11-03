@@ -29,7 +29,8 @@ E=projects/xiangyu_vs_liubang       # 示例一期：项羽 vs 刘邦
 aigc-mv ep suno $E                  # suno.md：两段生成 + Extend 的风格和歌词栏
 # 把 Suno 的歌、人声 stem、伴奏 stem 放进 $E/audio/（song.wav / vocals.wav / instrumental.wav）
 aigc-mv ep analyze $E               # 节拍、每句和每半句的时间 → analysis/timing.json
-#   有真歌时：aigc-mv ep analyze $E --mode asr  （pip install -e '.[asr]'；逐字识别主唱轨，听不清的句子到整曲 / 伴奏轨里找，
+#   有真歌时：aigc-mv ep analyze $E --mode asr  （pip install -e '.[asr]'；逐字识别主唱轨，没听全的句子到整曲 / 伴奏轨里找，
+#   主唱轨听清六成以上的句子要别的音轨多听清 15% 以上才换，
 #   识别结果缓存在 analysis/asr_<音轨>.json，另写 analysis/timing_report.md：每句的置信度、来源音轨、标记、建议先听的句子）
 #   aigc-mv ep timing-report $E --notes 核对笔记.md   （重写对时报告，把人工核对的笔记接在后面）
 #   还没有歌时：aigc-mv ep analyze $E --bpm 92   （用合成节拍网格先做分镜）

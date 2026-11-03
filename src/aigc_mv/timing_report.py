@@ -103,8 +103,10 @@ def timing_report(ep: Episode, timing: Timing, envs: dict[str, tuple[np.ndarray,
     envs = envs or {}
     name = {k: c.name_cn for k, c in ep.cast.items()}
     out = [f"# {ep.show_name or ep.title} {ep.episode_no} · 真实歌曲对时报告".replace("  ", " "), ""]
-    out.append(f"对时方式 `{timing.mode}`：faster-whisper 逐字时间（主唱轨优先，听不清的句子再到整曲 / 伴奏轨里找，"
-               "只在前后两句之间找，不会跨段乱配），按拼音匹配歌词（同音字算对），句首再对齐到主唱轨的起音。")
+    out.append(f"对时方式 `{timing.mode}`：faster-whisper 逐字时间（主唱轨优先；主唱轨没听全的句子再到整曲 / 伴奏轨里找，"
+               "只在前后两句之间找，不会跨段乱配。主唱轨听清不到六成的句子，别的音轨听清的字更多就换；"
+               "主唱轨已听清六成以上的句子，别的音轨要多听清至少 15% 的字才换，因为整曲里有鼓，起音不如主唱轨准），"
+               "按拼音匹配歌词（同音字算对），句首再对齐到主唱轨的起音。")
     out += ["", "## 音频", ""]
     for k, v in (files or {}).items():
         out.append(f"- {SOURCE_CN.get(k, k)}：`{v}`")

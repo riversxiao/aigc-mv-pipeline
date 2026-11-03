@@ -695,7 +695,7 @@ def test_unit_uploads_one_sheet_per_person_then_plates(demo):
             assert "venue_dark.png" in env and not {"crowd.png", "crowd_reverse.png"} & set(env), u.id
         if stg <= DARK_STAGINGS:
             assert env == ["venue_dark.png"], u.id
-        if "judge_react" in stg and "cameo_react" not in stg:
+        if "judge_react" in stg:  # the judge's own plate beats venue.png even when venue has more screen time
             assert "judges.png" in env, u.id
         if stg <= {"dj_booth", "dj_cu"}:
             assert env == ["dj_booth.png"], u.id
@@ -718,7 +718,8 @@ def test_cameo_units_upload_sheet_and_seats(demo):
             k = s.who[0]
             assert f"{k}_sheet.png" in files and "cameo_seats.png" in files, u.id
             n = files.index("cameo_seats.png") + 1
-            seat = plates.cameo_seat_cn(e.cast[k].position_cn)
+            seat = plates.cameo_seats(e)[k]
+            assert seat == plates.cameo_seat_cn(e.cast[k].position_cn)  # distinct positions keep their wording
             assert f"{e.cast[k].name_cn}坐在{seat}（@图片{n} 里留空的那个座位）" in up.text, u.id
             assert e.cast[k].position_cn in seat
     assert seen >= 2
@@ -799,3 +800,72 @@ def test_show_sheet_names_the_plate(demo):
     assert "| 调度 | 场景图 |" in md
     s = next(x for x in b.shots if x.staging == "blackout_spot")
     assert next(r for r in md.splitlines() if r.startswith(f"| {s.id} |")).count("| venue_dark |") == 1
+
+
+def test_role_plate_beats_venue_under_the_cap(demo):
+    """A unit with a long stage shot, a judge reaction and a cameo reaction: cameo_seats.png is a must, and the
+    judge on screen keeps judges.png ahead of venue.png (which has more screen time)."""
+    from types import SimpleNamespace as NS
+
+    from aigc_mv import plates
+
+    e, _, _ = demo
+    judge = e.members("judge")[0]
+    cameo = e.members("cameo")[0]
+    shots = [NS(staging="point_lens", t0=0.0, t1=5.0, who=["a"]),
+             NS(staging="judge_react", t0=5.0, t1=6.0, who=[judge]),
+             NS(staging="cameo_react", t0=6.0, t1=7.0, who=[cameo])]
+    kept, dropped = plates.pick_unit_plates(e, shots)
+    assert [p.file for p in kept] == ["cameo_seats.png", "judges.png"]
+    assert [p.file for p in dropped] == ["venue.png"]
+    # without the judge on screen (an empty-throne insert) screen time decides again
+    shots[1] = NS(staging="judge_react", t0=5.0, t1=6.0, who=[])
+    assert [p.file for p in plates.pick_unit_plates(e, shots)[0]] == ["cameo_seats.png", "venue.png"]
+
+
+def test_cost_upper_bound_follows_the_ledger_price(demo, tmp_path):
+    from aigc_mv import plates
+    from aigc_mv.packs import write_refs_doc
+
+    c = plates.cost_estimate(["a.png", "b.png"], candidates=4, per_image=0.13)
+    assert c["upper"] == pytest.approx(0.26) and c["total"] == 1.04 and c["total_upper"] == 2.08
+    assert plates.cost_estimate(["a.png"], per_image=0.13, upper=0.12)["upper"] == 0.13  # never below the estimate
+    d = tmp_path / "ep"
+    d.mkdir()
+    (d / "ledger.jsonl").write_text('{"provider": "openrouter", "kind": "image", "real_usd": 0.0712}\n'
+                                    '{"provider": "openrouter", "kind": "image", "real_usd": 0.1251}\n',
+                                    encoding="utf-8")
+    e, _, b = demo
+    doc = write_refs_doc(d, e, b).read_text(encoding="utf-8")
+    assert "实际每张 $0.071 到 $0.125" in doc and "$0.055" not in doc
+    assert "按每张 $0.13 算" in doc and "保守上限按每张 $0.26" in doc
+    assert "| 合计 | 36 | $4.68 | $9.36 |" in doc
+
+
+def test_cameos_sharing_a_position_get_distinct_seats(demo):
+    from aigc_mv import plates
+    from aigc_mv.prompts import characters, video_prompt
+
+    e0, t, b = demo
+    e = e0.model_copy(deep=True)
+    k1, k2 = e.members("cameo")[:2]
+    e.cast[k2].position_cn = e.cast[k1].position_cn
+    seats = plates.cameo_seats(e)
+    assert seats[k1] == plates.cameo_seat_cn(e.cast[k1].position_cn) and seats[k1] != seats[k2]
+    assert plates._row_of(seats[k1]) == plates._row_of(seats[k2])
+    cn = plates.plate_prompts(e, plates.BY_FILE["cameo_seats.png"])["cn"]
+    assert f"{seats[k1]}留一个空座位" in cn and f"{seats[k2]}留一个空座位" in cn
+    en = plates.plate_prompts(e, plates.BY_FILE["cameo_seats.png"])["en"]
+    assert plates._seat_en(seats[k1]) != plates._seat_en(seats[k2]) and plates._seat_en(seats[k2]) in en
+    chars = characters(e)
+    for u in b.units:
+        shots = b.unit_shots(u)
+        for s in shots:
+            if s.staging == "cameo_react" and s.who[0] in (k1, k2):
+                text = video_prompt(e, b, t, u, chars).text
+                assert f"{e.cast[s.who[0]].name_cn}坐在{seats[s.who[0]]}" in text, u.id
+    # more cameos than seats in one row: refuse instead of stacking them
+    for i in range(len(plates.SEATS_CN) + 1):
+        e.cast[f"extra{i}"] = e.cast[k1].model_copy()
+    with pytest.raises(ValueError, match="no free seat"):
+        plates.cameo_seats(e)

@@ -458,7 +458,10 @@ def interpolate(t: list[float | None], step: float = 0.18) -> list[float]:
 
 # ---- ASR alignment on a real take: monotonic DP per stem, per-line fallback, confidence + flags
 
-CONF_OK = 0.6  # a line below this share of heard characters is retried on the fallback stems and flagged
+CONF_OK = 0.6  # a line below this share of heard characters is flagged low_conf
+# a line the lead stem heard at CONF_OK or better only moves to a fallback stem if that stem hears at least this
+# much more of it (one extra character is not worth the mix's blurrier onsets); weaker lines move on any gain
+FALLBACK_GAIN = 0.15
 CHAR_STEP = 0.18  # seconds per unheard character when there is room
 LONG_GAP = 1.2  # a pause inside one line longer than this is flagged
 ONSET_DB = 12.0  # a vocal frame this far under the coming peak counts as quiet (onset snapping)
@@ -631,9 +634,10 @@ def align_asr(ep: Episode, grid: BeatGrid, heard: Heard | dict[str, Heard],
     """Lines timed from ASR characters.
 
     `heard` is one character list, or {stem: characters} in priority order (lead vocal first, then the full mix,
-    then the other stem). The whole sheet is DP-matched on the first stem; every line under CONF_OK is then
-    re-matched on the next stems (kept if strictly more characters are heard there), but only against what was
-    heard between its neighbours (no cross-matching).
+    then the other stem). The whole sheet is DP-matched on the first stem; every line not fully heard there is
+    then re-matched on the next stems, but only against what was heard between its neighbours (no
+    cross-matching). A line under CONF_OK moves to a stem that hears strictly more of it; a line the lead stem
+    heard at CONF_OK or better moves only if the other stem hears at least FALLBACK_GAIN more.
     Unheard characters are placed between their neighbours inside the line's own section."""
     stems = heard if isinstance(heard, dict) else {"vocals": heard}
     names = list(stems)
@@ -680,7 +684,9 @@ def align_asr(ep: Episode, grid: BeatGrid, heard: Heard | dict[str, Heard],
             sub = dp_match([fuzzy_key(c) for c in t], [keys[stem][j] for j in idx])
             sub = _trusted(sub, [stems[stem][j][1] for j in idx], len(t))
             match = [idx[j] if j is not None else None for j in sub]
-            if sum(j is not None for j in match) / max(1, len(t)) > conf(gi) + 1e-9:
+            share, c0 = sum(j is not None for j in match) / max(1, len(t)), conf(gi)
+            strong = src[gi] == lead and c0 >= CONF_OK
+            if (share >= c0 + FALLBACK_GAIN - 1e-9) if strong else (share > c0 + 1e-9):
                 take(gi, stem, match)
     if not any(v is not None for g in got for v in g):
         raise ValueError("no lyric characters were recognised in the vocal")

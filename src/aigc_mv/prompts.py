@@ -201,7 +201,7 @@ def _cameo_seat_cn(ep: Episode, w: str, plate_idx: dict[str, int]) -> str:
     c = ep.cast[w]
     n = plate_idx.get("cameo_seats.png")
     ref = f"（@图片{n} 里留空的那个座位）" if n else ""
-    return (f"{c.name_cn}坐在{plates.cameo_seat_cn(c.position_cn)}{ref}，"
+    return (f"{c.name_cn}坐在{plates.cameo_seats(ep)[w]}{ref}，"
             "左右和身后坐满了不认识的普通观众，长相各不相同，都不是剧中角色；")
 
 

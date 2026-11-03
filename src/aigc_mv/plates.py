@@ -2,9 +2,10 @@
 position of the arena, so every generated unit sees the same packed house, stage, LED wall and palette.
 
 Each staging of cinema.SHOW_STAGINGS maps to exactly one plate (`plate_for`). A unit uploads the people
-sheets first, then at most MAX_UNIT_PLATES plates; `pick_unit_plates` chooses them by screen time, with
-`must` plates (cameo seats, the blackout) always kept. Cameos are never baked into a plate: cameo_seats.png
-leaves their seats empty and the unit prompt seats them by `position_cn`.
+sheets first, then at most MAX_UNIT_PLATES plates; `pick_unit_plates` keeps `must` plates (cameo seats, the
+blackout) first, then role plates (judges, DJ booth, hook mics) whose person is on screen, then by screen time.
+Cameos are never baked into a plate: cameo_seats.png leaves one empty seat per cameo (`cameo_seats`, unique
+even when two cameos share a position_cn) and the unit prompt seats each cameo there.
 
 Nothing here talks to the network: `cost_estimate` only multiplies counts by a per-image price, and
 `ledger_image_usd` only reads ledger.jsonl.
@@ -25,7 +26,8 @@ CANDIDATES = 4        # candidates per plate, lock one
 # OpenRouter openai/gpt-image-2.5-sunburst, quality high: the ledger shows $0.055-0.060 per 3:4 image with one
 # reference. 16:9 is 1536x1024, the same pixel count as 3:4 1024x1536, so the price should be the same.
 PLATE_USD = 0.06
-PLATE_USD_UPPER = 0.12  # 2x: longer prompt, a second reference, price changes
+UPPER_FACTOR = 2  # conservative upper bound = 2x the per-image price: longer prompt, a second reference, price changes
+PLATE_USD_UPPER = PLATE_USD * UPPER_FACTOR
 
 LED_BLANK_CN = "LED 大屏上只有抽象的红色光纹，没有任何文字、标志和人像，地面图案上也没有字"
 LED_BLANK_EN = "the LED wall shows only abstract red light patterns, no text, no logo, no faces"
@@ -144,14 +146,20 @@ def plate_for(ep: Episode, staging: str) -> Plate:
 
 
 def pick_unit_plates(ep: Episode, shots) -> tuple[list[Plate], list[Plate]]:
-    """(kept, dropped): one plate per staging, `must` plates first, then by screen time, at most MAX_UNIT_PLATES."""
+    """(kept, dropped): one plate per staging, at most MAX_UNIT_PLATES. `must` plates first, then role plates
+    whose person is on screen in the unit (a judge's reaction gets judges.png even when venue.png has more
+    screen time), then by screen time."""
     secs: dict[str, float] = {}
     first: dict[str, int] = {}
+    role: set[str] = set()
     for i, s in enumerate(shots):
-        f = plate_for(ep, s.staging).file
+        p = plate_for(ep, s.staging)
+        f = p.file
         secs[f] = secs.get(f, 0.0) + (s.t1 - s.t0)
         first.setdefault(f, i)
-    order = sorted(secs, key=lambda f: (not BY_FILE[f].must, -round(secs[f], 3), first[f]))
+        if p.needs and any(w in ep.cast and ep.cast[w].role in p.needs for w in s.who):
+            role.add(f)
+    order = sorted(secs, key=lambda f: (not BY_FILE[f].must, f not in role, -round(secs[f], 3), first[f]))
     plates = [BY_FILE[f] for f in order] or [BY_FILE[DEFAULT_PLATE]]
     return plates[:MAX_UNIT_PLATES], plates[MAX_UNIT_PLATES:]
 
@@ -187,16 +195,51 @@ def crowd_line(ep: Episode, shots, start: int = 1) -> str:
 _ROW = {"一": "front", "二": "second", "三": "third", "四": "fourth"}
 
 
+# seats handed out in a row when two cameos ask for the same one (the first keeps its own wording)
+SEATS_CN = ("靠中间偏左", "正中", "靠中间偏右", "靠左边", "靠右边")
+_SEAT_EN = {"靠中间偏左": "just left of centre", "正中": "centre", "中间": "centre", "靠中间偏右": "just right of centre",
+            "靠左边": "towards the left end", "靠右边": "towards the right end"}
+
+
 def cameo_seat_cn(pos: str) -> str:
-    """The seat a cameo sits in, as the plate leaves it empty (same words in the plate and the unit prompt)."""
+    """The seat a cameo asks for (position_cn), as worded in the plate and the unit prompt. Use cameo_seats()
+    for the seats actually given out (unique per cameo)."""
     pos = pos or "观众席第二排"
     return pos if ("正中" in pos or "中间" in pos) else pos + "靠中间偏左"
 
 
-def _seat_en(pos: str) -> str:
-    m = re.search(r"第(.)排", pos or "")
+def _row_of(seat: str) -> str:
+    m = re.match(r"(.*?第.排)", seat)
+    if m:
+        return m.group(1)
+    for s in sorted(SEATS_CN, key=len, reverse=True):
+        if seat.endswith(s):
+            return seat[:-len(s)]
+    return seat
+
+
+def cameo_seats(ep: Episode) -> dict[str, str]:
+    """{cameo key: seat}, one distinct empty seat per cameo. A cameo whose position_cn matches an earlier
+    cameo's seat gets the next free seat of the same row (SEATS_CN), so two cameos never share one seat."""
+    out: dict[str, str] = {}
+    used: set[str] = set()
+    for k in ep.members("cameo"):
+        seat = cameo_seat_cn(ep.cast[k].position_cn)
+        if seat in used:
+            row = _row_of(seat)
+            seat = next((row + s for s in SEATS_CN if row + s not in used), "")
+            if not seat:
+                raise ValueError(f"no free seat left in {row} for cameo {k}; give it another position_cn")
+        used.add(seat)
+        out[k] = seat
+    return out
+
+
+def _seat_en(seat: str) -> str:
+    m = re.search(r"第(.)排", seat or "")
     row = _ROW.get(m.group(1), "second") if m else "second"
-    where = "centre" if pos and ("正中" in pos or "中间" in pos) else "just left of centre"
+    where = next((en for cn, en in sorted(_SEAT_EN.items(), key=lambda x: -len(x[0])) if cn in (seat or "")),
+                 "just left of centre")
     return f"one empty seat in the {row} row {where}"
 
 
@@ -229,10 +272,10 @@ def plate_prompts(ep: Episode, p: Plate) -> dict:
     light_cn, light_en = (DARK_LIGHT_CN, DARK_LIGHT_EN) if p.crowd == "dark" else (LIGHT_CN, LIGHT_EN)
     seats_cn = seats_en = ""
     if p.file == "cameo_seats.png":
-        pos = [ep.cast[k].position_cn for k in ep.members("cameo")] or [""]
-        seats_cn = ("、".join(f"{cameo_seat_cn(x)}留一个空座位" for x in dict.fromkeys(pos))
+        seats = list(cameo_seats(ep).values()) or [cameo_seat_cn("")]
+        seats_cn = ("、".join(f"{x}留一个空座位" for x in seats)
                     + "（后面客串角色会坐进去），除此之外所有座位都坐满了人")
-        seats_en = ("exactly " + " and ".join(_seat_en(x) for x in dict.fromkeys(pos))
+        seats_en = ("exactly " + " and ".join(_seat_en(x) for x in seats)
                     + " left free for a later guest, every other seat taken")
     guide_cn = (f"图1是已经锁定的场景图 {p.guide}：保持同一个场馆、同样的布景、灯光、配色和看台样式，只换成下面的机位"
                 if p.guide else "")
@@ -272,13 +315,16 @@ def ledger_image_usd(ledger: Path) -> list[float]:
 
 
 def cost_estimate(files: list[str], candidates: int = CANDIDATES, per_image: float = PLATE_USD,
-                  upper: float = PLATE_USD_UPPER) -> dict:
-    """Per-plate and total USD for `candidates` images per plate; pure arithmetic, no API call."""
+                  upper: float | None = None, seen: list[float] | None = None) -> dict:
+    """Per-plate and total USD for `candidates` images per plate; pure arithmetic, no API call. The upper bound
+    defaults to UPPER_FACTOR x per_image (never below the estimate); `seen` = real ledger prices, for the text."""
+    upper = round(per_image * UPPER_FACTOR, 4) if upper is None else max(upper, per_image)
+    seen = sorted(seen or [])
     rows = [{"file": f, "candidates": candidates, "usd": round(candidates * per_image, 2),
              "usd_upper": round(candidates * upper, 2)} for f in files]
     return {"rows": rows, "images": candidates * len(files), "per_image": per_image, "upper": upper,
             "total": round(candidates * per_image * len(files), 2),
-            "total_upper": round(candidates * upper * len(files), 2)}
+            "total_upper": round(candidates * upper * len(files), 2), "seen": seen}
 
 
 def per_image_from_ledger(ledger: Path) -> float:

@@ -155,13 +155,21 @@ def _ids(xs: list[str], limit: int = 0) -> str:
 
 def plate_cost(env: list[dict], ledger: Path | None = None) -> dict:
     per = plates.per_image_from_ledger(ledger) if ledger else plates.PLATE_USD
-    return plates.cost_estimate([x["file"] for x in env], per_image=per)
+    seen = plates.ledger_image_usd(ledger) if ledger else []
+    return plates.cost_estimate([x["file"] for x in env], per_image=per, seen=seen)
 
 
 def plates_doc(ep: Episode, env: list[dict], cost: dict | None = None) -> list[str]:
     """REFS.md section 「场景图 / 背景板」: why, what (and what not), density, cameo seats, uploads, cost, prompts."""
     cost = cost or plate_cost(env)
     by = {r["file"]: r for r in cost["rows"]}
+    seen = cost.get("seen") or []
+    if not seen:
+        seen_cn = "账本里还没有真实的出图价格，按默认价估算；"
+    elif len(seen) == 1 or f"{seen[0]:.3f}" == f"{seen[-1]:.3f}":
+        seen_cn = f"账本里已经做过的 3:4 高质量图（带一张参考图）实际每张 ${seen[-1]:.3f}；"
+    else:
+        seen_cn = f"账本里已经做过的 3:4 高质量图（带一张参考图）实际每张 ${seen[0]:.3f} 到 ${seen[-1]:.3f}；"
     first = env[0]["file"]
     cameos = ep.members("cameo")
     rows = [
@@ -193,7 +201,7 @@ def plates_doc(ep: Episode, env: list[dict], cost: dict | None = None) -> list[s
         "灭灯那几个镜头例外：观众席是黑的，只有剪影和零星的荧光棒，提示词也写明不要把观众照亮。", "",
     ]
     if cameos:
-        seats = "；".join(f"{ep.cast[k].name_cn}坐在{plates.cameo_seat_cn(ep.cast[k].position_cn)}" for k in cameos)
+        seats = "；".join(f"{ep.cast[k].name_cn}坐在{s}" for k, s in plates.cameo_seats(ep).items())
         rows += [
             "### 客串角色坐哪儿", "",
             f"客串角色不画进任何场景图。`cameo_seats.png` 把他们的座位留空：{seats}。客串的反应镜头上传这个人的定妆组图和 "
@@ -204,12 +212,14 @@ def plates_doc(ep: Episode, env: list[dict], cost: dict | None = None) -> list[s
         "### 视频单元怎么上传", "",
         f"每个单元最多上传 {MAX_UPLOADS} 张图（即梦 Seedance 2.0 全能参考的图片上限）：先放人物，每人只传一张定妆组图"
         f"（最多 {MAX_FACE_REFS} 人），再放场景图，最多 {plates.MAX_UNIT_PLATES} 张。一个单元里调度多于两种场景时，"
-        "灭灯和客串座位这两张一定保留，其余按镜头时长选；超过上限时先去掉背景里虚化的队友，再去掉多出来的场景图。"
+        "灭灯和客串座位这两张一定保留，其次保留画面里有那个人的专属场景图（评委反应配评委席、主持和 DJ 配 DJ 台、"
+        "副歌歌手配立麦），其余按镜头时长选；超过上限时先去掉背景里虚化的队友，再去掉多出来的场景图。"
         "提示词的每个镜头都写了「背景照 @图片N」。", "",
         "### 费用估算（没有生成任何图）", "",
-        f"按 OpenRouter `openai/gpt-image-2.5-sunburst`、quality high、16:9 估算。账本里已经做过的 3:4 高质量图（带一张参考图）"
-        f"实际每张 $0.055 到 $0.060；16:9 是 1536x1024，和 3:4 的 1024x1536 像素一样多，所以按每张 ${cost['per_image']:.2f} 算，"
-        f"保守上限按每张 ${cost['upper']:.2f}（两倍，留给更长的提示词、多一张参考图或者调价）。每张场景图做 {plates.CANDIDATES} 张候选。", "",
+        f"按 OpenRouter `openai/gpt-image-2.5-sunburst`、quality high、16:9 估算。{seen_cn}"
+        f"16:9 是 1536x1024，和 3:4 的 1024x1536 像素一样多，所以按每张 ${cost['per_image']:.2f} 算，"
+        f"保守上限按每张 ${cost['upper']:.2f}（{plates.UPPER_FACTOR} 倍，留给更长的提示词、多一张参考图或者调价）。"
+        f"每张场景图做 {cost['rows'][0]['candidates'] if cost['rows'] else plates.CANDIDATES} 张候选。", "",
         "| 场景图 | 候选张数 | 估算 USD | 保守上限 USD |",
         "| --- | --- | --- | --- |",
     ]
