@@ -190,15 +190,15 @@ def candidates(ep_dir: Path, stem: str) -> list[Path]:
 class _Budget:
     """Ledger totals plus in-flight reservations, behind one lock."""
 
-    def __init__(self, gate: SpendGate, cap_usd: float, max_images: int, est_usd: float):
-        self.gate, self.cap, self.max, self.est = gate, cap_usd, max_images, est_usd
+    def __init__(self, gate: SpendGate, cap_usd: float, max_images: int, est_usd: float, tag: str = TAG):
+        self.gate, self.cap, self.max, self.est, self.tag = gate, cap_usd, max_images, est_usd, tag
         self.lock = threading.Lock()
         self.inflight = 0
         self.next_idx: dict[str, int] = {}
 
     def reserve(self, ep_dir: Path, stem: str) -> int:
         with self.lock:
-            spent, images = self.gate.tag_totals(TAG)
+            spent, images = self.gate.tag_totals(self.tag)
             self.gate.check_image(self.est, self.cap, self.max, spent + self.inflight * self.est,
                                   images + self.inflight)
             self.inflight += 1
@@ -216,12 +216,14 @@ class _Budget:
 
 
 def run_batch(ep_dir: Path, gate: SpendGate, make_provider, items: list[Item], n: int, cap_usd: float,
-              max_images: int, est_usd: float = EST_USD, workers: int = 1, log=print) -> BatchResult:
+              max_images: int, est_usd: float = EST_USD, workers: int = 1, log=print, tag: str = TAG) -> BatchResult:
     """n candidates per item (Item.n overrides), item by item in list order (so a cap stop drops the tail of the list).
+
+    cap_usd / max_images count ledger lines tagged `tag` (one tag per run series, e.g. one per provider key).
 
     make_provider() returns a fresh provider per worker (providers keep last_job / last_cost per instance)."""
     res = BatchResult()
-    bud = _Budget(gate, cap_usd, max_images, est_usd)
+    bud = _Budget(gate, cap_usd, max_images, est_usd, tag)
     stop = threading.Event()
     local = threading.local()
     jobs = [it for it in items for _ in range(it.n if it.n is not None else n)]
@@ -252,14 +254,14 @@ def run_batch(ep_dir: Path, gate: SpendGate, make_provider, items: list[Item], n
             else:  # transport / decode failure: may be billed, fail closed
                 job = Job(id=f"local-{it.stem}-{idx}", status="failed")
                 units, real = 1, getattr(prov, "last_cost", None)
-            bud.release(lambda: gate.record(prov.name, model, "image", units, est_usd, job, real_usd=real, tag=TAG,
+            bud.release(lambda: gate.record(prov.name, model, "image", units, est_usd, job, real_usd=real, tag=tag,
                                             note=f"{it.file} #{idx}: {msg}"))
             res.failed.append((it.file, job.status, msg))
             log(f"  {it.label} #{idx}: {job.status}: {msg}")
             return
         cost = prov.last_cost
         bud.release(lambda: gate.record(prov.name, model, "image", len(paths), est_usd, prov.last_job, real_usd=cost,
-                                        tag=TAG, note=f"{it.label} " + ",".join(p.name for p in paths)))
+                                        tag=tag, note=f"{it.label} " + ",".join(p.name for p in paths)))
         res.made.extend((it.file, p, cost) for p in paths)
         log(f"  {it.label} -> {', '.join(p.name for p in paths)}  "
             + (f"${cost:.4f}" if cost is not None else "cost not reported (counted at estimate)"))
@@ -270,7 +272,7 @@ def run_batch(ep_dir: Path, gate: SpendGate, make_provider, items: list[Item], n
     else:
         with ThreadPoolExecutor(max_workers=workers) as ex:
             list(ex.map(one, jobs))
-    res.spent_usd, res.images = gate.tag_totals(TAG)
+    res.spent_usd, res.images = gate.tag_totals(tag)
     return res
 
 

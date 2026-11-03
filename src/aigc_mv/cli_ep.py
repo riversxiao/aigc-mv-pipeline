@@ -263,17 +263,38 @@ def batch_cmd(
     step1: str = typer.Option("", "--step1", help="Comma-separated cast keys for step-1 front portraits"),
     n: int = typer.Option(4, "--n", help="Candidates per plate / step-1 portrait in this run"),
     n_step2: int = typer.Option(2, "--n-step2", help="Candidates per step-2 view in this run"),
-    cap_usd: float = typer.Option(..., "--cap-usd", help="Hard cap on OpenRouter-reported spend (all batch runs)"),
-    max_images: int = typer.Option(..., "--max-images", help="Hard cap on images made (all batch runs)"),
+    cap_usd: float = typer.Option(..., "--cap-usd", help="Hard cap on provider-reported spend (all runs of --tag)"),
+    max_images: int = typer.Option(..., "--max-images", help="Hard cap on images made (all runs of --tag)"),
     workers: int = typer.Option(3, "--workers"),
     dry_run: bool = typer.Option(False, "--dry-run", help="Print the items and prompts, call nothing"),
+    provider: str = typer.Option("openrouter", "--provider", help="openrouter (OPENROUTER_API_KEY) | apimart "
+                                 "(APIMART_API_KEY)"),
+    tag: str = typer.Option(None, "--tag", help="Ledger tag the caps count (default refs-batch / refs-batch-apimart)"),
+    est_usd: float = typer.Option(None, "--est-usd", help="Per-image reservation (default per provider)"),
     model: str = typer.Option(None, "--model"),
     quality: str = typer.Option("high", "--quality"),
+    resolution: str = typer.Option("1k", "--resolution", help="apimart only: 1k | 2k | 4k"),
 ) -> None:
-    """Paid reference batch (plates, step-2 views, step-1 portraits) into refs/candidates/ (needs OPENROUTER_API_KEY)."""
+    """Paid reference batch (plates, step-2 views, step-1 portraits) into refs/candidates/ (key from the env)."""
     from aigc_mv import refbatch as rb
     from aigc_mv.providers.base import SpendGate
-    from aigc_mv.providers.openrouter import DEFAULT_MODEL, OpenRouterImage
+
+    if provider == "openrouter":
+        from aigc_mv.providers.openrouter import DEFAULT_MODEL, OpenRouterImage
+
+        def make():
+            return OpenRouterImage(model=model or DEFAULT_MODEL, quality=quality)
+        tag = tag or rb.TAG
+        est = est_usd if est_usd is not None else rb.EST_USD
+    elif provider == "apimart":
+        from aigc_mv.providers import apimart
+
+        def make():
+            return apimart.ApiMartImage(model=model or apimart.DEFAULT_MODEL, quality=quality, resolution=resolution)
+        tag = tag or rb.TAG + "-apimart"
+        est = est_usd if est_usd is not None else apimart.EST_USD
+    else:
+        _fail(f"unknown provider {provider!r} (openrouter | apimart)")
 
     def split(s: str) -> list[str]:
         return [x.strip() for x in s.split(",") if x.strip()]
@@ -291,13 +312,13 @@ def batch_cmd(
             typer.echo(f"{it.file} [{it.aspect}] refs={[p.name for p in it.refs]}\n  {it.prompt}\n")
         return
     try:
-        OpenRouterImage(model=model or DEFAULT_MODEL, quality=quality)
+        make()
     except RuntimeError as e:
         _fail(str(e))
     gate = SpendGate(ep_dir, ep.budget)
-    res = rb.run_batch(ep_dir, gate, lambda: OpenRouterImage(model=model or DEFAULT_MODEL, quality=quality), items,
-                       n=n, cap_usd=cap_usd, max_images=max_images, workers=workers, log=typer.echo)
-    typer.echo(f"batch total ({rb.TAG}): {res.images} images, ${res.spent_usd:.4f} (cap ${cap_usd:.2f} / "
+    res = rb.run_batch(ep_dir, gate, make, items, n=n, cap_usd=cap_usd, max_images=max_images, est_usd=est,
+                       workers=workers, log=typer.echo, tag=tag)
+    typer.echo(f"batch total ({tag}): {res.images} images, ${res.spent_usd:.4f} (cap ${cap_usd:.2f} / "
                f"{max_images} images); this run {len(res.made)} made, {len(res.failed)} failed or declined"
                + (f"; stopped: {res.stopped}" if res.stopped else ""))
 
