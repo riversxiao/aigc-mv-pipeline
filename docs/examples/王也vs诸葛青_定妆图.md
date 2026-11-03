@@ -1680,20 +1680,8 @@ wide shot, 24mm wide lens very close to the face, natural wide-angle perspective
 全景，24mm 广角镜头离人物很近，人物几乎贴着镜头，背景有自然的广角透视，场馆高位全景，黑色擂台上的太极八卦图案一圈圈亮起来，红色灯带依次点亮，远处是夜里的龙虎山，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，综艺节目现场照片，无文字、无水印、无标志。
 ```
 
-### `plate_u02.png`
-用途：u02 首帧（s01_cold_open · crowd）
-
-Midjourney EN：
-```
-wide shot, 24mm wide lens very close to the face, natural wide-angle perspective, 看台上层层叠叠坐满了观众，挥着红色荧光棒，挥手欢呼; a TV rap variety show arena rebuilt from the Luotian tournament ring at night: a black square stage, a giant taiji-bagua floor graphic with no lettering, a full red LED wall and red light strips, tiered seats packed with people, the dark silhouette of Longhu Mountain at night through an opening at the back, indoor rap variety show arena rebuilt from a Taoist tournament ring at night, black square stage, a giant taiji-bagua pattern on the floor with no lettering, a full red LED wall and red light strips behind, tiered audience, hard top stage light with red side light, thin haze, long lens melting crowd and lights into bokeh, broadcast realism with fine grain, no text, no letters, no logos --ar 16:9 --style raw --stylize 60 --no cgi, 3d render, plastic skin, airbrushed, wax figure, doll, figurine, porcelain, anime, illustration, oversaturated, text, letters, logo, watermark
-```
-即梦 CN：
-```
-全景，24mm 广角镜头离人物很近，人物几乎贴着镜头，背景有自然的广角透视，看台上层层叠叠坐满了观众，挥着红色荧光棒，挥手欢呼，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，综艺节目现场照片，无文字、无水印、无标志。
-```
-
-### `plate_u06.png`
-用途：u06 首帧（s03_entrance · entrance）
+### `plate_u04.png`
+用途：u04 首帧（s03_entrance · entrance）
 
 Midjourney EN：
 ```
@@ -1704,8 +1692,8 @@ wide shot, 24mm wide lens very close to the face, natural wide-angle perspective
 全景，24mm 广角镜头离人物很近，人物几乎贴着镜头，背景有自然的广角透视，24 岁的中国男人，瘦高，鹅蛋脸，嘴角总挂着笑；眼睛一直眯成两道弯弯的笑线；深藏青色头发，长侧刘海斜盖住一边眉毛，后面剪到后颈；上镜淡妆，皮肤有毛孔，左眼下一颗淡痣，白色敞领衬衫，深棕色细背带，敞穿深炭灰修身西装外套（翻领暗纹八卦线），黑色窄腿裤，黑皮靴，黑细绳挂绿色玉坠；衣服上没有文字，右手始终握着一支银色有线话筒，话筒线垂下来，分屏：左右两队各三人并排走进场馆，选手走在最前面，队友跟在身后，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，真人综艺节目现场实拍质感，像电视台多机位直播里截下来的画面，不是 CG、不是游戏、不是动画。人物是上镜、五官端正耐看的成年演员，年龄以角色设定为准；皮肤是真实的：细小毛孔、自然的肤色变化，舞台灯下有自然的油光和细汗，化的是综艺节目的淡妆；不磨皮，皮肤不能光滑得像塑料、蜡像或手办。表情有真实的微表情：眨眼、抿嘴、挑眉、忍笑。每张脸都是原创面孔，不像任何真实的明星或演员。服装是真实的布料，有褶皱和穿着痕迹，综艺节目现场照片，无文字、无水印、无标志。
 ```
 
-### `plate_u07.png`
-用途：u07 首帧（s03_entrance · entrance）
+### `plate_u05.png`
+用途：u05 首帧（s03_entrance · entrance）
 
 Midjourney EN：
 ```
@@ -1716,8 +1704,8 @@ close-up, 135mm telephoto, compressed space, crowd and lights melted into large 
 特写，头和肩膀，135mm 长焦镜头，空间被压缩，背景的观众和灯虚成大片光斑，像综艺直播的长焦机位，24 岁的中国男人，瘦高，鹅蛋脸，嘴角总挂着笑；眼睛一直眯成两道弯弯的笑线；深藏青色头发，长侧刘海斜盖住一边眉毛，后面剪到后颈；上镜淡妆，皮肤有毛孔，左眼下一颗淡痣，白色敞领衬衫，深棕色细背带，敞穿深炭灰修身西装外套（翻领暗纹八卦线），黑色窄腿裤，黑皮靴，黑细绳挂绿色玉坠；衣服上没有文字，右手始终握着一支银色有线话筒，话筒线垂下来，诸葛青站定，盯着对面，身后的队友抱着手臂，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，真人综艺节目现场实拍质感，像电视台多机位直播里截下来的画面，不是 CG、不是游戏、不是动画。人物是上镜、五官端正耐看的成年演员，年龄以角色设定为准；皮肤是真实的：细小毛孔、自然的肤色变化，舞台灯下有自然的油光和细汗，化的是综艺节目的淡妆；不磨皮，皮肤不能光滑得像塑料、蜡像或手办。表情有真实的微表情：眨眼、抿嘴、挑眉、忍笑。每张脸都是原创面孔，不像任何真实的明星或演员。服装是真实的布料，有褶皱和穿着痕迹，综艺节目现场照片，无文字、无水印、无标志。
 ```
 
-### `plate_u08.png`
-用途：u08 首帧（s03_entrance · entrance）
+### `plate_u06.png`
+用途：u06 首帧（s03_entrance · entrance）
 
 Midjourney EN：
 ```
@@ -1728,20 +1716,8 @@ close-up, 135mm telephoto, compressed space, crowd and lights melted into large 
 特写，头和肩膀，135mm 长焦镜头，空间被压缩，背景的观众和灯虚成大片光斑，像综艺直播的长焦机位，25 岁的中国男人，高个，肩膀松垮微驼；长脸，鼻梁直，眼皮半耷拉着、眼神懒散；黑发在头顶后方挽成圆发髻，几缕长碎发垂在脸边；胡子刮净，上镜淡妆，皮肤有毛孔，眼下有倦色，宽大的深藏青色交领工装外套松松披着，白色素T恤，深藏青色打褶阔腿裤，黑色高帮帆布鞋，深色木珠手串；衣服上没有文字，右手始终握着一支银色有线话筒，话筒线垂下来，王也站定，盯着对面，身后的队友抱着手臂，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，真人综艺节目现场实拍质感，像电视台多机位直播里截下来的画面，不是 CG、不是游戏、不是动画。人物是上镜、五官端正耐看的成年演员，年龄以角色设定为准；皮肤是真实的：细小毛孔、自然的肤色变化，舞台灯下有自然的油光和细汗，化的是综艺节目的淡妆；不磨皮，皮肤不能光滑得像塑料、蜡像或手办。表情有真实的微表情：眨眼、抿嘴、挑眉、忍笑。每张脸都是原创面孔，不像任何真实的明星或演员。服装是真实的布料，有褶皱和穿着痕迹，综艺节目现场照片，无文字、无水印、无标志。
 ```
 
-### `plate_u47.png`
-用途：u47 首帧（s08_verse · react）
-
-Midjourney EN：
-```
-medium close-up, chest up, 85mm lens, shallow depth of field, a 23-year-old Chinese man, 180 cm and wiry, a narrow face with a pointed chin, quick sly dark eyes and a crooked half grin, messy short black hair with choppy bangs over the forehead, styled with matte texture, light on-camera stage makeup, real skin with fine pores and a little redness on the nose, a dark navy cropped bomber-cut jacket worn open with sleeves pushed to the forearm, a light grey-white T-shirt with a bold orange-red ribbed collar and orange-red hem band, light blue cropped wide trousers with rolled cuffs, blue-grey slip-on sneakers, plain fabric with no lettering, 队友冲上来和唱完的人撞肩膀，冲对面挑眉; a TV rap variety show arena rebuilt from the Luotian tournament ring at night: a black square stage, a giant taiji-bagua floor graphic with no lettering, a full red LED wall and red light strips, tiered seats packed with people, the dark silhouette of Longhu Mountain at night through an opening at the back, indoor rap variety show arena rebuilt from a Taoist tournament ring at night, black square stage, a giant taiji-bagua pattern on the floor with no lettering, a full red LED wall and red light strips behind, tiered audience, hard top stage light with red side light, thin haze, long lens melting crowd and lights into bokeh, broadcast realism with fine grain, on-camera adult performer with pleasant, well-proportioned features, real skin with fine pores, natural skin tone variation, a natural sheen and fine sweat under the stage lights, light TV-show makeup, real micro-expressions, an original face that does not resemble any real celebrity or actor, real creased fabric, no text, no letters, no logos --ar 16:9 --style raw --stylize 60 --no cgi, 3d render, plastic skin, airbrushed, wax figure, doll, figurine, porcelain, anime, illustration, oversaturated, text, letters, logo, watermark
-```
-即梦 CN：
-```
-近景，胸口以上，85mm 镜头，浅景深，背景柔和虚化，23 岁的中国男人，180 厘米，精瘦，窄脸尖下巴，眼睛灵活、带着坏笑，嘴角歪着；乱糟糟的黑色短发，碎刘海盖着额头；上镜淡妆，皮肤有毛孔，鼻头微红，敞穿深藏青短夹克，浅灰白T恤配橙红色领口和下摆边，浅蓝色七分阔腿裤，蓝灰便鞋；衣服上没有文字，一只手插在外套口袋里，不拿话筒，队友冲上来和唱完的人撞肩膀，冲对面挑眉，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，真人综艺节目现场实拍质感，像电视台多机位直播里截下来的画面，不是 CG、不是游戏、不是动画。人物是上镜、五官端正耐看的成年演员，年龄以角色设定为准；皮肤是真实的：细小毛孔、自然的肤色变化，舞台灯下有自然的油光和细汗，化的是综艺节目的淡妆；不磨皮，皮肤不能光滑得像塑料、蜡像或手办。表情有真实的微表情：眨眼、抿嘴、挑眉、忍笑。每张脸都是原创面孔，不像任何真实的明星或演员。服装是真实的布料，有褶皱和穿着痕迹，综艺节目现场照片，无文字、无水印、无标志。
-```
-
-### `plate_u48.png`
-用途：u48 首帧（s09_reveal · blackout）
+### `plate_u29.png`
+用途：u29 首帧（s09_reveal · blackout）
 
 Midjourney EN：
 ```
@@ -1752,8 +1728,8 @@ wide shot, 24mm wide lens very close to the face, natural wide-angle perspective
 全景，24mm 广角镜头离人物很近，人物几乎贴着镜头，背景有自然的广角透视，25 岁的中国男人，高个，肩膀松垮微驼；长脸，鼻梁直，眼皮半耷拉着、眼神懒散；黑发在头顶后方挽成圆发髻，几缕长碎发垂在脸边；胡子刮净，上镜淡妆，皮肤有毛孔，眼下有倦色，宽大的深藏青色交领工装外套松松披着，白色素T恤，深藏青色打褶阔腿裤，黑色高帮帆布鞋，深色木珠手串；衣服上没有文字，右手始终握着一支银色有线话筒，话筒线垂下来，全场灯灭，只剩头顶一束追光打在唱的人身上，从背后拍，只看得到背影剪影，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，真人综艺节目现场实拍质感，像电视台多机位直播里截下来的画面，不是 CG、不是游戏、不是动画。人物是上镜、五官端正耐看的成年演员，年龄以角色设定为准；皮肤是真实的：细小毛孔、自然的肤色变化，舞台灯下有自然的油光和细汗，化的是综艺节目的淡妆；不磨皮，皮肤不能光滑得像塑料、蜡像或手办。表情有真实的微表情：眨眼、抿嘴、挑眉、忍笑。每张脸都是原创面孔，不像任何真实的明星或演员。服装是真实的布料，有褶皱和穿着痕迹，综艺节目现场照片，无文字、无水印、无标志。
 ```
 
-### `plate_u49.png`
-用途：u49 首帧（s09_reveal · blackout）
+### `plate_u30.png`
+用途：u30 首帧（s09_reveal · blackout）
 
 Midjourney EN：
 ```
@@ -1764,32 +1740,8 @@ wide shot, 24mm wide lens very close to the face, natural wide-angle perspective
 全景，24mm 广角镜头离人物很近，人物几乎贴着镜头，背景有自然的广角透视，灭灯后的空舞台，只有追光落在地板的八卦图案上，观众席一片黑，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，综艺节目现场照片，无文字、无水印、无标志。
 ```
 
-### `plate_u50.png`
-用途：u50 首帧（s09_reveal · react）
-
-Midjourney EN：
-```
-close-up, 135mm telephoto, compressed space, crowd and lights melted into large bokeh, broadcast long-lens camera, a 25-year-old Chinese man, tall with relaxed slightly slouched shoulders, a long face with a straight nose, lazy half-lidded dark eyes and low relaxed eyebrows, black hair pulled up into a round topknot at the back of the crown with several long loose strands falling over the forehead and framing the face, clean-shaven, light on-camera stage makeup, real skin with fine pores and faint tired shadows under the eyes, an oversized dark navy work jacket cut with a Taoist crossed collar, worn loose and slightly off the shoulders over a plain white T-shirt, loose dark navy pleated wide trousers, black canvas high-top shoes, a dark wooden bead bracelet, plain fabric with no lettering, 低着头，嘴闭着，呼吸很重，停了一拍; a TV rap variety show arena rebuilt from the Luotian tournament ring at night: a black square stage, a giant taiji-bagua floor graphic with no lettering, a full red LED wall and red light strips, tiered seats packed with people, the dark silhouette of Longhu Mountain at night through an opening at the back, indoor rap variety show arena rebuilt from a Taoist tournament ring at night, black square stage, a giant taiji-bagua pattern on the floor with no lettering, a full red LED wall and red light strips behind, tiered audience, hard top stage light with red side light, thin haze, long lens melting crowd and lights into bokeh, broadcast realism with fine grain, on-camera adult performer with pleasant, well-proportioned features, real skin with fine pores, natural skin tone variation, a natural sheen and fine sweat under the stage lights, light TV-show makeup, real micro-expressions, an original face that does not resemble any real celebrity or actor, real creased fabric, no text, no letters, no logos --ar 16:9 --style raw --stylize 60 --no cgi, 3d render, plastic skin, airbrushed, wax figure, doll, figurine, porcelain, anime, illustration, oversaturated, text, letters, logo, watermark
-```
-即梦 CN：
-```
-特写，头和肩膀，135mm 长焦镜头，空间被压缩，背景的观众和灯虚成大片光斑，像综艺直播的长焦机位，25 岁的中国男人，高个，肩膀松垮微驼；长脸，鼻梁直，眼皮半耷拉着、眼神懒散；黑发在头顶后方挽成圆发髻，几缕长碎发垂在脸边；胡子刮净，上镜淡妆，皮肤有毛孔，眼下有倦色，宽大的深藏青色交领工装外套松松披着，白色素T恤，深藏青色打褶阔腿裤，黑色高帮帆布鞋，深色木珠手串；衣服上没有文字，右手始终握着一支银色有线话筒，话筒线垂下来，低着头，嘴闭着，呼吸很重，停了一拍，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，真人综艺节目现场实拍质感，像电视台多机位直播里截下来的画面，不是 CG、不是游戏、不是动画。人物是上镜、五官端正耐看的成年演员，年龄以角色设定为准；皮肤是真实的：细小毛孔、自然的肤色变化，舞台灯下有自然的油光和细汗，化的是综艺节目的淡妆；不磨皮，皮肤不能光滑得像塑料、蜡像或手办。表情有真实的微表情：眨眼、抿嘴、挑眉、忍笑。每张脸都是原创面孔，不像任何真实的明星或演员。服装是真实的布料，有褶皱和穿着痕迹，综艺节目现场照片，无文字、无水印、无标志。
-```
-
-### `plate_u52.png`
-用途：u52 首帧（s09_reveal · react）
-
-Midjourney EN：
-```
-close-up, 135mm telephoto, compressed space, crowd and lights melted into large bokeh, broadcast long-lens camera, a 24-year-old Chinese man, slim and long-limbed, a narrow oval face with a soft jaw and an easy smile, eyes always narrowed into two smiling curves, dark navy-blue hair with a long layered side fringe falling over one brow and the back trimmed to the nape, styled with a little texture, light on-camera stage makeup, real skin with fine pores and a faint mole under the left eye, a crisp white open-collar shirt with the top two buttons undone, slim dark brown suspenders, an open charcoal tailored blazer with fine tone-on-tone bagua line embroidery on the lapels, slim black trousers, black leather boots, a green jade pendant on a thin black cord, a thin silver ring, plain fabric with no lettering, 诸葛青站在追光边缘愣住，脸上的笑一点点收住，眼睛依旧眯着，嘴闭着; a TV rap variety show arena rebuilt from the Luotian tournament ring at night: a black square stage, a giant taiji-bagua floor graphic with no lettering, a full red LED wall and red light strips, tiered seats packed with people, the dark silhouette of Longhu Mountain at night through an opening at the back, indoor rap variety show arena rebuilt from a Taoist tournament ring at night, black square stage, a giant taiji-bagua pattern on the floor with no lettering, a full red LED wall and red light strips behind, tiered audience, hard top stage light with red side light, thin haze, long lens melting crowd and lights into bokeh, broadcast realism with fine grain, on-camera adult performer with pleasant, well-proportioned features, real skin with fine pores, natural skin tone variation, a natural sheen and fine sweat under the stage lights, light TV-show makeup, real micro-expressions, an original face that does not resemble any real celebrity or actor, real creased fabric, no text, no letters, no logos --ar 16:9 --style raw --stylize 60 --no cgi, 3d render, plastic skin, airbrushed, wax figure, doll, figurine, porcelain, anime, illustration, oversaturated, text, letters, logo, watermark
-```
-即梦 CN：
-```
-特写，头和肩膀，135mm 长焦镜头，空间被压缩，背景的观众和灯虚成大片光斑，像综艺直播的长焦机位，24 岁的中国男人，瘦高，鹅蛋脸，嘴角总挂着笑；眼睛一直眯成两道弯弯的笑线；深藏青色头发，长侧刘海斜盖住一边眉毛，后面剪到后颈；上镜淡妆，皮肤有毛孔，左眼下一颗淡痣，白色敞领衬衫，深棕色细背带，敞穿深炭灰修身西装外套（翻领暗纹八卦线），黑色窄腿裤，黑皮靴，黑细绳挂绿色玉坠；衣服上没有文字，右手始终握着一支银色有线话筒，话筒线垂下来，诸葛青站在追光边缘愣住，脸上的笑一点点收住，眼睛依旧眯着，嘴闭着，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，真人综艺节目现场实拍质感，像电视台多机位直播里截下来的画面，不是 CG、不是游戏、不是动画。人物是上镜、五官端正耐看的成年演员，年龄以角色设定为准；皮肤是真实的：细小毛孔、自然的肤色变化，舞台灯下有自然的油光和细汗，化的是综艺节目的淡妆；不磨皮，皮肤不能光滑得像塑料、蜡像或手办。表情有真实的微表情：眨眼、抿嘴、挑眉、忍笑。每张脸都是原创面孔，不像任何真实的明星或演员。服装是真实的布料，有褶皱和穿着痕迹，综艺节目现场照片，无文字、无水印、无标志。
-```
-
-### `plate_u56.png`
-用途：u56 首帧（s11_outro · crowd）
+### `plate_u35.png`
+用途：u35 首帧（s11_outro · crowd）
 
 Midjourney EN：
 ```
@@ -1800,8 +1752,8 @@ wide shot, 24mm wide lens very close to the face, natural wide-angle perspective
 全景，24mm 广角镜头离人物很近，人物几乎贴着镜头，背景有自然的广角透视，看台上层层叠叠坐满了观众，挥着红色荧光棒，跟着一起喊，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，综艺节目现场照片，无文字、无水印、无标志。
 ```
 
-### `plate_u57.png`
-用途：u57 首帧（s11_outro · crowd）
+### `plate_u36.png`
+用途：u36 首帧（s11_outro · crowd）
 
 Midjourney EN：
 ```
@@ -1812,8 +1764,92 @@ wide shot, 24mm wide lens very close to the face, natural wide-angle perspective
 全景，24mm 广角镜头离人物很近，人物几乎贴着镜头，背景有自然的广角透视，看台上层层叠叠坐满了观众，挥着红色荧光棒，挥手欢呼，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，综艺节目现场照片，无文字、无水印、无标志。
 ```
 
-### `plate_u58.png`
-用途：u58 首帧（s11_outro · outro）
+### `plate_u37.png`
+用途：u37 首帧（s11_outro · establish）
+
+Midjourney EN：
+```
+wide shot, 24mm wide lens very close to the face, natural wide-angle perspective, 场馆高位全景，全场观众站起来挥手，台上两队站在八卦图案两边; a TV rap variety show arena rebuilt from the Luotian tournament ring at night: a black square stage, a giant taiji-bagua floor graphic with no lettering, a full red LED wall and red light strips, tiered seats packed with people, the dark silhouette of Longhu Mountain at night through an opening at the back, indoor rap variety show arena rebuilt from a Taoist tournament ring at night, black square stage, a giant taiji-bagua pattern on the floor with no lettering, a full red LED wall and red light strips behind, tiered audience, hard top stage light with red side light, thin haze, long lens melting crowd and lights into bokeh, broadcast realism with fine grain, no text, no letters, no logos --ar 16:9 --style raw --stylize 60 --no cgi, 3d render, plastic skin, airbrushed, wax figure, doll, figurine, porcelain, anime, illustration, oversaturated, text, letters, logo, watermark
+```
+即梦 CN：
+```
+全景，24mm 广角镜头离人物很近，人物几乎贴着镜头，背景有自然的广角透视，场馆高位全景，全场观众站起来挥手，台上两队站在八卦图案两边，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，综艺节目现场照片，无文字、无水印、无标志。
+```
+
+### `plate_u38.png`
+用途：u38 首帧（s11_outro · host）
+
+Midjourney EN：
+```
+close-up, 135mm telephoto, compressed space, crowd and lights melted into large bokeh, broadcast long-lens camera, a 38-year-old Chinese man, medium build, a calm oval face, thin rectangular glasses, short black hair with a light choppy fringe over the forehead, clean-shaven with a faint shadow, a composed half smile, real skin with pores and fine lines on the forehead, a slim black suit jacket with the sleeves pushed up, a white shirt with the collar open and no tie, black trousers, a black leather belt, large black headphones around his neck, no lettering, DJ 双手举过头顶，跟着观众一起喊; a TV rap variety show arena rebuilt from the Luotian tournament ring at night: a black square stage, a giant taiji-bagua floor graphic with no lettering, a full red LED wall and red light strips, tiered seats packed with people, the dark silhouette of Longhu Mountain at night through an opening at the back, indoor rap variety show arena rebuilt from a Taoist tournament ring at night, black square stage, a giant taiji-bagua pattern on the floor with no lettering, a full red LED wall and red light strips behind, tiered audience, hard top stage light with red side light, thin haze, long lens melting crowd and lights into bokeh, broadcast realism with fine grain, on-camera adult performer with pleasant, well-proportioned features, real skin with fine pores, natural skin tone variation, a natural sheen and fine sweat under the stage lights, light TV-show makeup, real micro-expressions, an original face that does not resemble any real celebrity or actor, real creased fabric, no text, no letters, no logos --ar 16:9 --style raw --stylize 60 --no cgi, 3d render, plastic skin, airbrushed, wax figure, doll, figurine, porcelain, anime, illustration, oversaturated, text, letters, logo, watermark
+```
+即梦 CN：
+```
+特写，头和肩膀，135mm 长焦镜头，空间被压缩，背景的观众和灯虚成大片光斑，像综艺直播的长焦机位，38 岁的中国男人，中等身材，神情沉稳，戴细框长方形眼镜；黑色短发，碎刘海垂在额前；胡子刮净有淡青色，嘴角半笑；皮肤有毛孔，额头细纹，修身黑西装外套推着袖子，白衬衫敞领不打领带，黑西裤，脖子上挂一副黑色大耳机；衣服上没有文字，站在DJ台后面，一只手搭在唱盘上，DJ 双手举过头顶，跟着观众一起喊，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，真人综艺节目现场实拍质感，像电视台多机位直播里截下来的画面，不是 CG、不是游戏、不是动画。人物是上镜、五官端正耐看的成年演员，年龄以角色设定为准；皮肤是真实的：细小毛孔、自然的肤色变化，舞台灯下有自然的油光和细汗，化的是综艺节目的淡妆；不磨皮，皮肤不能光滑得像塑料、蜡像或手办。表情有真实的微表情：眨眼、抿嘴、挑眉、忍笑。每张脸都是原创面孔，不像任何真实的明星或演员。服装是真实的布料，有褶皱和穿着痕迹，综艺节目现场照片，无文字、无水印、无标志。
+```
+
+### `plate_u39.png`
+用途：u39 首帧（s11_outro · outro）
+
+Midjourney EN：
+```
+two-shot, 50mm lens, a 24-year-old Chinese man, slim and long-limbed, a narrow oval face with a soft jaw and an easy smile, eyes always narrowed into two smiling curves, dark navy-blue hair with a long layered side fringe falling over one brow and the back trimmed to the nape, styled with a little texture, light on-camera stage makeup, real skin with fine pores and a faint mole under the left eye, a crisp white open-collar shirt with the top two buttons undone, slim dark brown suspenders, an open charcoal tailored blazer with fine tone-on-tone bagua line embroidery on the lapels, slim black trousers, black leather boots, a green jade pendant on a thin black cord, a thin silver ring, plain fabric with no lettering, 两位选手放下话筒，隔着舞台互相看着，嘴角都挑了一下，嘴闭着; a TV rap variety show arena rebuilt from the Luotian tournament ring at night: a black square stage, a giant taiji-bagua floor graphic with no lettering, a full red LED wall and red light strips, tiered seats packed with people, the dark silhouette of Longhu Mountain at night through an opening at the back, indoor rap variety show arena rebuilt from a Taoist tournament ring at night, black square stage, a giant taiji-bagua pattern on the floor with no lettering, a full red LED wall and red light strips behind, tiered audience, hard top stage light with red side light, thin haze, long lens melting crowd and lights into bokeh, broadcast realism with fine grain, on-camera adult performer with pleasant, well-proportioned features, real skin with fine pores, natural skin tone variation, a natural sheen and fine sweat under the stage lights, light TV-show makeup, real micro-expressions, an original face that does not resemble any real celebrity or actor, real creased fabric, no text, no letters, no logos --ar 16:9 --style raw --stylize 60 --no cgi, 3d render, plastic skin, airbrushed, wax figure, doll, figurine, porcelain, anime, illustration, oversaturated, text, letters, logo, watermark
+```
+即梦 CN：
+```
+双人镜头，两人都在画面里，50mm 标准镜头，24 岁的中国男人，瘦高，鹅蛋脸，嘴角总挂着笑；眼睛一直眯成两道弯弯的笑线；深藏青色头发，长侧刘海斜盖住一边眉毛，后面剪到后颈；上镜淡妆，皮肤有毛孔，左眼下一颗淡痣，白色敞领衬衫，深棕色细背带，敞穿深炭灰修身西装外套（翻领暗纹八卦线），黑色窄腿裤，黑皮靴，黑细绳挂绿色玉坠；衣服上没有文字，右手始终握着一支银色有线话筒，话筒线垂下来，两位选手放下话筒，隔着舞台互相看着，嘴角都挑了一下，嘴闭着，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，真人综艺节目现场实拍质感，像电视台多机位直播里截下来的画面，不是 CG、不是游戏、不是动画。人物是上镜、五官端正耐看的成年演员，年龄以角色设定为准；皮肤是真实的：细小毛孔、自然的肤色变化，舞台灯下有自然的油光和细汗，化的是综艺节目的淡妆；不磨皮，皮肤不能光滑得像塑料、蜡像或手办。表情有真实的微表情：眨眼、抿嘴、挑眉、忍笑。每张脸都是原创面孔，不像任何真实的明星或演员。服装是真实的布料，有褶皱和穿着痕迹，综艺节目现场照片，无文字、无水印、无标志。
+```
+
+### `plate_u40.png`
+用途：u40 首帧（s11_outro · crowd）
+
+Midjourney EN：
+```
+wide shot, 24mm wide lens very close to the face, natural wide-angle perspective, 看台上层层叠叠坐满了观众，挥着红色荧光棒，挥手欢呼; a TV rap variety show arena rebuilt from the Luotian tournament ring at night: a black square stage, a giant taiji-bagua floor graphic with no lettering, a full red LED wall and red light strips, tiered seats packed with people, the dark silhouette of Longhu Mountain at night through an opening at the back, indoor rap variety show arena rebuilt from a Taoist tournament ring at night, black square stage, a giant taiji-bagua pattern on the floor with no lettering, a full red LED wall and red light strips behind, tiered audience, hard top stage light with red side light, thin haze, long lens melting crowd and lights into bokeh, broadcast realism with fine grain, no text, no letters, no logos --ar 16:9 --style raw --stylize 60 --no cgi, 3d render, plastic skin, airbrushed, wax figure, doll, figurine, porcelain, anime, illustration, oversaturated, text, letters, logo, watermark
+```
+即梦 CN：
+```
+全景，24mm 广角镜头离人物很近，人物几乎贴着镜头，背景有自然的广角透视，看台上层层叠叠坐满了观众，挥着红色荧光棒，挥手欢呼，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，综艺节目现场照片，无文字、无水印、无标志。
+```
+
+### `plate_u41.png`
+用途：u41 首帧（s11_outro · establish）
+
+Midjourney EN：
+```
+wide shot, 24mm wide lens very close to the face, natural wide-angle perspective, 场馆高位全景，全场观众站起来挥手，台上两队站在八卦图案两边; a TV rap variety show arena rebuilt from the Luotian tournament ring at night: a black square stage, a giant taiji-bagua floor graphic with no lettering, a full red LED wall and red light strips, tiered seats packed with people, the dark silhouette of Longhu Mountain at night through an opening at the back, indoor rap variety show arena rebuilt from a Taoist tournament ring at night, black square stage, a giant taiji-bagua pattern on the floor with no lettering, a full red LED wall and red light strips behind, tiered audience, hard top stage light with red side light, thin haze, long lens melting crowd and lights into bokeh, broadcast realism with fine grain, no text, no letters, no logos --ar 16:9 --style raw --stylize 60 --no cgi, 3d render, plastic skin, airbrushed, wax figure, doll, figurine, porcelain, anime, illustration, oversaturated, text, letters, logo, watermark
+```
+即梦 CN：
+```
+全景，24mm 广角镜头离人物很近，人物几乎贴着镜头，背景有自然的广角透视，场馆高位全景，全场观众站起来挥手，台上两队站在八卦图案两边，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，综艺节目现场照片，无文字、无水印、无标志。
+```
+
+### `plate_u42.png`
+用途：u42 首帧（s11_outro · host）
+
+Midjourney EN：
+```
+close-up, 135mm telephoto, compressed space, crowd and lights melted into large bokeh, broadcast long-lens camera, a 38-year-old Chinese man, medium build, a calm oval face, thin rectangular glasses, short black hair with a light choppy fringe over the forehead, clean-shaven with a faint shadow, a composed half smile, real skin with pores and fine lines on the forehead, a slim black suit jacket with the sleeves pushed up, a white shirt with the collar open and no tie, black trousers, a black leather belt, large black headphones around his neck, no lettering, DJ 双手举过头顶，跟着观众一起喊; a TV rap variety show arena rebuilt from the Luotian tournament ring at night: a black square stage, a giant taiji-bagua floor graphic with no lettering, a full red LED wall and red light strips, tiered seats packed with people, the dark silhouette of Longhu Mountain at night through an opening at the back, indoor rap variety show arena rebuilt from a Taoist tournament ring at night, black square stage, a giant taiji-bagua pattern on the floor with no lettering, a full red LED wall and red light strips behind, tiered audience, hard top stage light with red side light, thin haze, long lens melting crowd and lights into bokeh, broadcast realism with fine grain, on-camera adult performer with pleasant, well-proportioned features, real skin with fine pores, natural skin tone variation, a natural sheen and fine sweat under the stage lights, light TV-show makeup, real micro-expressions, an original face that does not resemble any real celebrity or actor, real creased fabric, no text, no letters, no logos --ar 16:9 --style raw --stylize 60 --no cgi, 3d render, plastic skin, airbrushed, wax figure, doll, figurine, porcelain, anime, illustration, oversaturated, text, letters, logo, watermark
+```
+即梦 CN：
+```
+特写，头和肩膀，135mm 长焦镜头，空间被压缩，背景的观众和灯虚成大片光斑，像综艺直播的长焦机位，38 岁的中国男人，中等身材，神情沉稳，戴细框长方形眼镜；黑色短发，碎刘海垂在额前；胡子刮净有淡青色，嘴角半笑；皮肤有毛孔，额头细纹，修身黑西装外套推着袖子，白衬衫敞领不打领带，黑西裤，脖子上挂一副黑色大耳机；衣服上没有文字，站在DJ台后面，一只手搭在唱盘上，DJ 双手举过头顶，跟着观众一起喊，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，真人综艺节目现场实拍质感，像电视台多机位直播里截下来的画面，不是 CG、不是游戏、不是动画。人物是上镜、五官端正耐看的成年演员，年龄以角色设定为准；皮肤是真实的：细小毛孔、自然的肤色变化，舞台灯下有自然的油光和细汗，化的是综艺节目的淡妆；不磨皮，皮肤不能光滑得像塑料、蜡像或手办。表情有真实的微表情：眨眼、抿嘴、挑眉、忍笑。每张脸都是原创面孔，不像任何真实的明星或演员。服装是真实的布料，有褶皱和穿着痕迹，综艺节目现场照片，无文字、无水印、无标志。
+```
+
+### `plate_u43.png`
+用途：u43 首帧（s11_outro · outro）
+
+Midjourney EN：
+```
+two-shot, 50mm lens, a 24-year-old Chinese man, slim and long-limbed, a narrow oval face with a soft jaw and an easy smile, eyes always narrowed into two smiling curves, dark navy-blue hair with a long layered side fringe falling over one brow and the back trimmed to the nape, styled with a little texture, light on-camera stage makeup, real skin with fine pores and a faint mole under the left eye, a crisp white open-collar shirt with the top two buttons undone, slim dark brown suspenders, an open charcoal tailored blazer with fine tone-on-tone bagua line embroidery on the lapels, slim black trousers, black leather boots, a green jade pendant on a thin black cord, a thin silver ring, plain fabric with no lettering, 两位选手放下话筒，隔着舞台互相看着，嘴角都挑了一下，嘴闭着; a TV rap variety show arena rebuilt from the Luotian tournament ring at night: a black square stage, a giant taiji-bagua floor graphic with no lettering, a full red LED wall and red light strips, tiered seats packed with people, the dark silhouette of Longhu Mountain at night through an opening at the back, indoor rap variety show arena rebuilt from a Taoist tournament ring at night, black square stage, a giant taiji-bagua pattern on the floor with no lettering, a full red LED wall and red light strips behind, tiered audience, hard top stage light with red side light, thin haze, long lens melting crowd and lights into bokeh, broadcast realism with fine grain, on-camera adult performer with pleasant, well-proportioned features, real skin with fine pores, natural skin tone variation, a natural sheen and fine sweat under the stage lights, light TV-show makeup, real micro-expressions, an original face that does not resemble any real celebrity or actor, real creased fabric, no text, no letters, no logos --ar 16:9 --style raw --stylize 60 --no cgi, 3d render, plastic skin, airbrushed, wax figure, doll, figurine, porcelain, anime, illustration, oversaturated, text, letters, logo, watermark
+```
+即梦 CN：
+```
+双人镜头，两人都在画面里，50mm 标准镜头，24 岁的中国男人，瘦高，鹅蛋脸，嘴角总挂着笑；眼睛一直眯成两道弯弯的笑线；深藏青色头发，长侧刘海斜盖住一边眉毛，后面剪到后颈；上镜淡妆，皮肤有毛孔，左眼下一颗淡痣，白色敞领衬衫，深棕色细背带，敞穿深炭灰修身西装外套（翻领暗纹八卦线），黑色窄腿裤，黑皮靴，黑细绳挂绿色玉坠；衣服上没有文字，右手始终握着一支银色有线话筒，话筒线垂下来，两位选手放下话筒，隔着舞台互相看着，嘴角都挑了一下，嘴闭着，罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影，罗天大醮的擂台改成的室内说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（上面没有任何文字），背后一整面红色 LED 大屏和一圈红色灯带，观众席层层叠叠；主光是舞台顶部的硬光，两侧打红色侧光，空气里有薄烟；长焦机位把观众和灯虚成光斑，像电视直播画面但有电影感，细腻颗粒，真人综艺节目现场实拍质感，像电视台多机位直播里截下来的画面，不是 CG、不是游戏、不是动画。人物是上镜、五官端正耐看的成年演员，年龄以角色设定为准；皮肤是真实的：细小毛孔、自然的肤色变化，舞台灯下有自然的油光和细汗，化的是综艺节目的淡妆；不磨皮，皮肤不能光滑得像塑料、蜡像或手办。表情有真实的微表情：眨眼、抿嘴、挑眉、忍笑。每张脸都是原创面孔，不像任何真实的明星或演员。服装是真实的布料，有褶皱和穿着痕迹，综艺节目现场照片，无文字、无水印、无标志。
+```
+
+### `plate_u44.png`
+用途：u44 首帧（s11_outro · outro）
 
 Midjourney EN：
 ```

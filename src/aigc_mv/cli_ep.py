@@ -71,6 +71,45 @@ def analyze_cmd(
     typer.echo(f"{t.grid.bpm} BPM · bar {t.grid.bar:.3f}s · {len(t.lines)} lines · {t.duration:.1f}s · align={t.mode}")
     for ln in t.lines[:4]:
         typer.echo(f"  {ln.t0:6.2f}  {ln.text}")
+    if t.mode == "asr":
+        flagged = [ln for ln in t.lines if ln.flags]
+        typer.echo(f"  {len(t.lines) - len(flagged)} lines clean, {len(flagged)} flagged")
+        typer.echo(f"wrote {_write_timing_report(ep_dir, ep, t)}")
+
+
+def _write_timing_report(ep_dir: Path, ep, t, notes: Optional[Path] = None, out: Optional[Path] = None) -> Path:
+    from aigc_mv.timing import envelope_db
+    from aigc_mv.timing_report import timing_report
+
+    files, envs = {}, {}
+    for name, rel in (("vocals", ep.vocals), ("song", ep.song), ("instrumental", ep.instrumental)):
+        if rel and (ep_dir / rel).is_file():
+            files[name] = rel
+            if name != "song":
+                envs[name] = envelope_db(ep_dir / rel)
+    text = timing_report(ep, t, envs, files, notes.read_text(encoding="utf-8") if notes else "")
+    dst = out or ep_dir / "analysis" / "timing_report.md"
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    dst.write_text(text, encoding="utf-8")
+    return dst
+
+
+@app.command("timing-report")
+def timing_report_cmd(
+    ep_dir: Path,
+    notes: Optional[Path] = typer.Option(None, "--notes", help="Markdown appended at the end (hand-checked findings)"),
+    out: Optional[Path] = typer.Option(None, "--out", help="Default analysis/timing_report.md"),
+) -> None:
+    """Chinese per-line timing report of analysis/timing.json: sections, every line with confidence / source /
+    flags, the lines to check by ear, pauses, beat drops, vocals outside the lyric sheet."""
+    from aigc_mv.timing import load_timing
+
+    ep = load_episode(ep_dir)
+    try:
+        t = load_timing(ep_dir)
+    except FileNotFoundError as e:
+        _fail(str(e))
+    typer.echo(f"wrote {_write_timing_report(ep_dir, ep, t, notes, out)}")
 
 
 @app.command("board")

@@ -29,6 +29,9 @@ E=projects/xiangyu_vs_liubang       # 示例一期：项羽 vs 刘邦
 aigc-mv ep suno $E                  # suno.md：两段生成 + Extend 的风格和歌词栏
 # 把 Suno 的歌、人声 stem、伴奏 stem 放进 $E/audio/（song.wav / vocals.wav / instrumental.wav）
 aigc-mv ep analyze $E               # 节拍、每句和每半句的时间 → analysis/timing.json
+#   有真歌时：aigc-mv ep analyze $E --mode asr  （pip install -e '.[asr]'；逐字识别主唱轨，听不清的句子到整曲 / 伴奏轨里找，
+#   识别结果缓存在 analysis/asr_<音轨>.json，另写 analysis/timing_report.md：每句的置信度、来源音轨、标记、建议先听的句子）
+#   aigc-mv ep timing-report $E --notes 核对笔记.md   （重写对时报告，把人工核对的笔记接在后面）
 #   还没有歌时：aigc-mv ep analyze $E --bpm 92   （用合成节拍网格先做分镜）
 aigc-mv ep board $E                 # 分镜 + 生成单元 + 审核 → board/board.md（给导演看）
 aigc-mv ep refs $E                  # refs/REFS.md：定妆图、场景图、首帧的提示词（MJ 英文 / 即梦中文）
@@ -49,7 +52,8 @@ aigc-mv ep render $E --res 1080p    # final/<标题>.mp4
 projects/<一期>/
   episode.yaml          唯一的创作源文件：演员、歌词（半句用空格分）、注释、动作、叙事插入、场景、画风
   audio/                song.wav  vocals.wav  instrumental.wav
-  analysis/timing.json  节拍网格、每句 / 半句 / 每个字的时间、段落、每小节能量
+  analysis/timing.json  节拍网格、每句 / 半句 / 每个字的时间、段落、每小节能量（ASR 模式另有每句的 conf / source / flags）
+  analysis/timing_report.md  ASR 对时报告（中文）；asr_<音轨>.json 是识别缓存
   board/                board.json  board.md（分镜表）  audit.json
   refs/                 REFS.md + 你生成的 a_sheet.png  b_sheet.png  venue.png  loc_*.png  crowd.png  plate_u*.png
   units/<id>/           prompt.txt  request.json  <id>_vocal.wav  takes/  takes.json
