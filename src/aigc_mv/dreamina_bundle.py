@@ -179,7 +179,8 @@ def readme(title: str, folder: str, rows: list, take: int) -> str:
 
 ## 二、一键运行
 
-把这个文件夹解压到“下载”里，然后在终端运行：
+从 GitHub 下载：打开 `dreamina-bundle` 分支里的 `{folder}.zip`，点 “Download raw file”（下载原始文件），
+在“下载”文件夹里双击解压，得到 `{folder}` 文件夹。然后在终端运行：
 
 ```bash
 cd ~/Downloads/{folder} && python3 run_dreamina.py
@@ -197,7 +198,7 @@ cd ~/Downloads/{folder} && python3 run_dreamina.py
 5. 按每个节点自己的报价确认积分上限，然后提交生成（同时最多 3 个）；
 6. 生成完自动下载到 `takes/<单元>/take-{take}.mp4`，最后写 `results.json` 并打包成 `takes.zip`。
 
-大约需要 {lo} 到 {hi} 小时（取决于即梦排队），电脑不要睡眠。中途可以随时 Ctrl+C，之后重跑同一条命令会接着做。
+大约需要 {lo} 到 {hi} 小时（取决于即梦排队），电脑不要睡眠：可以改用 `caffeinate -i python3 run_dreamina.py`，运行期间 Mac 不会睡眠。中途可以随时 Ctrl+C，之后重跑同一条命令会接着做。
 
 ## 三、积分
 
