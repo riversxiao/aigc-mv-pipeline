@@ -1,0 +1,127 @@
+# 示例一期：项羽 vs 刘邦（输家先唱，赢家后唱）。歌词原创，注释凭《史记》写就，发布前请对原文核一遍。
+title: 项羽vs刘邦
+format: battle
+grammar: hybrid          # 擂台上 = 综艺多机位；叙事插入 = MV 叙事镜头
+look: night_arena
+aspect: "16:9"
+fps: 24
+resolution: 720p
+song: audio/song.wav
+vocals: audio/vocals.wav
+instrumental: audio/instrumental.wav
+bpm_hint: 92
+intro_bars: 1
+break_bars: 2
+outro_bars: 3
+
+cast:
+  a:
+    character: xiang_yu
+    name_cn: 项羽
+    name_en: Xiang Yu
+    aka: 西楚霸王
+    side: left
+    voice: aggressive male rapper, deep powerful chest voice, shouting energy, hard-hitting flow
+    listen_cn: 咬紧牙关，鼻孔出气，握话筒的手攥得发白
+  b:
+    character: liu_bang
+    name_cn: 刘邦
+    name_en: Liu Bang
+    aka: 沛公
+    side: right
+    voice: sly middle-aged male rapper, relaxed raspy voice, laid-back mocking flow
+    listen_cn: 眯着眼笑，慢悠悠地捋胡子，一点都不急
+
+venue:
+  cn: 楚汉两军阵前用木头搭起的方形擂台，夜里；左边一排黑色素旗，右边一排红色素旗，旗上都没有字；四角是火盆，后方木台上有一套现代 DJ 设备和两根竖立的冷白色灯管，台下挤满了举着火把的士兵
+  en: a square wooden battle stage built between two armies at night, a row of plain black banners on the left and plain red banners on the right, no text on any banner, braziers at the four corners, a modern DJ booth with turntables and two vertical cold-white light tubes at the back, soldiers with torches packed below the stage
+locations:
+  julu:
+    cn: 黑夜的河边，楚军营地，大锅架在火堆上，河上停着一排木船
+    en: a riverbank at night, a Chu army camp, big bronze cauldrons over fires, a row of wooden boats on the river
+  pengcheng:
+    cn: 清晨的平原，浓雾，远处是城墙，山坡上排满骑兵
+    en: a misty plain at dawn, city walls in the distance, cavalry lined up on a slope
+  hongmen:
+    cn: 鸿门宴的大帐，夜里，矮案上摆着酒器和肉，帐内点着油灯，几名武士站在帐边
+    en: a large banquet tent at night, low tables with bronze wine vessels and meat, oil lamps, guards along the tent walls
+  gaixia:
+    cn: 垓下的楚军营地，深夜，营外一圈火光，营帐里的灯一盏盏熄灭
+    en: a besieged army camp at midnight, a ring of enemy fires around it, tent lights going out one by one
+crowd_cn: 台下挤满了楚汉两军的士兵，左半边穿黑衣、右半边穿红衣，举着火把和拳头
+
+intro_cn: 两人在擂台上面对面对峙，互相盯着，都不说话，手里都拿着话筒，火盆的火光在两人脸上跳
+break_cn: 台下士兵挤在一起举着火把和拳头，一下一下往上捶，张大嘴齐声喊口号，火光映在脸上
+break_chant: 汉王
+outro_cn: 刘邦慢慢放下话筒，嘴角一点点挑起，眯着眼看着项羽，嘴闭着
+end_question: 下一场|你想看谁的对决？
+watermark: ""
+subtitle_style: broadcast
+
+budget:
+  cap_usd: 60
+  price_per_sec_usd: 0.23
+  confirm_over_usd: 5
+
+verses:
+  - who: a
+    lines:
+      - text: 力拔山兮 我气盖世无双
+        note: 《史记·项羽本纪》：力拔山兮气盖世，时不利兮骓不逝。
+        action: 把话筒高高举过头顶，胸口一挺
+      - text: 巨鹿破釜沉舟 杀得秦军心慌
+        note: 《史记·项羽本纪》：皆沉船，破釜甑，烧庐舍，持三日粮。
+        action: 空着的手往下狠狠一劈
+        cutaway: 夜里河边，楚军士兵抡起铜锤砸破大锅，又把木船凿沉，火光映在翻腾的河水上
+        location: julu
+      - text: 鸿门宴上 你借口如厕溜出帐
+        note: 《史记·项羽本纪》：沛公起如厕，因招樊哙出。
+        action: 弯腰捂着肚子，学人踮着脚往外溜
+      - text: 那天不杀你 是我手下留了光
+        note: 《史记·项羽本纪》：项王即日因留沛公与饮。
+        action: 用空着的手拍了拍刘邦的脸
+      - text: 太公押在俎上 你还要分杯羹
+        note: 《史记·项羽本纪》：吾翁即若翁，必欲烹而翁，则幸分我一杯羹。
+        action: 空着的手端起一只粗陶碗，做出喝汤的样子
+      - text: 亲爹都能当筹码 你算哪门子英雄
+        note: 刘邦答项羽之语，同见《史记·项羽本纪》。
+        action: 摊开空着的手，冷笑着摇头
+      - text: 彭城我三万精兵 打穿你五十六万
+        note: 《史记·项羽本纪》：项王乃西从萧，晨击汉军而东，至彭城，日中，大破汉军。
+        action: 张开五指，再一把攥成拳头
+        cutaway: 清晨浓雾里，骑兵从山坡上冲下来，马蹄扬起泥土，镜头跟着冲锋的马队
+        location: pengcheng
+      - text: 你推儿女下车 逃得比谁都欢
+        note: 《史记·项羽本纪》：汉王急，推堕孝惠、鲁元车下。
+        action: 空着的手做出把人往下推的动作，身体前倾逼近刘邦
+
+  - who: b
+    lines:
+      - text: 叫我逃跑王 我听着也不冤
+        note: 刘邦彭城、荥阳、成皋屡败屡逃，事见《史记·高祖本纪》。
+        action: 耸耸肩，笑着摊开空着的手
+      - text: 跑得掉才算本事 活着才能翻盘
+        note: 《史记·高祖本纪》：汉王跳，独与滕公共车出成皋玉门。
+        action: 原地轻轻一跳，像跳上马车
+      - text: 范增举玦三回 你低头装看不见
+        note: 《史记·项羽本纪》：范增数目项王，举所佩玉玦以示之者三，项王默然不应。
+        action: 空着的手举起一块玉玦晃了三下
+        cutaway: 大帐里一位白发老谋士三次举起手里的玉玦，坐在主位的霸王低头喝酒，假装没看见
+        location: hongmen
+      - text: 鸿门不杀我 是你心比豆腐软
+        note: 《史记·淮阴侯列传》：韩信评项羽「此所谓妇人之仁也」。
+        action: 用手指戳了戳项羽的胸甲
+      - text: 你说力拔山兮 韩信你却留不住
+        note: 《史记·淮阴侯列传》：信数以策干项羽，羽不用，乃亡楚归汉。
+        action: 掰着手指一个一个数
+      - text: 陈平英布 一个个都来投我的部
+        note: 陈平、英布皆先事项羽后归汉，见《史记》陈丞相世家、黥布列传。
+        action: 冲身后招招手，示意人往自己这边站
+      - text: 垓下四面楚歌 唱的是你的乡土
+        note: 《史记·项羽本纪》：夜闻汉军四面皆楚歌，项王乃大惊。
+        action: 一只手拢在耳边，假装在听远处的歌
+        cutaway: 深夜，营外四面都是火光，楚军士兵抱着长枪坐在地上低声跟着唱，营帐里的灯一盏盏熄灭
+        location: gaixia
+      - text: 你乌江不肯过 我大风起兮唱谢幕
+        note: 《史记·高祖本纪》：高祖击筑，自为歌诗曰：大风起兮云飞扬。
+        action: 把话筒举过头顶，转身面向台下的观众

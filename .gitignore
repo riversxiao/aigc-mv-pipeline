@@ -27,6 +27,32 @@ projects/*/clips/
 !projects/demo_og/brief.yaml
 !projects/demo_og/lyrics.txt
 
+# Episode pipeline outputs (episode.yaml is the only source file)
+projects/*/analysis/
+projects/*/board/
+projects/*/units/
+projects/*/final/
+projects/*/audio/
+projects/*/refs/*.png
+projects/*/refs/REFS.md
+projects/*/refs/refs_plan.json
+# official canon art (copyrighted): local reference only, never commit
+projects/*/refs/canon/
+projects/*/suno.md
+projects/*/ledger.jsonl
+projects/*/approvals.json
+# the same outputs when an episode fixture is boarded by hand
+tests/fixtures/*/analysis/
+tests/fixtures/*/board/
+tests/fixtures/*/units/
+tests/fixtures/*/edit/
+tests/fixtures/*/final/
+tests/fixtures/*/audio/
+tests/fixtures/*/refs/
+tests/fixtures/*/suno.md
+tests/fixtures/*/ledger.jsonl
+tests/fixtures/*/approvals.json
+
 # OS / IDE
 .DS_Store
 .idea/

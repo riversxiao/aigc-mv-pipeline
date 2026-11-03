@@ -1,0 +1,39 @@
+# 王也 · 《一人之下》同人二创（腾讯动漫，米二）。造型按《火影有嘻哈》的做法：原作发色、发型、眼睛和招牌物件不变，
+# 服装换成当代舞台装；上镜妆容，脸是原创的。
+id: wang_ye
+display_name: 王也 · 武当派
+age: 25
+canon_refs:
+  - {site: bangumi, id: 61837, url: "https://bgm.tv/character/61837", note: 漫画彩图，头顶发髻、碎发垂脸、深藏青交领外套}
+canon_look_cn: 官方图：黑发在头顶后方挽成一个圆发髻，几缕长碎发从额前垂下来贴着脸；眼皮半耷拉着，眼神懒散放松，嘴角似笑非笑；穿深藏青色宽松的交领外套（道袍式领口），布料垂坠。
+signature_cn: 头顶的黑色圆发髻加垂在脸边的碎发 + 半耷拉着的懒散眼睛 + 深藏青色交领外套
+signature_en: black hair in a round topknot with loose strands framing the face, lazy half-lidded eyes, a dark navy crossed-collar jacket
+identity: >-
+  a 25-year-old Chinese man, tall with relaxed slightly slouched shoulders, a long face with a straight nose, lazy
+  half-lidded dark eyes and low relaxed eyebrows, black hair pulled up into a round topknot at the back of the crown
+  with several long loose strands falling over the forehead and framing the face, clean-shaven, light on-camera stage
+  makeup, real skin with fine pores and faint tired shadows under the eyes
+identity_short: >-
+  a tall relaxed Chinese man of 25 with lazy half-lidded eyes and a black topknot with loose strands framing his face
+identity_cn: 25 岁的中国男人，高个，肩膀松垮微驼；长脸，鼻梁直，眼皮半耷拉着、眼神懒散；黑发在头顶后方挽成圆发髻，几缕长碎发垂在脸边；胡子刮净，上镜淡妆，皮肤有毛孔，眼下有倦色
+wardrobe_default: >-
+  an oversized dark navy work jacket cut with a Taoist crossed collar, worn loose and slightly off the shoulders over
+  a plain white T-shirt, loose dark navy pleated wide trousers, black canvas high-top shoes, a dark wooden bead
+  bracelet, plain fabric with no lettering
+wardrobe_cn: 宽大的深藏青色交领工装外套松松披着，白色素T恤，深藏青色打褶阔腿裤，黑色高帮帆布鞋，深色木珠手串；衣服上没有文字
+props_cn: 右手始终握着一支银色有线话筒，话筒线垂下来
+voice: laid-back male rapper, low relaxed baritone with a Beijing drawl, lazy behind-the-beat flow that turns sharp and fast
+forbidden:
+  - teenager
+  - boyish face
+  - tense frown
+  - plastic skin
+  - modern logos
+refs: []
+notes: >-
+  原作依据（官方资料）：Bangumi 角色页 https://bgm.tv/character/61837 ：武当派弟子，八奇技之一风后奇门的继承人，别名「王道长」；
+  官方图确认头顶发髻加垂脸碎发、半耷拉的眼睛、深藏青色交领外套。
+  原卡里的「橄榄绿道袍式外套」和「下巴胡茬」官方图里没有，已改成深藏青色、胡子刮净。
+  仍待核对：家里是做什么生意的【待核对】，风后奇门的来历和他离开武当的原因【待核对】。
+  造型参考《火影有嘻哈》的做法：保留原作发色发型、眼睛和招牌物件，服装换成当代舞台装，不照搬该片任何人的脸。
+  面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。

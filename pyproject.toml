@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aigc-mv"
-version = "0.1.0"
-description = "AI music-video pipeline: canon knowledge layer + align/storyboard/preview workflow"
+version = "0.2.0"
+description = "Photoreal AI rap-battle / music-video pipeline: canon + beat/lyric timing + film-language storyboard + Seedance prompts + lip-sync measurement + graded conform"
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
@@ -15,11 +15,14 @@ dependencies = [
   "typer>=0.12",
   "pyyaml>=6.0",
   "pillow>=10.0",
+  "numpy>=1.24",
+  "soundfile>=0.12",
+  "imageio-ffmpeg>=0.5",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
-whisperx = []  # install whisperx separately when ready: pip install whisperx
+asr = ["faster-whisper>=1.0", "pypinyin>=0.50"]  # lyric alignment on the real vocal stem
 mcp = ["mcp>=1.0"]  # optional FastMCP server deps
 
 [project.scripts]

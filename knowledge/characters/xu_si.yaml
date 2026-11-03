@@ -1,0 +1,34 @@
+# 徐四 · 《一人之下》同人二创（腾讯动漫，米二）。主持人（痞气主持）。造型按《火影有嘻哈》的做法：原作发色、发型和
+# 招牌物件不变，服装换成当代舞台街头装；脸是原创的。
+id: xu_si
+display_name: 徐四 · 哪都通
+age: 36
+canon_refs:
+  - {site: bangumi, id: 42205, url: "https://bgm.tv/character/42205", note: 动画设定图全身，银白乱发、山羊胡、卡其夹克配白T、深色七分裤}
+canon_look_cn: 官方图：银白色短发蓬乱，往一边拨；下巴一撮山羊胡加淡胡茬；眼神懒散带痞气；敞穿卡其色夹克，领口两侧各有一道金色短条，里面白色宽领T恤；深棕灰色七分裤，棕色皮鞋；一只手插在裤兜里。没有戴墨镜。
+signature_cn: 银白色蓬乱短发 + 下巴山羊胡 + 卡其色夹克（领口金色短条）
+signature_en: messy silver-white short hair, a small chin goatee with stubble, a khaki jacket with two small gold bars on the collar
+identity: >-
+  a 36-year-old Chinese man, lanky with a slight hunch, a long bony face, a small chin goatee with light stubble, a
+  cocky lopsided smirk, messy silver-white short hair swept to one side, tired creased eyes, real skin with pores
+identity_short: a lanky Chinese man of 36 with messy silver-white hair, a chin goatee and a lopsided smirk
+identity_cn: 36 岁的中国男人，瘦长微弓背，长脸，颧骨突出；下巴一撮山羊胡加淡胡茬，嘴角歪着痞笑；银白色短发蓬乱、往一边拨；眼角有倦纹，皮肤有毛孔
+wardrobe_default: >-
+  a boxy khaki cotton work jacket worn open with two small gold bars on the collar points, a loose white scoop-neck
+  T-shirt, dark brown-grey cropped trousers, brown leather shoes, a thin silver chain, no lettering
+wardrobe_cn: 敞穿卡其色宽版工装夹克（领尖两道金色短条），白色宽领T恤，深棕灰七分裤，棕皮鞋，细银链；衣服上没有文字
+props_cn: 右手始终握着一支银色有线话筒，话筒线垂下来
+voice: raspy cocky male MC voice, loud and teasing
+forbidden:
+  - plastic skin
+  - cigarette
+  - sunglasses
+  - modern logos
+refs: []
+notes: >-
+  原作依据（官方资料）：Bangumi 角色页 https://bgm.tv/character/42205 ：「哪都通快递」的干部，性格粗暴、常讲粗口，
+  和冯宝宝关系不错，常教她没用的知识。官方图确认银白乱发、山羊胡、卡其夹克配白T；官方图里没有墨镜，原卡里的
+  「墨镜推在头顶」「黑发」「深灰西装黑衬衫」已去掉或按官方图改。节目里不出现香烟。
+  仍待核对：在哪都通的具体职位（华北大区负责人之一）【待核对】。
+  造型参考《火影有嘻哈》的做法：保留原作发色发型和招牌物件，服装换成当代舞台街头装，不照搬该片任何人的脸。
+  面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。

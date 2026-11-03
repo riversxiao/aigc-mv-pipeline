@@ -7,6 +7,15 @@ from typing import Any
 from pydantic import BaseModel, Field
 
 
+class CanonRef(BaseModel):
+    """Where the official art of a canon character lives (the image itself is never committed)."""
+
+    site: str = "bangumi"
+    id: int
+    url: str = Field(..., description="Character page, e.g. https://bgm.tv/character/61836")
+    note: str = ""
+
+
 class Character(BaseModel):
     """A reusable cast member with locked identity text for prompting."""
 
@@ -21,6 +30,26 @@ class Character(BaseModel):
     forbidden: list[str] = Field(default_factory=lambda: ["young child", "logos", "watermarks"])
     refs: list[str] = Field(default_factory=list, description="Paths or URLs to reference images.")
     notes: str = ""
+
+    # --- casting fields for photoreal battles / MVs (all optional, backward compatible) ---
+    identity_short: str = Field(
+        "", description="Short identity for wide shots (long text makes image models crop to the face)."
+    )
+    identity_cn: str = Field("", description="中文身份描述, pasted verbatim into Dreamina/Seedance prompts")
+    wardrobe_cn: str = Field("", description="中文服装描述 (材质、颜色、磨损)")
+    props_cn: str = Field(
+        "", description="Locked prop wording, e.g. 右手握一支银色有线话筒，左手拿白色鹤羽扇（圆形、短柄，绝不是折扇）"
+    )
+    age: int | None = Field(None, description="Explicit age; never write 'young' (models drift to teen faces)")
+    voice: str = Field("", description="Suno voice description")
+
+    # --- canon grounding (optional): official art reference + what must never drift ---
+    canon_refs: list[CanonRef] = Field(
+        default_factory=list, description="Official art sources; empty for original characters"
+    )
+    signature_cn: str = Field("", description="1-2 招牌原作特征，任何画面都不能丢，例如发色发型 + 标志物")
+    signature_en: str = Field("", description="English version of signature_cn")
+    canon_look_cn: str = Field("", description="官方图里看到的样子（平实描述），用于第一步「原作图 -> 真人」提示词")
 
 
 class LoreStory(BaseModel):

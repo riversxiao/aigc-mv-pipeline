@@ -1,0 +1,32 @@
+# 刘邦 · casting canon for photoreal battles. Paste identity text verbatim.
+id: liu_bang
+display_name: 刘邦 · 汉王
+age: 54
+identity: >-
+  a 54-year-old Chinese man of medium height with a slightly heavy middle-aged build, a long face with a
+  prominent high-bridged nose, a long tidy black beard and moustache streaked with grey, deep laugh lines and
+  crow's feet, narrow sly smiling eyes, slightly sagging cheeks, natural skin with visible pores and a few age
+  spots, wearing a tall flat-topped bamboo-bark hat tied under the chin
+identity_short: >-
+  a 54-year-old Chinese man with a long grey-streaked beard and a tall flat-topped bamboo-bark hat
+identity_cn: >-
+  54 岁的中国男人，中等个子，中年人略微发福的身材；长脸，鼻梁高而挺（隆准），留着整齐的长黑胡子，夹着几缕白；
+  笑纹和鱼尾纹很深，眯着一双精明带笑的眼睛，两颊有点松；皮肤毛孔清楚，有几颗老年斑；
+  头戴竹皮做的高顶平冠（刘氏冠），冠绳系在下巴
+wardrobe_default: >-
+  a plain dark green-black silk robe with wide sleeves and a dark red inner collar, a jade pendant hanging from a
+  worn cloth belt, slightly wrinkled fabric with no lettering
+wardrobe_cn: 一身素色墨绿近黑的宽袖丝袍，里面露出暗红色衣领，旧布腰带上挂一块玉佩，衣服有自然的褶皱，没有任何文字
+props_cn: 右手始终握着一支银色有线话筒，话筒线垂下来
+voice: sly middle-aged male rapper, relaxed raspy voice, laid-back mocking flow, chuckles between lines
+style_family: >-
+  photographed on 35mm motion picture film, practical firelight, fine grain, historical war film realism
+forbidden:
+  - young face
+  - idol makeup
+  - armour
+  - modern logos
+refs: []
+notes: >-
+  史记·高祖本纪：「隆准而龙颜，美须髯」；「以竹皮为冠，令求盗之薛治之，时时冠之，所谓刘氏冠乃是也」。
+  生年有前 256 年、前 247 年两说，按前说垓下之战时约五十四岁。面部原创，不要像任何演过刘邦的演员。

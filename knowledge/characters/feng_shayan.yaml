@@ -1,0 +1,35 @@
+# 风莎燕 · 《一人之下》同人二创（腾讯动漫，米二）。观众席客串。造型按《火影有嘻哈》的做法：原作发色、发型、眼睛和
+# 招牌物件不变，服装换成当代舞台装；上镜妆容，脸是原创的。
+id: feng_shayan
+display_name: 风莎燕 · 天下会
+age: 22
+canon_refs:
+  - {site: bangumi, id: 42213, url: "https://bgm.tv/character/42213", note: 动画截图，银白偏淡紫的层次短发、紫色眼睛、白色挂脖露背上衣}
+canon_look_cn: 官方图：银白偏淡紫色的层次短发，长度到下巴，发梢被风吹乱；淡紫色眼睛，眼尾上挑，笑得自信又挑衅；白色挂脖露背上衣，领口是一圈白色立领。身高 171cm。
+signature_cn: 银白偏淡紫的层次短发 + 淡紫色眼睛 + 白色挂脖上衣
+signature_en: silver-white short layered hair with a faint lilac tint, pale violet eyes, a white halter-neck top
+identity: >-
+  a 22-year-old Chinese woman, 171 cm and athletic, a heart-shaped face, sharp lively upturned eyes with pale violet
+  irises, a confident challenging smile and a slight tilt of the chin, silver-white chin-length layered hair with a
+  faint lilac tint and wind-tousled tips, light on-camera stage makeup with defined brows, real skin with fine pores
+identity_short: an athletic Chinese woman of 22 with silver-white short layered hair and pale violet eyes
+identity_cn: 22 岁的成年中国女人，身高 171 厘米，体格匀称有力，心形脸；眼尾上挑，淡紫色眼睛，笑得自信带点挑衅；银白偏淡紫的层次短发，长度到下巴；上镜淡妆，皮肤有毛孔
+wardrobe_default: >-
+  a white satin halter-neck top with a small stand collar and an open back, a cropped lilac-grey tailored jacket
+  worn over the shoulders, high-waisted white tailored wide trousers, white pointed ankle boots, small silver hoop
+  earrings, no lettering
+wardrobe_cn: 白色缎面挂脖露背上衣，肩披淡紫灰短西装，白色高腰阔腿裤，白色短靴，小银圈耳环；衣服上没有文字
+props_cn: 坐在观众席里，不拿话筒
+voice: bright confident female voice
+forbidden:
+  - teenager
+  - plastic skin
+  - modern logos
+refs: []
+notes: >-
+  原作依据（官方资料）：Bangumi 角色页 https://bgm.tv/character/42213 ：天下会会长风正豪的女儿、风星潼的姐姐，身高 171cm；
+  平时是大家闺秀、极听父亲的话，其实叛逆、火辣豪爽、做事冲动；能力是空间穿梭。龙虎山篇和弟弟风星潼一起参加罗天大醮，
+  所以罗天大醮时在场。官方图确认银白偏淡紫的短发、淡紫色眼睛、白色挂脖上衣；原卡里的「黑色齐耳短发」「黑皮夹克」已按官方图改。
+  坐在观众席里是本期设定。仍待核对：原作年龄【待核对】。
+  造型参考《火影有嘻哈》的做法：保留原作发色发型、眼睛和招牌物件，服装换成当代舞台装，不照搬该片任何人的脸。
+  面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。

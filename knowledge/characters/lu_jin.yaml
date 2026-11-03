@@ -1,0 +1,34 @@
+# 陆瑾 · 《一人之下》同人二创（腾讯动漫，米二）。评委，会哭的那位老评委（喜剧点）。造型按《火影有嘻哈》的做法：
+# 原作发色、发型和招牌物件不变，服装做得更挺括上镜；脸是原创的。
+id: lu_jin
+display_name: 陆瑾 · 陆家
+age: 88
+canon_refs:
+  - {site: bangumi, id: 103755, url: "https://bgm.tv/character/103755", note: 官方角色卡，披肩白长发、白胡子、黑西装白衬衫}
+canon_look_cn: 官方图：白色长发从中间分开、直直披到肩膀以下；浓白眉，白色八字胡连着下巴上一撮白胡子；表情严肃，眉头紧锁；穿黑色西装外套和白衬衫，正在整理领口。身高 187cm。
+signature_cn: 披到肩下的白色长发 + 白色八字胡和下巴白胡子 + 黑西装白衬衫
+signature_en: long straight white hair past the shoulders, a white moustache joined to a white chin beard, a black suit with a white shirt
+identity: >-
+  a Chinese man who looks about 88, tall at 187 cm and straight-backed, a long stern face with a knitted brow, thick
+  white eyebrows, long straight white hair parted in the middle and falling past the shoulders, a white moustache
+  joined to a pointed white chin beard, watery eyes that tear up easily, weathered skin with deep wrinkles and age spots
+identity_short: a tall stern Chinese man of about 88 with long straight white hair and a white chin beard
+identity_cn: 看上去约 88 岁的中国老人，身高 187 厘米，背挺得笔直，长脸，眉头紧锁；浓白眉；白色长直发中分、披到肩下；白八字胡连着下巴尖白胡子；眼眶容易泛红；皮肤有深皱纹和老年斑
+wardrobe_default: >-
+  a sharply tailored black suit with a long jacket, a crisp white shirt buttoned to the collar with no tie, a black
+  silk pocket square, black leather shoes, no lettering
+wardrobe_cn: 剪裁利落的黑色长款西装，白衬衫扣到领口、不打领带，黑皮鞋；衣服上没有文字
+props_cn: 坐着，手里攥着一块白手帕，不拿话筒
+voice: firm old male voice, cracks when moved
+forbidden:
+  - young face
+  - plastic skin
+  - modern logos
+refs: []
+notes: >-
+  原作依据（官方资料）：Bangumi 角色页 https://bgm.tv/character/103755 ：异人十佬之一，号称「一生无暇」，为人豪爽，
+  与老天师感情甚笃；身高 187cm。官方图确认披肩白长发、白胡子、黑西装白衬衫；原卡里的「白发往后梳」「立领长衫」已按官方图改。
+  本期让他当爱哭的评委，是喜剧设定，不是原作。
+  仍待核对：师承三一门【待核对】，原作年龄【待核对】。
+  造型参考《火影有嘻哈》的做法：保留原作发色发型和招牌物件，服装做得更挺括上镜，不照搬该片任何人的脸。
+  面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。
