@@ -137,8 +137,11 @@ def step2_items(ep_dir: Path, ep: Episode, keys: list[str], views: list[str]) ->
             if v == "full":
                 extra = (" The whole body from the top of the head to the soles of the shoes is in frame; both hands "
                          "have five natural fingers; both feet and shoes are complete.")
-            if v == "half":
-                extra = " The microphone hand has five natural fingers."
+                if "microphone" not in text:
+                    extra += " No microphone, empty hands."
+            if v == "half":  # only people the plan gives a mic (rapper/host/dj/hook) hold one
+                extra = (" The microphone hand has five natural fingers." if "microphone" in text else
+                         " Both hands have five natural fingers. No microphone, empty hands.")
             prompt = ("The first input image is the locked costume-test front portrait of this person. Keep exactly "
                       "the same face and identity, hairstyle, hair colour, outfit and adult proportions; only the "
                       "camera view and pose change. " + text + "." + extra + " " + age_rule(card_age(e["en"])) + " "

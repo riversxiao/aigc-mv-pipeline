@@ -101,6 +101,12 @@ def _plan(tmp: Path) -> Path:
         {"cast": "o", "step": 2, "kind": "full", "file": "o_full.png", "mj_params": "--oref <x> --ow 100 --ar 2:3",
          "en": "full body, the same person as the omni reference, a 28-year-old Chinese man --oref <x> --ar 2:3 --no cgi",
          "uploads": [{"file": "o_face.png"}]},
+        {"cast": "o", "step": 2, "kind": "half", "file": "o_half.png", "mj_params": "--ar 3:4",
+         "en": "waist-up shot in the full stage wardrobe, the same person as the omni reference --ar 3:4",
+         "uploads": [{"file": "o_face.png"}]},
+        {"cast": "j", "step": 2, "kind": "half", "file": "j_half.png", "mj_params": "--ar 3:4",
+         "en": "waist-up shot, holding a silver corded microphone below the mouth, the same person as the omni "
+               "reference --ar 3:4", "uploads": [{"file": "j_face.png"}]},
     ]
     (refs / "refs_plan.json").write_text(json.dumps(plan, ensure_ascii=False), encoding="utf-8")
     return refs
@@ -133,6 +139,13 @@ def test_items_from_plan(tmp_path):
     full = rb.step2_items(tmp_path, _Ep(), ["o"], ["full"])[0]
     assert full.aspect == "2:3" and full.refs == [refs / "o_face.png"]
     assert "omni" not in full.prompt and "first input image" in full.prompt and "--" not in full.prompt
+
+    # the half view only mentions a mic hand when the plan gives that person a mic
+    half = rb.step2_items(tmp_path, _Ep(), ["o"], ["half"])[0]
+    assert "microphone hand" not in half.prompt and "Both hands have five natural fingers" in half.prompt
+    Image.new("RGB", (8, 8)).save(refs / "j_face.png")
+    mic = rb.step2_items(tmp_path, _Ep(), ["j"], ["half"])[0]
+    assert "The microphone hand has five natural fingers" in mic.prompt and "No microphone" not in mic.prompt
 
 
 def test_lock_rules(tmp_path):
