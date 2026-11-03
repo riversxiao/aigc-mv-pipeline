@@ -291,3 +291,75 @@ def test_show_previz_render_excerpt(tmp_path):
     assert any(x["source"] == "previz" for x in edl["entries"])
     probe = subprocess.run([ffmpeg_exe(), "-i", str(out)], capture_output=True, text=True).stderr
     assert "Audio:" in probe
+
+
+# --------------------------------------------------------------------------- the demo episode (罗天大醮有嘻哈 第一期)
+
+DEMO = Path(__file__).resolve().parents[1] / "projects" / "wangye_vs_zhugeqing"
+KNOWLEDGE = Path(__file__).resolve().parents[1] / "knowledge" / "characters"
+
+
+@pytest.fixture(scope="module")
+def demo(tmp_path_factory):
+    import shutil
+
+    d = tmp_path_factory.mktemp("demo") / "ep"
+    d.mkdir()
+    shutil.copy(DEMO / "episode.yaml", d / "episode.yaml")
+    e = load_episode(d)
+    t = analyze(d, e, mode="grid", bpm=e.bpm_hint)
+    return e, t, plan(e, t)
+
+
+def test_demo_cast_and_cards():
+    from aigc_mv.schemas import Character
+
+    e = load_episode(DEMO)
+    assert e.format == "show" and e.realism == "idol_show" and e.look == "luotian_show"
+    assert "AI生成" in e.disclaimer and "仅供娱乐" in e.disclaimer and "同人二创" in e.disclaimer
+    assert len(e.cast) == 15
+    assert [e.cast[k].character for k in e.rappers()] == ["zhuge_qing", "wang_ye"]
+    for k, c in e.cast.items():
+        p = KNOWLEDGE / f"{c.character}.yaml"
+        assert p.is_file(), p
+        card = Character.model_validate(yaml.safe_load(p.read_text(encoding="utf-8")))
+        assert card.age and card.age >= 20, (k, card.age)
+        assert card.identity_cn and str(card.age) in card.identity_cn
+        assert "面部原创" in card.notes and "《异人之下》" in card.notes
+        text = " ".join([card.identity, card.identity_short, card.identity_cn, card.wardrobe_cn, card.props_cn])
+        assert not cinema.banned_hits(text), (k, cinema.banned_hits(text))
+        assert not cinema.banned_hits(c.listen_cn), k
+
+
+def test_demo_board(demo):
+    e, t, b = demo
+    assert 200 <= t.duration <= 240
+    res = audit(e, b, t)
+    assert res.ok, res.errors
+    assert 3.0 <= res.stats["mean_shot_s"] <= 3.8
+    assert sum(1 for s in b.shots if s.staging == "blackout_spot") == 1
+    for ln in t.lines:  # every mention gets a reaction
+        v = e.verses[ln.verse]
+        for m in e.mentions_of(v, v.lines[ln.line]):
+            assert any(s.kind == "react" and m in s.who and s.t0 < ln.t1 and s.t1 > ln.t0 for s in b.shots), ln.text
+    on_screen = {w for s in b.shots for w in s.who}
+    for k in e.members("judge", "cameo", "host", "dj", "hook"):
+        assert k in on_screen, k
+    # the loser sings first and shorter, the winner second and longer
+    verses = [sec for sec, v in zip(t.sections, e.verses) if v.kind == "verse"]
+    whos = [v.who for v in e.verses if v.kind == "verse"]
+    assert whos == ["a", "b"]
+    la, lb = (s.t1 - s.t0 for s in verses)
+    assert lb > 1.3 * la
+
+
+def test_demo_prompts_are_clean(demo):
+    from aigc_mv.prompts import characters, refs_plan, video_prompt
+
+    e, t, b = demo
+    chars = characters(e)
+    for u in b.units:
+        text = video_prompt(e, b, t, u, chars).text
+        assert not cinema.banned_hits(text), (u.id, cinema.banned_hits(text))
+    for x in refs_plan(e, b, chars):
+        assert not cinema.banned_hits(x["cn"] + " " + x["en"]), x["file"]

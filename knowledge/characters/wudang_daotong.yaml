@@ -1,0 +1,27 @@
+# 武当师弟 · 原创无名角色（不是原作人物），王也的队友。卡片 id 沿用规划里的 wudang_daotong；
+# 节目里叫「武当师弟」而不叫「道童」，因为「童」字会让生成模型把人做小。他是 20 岁的成年人。
+id: wudang_daotong
+display_name: 武当师弟（原创）
+age: 20
+identity: >-
+  a 20-year-old adult Chinese man, tall and thin with long arms, a long narrow face, earnest round dark eyes, thick
+  eyebrows, black hair tied in a small Taoist topknot with a plain wooden pin, real skin with fine pores and a little
+  sunburn on the cheeks
+identity_short: a tall thin adult Chinese man of 20 with a small Taoist topknot and earnest eyes
+identity_cn: 20 岁的成年中国男人，又高又瘦，长窄脸，圆眼睛很认真，浓眉；黑发在头顶束成小道髻，插素木簪；皮肤有毛孔，脸颊晒红
+wardrobe_default: >-
+  a plain grey-blue Taoist robe with a white collar, white leggings and black cloth shoes, worn cotton, no lettering
+wardrobe_cn: 灰蓝色素道袍配白领，白绑腿，黑布鞋，衣服上没有文字
+props_cn: 双手垂在身侧，不拿话筒
+voice: earnest male voice, polite
+forbidden:
+  - teenager
+  - child
+  - boyish face
+  - plastic skin
+  - modern logos
+refs: []
+notes: >-
+  原作依据：无，这是为了凑齐王也身后两个队友而原创的武当门下师弟，没有名字，不对应原作任何人物。
+  需要核对：武当道袍的颜色【待核对】。
+  面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。

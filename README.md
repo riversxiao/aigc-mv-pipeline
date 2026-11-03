@@ -77,6 +77,25 @@ verses:
         framing: CU                              # 可选：强制景别
 ```
 
+## 综艺节目格式（show）
+
+`format: show` 是照《火影有嘻哈03》逐镜头拆解（[docs/参考片拆解_火影有嘻哈03.md](docs/参考片拆解_火影有嘻哈03.md)）做的一档「说唱综艺」模板：一期 3 到 4 分钟，约 15 人（两位选手各带两个队友、三位评委、主持和 DJ、两位副歌歌手、观众席客串），段落依次是冷开场、主持开场、分屏入场、对峙、副歌、A 段、间奏、B 段、灭灯停顿揭晓、副歌回归、互动结尾。分镜器（`show.py`）一个镜头装一到两句（平均约 3 秒），运镜以固定和慢推为主，歌词点到谁就切谁的反应，灭灯只用一次。`realism: idol_show` 是「好看但像节目」的写实要求：上镜耐看的成年演员、真实皮肤不磨皮、原创面孔。
+
+示例：`projects/wangye_vs_zhugeqing`，《罗天大醮有嘻哈 第一期：诸葛青 VS 王也》（《一人之下》同人二创）。
+
+```bash
+E=projects/wangye_vs_zhugeqing
+aigc-mv ep analyze $E --bpm 92     # 还没有歌：合成节拍网格（约 3:40）
+aigc-mv ep board $E                # 分镜 + 审核（audit: PASS）
+aigc-mv ep refs $E                 # 15 张定妆图 + 场馆 / 评委席 / DJ台 / 观众的提示词
+aigc-mv ep prompts $E              # 每个生成单元的即梦提示词
+aigc-mv ep suno $E                 # 多声部 Suno 栏（分段 Extend，主持念白）
+aigc-mv ep previz $E               # 占位画面联系表
+aigc-mv ep render $E --res 480p    # 全长预演动画：占位画面 + 合成节拍 + 字幕包装
+```
+
+示例产出：[演员表](docs/examples/王也vs诸葛青_演员表.md) · [歌词初稿和待核对清单](docs/examples/王也vs诸葛青_歌词初稿.md) · [分镜表](docs/examples/王也vs诸葛青_分镜表.md) · [定妆图提示词](docs/examples/王也vs诸葛青_定妆图.md) · [Suno 栏](docs/examples/王也vs诸葛青_suno.md) · [对口型提示词](docs/examples/王也vs诸葛青_对口型提示词.txt) · [评委反应提示词](docs/examples/王也vs诸葛青_评委反应提示词.txt) · [灭灯揭晓提示词](docs/examples/王也vs诸葛青_灭灯揭晓提示词.txt) · [开场全景提示词](docs/examples/王也vs诸葛青_开场全景提示词.txt) · [主持提示词](docs/examples/王也vs诸葛青_主持提示词.txt)
+
 ## 模块
 
 | 模块 | 作用 |

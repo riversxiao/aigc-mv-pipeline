@@ -1,0 +1,361 @@
+# 《罗天大醮有嘻哈 第一期：诸葛青 VS 王也》 · 《一人之下》同人二创（腾讯动漫，作者米二）
+# 结构照搬 docs/参考片拆解_火影有嘻哈03.md 第 1 节：冷开场、主持开场、分屏入场、对峙、副歌、A 段（输家先唱、更短）、
+# 间奏、B 段（赢家后唱、更长）、灭灯停顿揭晓、副歌回归、互动结尾。歌词原创。
+# 原作里王也在罗天大醮赢了诸葛青，所以诸葛青先唱、唱得短，王也后唱、唱得长。
+# 每句 note 写原作依据；凭记忆写的地方标【待核对】。show_notes: false，注释不烧进画面。
+title: 诸葛青vs王也
+format: show
+grammar: show
+realism: idol_show
+look: luotian_show
+show_name: 罗天大醮有嘻哈
+episode_no: 第一期
+logo_bug: 罗天大醮有嘻哈
+show_notes: false
+subtitle_style: broadcast
+disclaimer: AI生成  仅供娱乐  ·  一人之下同人二创
+bpm_hint: 92
+intro_bars: 0
+outro_bars: 1
+
+cast:
+  a:
+    character: zhuge_qing
+    name_cn: 诸葛青
+    name_en: Zhuge Qing
+    aka: 武侯派
+    role: rapper
+    side: left
+    title_cn: 武侯派 · 诸葛家
+    listen_cn: 眯着眼笑，脑袋轻轻歪着，手指在话筒上一下一下敲拍子
+  b:
+    character: wang_ye
+    name_cn: 王也
+    name_en: Wang Ye
+    aka: 王道长
+    role: rapper
+    side: right
+    title_cn: 武当派
+    listen_cn: 半耷拉着眼皮听，打了个小哈欠，嘴角却慢慢挑起来
+  zhuge_bai:
+    character: zhuge_bai
+    name_cn: 诸葛白
+    role: teammate
+    team: a
+    side: left
+    listen_cn: 站在诸葛青身后，一脸崇拜，跟着节奏用力点头
+  menren:
+    character: zhuge_menren
+    name_cn: 诸葛家门人
+    role: teammate
+    team: a
+    side: left
+    listen_cn: 双手背在身后站得很稳，冲对面抬了抬下巴
+  chulan:
+    character: zhang_chulan
+    name_cn: 张楚岚
+    nicknames: [楚岚]
+    role: teammate
+    team: b
+    side: right
+    listen_cn: 站在王也身后憋着坏笑，冲对面挤眉弄眼
+  daotong:
+    character: wudang_daotong
+    name_cn: 武当师弟
+    role: teammate
+    team: b
+    side: right
+    listen_cn: 站在王也身后，站得笔直，一脸认真地跟着点头
+  tianshi:
+    character: zhang_zhiwei
+    name_cn: 张之维
+    aka: 老天师
+    nicknames: [天师]
+    role: judge
+    side: center
+    position_cn: 评委席中间的王座
+    title_cn: 龙虎山天师府 · 主评
+    listen_cn: 坐在王座上捋着白胡子，眯眼笑着点了一下头
+  lu_jin:
+    character: lu_jin
+    name_cn: 陆瑾
+    nicknames: [陆老]
+    role: judge
+    side: center
+    position_cn: 评委席左边的王座
+    title_cn: 陆家 · 评委
+    listen_cn: 坐在王座上眼眶一下红了，拿白手帕擦眼泪，又板起脸装没事
+  feng_zhenghao:
+    character: feng_zhenghao
+    name_cn: 风正豪
+    nicknames: [风会长]
+    role: judge
+    side: center
+    position_cn: 评委席右边的王座
+    title_cn: 天下会会长 · 评委
+    listen_cn: 坐在王座上十指交叉，眉毛一挑，嘴角绷住不笑
+  xu_si:
+    character: xu_si
+    name_cn: 徐四
+    role: host
+    side: center
+    position_cn: DJ台前面
+    title_cn: 哪都通 · 主持人
+    listen_cn: 靠在DJ台边上叼着笑，跟着节奏晃脑袋
+  xu_san:
+    character: xu_san
+    name_cn: 徐三
+    role: dj
+    side: center
+    position_cn: DJ台后面
+    title_cn: 哪都通 · DJ
+    listen_cn: 戴着一边耳机，面无表情地跟着节奏点头
+  baobao:
+    character: feng_baobao
+    name_cn: 冯宝宝
+    nicknames: [宝儿姐]
+    role: hook
+    side: center
+    position_cn: 舞台后方的立麦前
+    title_cn: 哪都通 · 副歌
+    listen_cn: 站在立麦前面无表情地看着台上，眨了一下眼
+  lingyu:
+    character: zhang_lingyu
+    name_cn: 张灵玉
+    nicknames: [灵玉]
+    role: hook
+    side: center
+    position_cn: 舞台后方的另一支立麦前
+    title_cn: 龙虎山天师府 · 副歌
+    listen_cn: 站在立麦前背挺得笔直，表情严肃，耳朵有点红
+  shayan:
+    character: feng_shayan
+    name_cn: 风莎燕
+    nicknames: [莎燕]
+    role: cameo
+    side: center
+    position_cn: 观众席第二排
+    title_cn: 天下会 · 特邀观众
+    listen_cn: 坐在观众席里翻了个白眼，又忍不住笑出来，赶紧捂住嘴
+  zhanglao:
+    character: zhuge_zhanglao
+    name_cn: 诸葛家长辈
+    nicknames: [诸葛家]
+    role: cameo
+    side: center
+    position_cn: 观众席第一排正中
+    title_cn: 诸葛家 · 特邀观众
+    listen_cn: 坐在观众席里双手拄着手杖，嘴唇抿紧，下巴微微抬起，眼神里全是期望
+
+venue:
+  cn: 罗天大醮的擂台改成的电视台说唱综艺场馆，夜晚：黑色方形擂台，地面是巨大的太极八卦图案（没有文字），背后红色 LED 大屏和一圈红色灯带，观众席层层叠叠，后方开口里隐约是夜色中龙虎山的山影
+  en: >-
+    a TV rap variety show arena rebuilt from the Luotian tournament ring at night: a black square stage, a giant
+    taiji-bagua floor graphic with no lettering, a full red LED wall and red light strips, tiered seats packed with
+    people, the dark silhouette of Longhu Mountain at night through an opening at the back
+crowd_cn: 看台上层层叠叠坐满了观众，挥着红色荧光棒
+end_question: 下一期|你想看谁和谁？
+
+verses:
+  - kind: cold_open
+    bars: 2
+    shot_cn: 场馆高位全景，黑色擂台上的太极八卦图案一圈圈亮起来，红色灯带依次点亮，远处是夜里的龙虎山
+
+  - kind: host
+    who: xu_si
+    lines:
+      - {text: 欢迎收看 罗天大醮有嘻哈, spoken: true, note: 节目名和期数另有片头字幕}
+      - {text: 今晚 奇门对奇门, who: xu_san, spoken: true}
+      - {text: 年轻一辈第一人 到底是谁, spoken: true}
+
+  - kind: entrance
+    who: xu_si
+    bars: 3
+    lines:
+      - {text: 左边 武侯派 诸葛青, spoken: true}
+      - {text: 右边 武当山 王也, spoken: true}
+
+  - kind: faceoff
+    who: xu_si
+    bars: 3
+    lines:
+      - {text: 请两位 站到对方面前, spoken: true}
+      - {text: 这一场 我赌你们记一辈子, spoken: true}
+
+  - kind: hook
+    who: baobao
+    lines:
+      - {text: 啦啦啦啦 谁是年轻一辈第一, beats: 6, note: 冯宝宝面无表情地唱旋律副歌，第三种声音}
+      - {text: 啦啦啦啦 奇门对上奇门, beats: 6, note: 诸葛青是武侯奇门，王也是风后奇门【待核对】}
+      - {text: 你算我 我躲你 今晚见个高低, beats: 4}
+
+  # A 段 · 诸葛青（先唱、更短，约 55 秒）。一直押 ing / in / eng 韵：定、命、行、明、心、清、影、名、睛、赢、腥、青、醒
+  - kind: verse
+    who: a
+    lines:
+      - text: 王也 你听好 今晚这一局 由我来定
+        note: 诸葛青擅长算计和布局（武侯奇门）
+      - text: 武侯后人四个字 是刻在我骨头里的命
+        note: 诸葛家自称武侯（诸葛亮）后人，家族骄傲
+      - text: 你一个北京公子哥 跑去武当山修行
+        note: 王也是北京有钱人家的孩子，后来上了武当山【待核对：家里做什么生意】
+      - text: 修的是哪门道 修的是一觉睡到天明
+        punch: true
+        note: 王也懒散、爱睡、怕麻烦的形象
+      - text: 醒醒！
+        punch: false
+        note: 两个字的短喊，和下一句合在一个镜头里
+      - text: 我算天 算地 算人心
+        note: 诸葛家精于推算，奇门推演
+      - text: 你那点风后奇门 我闭着眼都能看得清
+        note: 诸葛青平时总眯着眼；风后奇门是八奇技之一，王也身负此术【待核对：来历】
+      - text: 不用睁眼！
+        punch: true
+        note: 原作里诸葛青认真起来才睁眼
+      - text: 我一睁眼 你连退路都没影
+        punch: false
+        note: 同上，睁眼等于动真格
+      - text: 你去问问风会长 天下会的钱 今晚押的是谁的名
+        beats: 8
+        punch: false
+        note: 风正豪是天下会会长，财力雄厚；押注是本期玩笑，不是原作情节
+      - text: 莎燕妹妹 你别看他 他没睡醒 你看我的眼睛
+        beats: 8
+        punch: false
+        note: 诸葛青爱撩的人设【待核对】；风莎燕是风正豪的女儿；笑点是他的眼睛根本没睁开
+      - text: 你在武当山学的是躺 我在诸葛家学的是怎么赢
+        beats: 8
+        punch: false
+        note: 诸葛家对诸葛青寄予厚望【待核对】
+      - text: 八奇技落在你手里 只会招来一身腥
+        note: 原作里八奇技的传人都被各方盯上，麻烦不断
+      - text: 罗天大醮的第一 写的是我诸葛青
+        punch: true
+        note: 原作罗天大醮是龙虎山主办的大会【待核对：奖励是不是「天师度」】
+      - text: 你回去接着睡吧 王道长 晚安 千万别醒
+        punch: true
+        note: 收在 ing 韵上，呼应「睡到天明」；王也常被叫「王道长」【待核对】
+
+  - kind: interlude
+    who: baobao
+    bars: 3
+    lines:
+      - {text: 哒哒哒 嘟嘟嘟, beats: 6, note: 冯宝宝拟声当间奏}
+      - {text: 咚咚次 咚咚次, who: xu_san, beats: 6, note: 徐三在DJ台搓碟打拍子}
+
+  # B 段 · 王也（后唱、更长，约 86 秒，赢家）。整段押 ang 韵：场、膀、慌、装、想、方、向、黄、响、王、阳、上、扛、八方、藏
+  # 大量引用诸葛青的原话（你说……）再反驳；情绪核心：王也根本不想赢，诸葛青背着家族的名字。
+  - kind: verse
+    who: b
+    lines:
+      - text: 得嘞 该我了
+        punch: false
+        note: 王也的北京腔，懒洋洋地开口
+      - text: 你说今晚这一局 由你来定
+        punch: false
+        note: 引用诸葛青第一句原话
+      - text: 可这台子是老天师搭的 罗天大醮 不是你家开的场
+        beats: 8
+        punch: false
+        note: 罗天大醮在龙虎山办，老天师坐镇
+      - text: 你说武侯后人 是刻在你骨头里的命
+        punch: false
+        note: 引用诸葛青原话
+      - text: 我看是那四个字 压弯了你的肩膀
+        punch: true
+        note: 情绪核心：诸葛青背着家族的名字
+      - text: 诸葛家的长辈都在台下看着你 你一步都不敢慌
+        beats: 8
+        punch: false
+        note: 诸葛家对他的期望【待核对】
+      - text: 你说我公子哥
+        punch: false
+        note: 引用诸葛青原话
+      - text: 对 我家是有钱 可我从来不装
+        punch: true
+        note: 王也家境富裕【待核对：具体家世】
+      - text: 你说我修的道 就是一觉睡到天明
+        punch: false
+        note: 引用诸葛青原话
+      - text: 对 睡着也能赢 这叫道法自然 你慢慢想
+        punch: false
+        note: 道家「道法自然」；王也的逍遥
+      - text: 你说你闭着眼 都看得清我的奇门
+        punch: false
+        note: 引用诸葛青「闭着眼都能看得清」
+      - text: 那你睁眼看看 你这一局 漏了几个方
+        punch: true
+        note: 风后奇门能在一定范围内改写局面【待核对：原作术语「四盘」】
+      - text: 等你起卦 等你布阵 等你回头 我早就不在那个方向
+        beats: 8
+        punch: false
+        note: 用「等你」排比反打回去
+      - text: 你冲人家闺女抛媚眼 眼睛都没睁开 风会长脸色先变黄
+        beats: 8
+        punch: false
+        note: 回应诸葛青撩风莎燕那句；风正豪是她父亲
+      - text: 楚岚在我身后都笑出了声 说你这张嘴比奇门还响
+        beats: 8
+        punch: false
+        note: 张楚岚和王也在罗天大醮时交好【待核对】；他站在王也身后是本期设定
+      - text: 你说八奇技 只会招来一身腥
+        punch: false
+        note: 引用诸葛青原话
+      - text: 没错 所以我从没想过拿它去争什么王
+        punch: true
+        note: 王也不想争，也不想被八奇技卷进麻烦【待核对：他离开武当的原因】
+      - text: 我不想赢
+        punch: false
+        note: 情绪核心：王也根本不想赢
+      - text: 我只想回山上 晒晒太阳
+        punch: false
+        note: 武当山
+      - text: 可你一上台 就把一家人的名字扛在肩上
+        punch: false
+        note: 情绪核心：尊重藏在嘴炮下面
+      - text: 陆老在评委席上都看哭了 你还硬撑着往前扛
+        beats: 8
+        punch: false
+        note: 陆瑾爱才、重情（爱哭是本期喜剧设定）
+      - text: 你算得清天 算得清地 算得清八方
+        punch: false
+        note: 排比，引用诸葛青「我算天 算地 算人心」
+      - text: 可你最该算的那一卦 一直被你藏
+        punch: true
+        note: 铺垫下面的灭灯揭晓
+
+  # 高潮停顿：灭灯，只剩一束追光；第三句前停 4 拍，轻声揭晓。
+  - kind: reveal
+    who: b
+    bars: 5
+    shot_cn: 诸葛青站在追光边缘愣住，脸上的笑一点点收住，眼睛依旧眯着，嘴闭着
+    lines:
+      - text: 论算计 我不跟你争
+        note: 灭灯，只剩一束追光
+      - text: 因为你算尽了天下 唯一没算到的那一卦 叫做
+        beats: 6
+        note: 停顿揭晓的句式（句子原创）
+      - text: 你自己
+        pause_beats: 4
+        beats: 2
+        punch: true
+        note: 「医不自医，卜不自卜」的说法；原作里诸葛青推算王也时吃过亏【待核对】
+
+  - kind: hook
+    who: baobao
+    lines:
+      - {text: 天下第一 到底谁说了算, beats: 4, note: 冯宝宝和张灵玉对唱，冯宝宝起头}
+      - {text: 你们说了算, who: lingyu, beats: 4, note: 张灵玉接唱（画面切选手听的反应）}
+      - {text: 台下的你们 说了算, who: lingyu, beats: 4, note: 张灵玉在立麦前出镜}
+
+  - kind: outro
+    who: b
+    bars: 3
+    lines:
+      - {text: 你们站哪边, spoken: true, note: 选手把话筒伸向观众}
+      - {text: 诸葛青 王也, who: xu_si, spoken: true}
+      - {text: 把声音给我, who: xu_si, spoken: true}
+
+budget:
+  cap_usd: 120
+  price_per_sec_usd: 0.23

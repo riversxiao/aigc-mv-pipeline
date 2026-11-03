@@ -1,0 +1,25 @@
+# 诸葛白 · 《一人之下》同人二创（腾讯动漫，米二）。诸葛青的队友。
+id: zhuge_bai
+display_name: 诸葛白 · 诸葛家
+age: 20
+identity: >-
+  a 20-year-old Chinese man, of average height and lean, a round face with full cheeks, wide-open bright eager
+  eyes, short neat black hair with a straight fringe, real skin with fine pores and a few faint freckles on the nose
+identity_short: a lean Chinese man of 20 with a round face, eager wide-open eyes and a short straight fringe
+identity_cn: 20 岁的成年中国男人，中等个子偏瘦，圆脸，眼睛睁得很大、亮而急切，黑色短发齐刘海；皮肤有毛孔，鼻梁上几颗淡雀斑
+wardrobe_default: >-
+  an off-white mandarin-collar jacket with cloth knot buttons, the same family style as Zhuge Qing, dark trousers,
+  plain fabric with no lettering
+wardrobe_cn: 米白色立领盘扣短外套，深色裤子，衣服上没有文字
+props_cn: 双手抱在胸前，不拿话筒
+voice: eager male voice, bright and a little loud
+forbidden:
+  - teenager
+  - child
+  - plastic skin
+  - modern logos
+refs: []
+notes: >-
+  原作依据：诸葛家的年轻一辈，崇拜诸葛青。凭记忆、需要核对的细节：和诸葛青是堂兄弟还是亲兄弟【待核对】，
+  他在罗天大醮上的对手和战绩【待核对】，原作发型【待核对】。年龄写成 20 岁是为了保证成年，原作年龄【待核对】。
+  面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。

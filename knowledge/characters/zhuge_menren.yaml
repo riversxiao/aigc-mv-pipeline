@@ -1,0 +1,23 @@
+# 诸葛家门人 · 原创无名角色（不是原作人物），诸葛青的队友。
+id: zhuge_menren
+display_name: 诸葛家门人（原创）
+age: 28
+identity: >-
+  a 28-year-old Chinese man, broad and solid, a square face with a heavy brow, small calm eyes, a neatly trimmed
+  short beard, black hair shaved short on the sides, real skin with visible pores and a small scar on the chin
+identity_short: a solid Chinese man of 28 with a short trimmed beard and hair shaved short on the sides
+identity_cn: 28 岁的中国男人，身板宽厚，方脸，眉骨重，小眼睛沉稳，整齐的短胡子，两侧剃短的黑发；皮肤毛孔清楚，下巴一道小疤
+wardrobe_default: >-
+  a dark grey mandarin-collar jacket with cloth knot buttons, black trousers, plain fabric with no lettering
+wardrobe_cn: 深灰色立领盘扣外套，黑裤子，衣服上没有文字
+props_cn: 双手背在身后，不拿话筒
+voice: low steady male voice, few words
+forbidden:
+  - teenager
+  - plastic skin
+  - modern logos
+refs: []
+notes: >-
+  原作依据：无，这是为了凑齐「每位选手身后两个队友」而原创的诸葛家门人，没有名字，不对应原作任何人物。
+  需要核对：原作里诸葛家在罗天大醮是否有门人随行【待核对】。
+  面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。
