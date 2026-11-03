@@ -109,7 +109,8 @@ class SpendGate:
         for line in self.ledger.read_text(encoding="utf-8").splitlines():
             if line.strip():
                 rec = json.loads(line)
-                total += float(rec.get("real_usd") or rec.get("est_usd") or 0)
+                real = rec.get("real_usd")
+                total += float(real if real is not None else rec.get("est_usd") or 0)
         return total
 
     def approved(self) -> dict:
@@ -132,10 +133,41 @@ class SpendGate:
             raise SpendRefused(f"cap ${self.budget.cap_usd:.2f} would be exceeded (spent ${self.spent():.2f} + ${est:.2f})")
         return est
 
+    def entries(self, tag: str | None = None) -> list[dict]:
+        if not self.ledger.is_file():
+            return []
+        recs = [json.loads(ln) for ln in self.ledger.read_text(encoding="utf-8").splitlines() if ln.strip()]
+        return [r for r in recs if tag is None or r.get("tag") == tag]
+
+    def tag_totals(self, tag: str) -> tuple[float, int]:
+        """(USD spent, images made) for one tagged run series, counted from the ledger."""
+        usd, n = 0.0, 0
+        for r in self.entries(tag):
+            usd += float(r.get("real_usd") if r.get("real_usd") is not None else r.get("est_usd") or 0)
+            if r.get("status") == "done":
+                n += int(r.get("units") or 0)
+        return usd, n
+
+    def check_image(self, est_usd: float, cap_usd: float, max_images: int, spent_usd: float, images: int) -> float:
+        """Refuse the next image call if frozen, the image count is reached, or spend + estimate would pass a cap."""
+        if self.budget.frozen:
+            raise SpendRefused("budget.frozen is true")
+        if images >= max_images:
+            raise SpendRefused(f"image limit reached ({images}/{max_images})")
+        if spent_usd + est_usd > cap_usd:
+            raise SpendRefused(f"run cap ${cap_usd:.2f} would be exceeded (spent ${spent_usd:.4f} + est ${est_usd:.2f})")
+        if self.spent() + est_usd > self.budget.cap_usd:
+            raise SpendRefused(f"episode cap ${self.budget.cap_usd:.2f} would be exceeded")
+        return est_usd
+
     def record(self, provider: str, model: str, kind: str, units: float, est_usd: float, job: Job,
-               real_usd: float | None = None) -> None:
+               real_usd: float | None = None, tag: str | None = None, note: str | None = None) -> None:
         rec = {"ts": time.strftime("%Y-%m-%dT%H:%M:%S"), "provider": provider, "model": model, "kind": kind,
                "units": units, "est_usd": round(est_usd, 4), "real_usd": real_usd, "request_id": job.id,
                "status": job.status}
+        if tag:
+            rec["tag"] = tag
+        if note:
+            rec["note"] = note[:300]
         with self.ledger.open("a", encoding="utf-8") as f:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")

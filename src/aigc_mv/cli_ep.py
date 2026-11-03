@@ -166,6 +166,36 @@ def sheets_cmd(
     typer.echo(f"{len(res.written)} sheets written, {len(res.missing)} people still missing views")
 
 
+@app.command("facetest")
+def facetest_cmd(
+    ep_dir: Path,
+    keys: str = typer.Option("a,b", "--keys", help="Comma-separated cast keys"),
+    n: int = typer.Option(4, "--n", help="Candidates per key in this run"),
+    cap_usd: float = typer.Option(3.0, "--cap-usd", help="Hard cap on OpenRouter-reported spend (all facetest runs)"),
+    max_images: int = typer.Option(8, "--max-images", help="Hard cap on images made (all facetest runs)"),
+    model: str = typer.Option(None, "--model", help="OpenRouter image model (default openai/gpt-image-2.5-sunburst)"),
+    quality: str = typer.Option("high", "--quality"),
+) -> None:
+    """Paid step-1 test: canon art -> photoreal front portrait candidates in refs/candidates/ (needs OPENROUTER_API_KEY)."""
+    from aigc_mv.facetest import contact_sheet, face_specs, run_facetest, write_readme
+    from aigc_mv.providers.base import SpendGate
+    from aigc_mv.providers.openrouter import DEFAULT_MODEL, OpenRouterImage
+
+    ep = load_episode(ep_dir)
+    try:
+        specs = face_specs(ep_dir, ep, [k.strip() for k in keys.split(",") if k.strip()])
+        provider = OpenRouterImage(model=model or DEFAULT_MODEL, quality=quality)
+    except (FileNotFoundError, ValueError, RuntimeError) as e:
+        _fail(str(e))
+    gate = SpendGate(ep_dir, ep.budget)
+    res = run_facetest(ep_dir, gate, provider, specs, n=n, cap_usd=cap_usd, max_images=max_images, log=typer.echo)
+    if any(True for _ in (ep_dir / "refs" / "candidates").glob("*_face_cand_*.png")):
+        typer.echo(f"wrote {contact_sheet(ep_dir, specs)}")
+    typer.echo(f"wrote {write_readme(ep_dir, gate, specs, provider.model)}")
+    typer.echo(f"facetest total: {res.images} images, ${res.spent_usd:.4f} (cap ${cap_usd:.2f} / {max_images} images); "
+               f"{len(res.failed)} failed or declined")
+
+
 @app.command("prompts")
 def prompts_cmd(ep_dir: Path, knowledge: Path = typer.Option(None, "--knowledge")) -> None:
     """Audio windows + units/<id>/prompt.txt + request.json for every unit."""

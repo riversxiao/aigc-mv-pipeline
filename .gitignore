@@ -38,6 +38,8 @@ projects/*/refs/REFS.md
 projects/*/refs/refs_plan.json
 # official canon art (copyrighted): local reference only, never commit
 projects/*/refs/canon/
+# paid face-test candidates (derived from canon art): local only
+projects/*/refs/candidates/
 projects/*/suno.md
 projects/*/ledger.jsonl
 projects/*/approvals.json
