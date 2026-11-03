@@ -46,7 +46,7 @@ class FaceTestResult:
     images: int = 0
 
 
-def adapt_prompt(en: str, mj_params: str = "") -> str:
+def adapt_prompt(en: str, mj_params: str = "", rules: str = FACE_RULES) -> str:
     """refs_plan English prompt -> plain image-model prompt: no MJ params, the ref is 'the first input image'."""
     text = en.replace("<原作图链接>", "").strip()
     avoid = ""
@@ -59,7 +59,7 @@ def adapt_prompt(en: str, mj_params: str = "") -> str:
     text = text.replace("of the character in the image prompt", "of the anime character in the first input image")
     text = text.rstrip(", ")
     out = ("The first input image is official anime art of the character. Use it only for hair colour, hairstyle, "
-           "eye colour, signature items and costume palette, not for its drawing style. " + text + ". " + FACE_RULES)
+           "eye colour, signature items and costume palette, not for its drawing style. " + text + ". " + rules)
     if avoid:
         out += f" Avoid: {avoid}."
     return out

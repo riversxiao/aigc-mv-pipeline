@@ -187,7 +187,7 @@ def _segment(project_dir: Path, ep: Episode, e: EdlEntry, s: BoardShot, out: Pat
 
         img = project_dir / e.file
         img.parent.mkdir(parents=True, exist_ok=True)
-        shot_plate(ep, s, (W * 2, H * 2), timing).save(img)
+        shot_plate(ep, s, (W * 2, H * 2), timing, refs=project_dir / "refs").save(img)
     else:
         img = tmp / f"card_{s.id}.png"
         text = {ln.idx: ln.text for ln in timing.lines}

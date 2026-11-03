@@ -254,6 +254,68 @@ def facetest_cmd(
                f"{len(res.failed)} failed or declined")
 
 
+@app.command("batch")
+def batch_cmd(
+    ep_dir: Path,
+    plates: str = typer.Option("", "--plates", help="Comma-separated plate files (venue.png,...)"),
+    step2: str = typer.Option("", "--step2", help="Comma-separated cast keys for step-2 views"),
+    views: str = typer.Option("34,profile,half,full", "--views", help="Step-2 views (34,profile,half,full,expr)"),
+    step1: str = typer.Option("", "--step1", help="Comma-separated cast keys for step-1 front portraits"),
+    n: int = typer.Option(4, "--n", help="Candidates per plate / step-1 portrait in this run"),
+    n_step2: int = typer.Option(2, "--n-step2", help="Candidates per step-2 view in this run"),
+    cap_usd: float = typer.Option(..., "--cap-usd", help="Hard cap on OpenRouter-reported spend (all batch runs)"),
+    max_images: int = typer.Option(..., "--max-images", help="Hard cap on images made (all batch runs)"),
+    workers: int = typer.Option(3, "--workers"),
+    dry_run: bool = typer.Option(False, "--dry-run", help="Print the items and prompts, call nothing"),
+    model: str = typer.Option(None, "--model"),
+    quality: str = typer.Option("high", "--quality"),
+) -> None:
+    """Paid reference batch (plates, step-2 views, step-1 portraits) into refs/candidates/ (needs OPENROUTER_API_KEY)."""
+    from aigc_mv import refbatch as rb
+    from aigc_mv.providers.base import SpendGate
+    from aigc_mv.providers.openrouter import DEFAULT_MODEL, OpenRouterImage
+
+    def split(s: str) -> list[str]:
+        return [x.strip() for x in s.split(",") if x.strip()]
+
+    ep = load_episode(ep_dir)
+    try:
+        s2 = rb.step2_items(ep_dir, ep, split(step2), split(views))
+        for it in s2:
+            it.n = n_step2
+        items = rb.plate_items(ep_dir, split(plates)) + s2 + rb.step1_items(ep_dir, ep, split(step1))
+    except (FileNotFoundError, ValueError) as e:
+        _fail(str(e))
+    if dry_run:
+        for it in items:
+            typer.echo(f"{it.file} [{it.aspect}] refs={[p.name for p in it.refs]}\n  {it.prompt}\n")
+        return
+    try:
+        OpenRouterImage(model=model or DEFAULT_MODEL, quality=quality)
+    except RuntimeError as e:
+        _fail(str(e))
+    gate = SpendGate(ep_dir, ep.budget)
+    res = rb.run_batch(ep_dir, gate, lambda: OpenRouterImage(model=model or DEFAULT_MODEL, quality=quality), items,
+                       n=n, cap_usd=cap_usd, max_images=max_images, workers=workers, log=typer.echo)
+    typer.echo(f"batch total ({rb.TAG}): {res.images} images, ${res.spent_usd:.4f} (cap ${cap_usd:.2f} / "
+               f"{max_images} images); this run {len(res.made)} made, {len(res.failed)} failed or declined"
+               + (f"; stopped: {res.stopped}" if res.stopped else ""))
+
+
+@app.command("lock")
+def lock_cmd(
+    ep_dir: Path, file: str, cand: int, reason: str = typer.Option(..., "--reason"),
+    by: str = typer.Option("agent", "--by", help="agent | user"), force: bool = typer.Option(False, "--force"),
+) -> None:
+    """Copy refs/candidates/<stem>_cand_<n>.png to refs/<file> and record the pick in picks.json."""
+    from aigc_mv.refbatch import lock
+
+    try:
+        typer.echo(f"locked {lock(ep_dir, file, cand, reason, by=by, force=force)}")
+    except (FileNotFoundError, FileExistsError) as e:
+        _fail(str(e))
+
+
 @app.command("prompts")
 def prompts_cmd(ep_dir: Path, knowledge: Path = typer.Option(None, "--knowledge")) -> None:
     """Audio windows + units/<id>/prompt.txt + request.json for every unit."""

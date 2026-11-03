@@ -9,7 +9,9 @@ timed and reviewed before a single paid generation.
   side, the crew small and blurred behind, judges on three thrones, the DJ booth, the hook singer at a stand
   mic, split screen, the blackout spot, the empty stage). Top-left label: shot id, staging, framing, camera.
 
-Placeholders live under edit/ only: they are never written to refs/ and never uploaded.
+Placeholders live under edit/ only: they are never written to refs/ and never uploaded. When `refs` is given and
+the locked environment plate of the shot's staging exists there (plates.plate_for, e.g. refs/venue.png), that
+photo replaces the drawn arena behind the silhouettes (blurred by framing like the drawn one).
 """
 
 from __future__ import annotations
@@ -21,7 +23,7 @@ from pathlib import Path
 
 import numpy as np
 import soundfile as sf
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageOps
 
 from aigc_mv import cinema
 from aigc_mv.board import BoardShot
@@ -137,8 +139,8 @@ def _x_of(ep: Episode, key: str) -> float:
 
 
 class _Plate:
-    def __init__(self, ep: Episode, shot: BoardShot, size: tuple[int, int]):
-        self.ep, self.shot = ep, shot
+    def __init__(self, ep: Episode, shot: BoardShot, size: tuple[int, int], refs: Path | None = None):
+        self.ep, self.shot, self.refs = ep, shot, refs
         self.W, self.H = size
         self.S = self.W / 1920
         self.rnd = random.Random(zlib.crc32(shot.id.encode()))
@@ -158,8 +160,25 @@ class _Plate:
 
     # ------------------------------------------------------------ background
 
+    def real_plate(self) -> Path | None:
+        """The locked environment plate for this shot's staging, if it is in refs/."""
+        if self.refs is None:
+            return None
+        from aigc_mv import plates
+
+        st = self.shot.staging or {"crowd": "crowd_ws", "establish": "high_ws"}.get(self.shot.kind, "")
+        p = Path(self.refs) / plates.plate_for(self.ep, st).file
+        return p if p.is_file() else None
+
     def arena(self, blur: float, crowd: float = 1.0, floor: bool = True, wall: bool = True) -> None:
         W, H = self.W, self.H
+        real = self.real_plate()
+        if real is not None:
+            with Image.open(real) as im:
+                bg = ImageOps.fit(im.convert("RGB"), (W, H), Image.LANCZOS)
+            bg = ImageEnhance.Brightness(bg).enhance(0.8)  # silhouettes stay readable on the photo
+            self.img = bg.filter(ImageFilter.GaussianBlur(blur * self.S)) if blur else bg
+            return
         bg = Image.new("RGB", (W, H), (0, 0, 0))
         d = ImageDraw.Draw(bg)
         for y in range(H):  # top: deep red, fading to black
@@ -281,7 +300,7 @@ class _Plate:
             rs = ep.rappers()
             halves = []
             for i, r in enumerate(rs):
-                p = _Plate(ep, s, (W // 2, H))
+                p = _Plate(ep, s, (W // 2, H), self.refs)
                 p.rnd = random.Random(i)
                 p.arena(2, 0.6)
                 team = [k for k in [r, *ep.team(r)] if not who or k in who]
@@ -405,9 +424,10 @@ class _Plate:
         self.overlay(draw)
 
 
-def shot_plate(ep: Episode, shot: BoardShot, size: tuple[int, int], timing: Timing | None = None) -> Image.Image:
-    """Placeholder plate for one board shot (RGB, exactly `size`)."""
-    return _Plate(ep, shot, size).draw()
+def shot_plate(ep: Episode, shot: BoardShot, size: tuple[int, int], timing: Timing | None = None,
+               refs: Path | None = None) -> Image.Image:
+    """Placeholder plate for one board shot (RGB, exactly `size`); refs/ plates replace the drawn arena."""
+    return _Plate(ep, shot, size, refs).draw()
 
 
 def contact_sheets(ep: Episode, shots: list[BoardShot], out_dir: Path, per_sheet: int = 12,

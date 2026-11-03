@@ -4,6 +4,7 @@ from pathlib import Path
 
 import pytest
 import yaml
+from PIL import Image
 
 from aigc_mv import cinema
 from aigc_mv.board import audit, plan, render_sheet
@@ -869,3 +870,15 @@ def test_cameos_sharing_a_position_get_distinct_seats(demo):
         e.cast[f"extra{i}"] = e.cast[k1].model_copy()
     with pytest.raises(ValueError, match="no free seat"):
         plates.cameo_seats(e)
+
+
+def test_shot_plate_uses_locked_venue_plate(ep, timing, board, tmp_path):
+    from aigc_mv.previz import shot_plate
+
+    s = next(x for x in board.shots if x.staging == "two_shot")
+    drawn = shot_plate(ep, s, (320, 180), timing, refs=tmp_path)  # no plate in refs/: drawn arena
+    Image.new("RGB", (1536, 864), (0, 200, 0)).save(tmp_path / "venue.png")
+    real = shot_plate(ep, s, (320, 180), timing, refs=tmp_path)
+    corner = real.getpixel((310, 170))
+    assert corner[1] > 100 and corner[1] > corner[0] and real.size == (320, 180)
+    assert drawn.getpixel((310, 170))[1] < 100
