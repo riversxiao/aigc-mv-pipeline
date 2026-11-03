@@ -38,6 +38,7 @@ class UnitTakes(BaseModel):
     unit: str
     takes: list[TakeSync] = Field(default_factory=list)
     pick: str | None = None
+    auto: bool = Field(False, description="pick made by `ep pick --auto` (a director's pick has auto False)")
     usable: tuple[float, float] | None = Field(None, description="Clip-time window chosen by the director")
     notes: str = ""
 
@@ -124,3 +125,70 @@ def save_unit_takes(project_dir: Path, ut: UnitTakes) -> Path:
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(ut.model_dump_json(indent=2, by_alias=True) + "\n", encoding="utf-8")
     return p
+
+
+def ref_window(project_dir: Path, unit) -> Path:
+    """The audio window the unit was generated from (units/<id>/<id>_vocal.wav or _inst.wav)."""
+    return Path(project_dir) / "units" / unit.id / (f"{unit.id}_vocal.wav" if unit.audio == "vocal"
+                                                     else f"{unit.id}_inst.wav")
+
+
+def sync_unit(project_dir: Path, unit) -> UnitTakes:
+    """Measure every take in units/<id>/takes/ (sung: lag / ncc / copy / synced against the window; motion, or
+    a take without a soundtrack: duration only) and save takes.json, keeping the pick when its file still exists."""
+    from aigc_mv.tools import media_duration
+
+    clips = sorted(takes_dir(project_dir, unit.id).glob("*.mp4"))
+    ut = load_unit_takes(project_dir, unit.id)
+    ref = ref_window(project_dir, unit)
+    ut.takes = []
+    for c in clips:
+        ts = None
+        if unit.kind == "sung" and ref.is_file():
+            try:
+                ts = measure(ref, c)
+            except RuntimeError:  # no audio stream in the take: lips can only be checked by eye
+                ts = None
+        if ts is None:
+            ts = TakeSync(take=c.name, copy=False, duration=round(media_duration(c), 3))
+        ut.takes.append(ts)
+    if ut.pick and not any(t.take == ut.pick for t in ut.takes):
+        ut.pick, ut.auto = None, False
+    save_unit_takes(project_dir, ut)
+    return ut
+
+
+SHORT_TOL = 0.25  # a take may be this much shorter than its unit before it counts as short
+
+
+def lips_verified(t: TakeSync) -> bool:
+    return bool(t.copy_ and t.synced)
+
+
+def long_enough(t: TakeSync, unit) -> bool:
+    return t.duration >= unit.duration - SHORT_TOL
+
+
+def best_take(ut: UnitTakes, unit) -> TakeSync | None:
+    """Sung: verified lips first, then full length, highest ncc, smallest |lag|. Motion: full length, longest."""
+    if not ut.takes:
+        return None
+    if unit.kind == "sung":
+        return max(ut.takes, key=lambda t: (lips_verified(t), long_enough(t, unit), t.ncc, -abs(t.lag)))
+    return max(ut.takes, key=lambda t: (long_enough(t, unit), t.duration))
+
+
+def auto_pick(project_dir: Path, unit, force: bool = False) -> tuple[UnitTakes, str]:
+    """Pick the best measured take; a director's pick (`ep pick <unit> <take>`) is kept unless force.
+    Returns (takes, what happened: 'picked' | 'kept' | 'none')."""
+    ut = load_unit_takes(project_dir, unit.id)
+    if ut.pick and not ut.auto and not force and any(t.take == ut.pick for t in ut.takes):
+        return ut, "kept"
+    t = best_take(ut, unit)
+    if t is None:
+        return ut, "none"
+    ut.pick, ut.auto = t.take, True
+    if force:
+        ut.notes = ""
+    save_unit_takes(project_dir, ut)
+    return ut, "picked"

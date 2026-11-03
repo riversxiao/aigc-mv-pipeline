@@ -86,11 +86,51 @@ DREAMINA_CANVAS=/完整路径/dreamina-canvas python3 run_dreamina.py   # 命令
 ## 六、发回、导入、重拍
 
 1. 用户把 `takes.zip` 上传到 Google Drive，共享设为“知道链接的任何人可查看”，把链接发回来。
-2. 导入（下一步加入的 `aigc-mv ep ingest-takes`）：把 `takes/<单元>/take-N.mp4` 放进本期 `units/<单元>/takes/`，
-   读 `results.json` 记下模型、时长和调整说明，然后 `ep sync` 量口型对齐、自动挑选、列出需要重拍的单元，再 `ep render --res 1080p`
-   （没有成片的镜头用占位画面）。
-3. 重拍：`aigc-mv ep dreamina-bundle <本期> --units u05,u09 --take 2` 打一个小包发给用户，用户照样 `python3 run_dreamina.py`。
-   同一期的重拍包会落到同一个画布上。
+2. 导入：下载 `takes.zip`（或解压后的文件夹、整个 `dreamina_bundle` 文件夹都行，外面多套一层文件夹也能认），然后一条命令：
+
+   ```bash
+   .venv/bin/aigc-mv ep ingest-takes projects/wangye_vs_zhugeqing ~/Downloads/takes.zip
+   ```
+
+   它依次做四件事：
+   - 复制：`takes/<单元>/take-N.mp4` 放进 `units/<单元>/takes/`。已有一模一样的文件就跳过；同名但内容不同的另存为
+     `take-N.v2.mp4`，不会覆盖原文件。不认识的单元、不是 mp4 的文件（比如网页登录页）跳过并提示。
+     `results.json` 里每条成片的模型、模式、状态、说明记到 `units/ingest.json`。
+   - 量口型：对每个导入了成片的单元跑一遍 `ep sync`（唱段：成片音轨和参考音频对齐，得出 lag、ncc、是否复刻、对上的时间段；
+     动作段或没有音轨的成片：只记时长）。
+   - 自动挑选：每个单元选最好的一条（唱段：口型对上的优先，再看时长够不够、ncc 高、lag 小；动作段：时长够的里面最长的）。
+     你用 `ep pick <本期> <单元> <take>` 手动选过的不会被改，除非加 `--force`。
+   - 重拍清单：写 `units/retakes.json` 和 `units/retakes.md`，列出没有成片、口型没对上、成片比单元短、生成失败或审核未通过的单元，
+     并给出现成的重拍命令；首尾帧模式（`first_last_frame`）的唱段单独列为“口型靠肉眼检查”，不自动算重拍；
+     状态是 `manual_download` 的单元提示去网页画布手动下载后再导入一次。
+
+   单独重跑某一步：
+
+   ```bash
+   .venv/bin/aigc-mv ep sync projects/wangye_vs_zhugeqing u05      # 重新量一个单元
+   .venv/bin/aigc-mv ep pick projects/wangye_vs_zhugeqing --auto    # 重新自动挑选（--force 连手动选的也改）
+   .venv/bin/aigc-mv ep pick projects/wangye_vs_zhugeqing u05 take-2 --notes "表情更好"   # 手动指定
+   .venv/bin/aigc-mv ep retakes projects/wangye_vs_zhugeqing        # 重新生成重拍清单
+   ```
+
+3. 出片：
+
+   ```bash
+   .venv/bin/aigc-mv ep render projects/wangye_vs_zhugeqing --res 1080p
+   ```
+
+   有成片的镜头用挑中的成片（按量出的 lag 对齐歌曲），没有的用占位画面，输出 `final/<标题>.mp4`，1920x1080。
+   成片尺寸或帧率不一样也没关系：宽高比接近 16:9 的放大裁满，差得多的（方形、竖屏）等比缩放加黑边，帧率统一成本期帧率。
+   先看一小段可以加 `--test 0:15`。
+
+4. 重拍：把清单里的命令复制出来跑，例如
+
+   ```bash
+   .venv/bin/aigc-mv ep dreamina-bundle projects/wangye_vs_zhugeqing --units u05,u09 --take 2
+   ```
+
+   打一个小包发给用户，用户照样 `python3 run_dreamina.py`，同一期的重拍包会落到同一个画布上。
+   拿回来的 `takes.zip` 再 `ep ingest-takes` 一次即可，take-2 和 take-1 一起参与自动挑选。
 
 ## 七、已知风险
 

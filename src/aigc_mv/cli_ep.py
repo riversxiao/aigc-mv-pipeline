@@ -376,43 +376,127 @@ def approve_cmd(ep_dir: Path, units: list[str] = typer.Argument(None), all_: boo
 def sync_cmd(ep_dir: Path, unit: str) -> None:
     """Measure every take in units/<unit>/takes/ against its audio window (lag, in-sync spans)."""
     from aigc_mv.board import load_board as lb
-    from aigc_mv.sync import load_unit_takes, measure, save_unit_takes, takes_dir
+    from aigc_mv.sync import sync_unit, takes_dir
 
     b = lb(ep_dir)
     u = next((x for x in b.units if x.id == unit), None) or _fail(f"no unit {unit}")
     d = takes_dir(ep_dir, unit)
-    clips = sorted(d.glob("*.mp4"))
-    if not clips:
+    if not any(d.glob("*.mp4")):
         _fail(f"no takes in {d}")
-    ut = load_unit_takes(ep_dir, unit)
-    ref = ep_dir / "units" / unit / (f"{unit}_vocal.wav" if u.audio == "vocal" else f"{unit}_inst.wav")
-    ut.takes = []
-    for c in clips:
-        if u.kind == "sung" and ref.is_file():
-            ts = measure(ref, c)
-        else:
-            from aigc_mv.sync import TakeSync
-            from aigc_mv.tools import media_duration
+    for ts in sync_unit(ep_dir, u).takes:
+        _echo_sync(ts)
 
-            ts = TakeSync(take=c.name, copy=False, duration=media_duration(c))
-        ut.takes.append(ts)
-        typer.echo(f"{c.name}: lag {ts.lag:+.2f}s ncc {ts.ncc:.2f} copy={ts.copy_} synced={ts.synced} "
-                   f"diverge={ts.diverge_at}")
-    save_unit_takes(ep_dir, ut)
+
+def _echo_sync(ts, prefix: str = "") -> None:
+    typer.echo(f"{prefix}{ts.take}: lag {ts.lag:+.2f}s ncc {ts.ncc:.2f} copy={ts.copy_} synced={ts.synced} "
+               f"diverge={ts.diverge_at} dur {ts.duration:.2f}s")
+
+
+def _auto_pick_all(ep_dir: Path, board, units: Optional[list[str]], force: bool) -> None:
+    from aigc_mv.sync import auto_pick
+
+    for u in board.units:
+        if units is not None and u.id not in units:
+            continue
+        ut, what = auto_pick(ep_dir, u, force=force)
+        if what == "picked":
+            typer.echo(f"  {u.id} → {ut.pick}（自动）")
+        elif what == "kept":
+            typer.echo(f"  {u.id} → {ut.pick}（保留你手动选的，--force 可改为自动）")
 
 
 @app.command("pick")
-def pick_cmd(ep_dir: Path, unit: str, take: str, notes: str = typer.Option("", "--notes")) -> None:
-    """The director's choice of take for a unit (your eyes beat the meter)."""
+def pick_cmd(
+    ep_dir: Path,
+    unit: Optional[str] = typer.Argument(None),
+    take: Optional[str] = typer.Argument(None),
+    notes: str = typer.Option("", "--notes"),
+    auto: bool = typer.Option(False, "--auto", help="Pick the best measured take of every unit (or of UNIT)"),
+    force: bool = typer.Option(False, "--force", help="With --auto: also replace picks you made by hand"),
+) -> None:
+    """The director's choice of take for a unit (your eyes beat the meter); --auto picks by the sync meter."""
     from aigc_mv.sync import load_unit_takes, save_unit_takes
 
+    if auto:
+        _auto_pick_all(ep_dir, load_board(ep_dir), [unit] if unit else None, force)
+        return
+    if not unit or not take:
+        _fail("usage: aigc-mv ep pick <ep> <unit> <take>  or  aigc-mv ep pick <ep> --auto")
     ut = load_unit_takes(ep_dir, unit)
     name = take if take.endswith(".mp4") else f"{take}.mp4"
     if not any(t.take == name for t in ut.takes):
         _fail(f"{name} not measured yet; run: aigc-mv ep sync {ep_dir} {unit}")
-    ut.pick, ut.notes = name, notes
+    ut.pick, ut.notes, ut.auto = name, notes, False
     save_unit_takes(ep_dir, ut)
     typer.echo(f"{unit} → {name}")
+
+
+def _echo_retakes(r: dict) -> None:
+    from aigc_mv.ingest import REASON_CN
+
+    if r["retake"]:
+        typer.echo(f"需要重拍 {len(r['retake'])} 个单元：")
+        groups: dict[str, list[str]] = {}
+        for x in r["retake"]:
+            groups.setdefault("、".join(REASON_CN.get(k, k) for k in x["reasons"]), []).append(x["unit"])
+        for why, ids in groups.items():
+            typer.echo(f"  {why}：{' '.join(ids)}")
+        typer.echo(f"重拍包：{r['command']}")
+    else:
+        typer.echo("没有需要重拍的单元")
+    if r["by_eye"]:
+        typer.echo("口型靠肉眼检查：" + " ".join(f"{x['unit']}/{x['take']}" for x in r["by_eye"]))
+    if r["manual_download"]:
+        typer.echo("请到网页画布手动下载：" + " ".join(x["unit"] for x in r["manual_download"]))
+
+
+@app.command("retakes")
+def retakes_cmd(ep_dir: Path) -> None:
+    """Write units/retakes.json + units/retakes.md (no take, lips not verified, too short) and the bundle command."""
+    from aigc_mv.ingest import retakes
+
+    r = retakes(ep_dir, load_board(ep_dir), ep_arg=str(ep_dir))
+    _echo_retakes(r)
+    typer.echo(f"清单：{ep_dir / 'units' / 'retakes.md'}")
+
+
+@app.command("ingest-takes")
+def ingest_takes_cmd(
+    ep_dir: Path,
+    src: Path = typer.Argument(..., help="Folder or zip from run_dreamina.py (takes/<unit>/take-N.mp4, results.json)"),
+    force: bool = typer.Option(False, "--force", help="Auto pick also replaces picks you made by hand"),
+) -> None:
+    """Import Dreamina takes: copy into units/<id>/takes/ (never overwrite), ep sync, auto pick, retake list."""
+    from aigc_mv.ingest import ingest, retakes
+    from aigc_mv.sync import sync_unit
+
+    b = load_board(ep_dir)
+    try:
+        rep = ingest(ep_dir, src, b)
+    except (FileNotFoundError, ValueError) as e:
+        _fail(str(e))
+    cn = {"new": "新增", "same": "已有相同文件，跳过", "renamed": "同名但内容不同，另存", "invalid": "不是 mp4，跳过"}
+    n_new = 0
+    for unit, rows in sorted(rep["units"].items()):
+        for x in rows:
+            n_new += x["state"] in ("new", "renamed")
+            typer.echo(f"  {unit}/{x['take']} → units/{unit}/takes/{x['file']}：{cn[x['state']]}")
+    for o in rep["unknown"]:
+        typer.echo(f"  ! 不认识的单元，跳过：{o}")
+    for unit, st in sorted(rep["status"].items()):
+        typer.echo(f"  ! {unit}/{st['take']}：没有文件（状态 {st.get('status', '?')}）")
+    typer.echo(f"导入 {n_new} 条新成片，{len(rep['units'])} 个单元，results.json {rep['results']} 行")
+    units = {u.id: u for u in b.units}
+    touched = [u for u in sorted(rep["units"]) if any(x["state"] != "invalid" for x in rep["units"][u])]
+    typer.echo("口型对齐测量：")
+    for uid in touched:
+        for ts in sync_unit(ep_dir, units[uid]).takes:
+            _echo_sync(ts, prefix=f"  {uid}/")
+    typer.echo("自动挑选：")
+    _auto_pick_all(ep_dir, b, touched, force)
+    _echo_retakes(retakes(ep_dir, b, ep_arg=str(ep_dir)))
+    typer.echo(f"清单：{ep_dir / 'units' / 'retakes.md'}")
+    typer.echo(f"下一步：aigc-mv ep render {ep_dir} --res 1080p")
 
 
 @app.command("render")
