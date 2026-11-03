@@ -17,6 +17,7 @@ from aigc_mv.edit import SIZES
 from aigc_mv.episode import Episode
 from aigc_mv.prompts import characters, refs_plan, video_prompt
 from aigc_mv.providers.base import VideoRequest
+from aigc_mv.sheets import sheet_gaps
 from aigc_mv.timing import Timing
 
 SUNG_PROMPT_WARN = 1800  # characters; long sung prompts make Seedance re-sing instead of copy
@@ -62,15 +63,22 @@ def _idol_refs_doc(ep: Episode, plan: list[dict]) -> list[str]:
         "## 为什么分三步", "",
         "以前一句文生图直接出「四宫格定妆照」：四格里的脸常常不是同一个人，发色和标志物也会跑偏。现在改成三步，每一步都拿上一步锁定的图当参考：",
         "",
-        "1. **原作图 → 真人正面像**（`<key>_face.png`）：把官方图上传给即梦图片生成（图1），或在 Midjourney 里当图片提示"
-        "（链接放最前面，`--iw 1.5`，只借颜色和构图，不借画风）。原创角色没有原作图，直接文生图。",
-        "2. **用正面像生成其他角度**：四分之三侧面、正侧面、半身、表情四宫格、全身，每张单独生成，每张都上传第一步锁定的"
-        "`<key>_face.png`（即梦图1；Midjourney V7 用 `--oref <定妆正面像链接> --ow 100`，V6 用 `--cref <定妆正面像链接> --cw 100`）。",
-        "3. **锁定并拼图**：五张都挑好后跑 `aigc-mv ep sheets <本期目录>`，把 face/34/profile/half/full 拼成 `<key>_sheet.png`。"
-        "视频单元每人只传这一张；锁定后不再改，改了就要重新生成所有用到这个人的镜头。",
+        "1. **原作图 → 真人正面像**（`<key>_face.png`）：推荐把官方图直接从本地上传给即梦图片生成（图1）。"
+        "也可以在 Midjourney 里当图片提示（链接放最前面，`--iw 1.5`，只借颜色和构图，不借画风），但要先看下面关于链接的说明。"
+        "原创角色没有原作图，直接文生图。",
+        "2. **用正面像生成其他角度**：四分之三侧面、正侧面、半身、全身，每张单独生成，每张都上传第一步锁定的"
+        "`<key>_face.png`（即梦图1；Midjourney V7 用 `--oref <定妆正面像链接> --ow 100`，V6 用 `--cref <定妆正面像链接> --cw 100`）。"
+        "表情四宫格（`<key>_expr.png`）是可选的：只用来试表情、挑招牌表情，不拼进组图，视频单元也不用它，赶时间可以跳过。",
+        "3. **锁定并拼图**：face/34/profile/half/full 五张都挑好后跑 `aigc-mv ep sheets <本期目录>`，拼成 `<key>_sheet.png`"
+        "（左边全身，右边 2x2 四张，接近 3:2，传给视频模型时脸不会被缩得太小）。五张没齐不会拼；想先拼着看加 `--partial`，"
+        "这样拼出来的图 `ep prompts` 会继续提示缺图。视频单元每人只传这一张；锁定后不再改，改了就要重新生成所有用到这个人的镜头。",
         "",
-        "原作图只放在本地 `refs/canon/`（`aigc-mv ep canon` 放进去），这个文件夹在 .gitignore 里，官方图有版权，不进 git、不发到网上。"
-        "Midjourney 需要图片链接：在 Midjourney 网页里上传图片后复制链接，替换提示词里的 `<原作图链接>` / `<定妆正面像链接>`。",
+        "原作图只放在本地 `refs/canon/`（`aigc-mv ep canon` 放进去），这个文件夹在 .gitignore 里，官方图有版权，不进 git，也不要自己公开发布。",
+        "",
+        "关于 Midjourney 链接：Midjourney 只认图片链接，在 Midjourney 网页里上传的图会存到它的服务器上，拿到的链接别人也能打开，"
+        "等于把图放到了网上；隐身模式（Stealth）只是不进公开图库，链接本身照样能打开。所以第一步的原作图请用即梦本地上传，"
+        "`<原作图链接>` 那条 Midjourney 提示词只在你接受这张官方图留在 Midjourney 服务器上时再用。"
+        "第二步上传的是自己生成的真人正面像，不是官方图，上传后复制链接替换提示词里的 `<定妆正面像链接>` 即可。",
         "",
         "挑图标准：每张生成 4 张挑 1 张。发色、发型、眼睛颜色和招牌物件要对得上原作；脸是原创的，不像任何真人演员，"
         "尤其不像真人剧《异人之下》的演员，也不照搬任何已有 AI 节目里的脸；皮肤有真实纹理、不塑料；成年人比例；"
@@ -88,8 +96,11 @@ def _idol_refs_doc(ep: Episode, plan: list[dict]) -> list[str]:
         items = [x for x in people if x["cast"] == k]
         face = next(x for x in items if x["step"] == 1)
         s1 = ", ".join(f"`{u.get('path') or u.get('file')}`" for u in face["uploads"]) or "无（原创角色，文生图）"
-        n2 = sum(1 for x in items if x["step"] == 2)
-        rows.append(f"| {ep.cast[k].name_cn}（{k}） | {s1} | `{k}_face.png`（{n2} 张各传一次） | `ep sheets` 拼 `{k}_sheet.png` |")
+        n2 = sum(1 for x in items if x["step"] == 2 and not x.get("optional"))
+        n_opt = sum(1 for x in items if x["step"] == 2 and x.get("optional"))
+        opt = f" + {n_opt} 张可选" if n_opt else ""
+        rows.append(f"| {ep.cast[k].name_cn}（{k}） | {s1} | `{k}_face.png`（{n2} 张必做{opt}，各传一次） "
+                    f"| `ep sheets` 拼 `{k}_sheet.png` |")
     rows.append("")
     for k in order:
         c = ep.cast[k]
@@ -151,6 +162,9 @@ def write_packs(project_dir: Path, ep: Episode, board: Board, timing: Timing,
             if src.is_file():
                 _downscale(src, dst, size)
                 images.append(dst)
+                gaps = sheet_gaps(src) if fname.endswith("_sheet.png") else []
+                if gaps:  # made by `ep sheets --partial`: not locked yet
+                    missing.append(f"{fname}（不完整，还缺 " + "、".join(gaps) + "）")
             else:
                 missing.append(fname)
         first = project_dir / "refs" / f"plate_{u.id}.png"

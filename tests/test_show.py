@@ -220,6 +220,8 @@ def test_show_refs_plan_and_header(ep, board, tmp_path):
         for x in step2:
             assert x["uploads"] == [{"file": f"{k}_face.png", "role": x["uploads"][0]["role"]}]
             assert "--oref <定妆正面像链接> --ow 100" in x["en"] and x["cn"].startswith("图1是")
+            assert x["optional"] == (x["file"] == f"{k}_expr.png")  # the expression grid is not tiled, so optional
+        assert f"{k}_expr.png" not in sheet_tiles(mine) and "可选" in step2[3]["use"]
         sheet = mine[-1]
         assert sheet["file"] == f"{k}_sheet.png" and not sheet["en"] and not sheet["cn"]
         assert sheet["tiles"] == [f"{k}_{t}.png" for t in SHEET_TILES] and "ep sheets" in sheet["use"]
@@ -234,6 +236,12 @@ def test_show_refs_plan_and_header(ep, board, tmp_path):
     doc = write_refs_doc(d, ep, board).read_text(encoding="utf-8")
     assert "《异人之下》" in doc and "## 上传清单" in doc and "ep sheets" in doc
     assert "第一步" in doc and "第二步" in doc and "第三步" in doc and "—" not in doc
+    assert "不发到网上" not in doc and "服务器上" in doc and "即梦本地上传" in doc  # MJ links are hosted: say so
+    assert "4 张必做 + 1 张可选" in doc
+
+
+def sheet_tiles(items: list[dict]) -> list[str]:
+    return next(x for x in items if x["step"] == 3)["tiles"]
 
 
 def test_show_sheets_tile_the_locked_views(ep, tmp_path):
@@ -241,28 +249,58 @@ def test_show_sheets_tile_the_locked_views(ep, tmp_path):
 
     from aigc_mv.sheets import build_sheets, is_assembled
 
+    from aigc_mv.prompts import SHEET_TILES
+    from aigc_mv.sheets import sheet_gaps
+
     refs = tmp_path / "refs"
     refs.mkdir()
     for t in ("face", "34"):
         Image.new("RGB", (300, 400), (200, 150, 120)).save(refs / f"a_{t}.png")
-    res = build_sheets(tmp_path, ep)
-    assert res.written["a"] == ["a_face.png", "a_34.png"]
+    res = build_sheets(tmp_path, ep)  # an incomplete set is not passed off as locked
+    assert "a" in res.skipped and "a" not in res.written and not (refs / "a_sheet.png").exists()
     assert set(res.missing["a"]) == {"a_profile.png", "a_half.png", "a_full.png"}
     assert "b" not in res.written and "b" in res.missing
-    w2 = Image.open(refs / "a_sheet.png").width
+    res = build_sheets(tmp_path, ep, partial=True)  # opt-in preview keeps its gaps in the marker
+    assert res.written["a"] == ["a_face.png", "a_34.png"]
     assert is_assembled(refs / "a_sheet.png")
+    assert sheet_gaps(refs / "a_sheet.png") == ["profile", "half", "full"]
     for t in ("profile", "half", "full"):
-        Image.new("RGB", (300, 600), (90, 90, 90)).save(refs / f"a_{t}.png")
+        Image.new("RGB", (300, 400 if t != "full" else 600), (90, 90, 90)).save(refs / f"a_{t}.png")
     res = build_sheets(tmp_path, ep)
-    w5 = Image.open(refs / "a_sheet.png").width
-    assert w5 > w2 and "a" not in res.missing
+    assert "a" in res.written and "a" not in res.missing and sheet_gaps(refs / "a_sheet.png") == []
+    with Image.open(refs / "a_sheet.png") as im:  # full body left, 2x2 grid right: near 3:2, not 3.6:1 in a row
+        assert 1.2 < im.width / im.height < 1.7, im.size
     hand = refs / "b_sheet.png"  # a hand-made sheet is kept unless forced
     Image.new("RGB", (64, 64)).save(hand)
-    Image.new("RGB", (300, 400)).save(refs / "b_face.png")
+    for t in SHEET_TILES:
+        Image.new("RGB", (300, 400)).save(refs / f"b_{t}.png")
     res = build_sheets(tmp_path, ep)
-    assert "b" in res.kept and Image.open(hand).width == 64
+    assert "b" in res.kept and Image.open(hand).width == 64 and sheet_gaps(hand) == []
     res = build_sheets(tmp_path, ep, force=True)
     assert "b" in res.written and Image.open(hand).width > 64
+
+
+def test_show_partial_sheet_still_flagged_missing(ep, board, timing, tmp_path):
+    """A sheet made with --partial must not clear the missing-refs line of the units that upload it."""
+    import shutil
+
+    from PIL import Image
+
+    from aigc_mv.packs import write_packs
+    from aigc_mv.sheets import build_sheets
+
+    d = tmp_path / "p"
+    shutil.copytree(FIXTURE, d, ignore=shutil.ignore_patterns("analysis", "board", "units", "edit", "final",
+                                                              "audio", "refs", "suno.md"))
+    refs = d / "refs"
+    refs.mkdir()
+    Image.new("RGB", (300, 400)).save(refs / "a_face.png")
+    build_sheets(d, ep, partial=True)
+    assert (refs / "a_sheet.png").is_file()
+    write_packs(d, ep, board, timing)
+    texts = [p.read_text(encoding="utf-8") for p in sorted((d / "units").glob("*/prompt.txt"))]
+    with_a = [t for t in texts if "a_sheet" in t.split("【提示词】")[0]]
+    assert with_a and all("a_sheet.png（不完整" in t for t in with_a)
 
 
 def test_show_suno_passes(ep):

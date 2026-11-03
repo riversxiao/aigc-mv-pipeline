@@ -6,8 +6,8 @@ never be committed. Sources: a local folder (--src) first, otherwise the Bangumi
 
 from __future__ import annotations
 
+import io
 import json
-import shutil
 import urllib.request
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -58,10 +58,35 @@ def _local(src: Path | None, card_id: str) -> Path | None:
     return None
 
 
+def _save_jpeg(data: bytes, dst: Path) -> None:
+    """Store the image as real JPEG: step-1 uploads always point at refs/canon/<card_id>.jpg."""
+    if data[:2] == b"\xff\xd8":
+        dst.write_bytes(data)
+        return
+    from PIL import Image
+
+    with Image.open(io.BytesIO(data)) as im:
+        im.convert("RGB").save(dst, "JPEG", quality=95)
+
+
+def _read_sources(out_dir: Path) -> dict[str, tuple[str, str]]:
+    """Rows of an earlier SOURCES.md, so provenance survives re-runs."""
+    p = out_dir / "SOURCES.md"
+    rows: dict[str, tuple[str, str]] = {}
+    if not p.is_file():
+        return rows
+    for line in p.read_text(encoding="utf-8").splitlines():
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) == 3 and cells[0] not in ("角色卡", "") and not set(cells[0]) <= set("-"):
+            rows[cells[0]] = (cells[1], cells[2])
+    return rows
+
+
 def fetch_canon(ep_dir: Path, ep: Episode, src: Path | None = None, knowledge_dir: Path | None = None) -> CanonResult:
     out_dir = Path(ep_dir) / CANON_DIR
     out_dir.mkdir(parents=True, exist_ok=True)
     res = CanonResult()
+    old = _read_sources(out_dir)
     for k, ch in characters(ep, knowledge_dir).items():
         if not ch.canon_refs:
             res.original.append(k)
@@ -70,23 +95,25 @@ def fetch_canon(ep_dir: Path, ep: Episode, src: Path | None = None, knowledge_di
         dst = out_dir / f"{ch.id}.jpg"
         if dst.is_file():
             res.placed[k] = "exists"
-            res.sources.setdefault(ch.id, (ref.url, str(dst.name)))
+            res.sources.setdefault(ch.id, old.get(ch.id) or (ref.url, f"existing local file {dst.name}"))
             continue
         try:
             local = _local(src, ch.id)
             if local is not None:
-                shutil.copyfile(local, dst)
+                _save_jpeg(local.read_bytes(), dst)
                 res.placed[k] = "copied"
                 res.sources[ch.id] = (ref.url, f"local copy of {local.name}")
             elif ref.site == "bangumi":
                 img = bangumi_image_url(ref.id)
-                dst.write_bytes(_get(img))
+                _save_jpeg(_get(img), dst)
                 res.placed[k] = "downloaded"
                 res.sources[ch.id] = (ref.url, img)
             else:
                 raise ValueError(f"no local image and site {ref.site!r} is not fetchable")
         except Exception as exc:  # noqa: BLE001 - report and keep going for the rest of the cast
             res.failed[k] = str(exc)
+    for cid, row in old.items():  # rows for cards no longer in this cast stay on record
+        res.sources.setdefault(cid, row)
     _write_sources(out_dir, ep, res)
     return res
 

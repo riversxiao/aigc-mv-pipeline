@@ -91,8 +91,29 @@ def test_fetch_canon_copies_from_src(tmp_path, monkeypatch):
     out = d / "refs" / "canon"
     assert (out / "zhuge_qing.jpg").read_bytes() == b"\xff\xd8zhuge_qing"
     assert "https://bgm.tv/character/61836" in (out / "SOURCES.md").read_text(encoding="utf-8")
-    again = canon_refs.fetch_canon(d, load_episode(d), src)  # existing files are skipped
+    again = canon_refs.fetch_canon(d, load_episode(d), None)  # existing files are skipped, provenance kept
     assert set(again.placed.values()) == {"exists"}
+    sources = (out / "SOURCES.md").read_text(encoding="utf-8")
+    assert "| zhuge_qing | https://bgm.tv/character/" in sources and "local copy of zhuge_qing.jpg" in sources
+    assert sources.count("| zhuge_qing |") == 1
+
+
+def test_fetch_canon_stores_non_jpeg_as_jpeg(tmp_path, monkeypatch):
+    from PIL import Image
+
+    monkeypatch.setattr(canon_refs.urllib.request, "urlopen", lambda *a, **kw: (_ for _ in ()).throw(OSError("net")))
+    src = tmp_path / "src"
+    src.mkdir()
+    Image.new("RGBA", (40, 60), (10, 200, 30, 128)).save(src / "wang_ye.png")
+    Image.new("RGB", (40, 60)).save(src / "zhuge_qing.webp", "WEBP")
+    d = _mini_ep(tmp_path)
+    res = canon_refs.fetch_canon(d, load_episode(d), src)
+    out = d / "refs" / "canon"
+    for cid in ("wang_ye", "zhuge_qing"):
+        with Image.open(out / f"{cid}.jpg") as im:
+            assert im.format == "JPEG" and im.size == (40, 60)
+    assert "local copy of wang_ye.png" in (out / "SOURCES.md").read_text(encoding="utf-8")
+    assert res.failed  # the rest had no local file and no network
 
 
 def test_fetch_canon_downloads_from_bangumi(tmp_path, monkeypatch):

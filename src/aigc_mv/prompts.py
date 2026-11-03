@@ -452,7 +452,10 @@ def _idol_steps(ep: Episode, k: str, ch: Character) -> list[dict]:
          f"full-body shot head to shoes, natural stance turned {turn_en}, full stage costume and shoes{mic_en}", "2:3"),
     ]
     for tag, label, v_cn, v_en, ar in views:
-        it = dict(base, file=f"{k}_{tag}.png", step=2, kind=tag, use=f"{who}第二步 {label}：上传锁定的 {k}_face.png 生成")
+        use = f"{who}第二步 {label}：上传锁定的 {k}_face.png 生成"
+        if tag not in SHEET_TILES:
+            use += "（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）"
+        it = dict(base, file=f"{k}_{tag}.png", step=2, kind=tag, use=use, optional=tag not in SHEET_TILES)
         it["uploads"] = [{"file": f"{k}_face.png", "role": FACE_ROLE_CN}]
         it["mj_params"] = f"--oref <定妆正面像链接> --ow 100 {_mj(ar, ep)}"
         it["mj_note"] = MJ_V6_NOTE

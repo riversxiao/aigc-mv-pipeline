@@ -4,11 +4,13 @@
 
 以前一句文生图直接出「四宫格定妆照」：四格里的脸常常不是同一个人，发色和标志物也会跑偏。现在改成三步，每一步都拿上一步锁定的图当参考：
 
-1. **原作图 → 真人正面像**（`<key>_face.png`）：把官方图上传给即梦图片生成（图1），或在 Midjourney 里当图片提示（链接放最前面，`--iw 1.5`，只借颜色和构图，不借画风）。原创角色没有原作图，直接文生图。
-2. **用正面像生成其他角度**：四分之三侧面、正侧面、半身、表情四宫格、全身，每张单独生成，每张都上传第一步锁定的`<key>_face.png`（即梦图1；Midjourney V7 用 `--oref <定妆正面像链接> --ow 100`，V6 用 `--cref <定妆正面像链接> --cw 100`）。
-3. **锁定并拼图**：五张都挑好后跑 `aigc-mv ep sheets <本期目录>`，把 face/34/profile/half/full 拼成 `<key>_sheet.png`。视频单元每人只传这一张；锁定后不再改，改了就要重新生成所有用到这个人的镜头。
+1. **原作图 → 真人正面像**（`<key>_face.png`）：推荐把官方图直接从本地上传给即梦图片生成（图1）。也可以在 Midjourney 里当图片提示（链接放最前面，`--iw 1.5`，只借颜色和构图，不借画风），但要先看下面关于链接的说明。原创角色没有原作图，直接文生图。
+2. **用正面像生成其他角度**：四分之三侧面、正侧面、半身、全身，每张单独生成，每张都上传第一步锁定的`<key>_face.png`（即梦图1；Midjourney V7 用 `--oref <定妆正面像链接> --ow 100`，V6 用 `--cref <定妆正面像链接> --cw 100`）。表情四宫格（`<key>_expr.png`）是可选的：只用来试表情、挑招牌表情，不拼进组图，视频单元也不用它，赶时间可以跳过。
+3. **锁定并拼图**：face/34/profile/half/full 五张都挑好后跑 `aigc-mv ep sheets <本期目录>`，拼成 `<key>_sheet.png`（左边全身，右边 2x2 四张，接近 3:2，传给视频模型时脸不会被缩得太小）。五张没齐不会拼；想先拼着看加 `--partial`，这样拼出来的图 `ep prompts` 会继续提示缺图。视频单元每人只传这一张；锁定后不再改，改了就要重新生成所有用到这个人的镜头。
 
-原作图只放在本地 `refs/canon/`（`aigc-mv ep canon` 放进去），这个文件夹在 .gitignore 里，官方图有版权，不进 git、不发到网上。Midjourney 需要图片链接：在 Midjourney 网页里上传图片后复制链接，替换提示词里的 `<原作图链接>` / `<定妆正面像链接>`。
+原作图只放在本地 `refs/canon/`（`aigc-mv ep canon` 放进去），这个文件夹在 .gitignore 里，官方图有版权，不进 git，也不要自己公开发布。
+
+关于 Midjourney 链接：Midjourney 只认图片链接，在 Midjourney 网页里上传的图会存到它的服务器上，拿到的链接别人也能打开，等于把图放到了网上；隐身模式（Stealth）只是不进公开图库，链接本身照样能打开。所以第一步的原作图请用即梦本地上传，`<原作图链接>` 那条 Midjourney 提示词只在你接受这张官方图留在 Midjourney 服务器上时再用。第二步上传的是自己生成的真人正面像，不是官方图，上传后复制链接替换提示词里的 `<定妆正面像链接>` 即可。
 
 挑图标准：每张生成 4 张挑 1 张。发色、发型、眼睛颜色和招牌物件要对得上原作；脸是原创的，不像任何真人演员，尤其不像真人剧《异人之下》的演员，也不照搬任何已有 AI 节目里的脸；皮肤有真实纹理、不塑料；成年人比例；第二步的五张必须一眼看出是第一步那个人。即梦用 CN，Midjourney 用 EN，EN 末尾的参数已经写好，不要再加画质堆砌词。
 
@@ -16,21 +18,21 @@
 
 | 人物 | 第一步上传 | 第二步上传 | 第三步 |
 | --- | --- | --- | --- |
-| 诸葛青（a） | `refs/canon/zhuge_qing.jpg` | `a_face.png`（5 张各传一次） | `ep sheets` 拼 `a_sheet.png` |
-| 王也（b） | `refs/canon/wang_ye.jpg` | `b_face.png`（5 张各传一次） | `ep sheets` 拼 `b_sheet.png` |
-| 诸葛白（zhuge_bai） | `refs/canon/zhuge_bai.jpg` | `zhuge_bai_face.png`（5 张各传一次） | `ep sheets` 拼 `zhuge_bai_sheet.png` |
-| 诸葛家门人（menren） | 无（原创角色，文生图） | `menren_face.png`（5 张各传一次） | `ep sheets` 拼 `menren_sheet.png` |
-| 张楚岚（chulan） | `refs/canon/zhang_chulan.jpg` | `chulan_face.png`（5 张各传一次） | `ep sheets` 拼 `chulan_sheet.png` |
-| 武当师弟（daotong） | 无（原创角色，文生图） | `daotong_face.png`（5 张各传一次） | `ep sheets` 拼 `daotong_sheet.png` |
-| 张之维（tianshi） | `refs/canon/zhang_zhiwei.jpg` | `tianshi_face.png`（5 张各传一次） | `ep sheets` 拼 `tianshi_sheet.png` |
-| 陆瑾（lu_jin） | `refs/canon/lu_jin.jpg` | `lu_jin_face.png`（5 张各传一次） | `ep sheets` 拼 `lu_jin_sheet.png` |
-| 风正豪（feng_zhenghao） | `refs/canon/feng_zhenghao.jpg` | `feng_zhenghao_face.png`（5 张各传一次） | `ep sheets` 拼 `feng_zhenghao_sheet.png` |
-| 徐四（xu_si） | `refs/canon/xu_si.jpg` | `xu_si_face.png`（5 张各传一次） | `ep sheets` 拼 `xu_si_sheet.png` |
-| 徐三（xu_san） | `refs/canon/xu_san.jpg` | `xu_san_face.png`（5 张各传一次） | `ep sheets` 拼 `xu_san_sheet.png` |
-| 冯宝宝（baobao） | `refs/canon/feng_baobao.jpg` | `baobao_face.png`（5 张各传一次） | `ep sheets` 拼 `baobao_sheet.png` |
-| 张灵玉（lingyu） | `refs/canon/zhang_lingyu.jpg` | `lingyu_face.png`（5 张各传一次） | `ep sheets` 拼 `lingyu_sheet.png` |
-| 风莎燕（shayan） | `refs/canon/feng_shayan.jpg` | `shayan_face.png`（5 张各传一次） | `ep sheets` 拼 `shayan_sheet.png` |
-| 诸葛家长辈（zhanglao） | 无（原创角色，文生图） | `zhanglao_face.png`（5 张各传一次） | `ep sheets` 拼 `zhanglao_sheet.png` |
+| 诸葛青（a） | `refs/canon/zhuge_qing.jpg` | `a_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `a_sheet.png` |
+| 王也（b） | `refs/canon/wang_ye.jpg` | `b_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `b_sheet.png` |
+| 诸葛白（zhuge_bai） | `refs/canon/zhuge_bai.jpg` | `zhuge_bai_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `zhuge_bai_sheet.png` |
+| 诸葛家门人（menren） | 无（原创角色，文生图） | `menren_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `menren_sheet.png` |
+| 张楚岚（chulan） | `refs/canon/zhang_chulan.jpg` | `chulan_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `chulan_sheet.png` |
+| 武当师弟（daotong） | 无（原创角色，文生图） | `daotong_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `daotong_sheet.png` |
+| 张之维（tianshi） | `refs/canon/zhang_zhiwei.jpg` | `tianshi_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `tianshi_sheet.png` |
+| 陆瑾（lu_jin） | `refs/canon/lu_jin.jpg` | `lu_jin_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `lu_jin_sheet.png` |
+| 风正豪（feng_zhenghao） | `refs/canon/feng_zhenghao.jpg` | `feng_zhenghao_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `feng_zhenghao_sheet.png` |
+| 徐四（xu_si） | `refs/canon/xu_si.jpg` | `xu_si_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `xu_si_sheet.png` |
+| 徐三（xu_san） | `refs/canon/xu_san.jpg` | `xu_san_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `xu_san_sheet.png` |
+| 冯宝宝（baobao） | `refs/canon/feng_baobao.jpg` | `baobao_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `baobao_sheet.png` |
+| 张灵玉（lingyu） | `refs/canon/zhang_lingyu.jpg` | `lingyu_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `lingyu_sheet.png` |
+| 风莎燕（shayan） | `refs/canon/feng_shayan.jpg` | `shayan_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `shayan_sheet.png` |
+| 诸葛家长辈（zhanglao） | 无（原创角色，文生图） | `zhanglao_face.png`（4 张必做 + 1 张可选，各传一次） | `ep sheets` 拼 `zhanglao_sheet.png` |
 
 ## 诸葛青（a）
 
@@ -102,7 +104,7 @@ waist-up shot turned slightly to the right in the full stage wardrobe, holding a
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `a_expr.png`
-用途：诸葛青（选手）第二步 表情四宫格：上传锁定的 a_face.png 生成
+用途：诸葛青（选手）第二步 表情四宫格：上传锁定的 a_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/a_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -208,7 +210,7 @@ waist-up shot turned slightly to the left in the full stage wardrobe, holding a 
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `b_expr.png`
-用途：王也（选手）第二步 表情四宫格：上传锁定的 b_face.png 生成
+用途：王也（选手）第二步 表情四宫格：上传锁定的 b_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/b_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -314,7 +316,7 @@ waist-up shot turned slightly to the right in the full stage wardrobe, the same 
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `zhuge_bai_expr.png`
-用途：诸葛白（队友）第二步 表情四宫格：上传锁定的 zhuge_bai_face.png 生成
+用途：诸葛白（队友）第二步 表情四宫格：上传锁定的 zhuge_bai_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/zhuge_bai_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -418,7 +420,7 @@ waist-up shot turned slightly to the right in the full stage wardrobe, the same 
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `menren_expr.png`
-用途：诸葛家门人（队友）第二步 表情四宫格：上传锁定的 menren_face.png 生成
+用途：诸葛家门人（队友）第二步 表情四宫格：上传锁定的 menren_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/menren_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -524,7 +526,7 @@ waist-up shot turned slightly to the left in the full stage wardrobe, the same p
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `chulan_expr.png`
-用途：张楚岚（队友）第二步 表情四宫格：上传锁定的 chulan_face.png 生成
+用途：张楚岚（队友）第二步 表情四宫格：上传锁定的 chulan_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/chulan_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -628,7 +630,7 @@ waist-up shot turned slightly to the left in the full stage wardrobe, the same p
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `daotong_expr.png`
-用途：武当师弟（队友）第二步 表情四宫格：上传锁定的 daotong_face.png 生成
+用途：武当师弟（队友）第二步 表情四宫格：上传锁定的 daotong_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/daotong_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -734,7 +736,7 @@ waist-up shot turned slightly slightly to the left in the full stage wardrobe, t
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `tianshi_expr.png`
-用途：张之维（评委）第二步 表情四宫格：上传锁定的 tianshi_face.png 生成
+用途：张之维（评委）第二步 表情四宫格：上传锁定的 tianshi_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/tianshi_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -840,7 +842,7 @@ waist-up shot turned slightly slightly to the left in the full stage wardrobe, t
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `lu_jin_expr.png`
-用途：陆瑾（评委）第二步 表情四宫格：上传锁定的 lu_jin_face.png 生成
+用途：陆瑾（评委）第二步 表情四宫格：上传锁定的 lu_jin_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/lu_jin_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -946,7 +948,7 @@ waist-up shot turned slightly slightly to the left in the full stage wardrobe, t
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `feng_zhenghao_expr.png`
-用途：风正豪（评委）第二步 表情四宫格：上传锁定的 feng_zhenghao_face.png 生成
+用途：风正豪（评委）第二步 表情四宫格：上传锁定的 feng_zhenghao_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/feng_zhenghao_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -1052,7 +1054,7 @@ waist-up shot turned slightly slightly to the left in the full stage wardrobe, h
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `xu_si_expr.png`
-用途：徐四（主持）第二步 表情四宫格：上传锁定的 xu_si_face.png 生成
+用途：徐四（主持）第二步 表情四宫格：上传锁定的 xu_si_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/xu_si_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -1158,7 +1160,7 @@ waist-up shot turned slightly slightly to the left in the full stage wardrobe, h
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `xu_san_expr.png`
-用途：徐三（DJ）第二步 表情四宫格：上传锁定的 xu_san_face.png 生成
+用途：徐三（DJ）第二步 表情四宫格：上传锁定的 xu_san_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/xu_san_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -1264,7 +1266,7 @@ waist-up shot turned slightly slightly to the left in the full stage wardrobe, h
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `baobao_expr.png`
-用途：冯宝宝（副歌）第二步 表情四宫格：上传锁定的 baobao_face.png 生成
+用途：冯宝宝（副歌）第二步 表情四宫格：上传锁定的 baobao_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/baobao_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -1370,7 +1372,7 @@ waist-up shot turned slightly slightly to the left in the full stage wardrobe, h
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `lingyu_expr.png`
-用途：张灵玉（副歌）第二步 表情四宫格：上传锁定的 lingyu_face.png 生成
+用途：张灵玉（副歌）第二步 表情四宫格：上传锁定的 lingyu_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/lingyu_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -1476,7 +1478,7 @@ waist-up shot turned slightly slightly to the left in the full stage wardrobe, t
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `shayan_expr.png`
-用途：风莎燕（客串）第二步 表情四宫格：上传锁定的 shayan_face.png 生成
+用途：风莎燕（客串）第二步 表情四宫格：上传锁定的 shayan_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/shayan_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
@@ -1580,7 +1582,7 @@ waist-up shot turned slightly slightly to the left in the full stage wardrobe, t
 Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替。
 
 #### `zhanglao_expr.png`
-用途：诸葛家长辈（客串）第二步 表情四宫格：上传锁定的 zhanglao_face.png 生成
+用途：诸葛家长辈（客串）第二步 表情四宫格：上传锁定的 zhanglao_face.png 生成（可选：只用来试表情、挑招牌表情，不拼进组图，视频单元不用）
 
 上传：图1 = `refs/zhanglao_face.png`（定妆正面像：保持同一张脸、发型和发色）
 
