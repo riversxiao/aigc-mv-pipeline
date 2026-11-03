@@ -18,10 +18,9 @@ from __future__ import annotations
 from collections import Counter
 
 from aigc_mv import cinema
-from aigc_mv.board import MIN_SHOT, Board, BoardShot, _cut_time, group_units
+from aigc_mv.board import MIN_SHOT, Board, BoardShot, _cut_time, announce_time, group_units
 from aigc_mv.episode import Episode
 from aigc_mv.timing import Section, TimedLine, Timing
-from aigc_mv.tools import han
 
 MERGE_MAX = 4.5    # a shot may hold a second line while it stays this short
 FILL_TARGET = 3.2  # instrumental stretches are cut about this often
@@ -442,19 +441,7 @@ class _ShowPlanner:
             self.fill(tail, b, sec, [self.react_spec(rival) | dict(sung=False)], v.shot_cn)
 
     def announce_time(self, k: str, ls: list[TimedLine]) -> float | None:
-        """When the host says rapper k's name (name_cn / aka / nickname) in the entrance lines.
-        Episode.mentions_of skips the rappers on purpose, so the entrance matches names itself."""
-        c = self.ep.cast[k]
-        for ln in ls:
-            pos = [ln.text.find(n) for n in [c.name_cn, c.aka, *c.nicknames] if n]
-            pos = [p for p in pos if p >= 0]
-            if not pos:
-                continue
-            i = len(han(ln.text[:min(pos)]))
-            if ln.chars:
-                return round(ln.chars[min(i, len(ln.chars) - 1)] - 0.08, 3)
-            return ln.t0
-        return None
+        return announce_time(self.ep, k, ls)
 
     def entrance_section(self, sec: Section, v, ls: list[TimedLine]) -> None:
         """Split screen first, then each rapper's CU (with the name card) cut on the word that names them."""

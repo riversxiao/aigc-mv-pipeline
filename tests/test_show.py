@@ -335,6 +335,24 @@ def test_entrance_cuts_on_the_announced_name(ep, board, timing):
     assert ent[2].t0 >= t_b - 0.11
 
 
+def test_entrance_fallback_is_flagged(ep, board, timing):
+    """A lyric edit that drops the rapper names from the entrance must not leave the audit silent."""
+    assert not any(w.startswith("entrance:") for w in audit(ep, board, timing).warnings)
+    t = timing.model_copy(deep=True)
+    for ln in t.lines:
+        if ln.kind == "entrance":
+            ln.text = "嘿" * len(han(ln.text))
+    res = audit(ep, plan(ep, t), t)
+    hits = [w for w in res.warnings if w.startswith("entrance:")]
+    assert len(hits) == 2 and all("falls back" in w for w in hits), hits
+    # names still sung, but the CUs land far from them: flagged as off the announcement
+    moved = board.model_copy(deep=True)
+    for s in moved.shots:
+        if s.kind == "entrance" and s.staging == "cu_team_bg":
+            s.t0 += 0.5 if s.who == ["b"] else 0
+    assert any(w.startswith("entrance:") and "> 0.3 s off" in w for w in audit(ep, moved, timing).warnings)
+
+
 def test_lower_thirds_stay_inside_their_shot(ep, timing, board, tmp_path):
     from aigc_mv.edit import _show_layers
     from aigc_mv.overlays import Sheet

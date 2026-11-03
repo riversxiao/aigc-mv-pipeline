@@ -28,7 +28,8 @@ from pydantic import BaseModel, Field
 
 from aigc_mv import cinema
 from aigc_mv.episode import Episode
-from aigc_mv.timing import Timing
+from aigc_mv.timing import TimedLine, Timing
+from aigc_mv.tools import han
 
 LEAD = 0.30          # silence before the first sung word in every sung window
 PRE_ROLL = 0.10      # cut this long before a line's first word (the mouth is already on screen)
@@ -166,6 +167,22 @@ def _cut_time(t: float, grid_beats: list[float], tol: float = 0.12) -> float:
         if abs(b - target) <= tol and b <= t - 0.04:
             return round(b, 3)
     return round(target, 3)
+
+
+def announce_time(ep: Episode, k: str, lines: list[TimedLine]) -> float | None:
+    """When the host says rapper k's name (name_cn / aka / nickname) in the entrance lines.
+    Episode.mentions_of skips the rappers on purpose, so the entrance matches names itself."""
+    c = ep.cast[k]
+    for ln in lines:
+        pos = [ln.text.find(n) for n in [c.name_cn, c.aka, *c.nicknames] if n]
+        pos = [p for p in pos if p >= 0]
+        if not pos:
+            continue
+        i = len(han(ln.text[:min(pos)]))
+        if ln.chars:
+            return round(ln.chars[min(i, len(ln.chars) - 1)] - 0.08, 3)
+        return ln.t0
+    return None
 
 
 def plan(ep: Episode, timing: Timing) -> Board:
@@ -467,6 +484,25 @@ def _audit_show(ep: Episode, board: Board, timing: Timing, err: list[str], warn:
                         f"({sec.t0:.2f}-{sec.t1:.2f}s); fix the lyric timing or the section bars / gap_bars")
         if len(out_of) > 5:
             warn.append(f"section: {len(out_of) - 5} more lines run outside their sections")
+    # entrance: each rapper's CU (and name card) starts on the word that announces them
+    for vi, v in enumerate(ep.verses):
+        if v.kind != "entrance" or vi >= len(timing.sections):
+            continue
+        ls = [ln for ln in timing.lines if ln.verse == vi]
+        if not ls:
+            continue
+        sec = timing.sections[vi]
+        for k in ep.rappers():
+            name = ep.cast[k].name_cn
+            t = announce_time(ep, k, ls)
+            if t is None:
+                warn.append(f"entrance: no {sec.name} line names {name} (name_cn / aka / nicknames); "
+                            "the CU falls back to an even split and drifts off the announcement")
+                continue
+            cu = [s for s in shots if s.section == sec.name and s.kind == "entrance" and s.who == [k]]
+            if not cu or abs(cu[0].t0 - t) > 0.3:
+                at = f"{cu[0].t0:.2f}s" if cu else "nowhere"
+                warn.append(f"entrance: {name} is announced at {t:.2f}s but the CU starts {at} (> 0.3 s off)")
     st = Counter(s.staging for s in shots if s.staging)
     n_black = st.get("blackout_spot", 0)
     has_reveal = any(v.kind == "reveal" for v in ep.verses)
