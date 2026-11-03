@@ -224,6 +224,24 @@ REALISM_IDOL_EN = (
     "skin tone variation, a natural sheen and fine sweat under the stage lights, light TV-show makeup, real "
     "micro-expressions, an original face that does not resemble any real celebrity or actor, real creased fabric"
 )
+# The 定妆 look of the cast (studied from 《火影有嘻哈03》, see docs/参考片拆解_火影有嘻哈03.md; the show is never
+# named inside a generation prompt): anime characters played by on-camera adults, canon hair / eyes / signature
+# items kept, costume translated into contemporary stage wear in the canon palette, original faces.
+SHOW_LOOK_CN = (
+    "动漫角色真人化上综艺：保留原作的发色、发型、眼睛颜色和招牌物件，服装改成当代街头潮牌和舞台演出服，配色沿用原作，"
+    "可以加耳钉、细项链这类小配饰；成年人的身材比例；上镜的舞台妆：眉形清楚、眼妆干净、嘴唇有自然光泽，"
+    "头发做过造型、发丝有层次；皮肤是真实的，有细小毛孔；" + ORIGINAL_FACE_CN + "，也不照搬任何已有 AI 节目里的角色脸"
+)
+SHOW_LOOK_EN = (
+    "live-action version of an anime character appearing on a TV rap show: canon hair colour, hairstyle and eye "
+    "colour kept together with the signature items, costume translated into contemporary streetwear and stage wear "
+    "in the canon palette, small earrings or a thin chain allowed, adult proportions, polished on-camera stage "
+    "makeup with defined brows, clean eye makeup and a natural sheen on the lips, styled layered hair, real skin "
+    "with fine pores, an original face that does not resemble any real celebrity or actor and copies no existing "
+    "AI show character"
+)
+SHEET_SHOOT_CN = "综艺节目定妆照的拍摄现场：深炭灰色无缝背景布，柔和的棚拍光"
+SHEET_SHOOT_EN = "TV-show costume test photo on a dark charcoal seamless backdrop, soft studio light"
 NO_IDOL_EN = ("cgi, 3d render, plastic skin, airbrushed, wax figure, doll, figurine, porcelain, anime, illustration, "
               "oversaturated, text, letters, logo, watermark")
 

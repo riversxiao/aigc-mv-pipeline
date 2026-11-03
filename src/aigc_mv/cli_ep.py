@@ -141,6 +141,27 @@ def canon_cmd(
         raise typer.Exit(code=1)
 
 
+@app.command("sheets")
+def sheets_cmd(
+    ep_dir: Path,
+    force: bool = typer.Option(False, "--force", help="Also replace sheets that were not made by this command"),
+) -> None:
+    """Step 3 of 定妆: tile refs/<key>_face/_34/_profile/_half/_full.png into refs/<key>_sheet.png."""
+    from aigc_mv.sheets import build_sheets
+
+    ep = load_episode(ep_dir)
+    res = build_sheets(ep_dir, ep, force=force)
+    for k in ep.cast:
+        nm = ep.cast[k].name_cn
+        if k in res.written:
+            typer.echo(f"  拼好  {nm}: {k}_sheet.png ← {len(res.written[k])} 张")
+        elif k in res.kept:
+            typer.echo(f"  保留  {nm}: {k}_sheet.png 是手工做的，没有覆盖（要覆盖加 --force）")
+        if k in res.missing:
+            typer.echo(f"  缺图  {nm}: " + "、".join(res.missing[k]) + "（见 refs/REFS.md 第一步、第二步）")
+    typer.echo(f"{len(res.written)} sheets written, {len(res.missing)} people still missing views")
+
+
 @app.command("prompts")
 def prompts_cmd(ep_dir: Path, knowledge: Path = typer.Option(None, "--knowledge")) -> None:
     """Audio windows + units/<id>/prompt.txt + request.json for every unit."""

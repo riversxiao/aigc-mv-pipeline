@@ -195,28 +195,74 @@ def test_show_sung_prompt(ep, timing, board):
     host_u = next(x for x in board.units if x.kind == "sung" and x.singer == "host")
     assert "说：" in video_prompt(ep, board, timing, host_u, chars).text
     for x in board.units:
-        faces = [f for f, _ in video_prompt(ep, board, timing, x, chars).uploads if f.endswith("_sheet.png")]
+        ups = video_prompt(ep, board, timing, x, chars).uploads
+        faces = [f for f, _ in ups if f.endswith("_sheet.png")]
         assert len(faces) <= 6
+        assert all("锁定定妆图" in r for f, r in ups if f.endswith("_sheet.png"))
+        assert not any(f.endswith(("_face.png", "_full.png")) for f, _ in ups)
 
 
 def test_show_refs_plan_and_header(ep, board, tmp_path):
     import shutil
 
     from aigc_mv.packs import write_refs_doc
-    from aigc_mv.prompts import characters, refs_plan
+    from aigc_mv.prompts import SHEET_TILES, characters, refs_plan
 
     plan_ = refs_plan(ep, board, characters(ep))
     files = {x["file"] for x in plan_}
-    assert {f"{k}_sheet.png" for k in ep.cast} <= files
     assert {"judges.png", "dj_booth.png", "venue.png", "crowd.png"} <= files
-    judge = next(x for x in plan_ if x["file"] == "judge_sheet.png")
+    for k in ep.cast:  # three steps per person: face, five views uploading the face, the assembled sheet
+        mine = [x for x in plan_ if x.get("cast") == k]
+        assert [x["step"] for x in mine] == [1, 2, 2, 2, 2, 2, 3], k
+        assert mine[0]["file"] == f"{k}_face.png"
+        step2 = [x for x in mine if x["step"] == 2]
+        assert {x["file"] for x in step2} == {f"{k}_{t}.png" for t in ("34", "profile", "half", "expr", "full")}
+        for x in step2:
+            assert x["uploads"] == [{"file": f"{k}_face.png", "role": x["uploads"][0]["role"]}]
+            assert "--oref <定妆正面像链接> --ow 100" in x["en"] and x["cn"].startswith("图1是")
+        sheet = mine[-1]
+        assert sheet["file"] == f"{k}_sheet.png" and not sheet["en"] and not sheet["cn"]
+        assert sheet["tiles"] == [f"{k}_{t}.png" for t in SHEET_TILES] and "ep sheets" in sheet["use"]
+    judge = next(x for x in plan_ if x["file"] == "judge_face.png")
     assert "评委" in judge["use"] and "straight on" in judge["en"]
-    assert cinema.ORIGINAL_FACE_CN in judge["cn"] and "35mm" not in judge["en"]
+    assert judge["uploads"] == [] and "--iw" not in judge["en"]  # battle cards have no canon art: text-to-image
+    assert cinema.ORIGINAL_FACE_CN in judge["cn"] and cinema.SHOW_LOOK_CN in judge["cn"] and "35mm" not in judge["en"]
+    assert "four-panel" not in " ".join(x["en"] for x in plan_) and "四格拼在一张图里" not in " ".join(x["cn"] for x in plan_)
     d = tmp_path / "ep"
     shutil.copytree(FIXTURE, d, ignore=shutil.ignore_patterns("analysis", "board", "units", "edit", "final",
                                                               "audio", "refs", "suno.md"))
     doc = write_refs_doc(d, ep, board).read_text(encoding="utf-8")
-    assert "《异人之下》" in doc
+    assert "《异人之下》" in doc and "## 上传清单" in doc and "ep sheets" in doc
+    assert "第一步" in doc and "第二步" in doc and "第三步" in doc and "—" not in doc
+
+
+def test_show_sheets_tile_the_locked_views(ep, tmp_path):
+    from PIL import Image
+
+    from aigc_mv.sheets import build_sheets, is_assembled
+
+    refs = tmp_path / "refs"
+    refs.mkdir()
+    for t in ("face", "34"):
+        Image.new("RGB", (300, 400), (200, 150, 120)).save(refs / f"a_{t}.png")
+    res = build_sheets(tmp_path, ep)
+    assert res.written["a"] == ["a_face.png", "a_34.png"]
+    assert set(res.missing["a"]) == {"a_profile.png", "a_half.png", "a_full.png"}
+    assert "b" not in res.written and "b" in res.missing
+    w2 = Image.open(refs / "a_sheet.png").width
+    assert is_assembled(refs / "a_sheet.png")
+    for t in ("profile", "half", "full"):
+        Image.new("RGB", (300, 600), (90, 90, 90)).save(refs / f"a_{t}.png")
+    res = build_sheets(tmp_path, ep)
+    w5 = Image.open(refs / "a_sheet.png").width
+    assert w5 > w2 and "a" not in res.missing
+    hand = refs / "b_sheet.png"  # a hand-made sheet is kept unless forced
+    Image.new("RGB", (64, 64)).save(hand)
+    Image.new("RGB", (300, 400)).save(refs / "b_face.png")
+    res = build_sheets(tmp_path, ep)
+    assert "b" in res.kept and Image.open(hand).width == 64
+    res = build_sheets(tmp_path, ep, force=True)
+    assert "b" in res.written and Image.open(hand).width > 64
 
 
 def test_show_suno_passes(ep):
@@ -505,3 +551,37 @@ def test_demo_prompts_are_clean(demo):
         assert not cinema.banned_hits(text), (u.id, cinema.banned_hits(text))
     for x in refs_plan(e, b, chars):
         assert not cinema.banned_hits(x["cn"] + " " + x["en"]), x["file"]
+
+
+def test_demo_refs_start_from_canon_art(demo):
+    from aigc_mv.prompts import characters, refs_plan
+
+    e, t, b = demo
+    plan_ = refs_plan(e, b, characters(e))
+    by = {x["file"]: x for x in plan_}
+    a = by["a_face.png"]  # canon: image-to-image from the official art, Midjourney image prompt (not --oref)
+    assert a["step"] == 1 and a["uploads"][0]["path"].endswith("refs/canon/zhuge_qing.jpg")
+    assert a["cn"].startswith("把图1里的动漫角色拍成真人综艺定妆照") and "不照抄画风" in a["cn"]
+    assert a["en"].startswith("<原作图链接> ") and "--iw 1.5" in a["en"] and "--oref" not in a["en"]
+    assert "bgm.tv/character/61836" in a["canon_url"] and "绿色玉坠" in a["cn"]
+    for k in ("menren", "daotong", "zhanglao"):  # originals: text-to-image
+        f = by[f"{k}_face.png"]
+        assert f["uploads"] == [] and "<原作图链接>" not in f["en"] and "原创角色" in f["cn"]
+    canon = [k for k in e.cast if by[f"{k}_face.png"]["uploads"]]
+    assert len(canon) == 12
+    assert "银色有线话筒" in by["b_half.png"]["cn"] and "银色有线话筒" not in by["tianshi_half.png"]["cn"]
+    for x in plan_:
+        assert "火影" not in x["cn"] + x["en"] and "—" not in x["cn"] + x["en"], x["file"]
+
+
+def test_battle_refs_keep_one_text_sheet():
+    from aigc_mv.prompts import characters, refs_plan
+
+    src = Path(__file__).resolve().parents[1] / "projects" / "xiangyu_vs_liubang"
+    e = load_episode(src)
+    t = analyze(src, e, mode="grid", bpm=92)
+    plan_ = refs_plan(e, plan(e, t), characters(e))
+    people = [x for x in plan_ if x["file"].endswith("_sheet.png")]
+    assert [x["file"] for x in people] == [f"{k}_sheet.png" for k in e.cast]
+    assert all("a three-quarter view, a profile" in x["en"] and "step" not in x and x["cn"] for x in people)
+    assert not any(x["file"].endswith("_face.png") for x in plan_)

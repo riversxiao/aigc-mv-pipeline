@@ -33,23 +33,105 @@ def write_refs_doc(project_dir: Path, ep: Episode, board: Board, knowledge_dir: 
     chars = characters(ep, knowledge_dir)
     plan = refs_plan(ep, board, chars)
     if ep.realism == "idol_show":
-        crit = ("每张图生成 4 张挑 1 张，存成下面的文件名放进 `refs/`。挑图标准：好看但像真人上节目：皮肤有真实纹理、不塑料；"
-                "脸是原创的，不像任何真人演员（包括真人剧《异人之下》的演员）；表情像真人；同一角色每张图服装道具一致；"
-                "场景图正面对称。")
+        rows = _idol_refs_doc(ep, plan)
     else:
-        crit = ("每张图生成 4 张挑 1 张，存成下面的文件名放进 `refs/`。挑图标准：像真人实拍（毛孔、细纹、不对称），"
-                "不像任何真实演员；道具和服装在每张图里一致；场景图正面对称。")
-    rows = [f"# 定妆图与场景图 · {ep.title}", "", crit, "",
-            "Midjourney 用 EN（`--style raw --stylize 60`，不要加 8k / masterpiece 之类的词）；即梦图片用 CN。", ""]
-    for item in plan:
-        rows += [f"## `{item['file']}`", f"用途：{item['use']}", "", "EN:", "```", item["en"], "```", "CN:", "```",
-                 item["cn"], "```", ""]
+        rows = _battle_refs_doc(ep, plan)
     out = Path(project_dir) / "refs" / "REFS.md"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text("\n".join(rows), encoding="utf-8")
     (Path(project_dir) / "refs" / "refs_plan.json").write_text(json.dumps(plan, ensure_ascii=False, indent=2),
                                                                 encoding="utf-8")
     return out
+
+
+STEP_CN = {1: "第一步 原作图 → 真人正面像", 2: "第二步 用正面像生成其他角度", 3: "第三步 锁定并拼成定妆组图"}
+
+
+def _uploads_cn(item: dict) -> str:
+    ups = item.get("uploads") or []
+    if not ups:
+        return "不上传图（文生图）"
+    return "；".join(f"图{i} = `{u.get('path') or 'refs/' + u['file']}`（{u['role']}）" for i, u in enumerate(ups, 1))
+
+
+def _idol_refs_doc(ep: Episode, plan: list[dict]) -> list[str]:
+    people = [x for x in plan if x.get("cast")]
+    rest = [x for x in plan if not x.get("cast")]
+    rows = [
+        f"# 定妆图与场景图 · {ep.title}", "",
+        "## 为什么分三步", "",
+        "以前一句文生图直接出「四宫格定妆照」：四格里的脸常常不是同一个人，发色和标志物也会跑偏。现在改成三步，每一步都拿上一步锁定的图当参考：",
+        "",
+        "1. **原作图 → 真人正面像**（`<key>_face.png`）：把官方图上传给即梦图片生成（图1），或在 Midjourney 里当图片提示"
+        "（链接放最前面，`--iw 1.5`，只借颜色和构图，不借画风）。原创角色没有原作图，直接文生图。",
+        "2. **用正面像生成其他角度**：四分之三侧面、正侧面、半身、表情四宫格、全身，每张单独生成，每张都上传第一步锁定的"
+        "`<key>_face.png`（即梦图1；Midjourney V7 用 `--oref <定妆正面像链接> --ow 100`，V6 用 `--cref <定妆正面像链接> --cw 100`）。",
+        "3. **锁定并拼图**：五张都挑好后跑 `aigc-mv ep sheets <本期目录>`，把 face/34/profile/half/full 拼成 `<key>_sheet.png`。"
+        "视频单元每人只传这一张；锁定后不再改，改了就要重新生成所有用到这个人的镜头。",
+        "",
+        "原作图只放在本地 `refs/canon/`（`aigc-mv ep canon` 放进去），这个文件夹在 .gitignore 里，官方图有版权，不进 git、不发到网上。"
+        "Midjourney 需要图片链接：在 Midjourney 网页里上传图片后复制链接，替换提示词里的 `<原作图链接>` / `<定妆正面像链接>`。",
+        "",
+        "挑图标准：每张生成 4 张挑 1 张。发色、发型、眼睛颜色和招牌物件要对得上原作；脸是原创的，不像任何真人演员，"
+        "尤其不像真人剧《异人之下》的演员，也不照搬任何已有 AI 节目里的脸；皮肤有真实纹理、不塑料；成年人比例；"
+        "第二步的五张必须一眼看出是第一步那个人。即梦用 CN，Midjourney 用 EN，EN 末尾的参数已经写好，不要再加画质堆砌词。",
+        "",
+        "## 上传清单", "",
+        "| 人物 | 第一步上传 | 第二步上传 | 第三步 |",
+        "| --- | --- | --- | --- |",
+    ]
+    order: list[str] = []
+    for x in people:
+        if x["cast"] not in order:
+            order.append(x["cast"])
+    for k in order:
+        items = [x for x in people if x["cast"] == k]
+        face = next(x for x in items if x["step"] == 1)
+        s1 = ", ".join(f"`{u.get('path') or u.get('file')}`" for u in face["uploads"]) or "无（原创角色，文生图）"
+        n2 = sum(1 for x in items if x["step"] == 2)
+        rows.append(f"| {ep.cast[k].name_cn}（{k}） | {s1} | `{k}_face.png`（{n2} 张各传一次） | `ep sheets` 拼 `{k}_sheet.png` |")
+    rows.append("")
+    for k in order:
+        c = ep.cast[k]
+        items = [x for x in people if x["cast"] == k]
+        face = next(x for x in items if x["step"] == 1)
+        rows += [f"## {c.name_cn}（{k}）", ""]
+        if face.get("canon_url"):
+            rows.append(f"原作图：`{face['uploads'][0]['path']}`（来源：[Bangumi 角色页]({face['canon_url']})）")
+            if face.get("canon_look_cn"):
+                rows += ["", f"原作里的样子：{face['canon_look_cn']}"]
+        else:
+            rows.append("原创角色，无原作图：第一步用文生图。")
+        rows.append("")
+        step = None
+        for x in items:
+            if x["step"] != step:
+                step = x["step"]
+                rows += [f"### {STEP_CN[step]}", ""]
+            rows += [f"#### `{x['file']}`", f"用途：{x['use']}", ""]
+            if x["step"] == 3:
+                rows += ["拼图用：" + "、".join(f"`{t}`" for t in x.get("tiles", [])) + "（`aigc-mv ep sheets` 自动拼，不用提示词）", ""]
+                continue
+            rows += [f"上传：{_uploads_cn(x)}", "", "即梦 CN：", "```", x["cn"], "```", "Midjourney EN：", "```", x["en"], "```"]
+            if x.get("mj_note"):
+                rows.append(x["mj_note"] + "。")
+            rows.append("")
+    rows += ["## 场景、评委席、观众和首帧", ""]
+    for item in rest:
+        rows += [f"### `{item['file']}`", f"用途：{item['use']}", "", "Midjourney EN：", "```", item["en"], "```",
+                 "即梦 CN：", "```", item["cn"], "```", ""]
+    return rows
+
+
+def _battle_refs_doc(ep: Episode, plan: list[dict]) -> list[str]:
+    crit = ("每张图生成 4 张挑 1 张，存成下面的文件名放进 `refs/`。挑图标准：像真人实拍（毛孔、细纹、不对称），"
+            "不像任何真实演员；道具和服装在每张图里一致；场景图正面对称。")
+    rows = [f"# 定妆图与场景图 · {ep.title}", "", crit, "",
+            "Midjourney 用 EN（`--style raw --stylize 60`，不要加 8k / masterpiece 之类的词）；即梦图片用 CN。", ""]
+    for item in plan:
+        rows += [f"## `{item['file']}`", f"用途：{item['use']}", "", "EN:", "```", item["en"], "```", "CN:", "```",
+                 item["cn"], "```", ""]
+    return rows
 
 
 def write_packs(project_dir: Path, ep: Episode, board: Board, timing: Timing,

@@ -81,13 +81,17 @@ verses:
 
 `format: show` 是照《火影有嘻哈03》逐镜头拆解（[docs/参考片拆解_火影有嘻哈03.md](docs/参考片拆解_火影有嘻哈03.md)）做的一档「说唱综艺」模板：一期 3 到 4 分钟，约 15 人（两位选手各带两个队友、三位评委、主持和 DJ、两位副歌歌手、观众席客串），段落依次是冷开场、主持开场、分屏入场、对峙、副歌、A 段、间奏、B 段、灭灯停顿揭晓、副歌回归、互动结尾。分镜器（`show.py`）一个镜头装一到两句（平均约 3 秒），运镜以固定和慢推为主，歌词点到谁就切谁的反应，灭灯只用一次。`realism: idol_show` 是「好看但像节目」的写实要求：上镜耐看的成年演员、真实皮肤不磨皮、原创面孔。
 
+定妆分三步：原作图 → 真人正面像（即梦上传原作图当图1，Midjourney 用图片提示 `--iw`），再用正面像分别生成四分之三侧面、正侧面、半身、表情四宫格和全身（Midjourney `--oref`），最后 `ep sheets` 拼成每人一张组图，视频单元只传这一张。详见 [docs/方法论.md](docs/方法论.md) 的「定妆：三步」。
+
 示例：`projects/wangye_vs_zhugeqing`，《罗天大醮有嘻哈 第一期：诸葛青 VS 王也》（《一人之下》同人二创）。
 
 ```bash
 E=projects/wangye_vs_zhugeqing
 aigc-mv ep analyze $E --bpm 92     # 还没有歌：合成节拍网格（约 3:40）
 aigc-mv ep board $E                # 分镜 + 审核（audit: PASS）
-aigc-mv ep refs $E                 # 15 张定妆图 + 场馆 / 评委席 / DJ台 / 观众的提示词
+aigc-mv ep canon $E --src <本地官方图文件夹>   # 原作图放进 refs/canon/（gitignore，不进 git）
+aigc-mv ep refs $E                 # 15 人三步定妆（原作图 → 正面像 → 五个角度）+ 场馆 / 评委席 / DJ台 / 观众的提示词
+aigc-mv ep sheets $E               # 第三步：把锁定的 face/34/profile/half/full 拼成 <key>_sheet.png
 aigc-mv ep prompts $E              # 每个生成单元的即梦提示词
 aigc-mv ep suno $E                 # 多声部 Suno 栏（分段 Extend，主持念白）
 aigc-mv ep previz $E               # 占位画面联系表
@@ -110,7 +114,8 @@ aigc-mv ep render $E --res 480p    # 全长预演动画：占位画面 + 合成�
 | `windows.py` | 每个单元的人声 / 伴奏窗口 |
 | `sync.py` | 每条生成的延迟和同步区间测量 |
 | `edit.py` / `overlays.py` | EDL、按帧对齐渲染、逐镜头调色、胶片感、字幕 / 注释 / 名字卡 / 标题 |
-| `packs.py` | 写出每个单元的上传清单和请求 |
+| `packs.py` | 写出每个单元的上传清单和请求；refs/REFS.md（综艺按人物和三步定妆分组） |
+| `sheets.py` | `ep sheets`：把锁定的五个角度拼成每人一张定妆组图 |
 | `providers/` | 花钱闸门 + Dreamina / Suno 适配器（待接口，见 [docs/接口对接.md](docs/接口对接.md)） |
 
 旧的知识层命令（`list-characters`、`get-canon`、`build-prompt`、`list-lore`、`lyric-brief`、`align`、`storyboard`、`preview`）保留不变，MCP 服务见 [`mcp_server/README.md`](mcp_server/README.md)。

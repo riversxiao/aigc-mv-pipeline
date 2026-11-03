@@ -112,7 +112,7 @@ def _show_unit_refs(ep: Episode, board: Board, u: Unit) -> list[tuple[str, str]]
     refs: list[tuple[str, str]] = []
     for w in (fg + bg)[:MAX_FACE_REFS]:
         c = ep.cast[w]
-        role = f"是{c.name_cn}（{ROLE_CN[c.role]}）的定妆照（正面、侧面、表情），只用来认脸、发型和服装，不要把这张图当成画面出现"
+        role = f"是{c.name_cn}（{ROLE_CN[c.role]}）的锁定定妆图（正侧面和全身），只用来认脸、发型和服装，不要把这张图当成画面出现"
         if w in bg:
             role += f"；{c.name_cn}只在背景里虚化出现"
         refs.append((f"{w}_sheet.png", role))
@@ -373,24 +373,103 @@ def still_prompt_cn(ep: Episode, char: Character | None, framing: str, lens: str
     return "，".join(x.strip("。，, ") for x in parts if x) + "。"
 
 
-def _idol_sheet(ep: Episode, k: str, ch: Character) -> dict:
-    """Face sheet for an 'idol_show' episode: a TV-show photo shoot, real skin, an original face."""
+SHEET_TILES = ("face", "34", "profile", "half", "full")  # step-2 views tiled into <key>_sheet.png by `ep sheets`
+FACE_ROLE_CN = "定妆正面像：保持同一张脸、发型和发色"
+CANON_ROLE_CN = "原作图：只参考发色、发型、眼睛和服装配色，不照抄画风，变成真人照片"
+MJ_V6_NOTE = "Midjourney V6 没有 --oref，用 --cref <定妆正面像链接> --cw 100 代替"
+
+
+def _mj(ar: str, ep: Episode) -> str:
+    return f"--ar {ar} --style raw --stylize 60 --no {cinema.negative_en(ep.realism)}"
+
+
+def _cn(*parts: str) -> str:
+    return "，".join(x.strip("。，, ") for x in parts if x) + "。"
+
+
+def _en(*parts: str) -> str:
+    return ", ".join(x.strip(" ,.") for x in parts if x)
+
+
+def _idol_steps(ep: Episode, k: str, ch: Character) -> list[dict]:
+    """定妆 for an 'idol_show' episode in three image-guided steps (docs/方法论.md):
+    1 official art -> photoreal front portrait (text-to-image for original characters),
+    2 that portrait uploaded as the reference for every other view, 3 `ep sheets` tiles the locked views."""
+    from aigc_mv.canon_refs import CANON_DIR  # canon_refs imports this module
+
     c = ep.cast[k]
-    role = ROLE_CN[c.role]
-    facing_en = {"left": "three-quarters to the right", "right": "three-quarters to the left"}.get(c.side, "straight on")
-    facing_cn = {"left": "朝右", "right": "朝左"}.get(c.side, "正对镜头")
+    nm, role = c.name_cn, ROLE_CN[c.role]
+    who = f"{nm}（{role}）"
     mic = c.role in ("rapper", "host", "dj", "hook")
-    en = ("character reference sheet of the same person for a TV rap show, photographed on a dark charcoal "
-          "seamless backdrop of a TV-show photo shoot with soft broadcast studio light: a front head-and-shoulders "
-          "portrait, a three-quarter view, a profile, and a waist-up view " + facing_en
-          + (" holding a silver corded microphone" if mic else "") + ", " + ch.identity
-          + (", " + ch.wardrobe_default if ch.wardrobe_default else "") + ", " + cinema.realism_en(ep.realism)
-          + ", no text, no letters, no logos" + f" --ar 16:9 --style raw --stylize 50 --no {cinema.negative_en(ep.realism)}")
-    cn = still_prompt_cn(ep, ch, "MS", "50", f"综艺节目定妆照的拍摄背景：深灰色无缝背景布，柔和的棚拍光，同一个人的正面头肩、"
-                         f"四分之三侧面、正侧面和一张{facing_cn}的半身照{'（手里拿着银色有线话筒）' if mic else ''}，"
-                         f"四格拼在一张图里，{cinema.ORIGINAL_FACE_CN}")
-    return {"file": f"{k}_sheet.png",
-            "use": f"{c.name_cn}（{role}）定妆：所有含{c.name_cn}的生成都上传（只认脸，不当画面）", "en": en, "cn": cn}
+    ident_cn, ident_en = ch.identity_cn or ch.identity, ch.identity
+    wear_cn, wear_en = ch.wardrobe_cn or ch.wardrobe_default, ch.wardrobe_default
+    sig_cn = f"招牌特征不能丢：{ch.signature_cn}" if ch.signature_cn else ""
+    sig_en = f"signature details that must stay: {ch.signature_en}" if ch.signature_en else ""
+    base = {"cast": k, "en": "", "cn": "", "mj_params": "", "uploads": []}
+    out = []
+
+    # step 1: the front portrait everything else is built from
+    canon = bool(ch.canon_refs)
+    face = dict(base, file=f"{k}_face.png", step=1, kind="face",
+                use=f"{who}第一步 定妆正面像：挑一张锁定，第二步每张图都上传它")
+    front_cn = "正面头肩像，正对镜头，眼睛平视"
+    front_en = "front head-and-shoulders portrait facing the camera straight on, eyes level"
+    if canon:
+        face["uploads"] = [{"path": str(CANON_DIR / f"{c.character}.jpg"), "role": CANON_ROLE_CN}]
+        face["canon_url"] = ch.canon_refs[0].url
+        face["canon_look_cn"] = ch.canon_look_cn
+        face["mj_params"] = f"--iw 1.5 {_mj('3:4', ep)}"
+        face["cn"] = _cn(f"把图1里的动漫角色拍成真人综艺定妆照（{CANON_ROLE_CN}）", front_cn, ident_cn, sig_cn,
+                         wear_cn, cinema.SHOW_LOOK_CN, cinema.SHEET_SHOOT_CN, "是真实拍摄的照片，不是画，无文字、无水印、无标志")
+        face["en"] = ("<原作图链接> " + _en(
+            front_en, "photoreal live-action costume test photo of the character in the image prompt, only the hair "
+            "colour, hairstyle, eyes and costume palette are taken from it, not the drawing style", ident_en, sig_en,
+            wear_en, cinema.SHOW_LOOK_EN, cinema.SHEET_SHOOT_EN, "a real photograph, no text, no letters, no logos")
+            + " " + face["mj_params"])
+    else:
+        face["mj_params"] = _mj("3:4", ep)
+        face["cn"] = _cn(f"{nm}的真人综艺定妆照（原创角色，没有原作图，直接文生图）", front_cn, ident_cn, sig_cn, wear_cn,
+                         cinema.SHOW_LOOK_CN, cinema.SHEET_SHOOT_CN, "无文字、无水印、无标志")
+        face["en"] = _en(front_en, ident_en, sig_en, wear_en, cinema.SHOW_LOOK_EN, cinema.SHEET_SHOOT_EN,
+                         "no text, no letters, no logos") + " " + face["mj_params"]
+    out.append(face)
+
+    # step 2: every other view, each generated with the locked portrait uploaded
+    turn_cn = {"left": "朝右", "right": "朝左"}.get(c.side, "微微朝左")
+    turn_en = {"left": "to the right", "right": "to the left"}.get(c.side, "slightly to the left")
+    mic_cn = "，右手拿着银色有线话筒，话筒在嘴的斜下方" if mic else ""
+    mic_en = ", holding a silver corded microphone below the mouth" if mic else ""
+    listen = (c.listen_cn or "").strip("。 ")
+    views = [
+        ("34", "四分之三侧面", f"四分之三侧面头肩像，身体和脸{turn_cn}", f"three-quarter head-and-shoulders view turned {turn_en}", "3:4"),
+        ("profile", "正侧面", f"正侧面头肩像，脸{turn_cn}，看得清侧脸轮廓和发型", f"strict profile head-and-shoulders view facing {turn_en}", "3:4"),
+        ("half", "半身", f"腰以上半身照，身体微微{turn_cn}，穿全套舞台服装{mic_cn}",
+         f"waist-up shot turned slightly {turn_en} in the full stage wardrobe{mic_en}", "3:4"),
+        ("expr", "表情四宫格", f"同一个人的表情四宫格，2x2 拼在一张图里：笑、认真、惊讶、招牌表情（{listen or '角色平时的样子'}），四格都是正面头肩",
+         "a 2x2 expression grid of the same person, four front head-and-shoulders frames: laughing, serious, "
+         "surprised, and the character's signature reaction face", "1:1"),
+        ("full", "全身", f"全身照，从头到鞋都在画面里，站姿自然，身体{turn_cn}，穿全套舞台服装和鞋{mic_cn}",
+         f"full-body shot head to shoes, natural stance turned {turn_en}, full stage costume and shoes{mic_en}", "2:3"),
+    ]
+    for tag, label, v_cn, v_en, ar in views:
+        it = dict(base, file=f"{k}_{tag}.png", step=2, kind=tag, use=f"{who}第二步 {label}：上传锁定的 {k}_face.png 生成")
+        it["uploads"] = [{"file": f"{k}_face.png", "role": FACE_ROLE_CN}]
+        it["mj_params"] = f"--oref <定妆正面像链接> --ow 100 {_mj(ar, ep)}"
+        it["mj_note"] = MJ_V6_NOTE
+        it["cn"] = _cn(f"图1是{nm}的{FACE_ROLE_CN}", f"拍同一个人的{v_cn}", ident_cn, sig_cn, wear_cn,
+                       cinema.SHOW_LOOK_CN, cinema.SHEET_SHOOT_CN,
+                       "无文字、无水印、无标志")
+        it["en"] = _en(v_en, "the same person as the omni reference, same face, hairstyle and hair colour", ident_en,
+                       sig_en, wear_en, cinema.SHOW_LOOK_EN, cinema.SHEET_SHOOT_EN,
+                       "no text, no letters, no logos") + " " + it["mj_params"]
+        out.append(it)
+
+    # step 3: assembled locally, no prompt
+    out.append(dict(base, file=f"{k}_sheet.png", step=3, kind="sheet",
+                    tiles=[f"{k}_{t}.png" for t in SHEET_TILES],
+                    use=f"{who}第三步 定妆组图：由 aigc-mv ep sheets 把锁定的 face/34/profile/half/full 拼成，"
+                        f"视频单元只传这一张（所有含{nm}的生成都上传，只认脸，不当画面）"))
+    return out
 
 
 def refs_plan(ep: Episode, board: Board, chars: dict[str, Character]) -> list[dict]:
@@ -400,7 +479,7 @@ def refs_plan(ep: Episode, board: Board, chars: dict[str, Character]) -> list[di
     for k, c in ep.cast.items():
         ch = chars[k]
         if idol:
-            out.append(_idol_sheet(ep, k, ch))
+            out += _idol_steps(ep, k, ch)
             continue
         facing = "three-quarters to the right" if c.side == "left" else "three-quarters to the left"
         out.append({
