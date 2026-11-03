@@ -49,8 +49,27 @@ def _who_cn(ep: Episode, keys: list[str]) -> str:
     return "、".join(ep.cast[k].name_cn for k in keys)
 
 
-def _move_text(ep: Episode, shot: BoardShot, who: str | None, other: str | None) -> str:
+# Sung show units only: the same camera moves and long lenses in fewer words (long sung prompts make Seedance
+# re-sing instead of copying the audio). Moves missing here keep their full text.
+SHORT_MOVE_CN = {
+    "locked": "固定机位，几乎不动",
+    "push_slow": "缓慢平稳地推近一个景别",
+    "tele_float": "长焦跟拍，随人物轻微漂移",
+    "handheld": "肩扛手持跟拍，轻微晃动，不剧烈",
+    "snap_zoom": "前面稳定，最后半秒急推到大特写",
+}
+SHORT_LENS_CN = {
+    "24w": "24mm 广角贴近人物",
+    "135": "135mm 长焦，空间压缩，背景虚成大片光斑",
+}
+# Sung show units always upload at least one locked environment plate: the venue look is carried by it.
+SHOW_PLATE_LOOK_CN = "场馆、擂台、灯光和配色照场景图；像电视直播画面但有电影感，细腻颗粒。"
+
+
+def _move_text(ep: Episode, shot: BoardShot, who: str | None, other: str | None, short: bool = False) -> str:
     m = cinema.MOVES[shot.camera]
+    if short and shot.camera in SHORT_MOVE_CN:
+        return SHORT_MOVE_CN[shot.camera]
     return m.cn.format(
         who=ep.cast[who].name_cn if who else "人物",
         other=ep.cast[other].name_cn if other else "对手",
@@ -171,6 +190,39 @@ def unit_refs(ep: Episode, board: Board, u: Unit) -> list[tuple[str, str]]:
     return refs
 
 
+SHOW_SHEET_RULE_CN = "每人一张锁定定妆图（正侧面和全身），只用来认脸、发型和服装，不要把这些图当成画面出现"
+SHOW_PLATE_RULE_CN = "只用来对齐场馆、灯光和观众席的样子，人物照定妆图，不要把场景图原样当成画面"
+
+
+def _show_ref_text(ep: Episode, uploads: list[tuple[str, str]]) -> str:
+    """【参考图】 of a show unit in two sentences: every @图片N named once, the identity-only rule and the
+    background-only rule said once for all sheets and once for all plates (sung prompts must stay short)."""
+    sheets, envs, other = [], [], []
+    for i, (f, role) in enumerate(uploads, 1):
+        key = f[: -len("_sheet.png")] if f.endswith("_sheet.png") else ""
+        if key in ep.cast:
+            c = ep.cast[key]
+            sheets.append(f"@图片{i}是{c.name_cn}（{ROLE_CN[c.role]}）")
+        elif f in plates.BY_FILE:
+            envs.append(f"@图片{i}是场景图（{plates.BY_FILE[f].title_cn}）")
+        else:
+            other.append(f"@图片{i}{role}。")
+    out = "【参考图】"
+    if sheets:
+        out += "，".join(sheets) + f"：{SHOW_SHEET_RULE_CN}。"
+    if envs:
+        out += "，".join(envs) + f"：{SHOW_PLATE_RULE_CN}。"
+    return out + "".join(other)
+
+
+def _show_person_cn(name: str, c: Character) -> str:
+    """Foreground person of a show unit: the sheet carries face, hair and costume, so only age and sex (first
+    clause of the card), the signature details and what the hands do are restated."""
+    ident = (c.identity_cn or c.identity).replace(",", "，").split("，")[0].strip("。；; ")
+    bits = [ident, c.signature_cn, c.props_cn]
+    return f"{name}：" + "；".join(b.strip("。；; ") for b in bits if b) + "。"
+
+
 def _show_goal(ep: Episode, u: Unit) -> str:
     show = ep.show_name or "节目"
     c = ep.cast[u.singer]
@@ -209,16 +261,17 @@ def _show_timeline(ep: Episode, timing: Timing, u: Unit, shots: list[BoardShot],
                    lines_by_idx: dict, plate_idx: dict[str, int] | None = None) -> list[str]:
     """Timeline of a variety-show unit: staging first, then who says / sings what, reactions by seat."""
     plate_idx = plate_idx or {}
+    short = u.kind == "sung"
     out = []
     for k, s in enumerate(shots, 1):
         a, b = s.t0 - u.song_t0, s.t1 - u.song_t0
         if k == len(shots):
             b = u.duration
         fr = cinema.FRAMINGS[s.framing][0]
-        lens = cinema.LENSES[s.lens][0]
+        lens = SHORT_LENS_CN.get(s.lens, cinema.LENSES[s.lens][0]) if short else cinema.LENSES[s.lens][0]
         visible_singer = s.singer if s.singer and s.singer in s.who else None
         focus = s.who[0] if s.kind == "react" and s.who else (visible_singer or (s.who[0] if s.who else None))
-        move = _move_text(ep, s, focus, ep.other(focus) if focus else None)
+        move = _move_text(ep, s, focus, ep.other(focus) if focus else None, short=short)
         land = _beat_landing(timing, u, a, b)
         head = f"镜头{k}（{a:.1f}–{b:.1f} 秒）：{fr}，{lens}；运镜：{move}，{land}。"
         if s.staging in cinema.SHOW_STAGINGS:
@@ -287,13 +340,16 @@ def video_prompt(ep: Episode, board: Board, timing: Timing, u: Unit,
                 if w not in who_all:
                     who_all.append(w)
 
-    ref_text = "【参考图】" + "".join(f"@图片{i}{role}。" for i, (_, role) in enumerate(uploads, 1))
+    if show:
+        ref_text = _show_ref_text(ep, uploads)
+    else:
+        ref_text = "【参考图】" + "".join(f"@图片{i}{role}。" for i, (_, role) in enumerate(uploads, 1))
     people = []
     for w in who_all:
         c = chars[w]
-        if show and w in bg:  # blurred second layer: the face sheet carries the identity, keep the prompt short
-            wear = (c.wardrobe_cn or c.wardrobe_default).strip("。 ")
-            people.append(f"{ep.cast[w].name_cn}：" + (wear + "，" if wear else "") + "只在背景里虚化出现，长相照参考图。")
+        if show:  # the locked sheet carries the identity; blurred background people get one shared sentence
+            if w not in bg:
+                people.append(_show_person_cn(ep.cast[w].name_cn, c))
             continue
         bits = [c.identity_cn or c.identity, c.wardrobe_cn or c.wardrobe_default, c.props_cn]
         people.append(f"{ep.cast[w].name_cn}：" + "；".join(b.strip("。 ") for b in bits if b) + "。")
@@ -302,6 +358,8 @@ def video_prompt(ep: Episode, board: Board, timing: Timing, u: Unit,
         sides = sides_cn(ep) if len(rappers) == 2 and any(w in rappers for w in who_all) else ""
     else:
         sides = sides_cn(ep) if len(ep.cast) == 2 else ""
+    if show and bg:
+        people.append(f"{_who_cn(ep, bg)}只在背景里虚化出现，长相和服装照定妆图。")
     people_txt = "【人物】" + "".join(people) + sides
 
     loc_full = ep.venue.cn if u.location == "venue" else ep.locations[u.location].cn
@@ -354,8 +412,9 @@ def video_prompt(ep: Episode, board: Board, timing: Timing, u: Unit,
             goal = _show_goal(ep, u)
         else:
             goal = f"【目标】{loc_name}，{singer}在说唱对决里正面开火，一镜一句、动作照歌词字面演。"
+        look_cn = SHOW_PLATE_LOOK_CN if show and any(f in plates.BY_FILE for f, _ in uploads) else look.cn
         body = [AUDIO_COPY_CN, goal, ref_text, people_txt, crowd_txt, "【分镜】", *timeline, LIPSYNC_CN,
-                "【画面】" + look.cn + cinema.realism_cn(ep.realism, sung=True),
+                "【画面】" + look_cn + cinema.realism_cn(ep.realism, sung=True),
                 CORE_CN + cinema.NO_TEXT_CN, AUDIO_COPY_CN]
     else:
         if show:

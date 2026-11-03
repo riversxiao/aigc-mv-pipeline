@@ -203,6 +203,57 @@ def test_show_sung_prompt(ep, timing, board):
         assert not any(f.endswith(("_face.png", "_full.png")) for f, _ in ups)
 
 
+def test_show_sung_prompts_are_short_and_complete(ep, timing, board):
+    """Every sung show prompt keeps the audio policy at both ends, every timed half-line of its visible singer,
+    one @图片N per upload naming the right person or plate, the identity-only rule once, and stays short."""
+    from aigc_mv import plates
+    from aigc_mv.packs import SUNG_PROMPT_WARN
+    from aigc_mv.prompts import (AUDIO_COPY_CN, ROLE_CN, SHOW_PLATE_RULE_CN, SHOW_SHEET_RULE_CN, characters,
+                                 video_prompt)
+
+    chars = characters(ep)
+    lines = {ln.idx: ln for ln in timing.lines}
+    sung = [u for u in board.units if u.kind == "sung"]
+    assert sung
+    total_timed = 0
+    for u in sung:
+        up = video_prompt(ep, board, timing, u, chars)
+        t = up.text
+        assert t.startswith(AUDIO_COPY_CN) and t.rstrip().endswith(AUDIO_COPY_CN), u.id
+        # units of four or more shots (each with its own timing, staging and reaction) may still go over: the
+        # remaining fix there is fewer shots per unit, which `ep prompts` keeps warning about
+        if len(board.unit_shots(u)) <= 3:
+            assert len(t) < SUNG_PROMPT_WARN, (u.id, len(t))
+        n_timed = 0
+        for s in board.unit_shots(u):
+            if not (s.sung and s.lines and s.singer in s.who):
+                continue
+            a, b = s.t0 - u.song_t0, s.t1 - u.song_t0
+            for i in s.lines:
+                for ph in lines[i].phrases:
+                    p0, p1 = ph.t0 - u.song_t0, ph.t1 - u.song_t0
+                    if p1 <= a + 0.05 or p0 >= b - 0.3:
+                        continue
+                    assert f"{max(p0, 0):.2f}–" in t and f"「{ph.text}」" in t, (u.id, ph.text)
+                    n_timed += 1
+        total_timed += n_timed  # a unit whose singer is only heard off screen has no timed lines
+        refs = t.split("【参考图】", 1)[1].split("\n", 1)[0]
+        for i, (f, _) in enumerate(up.uploads, 1):
+            assert f"@图片{i}" in t, (u.id, f)
+            if f.endswith("_sheet.png"):
+                c = ep.cast[f[: -len("_sheet.png")]]
+                assert f"@图片{i}是{c.name_cn}（{ROLE_CN[c.role]}）" in refs, (u.id, f)
+            elif f in plates.BY_FILE:
+                assert f"@图片{i}是场景图（{plates.BY_FILE[f].title_cn}）" in refs, (u.id, f)
+        assert f"@图片{len(up.uploads) + 1}" not in t
+        if any(f.endswith("_sheet.png") for f, _ in up.uploads):
+            assert refs.count(SHOW_SHEET_RULE_CN) == 1
+        if any(f in plates.BY_FILE for f, _ in up.uploads):
+            assert refs.count(SHOW_PLATE_RULE_CN) == 1
+        assert "@音频1" in t and "—" not in t and not cinema.banned_hits(t)
+    assert total_timed >= len(sung) // 2
+
+
 def test_show_refs_plan_and_header(ep, board, tmp_path):
     import shutil
 
