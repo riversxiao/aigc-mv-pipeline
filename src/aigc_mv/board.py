@@ -13,6 +13,8 @@ Shot grammar (per 4-line stanza), built from the two reference films:
 
 A line with `cutaway:` keeps its first half-line on the singer and cuts to a story insert for the rest.
 Sections: intro = establishing crane/push, break = crowd + next rapper raising the mic, outro = winner/loser.
+
+`format: show` episodes are planned by aigc_mv.show.plan_show (variety-show grammar of 《火影有嘻哈03》).
 """
 
 from __future__ import annotations
@@ -34,7 +36,9 @@ MIN_SHOT = 0.8
 UNIT_MIN, UNIT_MAX = 4, 12  # Seedance request length limits used here (seconds)
 SUNG_MAX = 8                # sung windows: lip sync degrades past ~8 s (claudia.gallery)
 
-ShotKind = Literal["establish", "perform", "react", "cutaway", "crowd", "outro"]
+ShotKind = Literal["establish", "perform", "react", "cutaway", "crowd", "outro", "host", "hook", "entrance",
+                   "blackout"]
+SUNG_KINDS = ("perform", "react", "host", "hook")  # shots that join a singer's sung unit
 
 
 class BoardShot(BaseModel):
@@ -56,6 +60,8 @@ class BoardShot(BaseModel):
     action_cn: str = ""
     unit: str = ""
     note: str = ""
+    staging: str = Field("", description="Show staging id in cinema.SHOW_STAGINGS")
+    background: list[str] = Field(default_factory=list, description="Teammates blurred behind the singer")
 
     @property
     def dur(self) -> float:
@@ -163,6 +169,10 @@ def _cut_time(t: float, grid_beats: list[float], tol: float = 0.12) -> float:
 
 
 def plan(ep: Episode, timing: Timing) -> Board:
+    if ep.format == "show":
+        from aigc_mv.show import plan_show
+
+        return plan_show(ep, timing)
     picker = _Picker()
     shots: list[BoardShot] = []
     beats = timing.grid.beats
@@ -323,7 +333,7 @@ def group_units(ep: Episode, shots: list[BoardShot], timing: Timing) -> list[Uni
         cur.clear()
 
     for s in shots:
-        if s.kind in ("perform", "react") and s.singer:
+        if s.kind in SUNG_KINDS and s.singer and s.lines:
             if cur and (cur[0].singer != s.singer or cur[0].location != s.location
                         or sung_end(cur + [s]) - sung_t0(cur) > SUNG_MAX):
                 flush_sung()
@@ -379,12 +389,21 @@ def audit(ep: Episode, board: Board, timing: Timing) -> AuditResult:
     for mid, n in cnt.items():
         if n > cinema.MOVES[mid].max_per_film:
             err.append(f"camera: {mid} used {n}× (max {cinema.MOVES[mid].max_per_film})")
+    show = ep.format == "show"
     # lead share: the singer on camera and in sync during verses
-    verse_t = sum(s.dur for s in shots if s.section.startswith("verse"))
-    sung_t = sum(s.dur for s in shots if s.sung)
+    if show:  # show: verse sections only (host / hook / reactions elsewhere are not the rapper's time)
+        verse_secs = {sec.name for sec in timing.sections if sec.kind == "verse"}
+        in_verse = [s for s in shots if s.section in verse_secs]
+        verse_t = sum(s.dur for s in in_verse)
+        floor = 0.5
+    else:
+        in_verse = shots
+        verse_t = sum(s.dur for s in shots if s.section.startswith("verse"))
+        floor = 0.6
+    sung_t = sum(s.dur for s in in_verse if s.sung)
     share = sung_t / verse_t if verse_t else 0.0
-    if share < 0.6:
-        err.append(f"lead share: singer on camera {share:.0%} of verse time (< 60%)")
+    if share < floor:
+        err.append(f"lead share: singer on camera {share:.0%} of verse time (< {floor:.0%})")
     elif share > 0.9:
         warn.append(f"lead share: {share:.0%} — add reactions / cutaways so it breathes")
     # units
@@ -409,6 +428,9 @@ def audit(ep: Episode, board: Board, timing: Timing) -> AuditResult:
     est = gen_s * ep.budget.price_per_sec_usd * 2  # takes run ~2x the cut (claudia.gallery measurement)
     if est > ep.budget.cap_usd:
         warn.append(f"budget: estimate ${est:.2f} (2 takes per unit) > cap ${ep.budget.cap_usd:.2f}")
+    extra: dict = {}
+    if show:
+        _audit_show(ep, board, timing, err, warn, extra)
     stats = {
         "shots": len(shots),
         "units": len(board.units),
@@ -418,8 +440,47 @@ def audit(ep: Episode, board: Board, timing: Timing) -> AuditResult:
         "lead_share": round(share, 3),
         "mean_shot_s": round(sum(s.dur for s in shots) / max(1, len(shots)), 2),
         "camera_moves": dict(cnt),
+        **extra,
     }
     return AuditResult(ok=not err, errors=err, warnings=warn, stats=stats)
+
+
+def _audit_show(ep: Episode, board: Board, timing: Timing, err: list[str], warn: list[str], stats: dict) -> None:
+    """Variety-show rules (docs/参考片拆解_火影有嘻哈03.md)."""
+    shots = board.shots
+    mean = sum(s.dur for s in shots) / max(1, len(shots))
+    if not 2.5 <= mean <= 4.5:
+        warn.append(f"show: mean shot {mean:.2f}s outside 2.5-4.5 s (reference film ~3.4 s)")
+    # every line that names someone cuts to that person's reaction
+    for ln in timing.lines:
+        v = ep.verses[ln.verse]
+        for m in ep.mentions_of(v, v.lines[ln.line]):
+            if not any(s.kind == "react" and m in s.who and s.t0 < ln.t1 and s.t1 > ln.t0 for s in shots):
+                err.append(f"mention: line {ln.idx} '{ln.text}' names {ep.cast[m].name_cn} but has no reaction shot")
+    st = Counter(s.staging for s in shots if s.staging)
+    n_black = st.get("blackout_spot", 0)
+    has_reveal = any(v.kind == "reveal" for v in ep.verses)
+    if n_black > 1:
+        err.append(f"blackout: blackout_spot used {n_black}× (exactly once per film)")
+    elif has_reveal and n_black == 0:
+        err.append("blackout: the reveal section has no blackout_spot shot")
+    for sid, n in st.items():
+        if sid not in cinema.SHOW_STAGINGS:
+            err.append(f"staging: unknown staging {sid!r}")
+        elif n > cinema.SHOW_STAGINGS[sid].max_per_film:
+            err.append(f"staging: {sid} used {n}× (max {cinema.SHOW_STAGINGS[sid].max_per_film})")
+    accents = cinema.SHOW_MOVES["accent"]
+    for mid, cap in accents.items():  # type: ignore[union-attr]
+        n = sum(1 for s in shots if s.camera == mid)
+        if n > cap:
+            err.append(f"camera: {mid} used {n}× in a show (max {cap})")
+    calm = sum(1 for s in shots if s.camera in cinema.CALM_MOVES) / max(1, len(shots))
+    if calm < 0.7:
+        warn.append(f"camera: only {calm:.0%} calm moves (show wants >= 70% locked / push / float / handheld)")
+    if not 180 <= board.duration <= 260:
+        warn.append(f"show: duration {board.duration:.0f}s outside 180-260 s")
+    reactions = Counter(ep.cast[w].role for s in shots if s.kind == "react" for w in s.who)
+    stats.update({"stagings": dict(st), "reactions_by_role": dict(reactions), "calm_share": round(calm, 3)})
 
 
 # --------------------------------------------------------------------------- review sheet
@@ -432,14 +493,17 @@ def render_sheet(ep: Episode, board: Board, timing: Timing, result: AuditResult)
             f"{result.stats['units']} 次生成（{result.stats['generated_seconds']} 秒，按每条 2 次约 "
             f"${result.stats['estimate_usd_2_takes']}）· 唱的人在画面里 {result.stats['lead_share']:.0%} · "
             f"平均镜头 {result.stats['mean_shot_s']} 秒", "",
-            "| 镜头 | 时间 | 段落 | 类型 | 景别 / 镜头 | 运镜 | 画面 | 歌词 | 生成 |",
-            "| --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+            "| 镜头 | 时间 | 段落 | 类型 | 调度 | 景别 / 镜头 | 运镜 | 画面 | 歌词 | 生成 |",
+            "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     for s in board.shots:
         who = "、".join(ep.cast[w].name_cn for w in s.who) or "—"
+        if s.background:
+            who += "（身后：" + "、".join(ep.cast[w].name_cn for w in s.background) + "）"
         lyr = " / ".join(text[i] for i in s.lines)
+        stg = cinema.SHOW_STAGINGS[s.staging].cn if s.staging in cinema.SHOW_STAGINGS else ""
         rows.append(
-            f"| {s.id} | {s.t0:.2f}–{s.t1:.2f} | {s.section} | {s.kind} | {s.framing} · {s.lens} | {s.camera} | "
-            f"{who}：{s.action_cn} | {lyr} | {s.unit} |")
+            f"| {s.id} | {s.t0:.2f}–{s.t1:.2f} | {s.section} | {s.kind} | {stg} | {s.framing} · {s.lens} | "
+            f"{s.camera} | {who}：{s.action_cn} | {lyr} | {s.unit} |")
     rows += ["", "## 审核", ""]
     rows += [f"- ❌ {e}" for e in result.errors] or ["- ✅ 全部通过"]
     rows += [f"- ⚠️ {w}" for w in result.warnings]

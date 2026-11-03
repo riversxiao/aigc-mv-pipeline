@@ -5,7 +5,8 @@ Writes `analysis/timing.json`. Two alignment modes:
 * ``asr``  – faster-whisper character times on the vocal stem, matched to the lyric sheet by pinyin
              (homophones count), unmatched characters interpolated. Needs ``pip install faster-whisper pypinyin``.
 * ``grid`` – no ASR: one lyric line per bar from the beat grid. Good enough to board and previz;
-             re-run with ASR once the real Suno take is locked.
+             re-run with ASR once the real Suno take is locked. Show episodes (and ``line_beats: auto``) use a
+             beat cursor instead: every line lasts its own number of beats (``beats`` or from its length).
 
 Rules carried over from production (ancient-rap-battle + claudia.gallery):
 - the beat grid sits on the kick, never on hats; tempo is searched in a pinned range to avoid half/double time;
@@ -16,13 +17,14 @@ Rules carried over from production (ancient-rap-battle + claudia.gallery):
 from __future__ import annotations
 
 import difflib
+import math
 from pathlib import Path
 from typing import Literal
 
 import numpy as np
 from pydantic import BaseModel, Field
 
-from aigc_mv.episode import Episode
+from aigc_mv.episode import Episode, LyricLine
 from aigc_mv.tools import han, load_audio, media_duration
 
 
@@ -68,11 +70,14 @@ class TimedLine(BaseModel):
     bar: int
     phrases: list[Phrase]
     chars: list[float] = Field(default_factory=list, description="Start time of every CJK character")
+    kind: str = Field("verse", description="Kind of the section the line belongs to")
+    spoken: bool = False
 
 
 class Section(BaseModel):
     name: str
-    kind: Literal["intro", "verse", "break", "outro"]
+    kind: Literal["intro", "verse", "break", "outro", "cold_open", "host", "entrance", "faceoff", "hook",
+                  "interlude", "reveal"]
     t0: float
     t1: float
     who: str | None = None
@@ -218,10 +223,89 @@ def align_grid(ep: Episode, grid: BeatGrid) -> list[TimedLine]:
             span = (t_bar_end - t0) * 0.88
             chars = [round(t0 + span * i / n, 3) for i in range(n)]
             t1 = round(t0 + span, 3)
-            lines.append(TimedLine(idx=idx, verse=vi, line=li, who=v.who, text=ln.text, t0=round(t0, 3),
-                                   t1=t1, bar=bar, phrases=_phrases_from_chars(ln.text, chars, t1), chars=chars))
+            lines.append(TimedLine(idx=idx, verse=vi, line=li, who=ep.singer_of(v, ln), text=ln.text,
+                                   t0=round(t0, 3), t1=t1, bar=bar, phrases=_phrases_from_chars(ln.text, chars, t1),
+                                   chars=chars, kind=v.kind, spoken=ln.spoken))
             idx += 1
             bar += 1
+    return lines
+
+
+# --------------------------------------------------------------------------- beat-cursor layout (show / auto)
+
+
+def line_beats(ln: LyricLine) -> float:
+    """Beats a line occupies: `beats`, else ceil(han / 3) rounded up to even, clamped to 2-8."""
+    if ln.beats:
+        return float(ln.beats)
+    n = math.ceil(len(han(ln.text)) / 3.0)
+    n += n % 2
+    return float(min(8, max(2, n)))
+
+
+class _Block(BaseModel):
+    start: float  # beats from the first downbeat
+    end: float
+    lines: list[tuple[float, float]] = Field(default_factory=list)  # (start beat, length in beats)
+
+
+def beat_layout(ep: Episode) -> list[_Block]:
+    """Section and line positions in beats. Sections start on a downbeat after `gap_bars`
+    (+ intro_bars before the first); lines follow each other after their `pause_beats`."""
+    show = ep.format == "show"
+    out: list[_Block] = []
+    cur = ep.intro_bars * 4.0
+    for vi, v in enumerate(ep.verses):
+        gap = v.gap_bars if v.gap_bars is not None else (0 if show or vi == 0 else ep.break_bars)
+        cur = math.ceil(cur / 4.0 - 1e-9) * 4.0 + gap * 4.0
+        start = cur
+        blk = _Block(start=start, end=start)
+        for ln in v.lines:
+            cur += ln.pause_beats
+            b = line_beats(ln)
+            blk.lines.append((cur, b))
+            cur += b
+        if v.bars:
+            cur = max(cur, start + v.bars * 4.0)
+        cur = math.ceil(cur / 4.0 - 1e-9) * 4.0
+        blk.end = cur
+        out.append(blk)
+    return out
+
+
+def layout_bars(ep: Episode) -> int:
+    """Song length in bars for the synthetic grid (beat-cursor layout + outro_bars)."""
+    lay = beat_layout(ep)
+    return int(round((lay[-1].end if lay else 0) / 4.0)) + ep.outro_bars
+
+
+def _beat_time(grid: BeatGrid, pos: float) -> float:
+    db = grid.downbeats
+    bar = int(pos // 4)
+    if db and abs(pos - 4 * (len(db) - 1)) < 1e-9:
+        return db[-1]
+    if bar + 1 >= len(db):
+        raise ValueError("song too short for the lyric sheet on this beat grid")
+    return db[bar] + (db[bar + 1] - db[bar]) * (pos - 4 * bar) / 4.0
+
+
+def align_beats(ep: Episode, grid: BeatGrid) -> list[TimedLine]:
+    """Beat-cursor alignment: each line lasts line_beats(); characters spread over 0.88 of it."""
+    lines: list[TimedLine] = []
+    idx = 0
+    for vi, (v, blk) in enumerate(zip(ep.verses, beat_layout(ep))):
+        for li, (ln, (pos, nb)) in enumerate(zip(v.lines, blk.lines)):
+            t0 = _beat_time(grid, pos) + 0.04
+            t_end = _beat_time(grid, pos + nb)
+            n = max(1, len(han(ln.text)))
+            span = (t_end - t0) * 0.88
+            chars = [round(t0 + span * i / n, 3) for i in range(n)]
+            t1 = round(t0 + span, 3)
+            lines.append(TimedLine(idx=idx, verse=vi, line=li, who=ep.singer_of(v, ln), text=ln.text,
+                                   t0=round(t0, 3), t1=t1, bar=int(pos // 4),
+                                   phrases=_phrases_from_chars(ln.text, chars, t1), chars=chars, kind=v.kind,
+                                   spoken=ln.spoken))
+            idx += 1
     return lines
 
 
@@ -298,13 +382,36 @@ def align_asr(ep: Episode, grid: BeatGrid, heard: list[tuple[str, float]]) -> li
         t1 = chars[-1] + 0.25
         if nxt is not None:
             t1 = min(t1, nxt - 0.05)
-        lines.append(TimedLine(idx=gi, verse=vi, line=li, who=v.who, text=ln.text, t0=chars[0], t1=round(t1, 3),
-                               bar=max(0, grid.bar_index(chars[0] + 0.13)),
-                               phrases=_phrases_from_chars(ln.text, chars, t1), chars=chars))
+        lines.append(TimedLine(idx=gi, verse=vi, line=li, who=ep.singer_of(v, ln), text=ln.text, t0=chars[0],
+                               t1=round(t1, 3), bar=max(0, grid.bar_index(chars[0] + 0.13)),
+                               phrases=_phrases_from_chars(ln.text, chars, t1), chars=chars, kind=v.kind,
+                               spoken=ln.spoken))
     return lines
 
 
-def sections_from_lines(ep: Episode, lines: list[TimedLine], duration: float) -> list[Section]:
+def show_sections(ep: Episode, lines: list[TimedLine], duration: float, grid: BeatGrid) -> list[Section]:
+    """One Section per show section (instrumental ones included), tiling 0 -> duration."""
+    out: list[Section] = []
+    for vi, (v, blk) in enumerate(zip(ep.verses, beat_layout(ep))):
+        t0 = _beat_time(grid, blk.start) if vi else 0.0
+        ls = [ln for ln in lines if ln.verse == vi]
+        if ls and vi:
+            t0 = min(t0, ls[0].t0 - 0.1)
+        out.append(Section(name=f"s{vi + 1:02d}_{v.kind}", kind=v.kind, t0=round(max(0.0, t0), 3), t1=0.0,
+                           who=v.who))
+    for a, b in zip(out, out[1:]):
+        a.t1 = b.t0
+    if out:
+        out[-1].t1 = round(duration, 3)
+    return out
+
+
+def sections_from_lines(ep: Episode, lines: list[TimedLine], duration: float,
+                        grid: BeatGrid | None = None) -> list[Section]:
+    if ep.format == "show":
+        if grid is None:
+            raise ValueError("show sections need the beat grid")
+        return show_sections(ep, lines, duration, grid)
     out: list[Section] = []
     first = lines[0].t0
     out.append(Section(name="intro", kind="intro", t0=0.0, t1=round(first - 0.05, 3)))
@@ -341,8 +448,11 @@ def analyze(project_dir: Path, ep: Episode, mode: Literal["auto", "asr", "grid"]
         b = bpm or ep.bpm_hint
         if not b:
             raise FileNotFoundError(f"{song} not found; pass --bpm (and --duration) for a synthetic grid")
-        n_lines = sum(len(v.lines) for v in ep.verses)
-        bars = ep.intro_bars + n_lines + ep.break_bars * (len(ep.verses) - 1) + ep.outro_bars
+        if ep.format == "show" or ep.line_beats == "auto":
+            bars = layout_bars(ep)
+        else:
+            n_lines = sum(len(v.lines) for v in ep.verses)
+            bars = ep.intro_bars + n_lines + ep.break_bars * (len(ep.verses) - 1) + ep.outro_bars
         dur = duration or round(bars * 240.0 / b + 0.5, 3)
         grid = synthetic_grid(dur, b)
         energy = []
@@ -362,10 +472,13 @@ def analyze(project_dir: Path, ep: Episode, mode: Literal["auto", "asr", "grid"]
             ln.text for _, _, _, ln in ep.all_lines()[:6])
         lines = align_asr(ep, grid, _asr_chars(vocals, prompt))
         used = "asr"
+    elif ep.format == "show" or ep.line_beats == "auto":
+        lines = align_beats(ep, grid)
+        used = "grid"
     else:
         lines = align_grid(ep, grid)
         used = "grid"
-    return Timing(duration=dur, grid=grid, lines=lines, sections=sections_from_lines(ep, lines, dur),
+    return Timing(duration=dur, grid=grid, lines=lines, sections=sections_from_lines(ep, lines, dur, grid),
                   bar_energy=energy, mode=used)
 
 
@@ -376,4 +489,5 @@ def load_timing(project_dir: Path) -> Timing:
     return Timing.model_validate_json(p.read_text(encoding="utf-8"))
 
 
-__all__ = ["BeatGrid", "Timing", "TimedLine", "Phrase", "Section", "analyze", "load_timing", "media_duration"]
+__all__ = ["BeatGrid", "Timing", "TimedLine", "Phrase", "Section", "analyze", "align_beats", "beat_layout",
+           "line_beats", "load_timing", "media_duration"]

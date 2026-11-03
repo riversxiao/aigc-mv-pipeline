@@ -125,6 +125,63 @@ STANZA_ROLE_MOVES = {
     "cutaway": ["push_slow", "truck", "pull_reveal", "tilt_reveal", "handheld", "locked"],
 }
 
+# --------------------------------------------------------------------------- variety-show stagings
+
+# 《火影有嘻哈03》 grammar (docs/参考片拆解_火影有嘻哈03.md): what matters is who is in frame and who reacts,
+# not the camera move. A staging = blocking + framing; the show planner picks one per shot.
+
+
+@dataclass(frozen=True)
+class Staging:
+    id: str
+    cn: str
+    en: str
+    framing: str
+    max_per_film: int = 99
+    sung_ok: bool = True  # the visible singer's mouth can be read (lip sync shot)
+
+
+SHOW_STAGINGS: dict[str, Staging] = {st.id: st for st in [
+    Staging("high_ws", "场馆高位全景，地上的节目太极八卦图案交代空间",
+            "high wide shot of the whole arena, the show's taiji-bagua floor graphic establishes the space", "WS",
+            sung_ok=False),
+    Staging("crowd_ws", "观众席全景，观众挥手欢呼", "wide shot of the audience cheering", "WS", sung_ok=False),
+    Staging("dj_booth", "DJ台双人：主持和DJ并排站在DJ台后面", "two-shot of the host and the DJ behind the DJ booth", "2S"),
+    Staging("dj_cu", "DJ台上说话的人特写", "close-up of the speaker at the DJ booth", "CU"),
+    Staging("split_entrance", "分屏：左右两队各三人走进来", "split screen: the two crews of three walk in, left and right",
+            "WS", max_per_film=1, sung_ok=False),
+    Staging("cu_team_bg", "唱的人特写，队友虚在身后", "close-up of the rapper, crew blurred behind", "CU"),
+    Staging("ots_hair", "前景是对手虚化的头发和肩膀，焦点在唱的人",
+            "over the rival's blurred hair and shoulder, focus on the rapper", "OTS"),
+    Staging("faceoff_profile", "贴脸对峙：两人侧脸鼻尖几乎相碰，话筒夹在中间",
+            "nose-to-nose profile face-off, microphone between them", "2S", max_per_film=6),
+    Staging("point_lens", "指着镜头唱", "rapping while pointing straight into the lens", "MCU"),
+    Staging("mic_to_lens", "把话筒伸向镜头", "pushing the microphone toward the lens", "MCU", max_per_film=3),
+    Staging("two_shot", "两位选手同框，一个唱一个听", "two-shot of both rappers, one raps, one listens", "2S"),
+    Staging("rival_react", "对手听着的反应特写，队友虚在身后", "close-up reaction of the listening rival, crew behind", "CU",
+            sung_ok=False),
+    Staging("judge_react", "评委席反应", "reaction of a judge on the judges' bench", "MCU", sung_ok=False),
+    Staging("cameo_react", "观众席里的角色客串反应", "reaction of a cameo character seated in the audience", "MCU",
+            sung_ok=False),
+    Staging("teammate_react", "队友反应", "reaction of a crew member", "MCU", sung_ok=False),
+    Staging("hook_mic", "副歌歌手在立麦前唱", "hook singer at a standing microphone", "MCU"),
+    Staging("blackout_spot", "灭灯，只剩一束追光，唱的人背影剪影", "blackout, a single follow spot, the rapper in silhouette from behind",
+            "WS", max_per_film=1, sung_ok=False),
+    Staging("empty_stage_ws", "灭灯后的空舞台远景", "wide shot of the empty dark stage after the blackout", "WS",
+            sung_ok=False),
+    Staging("head_down_cu", "低头特写，嘴闭着", "close-up, head bowed, mouth closed", "CU", sung_ok=False),
+    Staging("spot_cu", "追光下的特写，只有脸被照亮", "close-up in the follow spot, only the face lit", "CU"),
+    Staging("mic_to_crowd", "把话筒伸向观众", "holding the microphone out to the audience", "MS"),
+]}
+
+# Restrained camera: calm moves carry the show; accents are rationed; cranes only open and close it.
+SHOW_MOVES: dict[str, object] = {
+    "calm": ["locked", "push_slow", "tele_float", "handheld"],
+    "accent": {"snap_zoom": 3},
+    "crane": {"crane_up": ("cold_open", "outro"), "crane_in": ("cold_open", "outro")},
+}
+CALM_MOVES = tuple(SHOW_MOVES["calm"])  # type: ignore[arg-type]
+
 # --------------------------------------------------------------------------- realism rules
 
 REALISM_CN = (

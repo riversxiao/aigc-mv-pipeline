@@ -223,9 +223,7 @@ def package(project_dir: Path, ep: Episode, board: Board, timing: Timing, pictur
     layers: list[tuple[str, float, float, float]] = []
     lines = timing.lines
     if overlays:
-        cast = list(ep.cast.values())
-        left = next(c for c in cast if c.side == "left")
-        right = next(c for c in cast if c.side == "right")
+        left, right = (ep.cast[k] for k in ep.rappers())
         sheet.title(left.name_cn, right.name_cn, ep.disclaimer).save(tmp / "title.png")
         layers.append(("title.png", 0.0, max(0.5, lines[0].t0 - 0.1), 0.3))
         for k, c in ep.cast.items():

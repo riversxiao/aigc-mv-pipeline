@@ -39,6 +39,17 @@ projects/*/refs/refs_plan.json
 projects/*/suno.md
 projects/*/ledger.jsonl
 projects/*/approvals.json
+# the same outputs when an episode fixture is boarded by hand
+tests/fixtures/*/analysis/
+tests/fixtures/*/board/
+tests/fixtures/*/units/
+tests/fixtures/*/edit/
+tests/fixtures/*/final/
+tests/fixtures/*/audio/
+tests/fixtures/*/refs/
+tests/fixtures/*/suno.md
+tests/fixtures/*/ledger.jsonl
+tests/fixtures/*/approvals.json
 
 # OS / IDE
 .DS_Store

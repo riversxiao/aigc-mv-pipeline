@@ -68,8 +68,7 @@ def _beat_landing(timing: Timing, u: Unit, a: float, b: float) -> str:
 
 
 def sides_cn(ep: Episode) -> str:
-    left = next(c for c in ep.cast.values() if c.side == "left")
-    right = next(c for c in ep.cast.values() if c.side == "right")
+    left, right = (ep.cast[k] for k in ep.rappers())
     return f"站位固定：{left.name_cn}永远在画面左边、身体朝右；{right.name_cn}永远在画面右边、身体朝左，谁都不换边。"
 
 

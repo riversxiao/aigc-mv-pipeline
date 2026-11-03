@@ -1,0 +1,148 @@
+# 测试用的迷你综艺一期（format: show）。角色卡全部复用 knowledge/characters 里已有的三张，不需要新卡。
+title: 擂台有嘻哈测试
+format: show
+grammar: show
+realism: idol_show
+look: tv_arena
+show_name: 擂台有嘻哈
+episode_no: 测试期
+bpm_hint: 92
+intro_bars: 0
+outro_bars: 2
+
+cast:
+  a:
+    character: xiang_yu
+    name_cn: 项羽
+    name_en: Xiang Yu
+    aka: 霸王
+    role: rapper
+    side: left
+    listen_cn: 咬紧牙关，握话筒的手攥得发白
+  b:
+    character: liu_bang
+    name_cn: 刘邦
+    name_en: Liu Bang
+    aka: 沛公
+    role: rapper
+    side: right
+    listen_cn: 眯着眼笑，一点都不急
+  ta:
+    character: example_poet
+    name_cn: 范增
+    role: teammate
+    team: a
+    side: left
+    nicknames: [亚父]
+    listen_cn: 抱着手臂站在项羽身后，跟着节奏点头
+  tb:
+    character: example_poet
+    name_cn: 萧何
+    role: teammate
+    team: b
+    side: right
+    listen_cn: 站在刘邦身后，摸着下巴笑
+  judge:
+    character: example_poet
+    name_cn: 老夫子
+    role: judge
+    side: center
+    position_cn: 评委席中间的王座
+    nicknames: [夫子]
+    listen_cn: 坐在王座上捋着胡子，眉毛一挑
+  host:
+    character: example_poet
+    name_cn: 说书人
+    role: host
+    side: center
+    position_cn: DJ台前面
+  dj:
+    character: example_poet
+    name_cn: 鼓手
+    role: dj
+    side: center
+    position_cn: DJ台后面
+  hook:
+    character: example_poet
+    name_cn: 唱曲人
+    role: hook
+    side: center
+  cameo:
+    character: example_poet
+    name_cn: 韩信
+    role: cameo
+    side: center
+    position_cn: 观众席第三排
+    listen_cn: 坐在观众席里一脸震惊，张大嘴又赶紧闭上
+
+venue:
+  cn: 红黑配色的室内说唱综艺场馆，地上印着巨大的太极八卦图案，后方有 DJ 台和大屏，左右各一排红色 LED 灯牌
+  en: a red-and-black indoor rap show arena, a giant taiji-bagua graphic on the floor, DJ booth and screen at the back
+crowd_cn: 看台上坐满了观众，举着灯牌
+
+verses:
+  - kind: cold_open
+    bars: 2
+    shot_cn: 场馆高位全景，灯一排排亮起来
+  - kind: host
+    who: host
+    lines:
+      - {text: 欢迎收看 擂台有嘻哈, spoken: true}
+      - {text: 今晚 谁才是第一, who: dj, spoken: true}
+      - {text: 两位选手 请上台, spoken: true}
+  - kind: entrance
+    who: host
+    bars: 3
+    lines:
+      - {text: 左边霸王 右边沛公, spoken: true}
+  - kind: faceoff
+    who: host
+    bars: 3
+    lines:
+      - {text: 请你们 站到对方面前, spoken: true}
+  - kind: hook
+    who: hook
+    lines:
+      - text: 啦啦啦 谁是第一
+      - text: 啦啦啦 今晚见分晓
+      - text: 一句一句 拼到天亮
+      - text: 啦啦啦 谁是第一
+  - kind: verse
+    who: a
+    lines:
+      - text: 我力拔山兮 气盖世无双
+      - text: 你在鸿门宴上 吓得脸发黄
+      - text: 老夫子你说 他到底慌不慌
+      - text: 拜托！
+      - text: 破釜沉舟 我从来不回头望
+      - text: 今天这擂台 我一个人就能扛
+  - kind: interlude
+    who: hook
+    bars: 2
+    lines:
+      - text: 哒哒哒 嘟嘟嘟
+  - kind: verse
+    who: b
+    lines:
+      - text: 你说你力气大 力气能当饭吃吗
+      - text: 我手下有人 你身边就剩一匹马
+      - text: 连韩信都看得清 你那点本事不过如此
+      - text: 你一个人扛 我一群人帮
+      - text: 等你回头 等你开口 等你认输
+      - text: 你那句破釜沉舟 我听着都替你心酸
+      - text: 我那句约法三章 天下都跟着我走
+      - text: 你们说 谁才是真正的王
+  - kind: reveal
+    who: b
+    lines:
+      - text: 论力气 我不跟你拼
+      - text: 因为你最强的本事 叫做
+      - {text: 逃, pause_beats: 4, beats: 2}
+  - kind: outro
+    who: b
+    bars: 4
+    lines:
+      - {text: 你们站哪边, spoken: true}
+      - {text: 把声音给我, who: host, spoken: true}
+
+end_question: 下一期|你想看谁上擂台？
