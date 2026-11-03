@@ -43,6 +43,8 @@ projects/*/refs/candidates/
 projects/*/suno.md
 projects/*/ledger.jsonl
 projects/*/approvals.json
+projects/*/dreamina_bundle/
+projects/*/dreamina_bundle.zip
 # the same outputs when an episode fixture is boarded by hand
 tests/fixtures/*/analysis/
 tests/fixtures/*/board/

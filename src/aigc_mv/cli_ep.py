@@ -456,6 +456,29 @@ def previz_cmd(ep_dir: Path) -> None:
     typer.echo(f"next: aigc-mv ep render {ep_dir} --res 480p --previz")
 
 
+@app.command("dreamina-bundle")
+def dreamina_bundle_cmd(
+    ep_dir: Path,
+    out: Optional[Path] = typer.Option(None, "--out", help="Bundle folder (default <ep>/dreamina_bundle)"),
+    units: str = typer.Option("", "--units", help="Only these units, comma separated (retakes)"),
+    take: int = typer.Option(1, "--take", help="Take number the runner generates (1; 2, 3 … for retakes)"),
+    zip_: bool = typer.Option(True, "--zip/--no-zip", help="Also write <out>.zip when the bundle is < 95 MB"),
+) -> None:
+    """Self-contained Dreamina video bundle (run_dreamina.py + units + refs + Chinese README) for a logged-in Mac."""
+    from aigc_mv.dreamina_bundle import build_bundle
+
+    dst = out or ep_dir / "dreamina_bundle"
+    want = [u.strip() for u in units.split(",") if u.strip()] or None
+    try:
+        r = build_bundle(ep_dir, dst, units=want, take=take, make_zip=zip_)
+    except (FileNotFoundError, FileExistsError, ValueError) as e:
+        _fail(str(e))
+    typer.echo(f"{len(r['units'])} units ({r['seconds']} s), {r['images']} images, {r['files']} files, "
+               f"{r['bytes'] / 1e6:.1f} MB → {r['out']}")
+    typer.echo(f"zip: {r['zip']}" if r["zip"] else "zip: none (bundle >= 95 MB or --no-zip)")
+    typer.echo(f"on the logged-in Mac: cd {Path(r['out']).name} && python3 run_dreamina.py")
+
+
 _ROLE_CN = {"rapper": "选手", "teammate": "队友", "judge": "评委", "host": "主持", "dj": "DJ", "hook": "副歌",
             "cameo": "客串"}
 
