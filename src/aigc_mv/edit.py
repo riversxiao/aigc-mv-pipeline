@@ -14,6 +14,7 @@ No learned upscaling, no sharpening: those are what make generated skin look wax
 
 from __future__ import annotations
 
+import hashlib
 import subprocess
 from pathlib import Path
 
@@ -65,7 +66,8 @@ def _pick_take(project_dir: Path, unit: str):
 
 
 def build_edl(project_dir: Path, ep: Episode, board: Board, size: tuple[int, int], previz: bool = False) -> Edl:
-    """Source per shot: take > real plate in refs/ > previz placeholder (edit/parts/previz_<shot>.png) > card."""
+    """Source per shot: take > unit / shot plate in refs/ > previz placeholder (edit/parts/previz_<shot>.png,
+    when previz is on) > face sheet / location still in refs/ (only when previz is off) > card."""
     project_dir = Path(project_dir)
     units = {u.id: u for u in board.units}
     entries = []
@@ -84,9 +86,12 @@ def build_edl(project_dir: Path, ep: Episode, board: Board, size: tuple[int, int
             if src_in + s.dur > take.duration + 0.05:
                 e.warn = (e.warn + "; " if e.warn else "") + "take shorter than shot: last frame held"
         else:
-            for cand in (f"refs/plate_{u.id}.png", f"refs/plate_{s.id}.png",
-                         f"refs/{s.singer}_sheet.png" if s.singer and s.kind == "perform" else "",
-                         "refs/venue.png" if s.location == "venue" else f"refs/loc_{s.location}.png"):
+            cands = [f"refs/plate_{u.id}.png", f"refs/plate_{s.id}.png"]
+            if not previz:  # generic stills (face sheet, location) only stand in when previz is off:
+                # with previz on, the staged placeholder says more about the shot than one venue still
+                cands += [f"refs/{s.singer}_sheet.png" if s.singer and s.kind == "perform" else "",
+                          "refs/venue.png" if s.location == "venue" else f"refs/loc_{s.location}.png"]
+            for cand in cands:
                 if cand and (project_dir / cand).is_file():
                     e.source, e.file = "plate", cand
                     break
@@ -224,21 +229,27 @@ def render(project_dir: Path, ep: Episode, board: Board, timing: Timing, resolut
     t_from = parts[0][0].t0 if parts else 0.0
     t_to = parts[-1][0].t1 if parts else 0.0
     return package(project_dir, ep, board, timing, picture, size, t_from, t_to, look, overlays,
-                   suffix="_test" if test else "")
+                   suffix="_test" if test else "", beat=previz)
 
 
 ROLE_TITLE = {"judge": "评委", "host": "主持人", "dj": "DJ", "hook": "副歌", "cameo": "特邀观众"}
 LOWER_THIRD_S = 2.5
+LOWER_THIRD_MIN = 1.2
 
 
 def previz_beat(project_dir: Path, ep: Episode, timing: Timing) -> Path | None:
-    """audio/previz_beat.wav (made by previz.synth_beat when absent); None when it cannot be made."""
+    """audio/previz_beat.wav, rebuilt by previz.synth_beat whenever the timing (or cast) changed since it was
+    made (key in audio/previz_beat.key); None when it cannot be made."""
     out = Path(project_dir) / "audio" / "previz_beat.wav"
-    if not out.is_file():
+    key_file = out.with_suffix(".key")
+    key = hashlib.sha1((timing.model_dump_json() + ep.model_dump_json()).encode("utf-8")).hexdigest()
+    fresh = out.is_file() and key_file.is_file() and key_file.read_text(encoding="utf-8").strip() == key
+    if not fresh:
         try:
             from aigc_mv.previz import synth_beat
 
             synth_beat(timing, out, ep)
+            key_file.write_text(key + "\n", encoding="utf-8")
         except Exception as e:  # pragma: no cover - fall back to silence
             print(f"previz beat failed ({e}); rendering silent")
             return None
@@ -268,15 +279,27 @@ def _show_layers(ep: Episode, board: Board, timing: Timing, sheet: Sheet, tmp: P
             end = mine[1].t1 if len(mine) > 1 else mine[0].t1
             layers.append((f"name_{k}.png", mine[0].t0 - 0.08, end - 0.1, 0.25))
     busy = 0.0  # lower thirds never stack: one waits for the previous to clear
-    for k, c in sorted(((k, c) for k, c in ep.cast.items() if c.role in ROLE_TITLE),
-                       key=lambda kc: next((s.t0 for s in board.shots if kc[0] in s.who), 1e9)):
-        first = next((s for s in board.shots if k in s.who), None)
-        if first is None:
+    def first_seen(k: str) -> float:
+        solo = next((s.t0 for s in board.shots if s.who == [k]), None)
+        return solo if solo is not None else next((s.t0 for s in board.shots if k in s.who), 1e9)
+
+    for k, c in sorted(((k, c) for k, c in ep.cast.items() if c.role in ROLE_TITLE), key=lambda kc: first_seen(kc[0])):
+        # the caption stays inside one shot that shows the person: the first one with room after the
+        # previous caption, solo shots before shared ones (a name over the wrong face reads as fake)
+        mine = [s for s in board.shots if k in s.who]
+        pick = None
+        for pool in ([s for s in mine if s.who == [k]], mine):
+            for s in pool:
+                t0 = max(s.t0 + 0.2, busy)
+                t1 = min(t0 + LOWER_THIRD_S, s.t1 - 0.1)
+                if t1 - t0 >= LOWER_THIRD_MIN:
+                    pick = (t0, t1)
+                    break
+            if pick:
+                break
+        if pick is None:
             continue
-        t0 = max(first.t0 + 0.2, busy)
-        t1 = min(t0 + LOWER_THIRD_S, board.duration)
-        if t1 - t0 < 1.0:
-            continue
+        t0, t1 = pick
         sheet.lower_third(c.name_cn, c.title_cn or ROLE_TITLE[c.role]).save(tmp / f"lt_{k}.png")
         layers.append((f"lt_{k}.png", t0, t1, 0.2))
         busy = t1 + 0.1
@@ -287,7 +310,7 @@ def _show_layers(ep: Episode, board: Board, timing: Timing, sheet: Sheet, tmp: P
 
 
 def package(project_dir: Path, ep: Episode, board: Board, timing: Timing, picture: Path, size, t_from: float,
-            t_to: float, look: bool, overlays: bool, suffix: str = "") -> Path:
+            t_to: float, look: bool, overlays: bool, suffix: str = "", beat: bool | None = None) -> Path:
     W, H = size
     fps = ep.fps
     tmp = project_dir / "edit" / "layers"
@@ -327,7 +350,9 @@ def package(project_dir: Path, ep: Episode, board: Board, timing: Timing, pictur
     fc = [f"[0:v]{LOOK_FILTER.format(**look_cfg) if look else 'null'},format=yuv420p,setparams=range=tv:color_primaries=bt709:color_trc=bt709:colorspace=bt709[base]"]
     inputs = ["-i", str(picture)]
     song = project_dir / ep.song
-    if not song.is_file():
+    if beat is None:
+        beat = show
+    if not song.is_file() and beat:  # previz renders get the synthetic beat; others stay silent until the song exists
         song = previz_beat(project_dir, ep, timing) or song
     if song.is_file():
         inputs += ["-ss", f"{t_from:.3f}", "-t", f"{t_to - t_from:.3f}", "-i", str(song)]

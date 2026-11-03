@@ -390,13 +390,29 @@ def align_asr(ep: Episode, grid: BeatGrid, heard: list[tuple[str, float]]) -> li
 
 
 def show_sections(ep: Episode, lines: list[TimedLine], duration: float, grid: BeatGrid) -> list[Section]:
-    """One Section per show section (instrumental ones included), tiling 0 -> duration."""
+    """One Section per show section (instrumental ones included), tiling 0 -> duration.
+
+    Starts come from the beat layout, then are clamped to the aligned lines: a section never starts after its
+    own first line nor before the previous section's last line has ended. With the grid alignment this changes
+    nothing; with ASR on a real take (lines drift off the layout) it keeps every line inside its own section."""
     out: list[Section] = []
-    for vi, (v, blk) in enumerate(zip(ep.verses, beat_layout(ep))):
-        t0 = _beat_time(grid, blk.start) if vi else 0.0
+    try:
+        lay = [_beat_time(grid, blk.start) for blk in beat_layout(ep)]
+    except ValueError:  # real song shorter than the layout: fall back to the lines alone
+        lay = [None] * len(ep.verses)
+    first = {vi: min(ln.t0 for ln in lines if ln.verse == vi) for vi in {ln.verse for ln in lines}}
+    prev_end = 0.0
+    for vi, v in enumerate(ep.verses):
         ls = [ln for ln in lines if ln.verse == vi]
-        if ls and vi:
-            t0 = min(t0, ls[0].t0 - 0.1)
+        nxt = min((first[k] for k in first if k >= vi), default=duration)  # own first line, or the next one
+        t0 = lay[vi] if lay[vi] is not None else (ls[0].t0 - 0.1 if ls else prev_end)
+        if not vi:
+            t0 = 0.0
+        else:
+            t0 = min(max(t0, prev_end + 0.05), nxt - 0.1)
+            t0 = max(t0, out[-1].t0)
+        if ls:
+            prev_end = max(prev_end, max(ln.t1 for ln in ls))
         out.append(Section(name=f"s{vi + 1:02d}_{v.kind}", kind=v.kind, t0=round(max(0.0, t0), 3), t1=0.0,
                            who=v.who))
     for a, b in zip(out, out[1:]):

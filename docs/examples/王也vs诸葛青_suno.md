@@ -24,6 +24,7 @@ Lyrics:
 年轻一辈第一人 到底是谁
 
 [Interlude: 3 bars, walk-in beat, crowd cheering]
+[Break: silence]
 [Spoken Word: 徐四]
 左边 武侯派 诸葛青
 右边 武当山 王也

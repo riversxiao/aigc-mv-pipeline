@@ -143,6 +143,18 @@ class _Plate:
         self.S = self.W / 1920
         self.rnd = random.Random(zlib.crc32(shot.id.encode()))
         self.img = Image.new("RGB", size, (0, 0, 0))
+        self.labels: list[tuple[float, float, str, int, int]] = []
+
+    def flush_labels(self) -> None:
+        labels, self.labels = self.labels, []
+
+        def draw(d):
+            for cx, y, name, size, alpha in labels:
+                f = _font("sans", size, "Bold")
+                d.text((cx, y), name, font=f, fill=(255, 255, 255, alpha), anchor="mm",
+                       stroke_width=max(1, int(0.12 * size)), stroke_fill=(0, 0, 0, 200))
+        if labels:
+            self.overlay(draw)
 
     # ------------------------------------------------------------ background
 
@@ -202,10 +214,11 @@ class _Plate:
         d.rectangle([cx - 0.35 * r, hy + 0.7 * r, cx + 0.35 * r, hy + 1.3 * r], fill=body + (255,))
         d.ellipse([cx - r, hy - r, cx + r, hy + r], fill=col + (255,))
         if label and not dark and key in self.ep.cast:
-            name = self.ep.cast[key].name_cn
-            f = _font("sans", max(12, int(0.42 * r)), "Bold")
-            d.text((cx, hy + 2.2 * r), name, font=f, fill=(255, 255, 255, 240), anchor="mm",
-                   stroke_width=max(1, int(0.05 * r)), stroke_fill=(0, 0, 0, 200))
+            # name above the head, drawn last (flush_labels): the lower third of the frame belongs to the
+            # subtitles, name cards and lower thirds, and hands / mics drawn later must not cover it
+            size = max(12, int(0.36 * r)) if blur else max(12, int(0.42 * r))
+            y = max(hy - r - 0.75 * size, 0.17 * H + size / 2)
+            self.labels.append((cx, y, self.ep.cast[key].name_cn, size, 200 if blur else 240))
         if blur:
             layer = layer.filter(ImageFilter.GaussianBlur(blur * self.S))
         base = self.img.convert("RGBA")
@@ -276,6 +289,7 @@ class _Plate:
                 for j, k in enumerate(team[1:], 1):
                     p.figure(k, xs[j % len(xs)], "MWS", scale=0.85, dy=0.02)
                 p.figure(team[0] if team else r, 0.5, "MWS", dy=0.04)
+                p.flush_labels()
                 halves.append(p.img)
             self.img = Image.new("RGB", (W, H), (0, 0, 0))
             for i, im in enumerate(halves):
@@ -369,6 +383,7 @@ class _Plate:
                     r, hy = FIG.get(fr, FIG["MCU"])
                     self.overlay(lambda d: d.ellipse([x * W - 0.09 * H, (hy + 0.25) * H, x * W + 0.09 * H, (hy + 0.43) * H],
                                                      fill=colour(ep, k) + (255,)))
+        self.flush_labels()
         self.label()
         return self.img
 
@@ -386,7 +401,7 @@ class _Plate:
             d.rectangle([x0, y0, x0 + d.textlength(text, font=f) + 40 * S, y0 + 52 * S], fill=(0, 0, 0, 150))
             d.text((x0 + 20 * S, y0 + 36 * S), text, font=f, fill=(255, 255, 255, 235), anchor="ls")
             fw = _font("sans", int(64 * S), "Black")
-            d.text((self.W / 2, self.H * 0.22), "PREVIZ 占位", font=fw, fill=(255, 255, 255, 60), anchor="mm")
+            d.text((self.W / 2, self.H * 0.6), "PREVIZ 占位", font=fw, fill=(255, 255, 255, 60), anchor="mm")
         self.overlay(draw)
 
 

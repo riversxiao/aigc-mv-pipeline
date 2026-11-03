@@ -457,6 +457,16 @@ def _audit_show(ep: Episode, board: Board, timing: Timing, err: list[str], warn:
         for m in ep.mentions_of(v, v.lines[ln.line]):
             if not any(s.kind == "react" and m in s.who and s.t0 < ln.t1 and s.t1 > ln.t0 for s in shots):
                 err.append(f"mention: line {ln.idx} '{ln.text}' names {ep.cast[m].name_cn} but has no reaction shot")
+    # every line sits inside its own section (with ASR on a real take, lines can drift off the beat layout)
+    if len(timing.sections) == len(ep.verses):
+        out_of = [ln for ln in timing.lines
+                  if ln.t0 < timing.sections[ln.verse].t0 - 0.05 or ln.t1 > timing.sections[ln.verse].t1 + 0.3]
+        for ln in out_of[:5]:
+            sec = timing.sections[ln.verse]
+            warn.append(f"section: line {ln.idx} '{ln.text}' ({ln.t0:.2f}-{ln.t1:.2f}s) runs outside {sec.name} "
+                        f"({sec.t0:.2f}-{sec.t1:.2f}s); fix the lyric timing or the section bars / gap_bars")
+        if len(out_of) > 5:
+            warn.append(f"section: {len(out_of) - 5} more lines run outside their sections")
     st = Counter(s.staging for s in shots if s.staging)
     n_black = st.get("blackout_spot", 0)
     has_reveal = any(v.kind == "reveal" for v in ep.verses)
@@ -492,18 +502,28 @@ def render_sheet(ep: Episode, board: Board, timing: Timing, result: AuditResult)
             f"语法 `{board.grammar}` · 画风 `{board.look}` · {result.stats['shots']} 个镜头 · "
             f"{result.stats['units']} 次生成（{result.stats['generated_seconds']} 秒，按每条 2 次约 "
             f"${result.stats['estimate_usd_2_takes']}）· 唱的人在画面里 {result.stats['lead_share']:.0%} · "
-            f"平均镜头 {result.stats['mean_shot_s']} 秒", "",
-            "| 镜头 | 时间 | 段落 | 类型 | 调度 | 景别 / 镜头 | 运镜 | 画面 | 歌词 | 生成 |",
-            "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+            f"平均镜头 {result.stats['mean_shot_s']} 秒", ""]
+    show = board.grammar == "show"  # battle sheets keep their original columns
+    if show:
+        rows += ["| 镜头 | 时间 | 段落 | 类型 | 调度 | 景别 / 镜头 | 运镜 | 画面 | 歌词 | 生成 |",
+                 "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
+    else:
+        rows += ["| 镜头 | 时间 | 段落 | 类型 | 景别 / 镜头 | 运镜 | 画面 | 歌词 | 生成 |",
+                 "| --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     for s in board.shots:
-        who = "、".join(ep.cast[w].name_cn for w in s.who) or "—"
+        who = "、".join(ep.cast[w].name_cn for w in s.who) or ("空镜" if show else "—")
         if s.background:
             who += "（身后：" + "、".join(ep.cast[w].name_cn for w in s.background) + "）"
         lyr = " / ".join(text[i] for i in s.lines)
-        stg = cinema.SHOW_STAGINGS[s.staging].cn if s.staging in cinema.SHOW_STAGINGS else ""
-        rows.append(
-            f"| {s.id} | {s.t0:.2f}–{s.t1:.2f} | {s.section} | {s.kind} | {stg} | {s.framing} · {s.lens} | "
-            f"{s.camera} | {who}：{s.action_cn} | {lyr} | {s.unit} |")
+        if show:
+            stg = cinema.SHOW_STAGINGS[s.staging].cn if s.staging in cinema.SHOW_STAGINGS else ""
+            rows.append(
+                f"| {s.id} | {s.t0:.2f}–{s.t1:.2f} | {s.section} | {s.kind} | {stg} | {s.framing} · {s.lens} | "
+                f"{s.camera} | {who}：{s.action_cn} | {lyr} | {s.unit} |")
+        else:
+            rows.append(
+                f"| {s.id} | {s.t0:.2f}–{s.t1:.2f} | {s.section} | {s.kind} | {s.framing} · {s.lens} | {s.camera} | "
+                f"{who}：{s.action_cn} | {lyr} | {s.unit} |")
     rows += ["", "## 审核", ""]
     rows += [f"- ❌ {e}" for e in result.errors] or ["- ✅ 全部通过"]
     rows += [f"- ⚠️ {w}" for w in result.warnings]

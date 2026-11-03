@@ -21,6 +21,7 @@ from aigc_mv import cinema
 from aigc_mv.board import MIN_SHOT, Board, BoardShot, _cut_time, group_units
 from aigc_mv.episode import Episode
 from aigc_mv.timing import Section, TimedLine, Timing
+from aigc_mv.tools import han
 
 MERGE_MAX = 4.5    # a shot may hold a second line while it stays this short
 FILL_TARGET = 3.2  # instrumental stretches are cut about this often
@@ -285,7 +286,9 @@ class _ShowPlanner:
             return
         n = len(specs) if exact else max(1, round((b - a) / FILL_TARGET))
         n = max(1, min(n, int((b - a) / max(MIN_SHOT, 1.0))))
-        if exact or n <= len(specs):
+        if exact and 2 <= n < len(specs):
+            chosen = specs[-n:]  # too short for every spec: drop the leading ones (entrance keeps both CUs)
+        elif exact or n <= len(specs):
             chosen = specs[:n] if not end_on_last else specs[:n - 1] + [specs[-1]]
         else:
             chosen = [specs[i % len(specs)] for i in range(n)]
@@ -438,6 +441,38 @@ class _ShowPlanner:
             rival = self.ep.other(last.who)
             self.fill(tail, b, sec, [self.react_spec(rival) | dict(sung=False)], v.shot_cn)
 
+    def announce_time(self, k: str, ls: list[TimedLine]) -> float | None:
+        """When the host says rapper k's name (name_cn / aka / nickname) in the entrance lines.
+        Episode.mentions_of skips the rappers on purpose, so the entrance matches names itself."""
+        c = self.ep.cast[k]
+        for ln in ls:
+            pos = [ln.text.find(n) for n in [c.name_cn, c.aka, *c.nicknames] if n]
+            pos = [p for p in pos if p >= 0]
+            if not pos:
+                continue
+            i = len(han(ln.text[:min(pos)]))
+            if ln.chars:
+                return round(ln.chars[min(i, len(ln.chars) - 1)] - 0.08, 3)
+            return ln.t0
+        return None
+
+    def entrance_section(self, sec: Section, v, ls: list[TimedLine]) -> None:
+        """Split screen first, then each rapper's CU (with the name card) cut on the word that names them."""
+        a, b = sec.t0, sec.t1
+        specs = self.fill_specs("entrance", "body")
+        split, cus = specs[0], specs[1:]
+        both = [self.left, self.right]
+        t = {k: self.announce_time(k, ls) for k in both}
+        if b - a < 3 * MIN_SHOT or any(x is None for x in t.values()):
+            return self.fill(a, b, sec, specs, v.shot_cn, exact=True)
+        order = sorted(both, key=lambda k: t[k])  # whoever is announced first is cut to first
+        c1 = min(max(self.snap(t[order[0]], 0.1), a + MIN_SHOT), b - 2 * MIN_SHOT)
+        c2 = min(max(self.snap(t[order[1]], 0.1), c1 + MIN_SHOT), b - MIN_SHOT)
+        cu = {k: s for k, s in zip(both, cus)}
+        for (t0, t1), spec in zip(((a, c1), (c1, c2), (c2, b)), (split, cu[order[0]], cu[order[1]])):
+            spec = dict(spec)
+            self.add(t0, t1, sec, spec.pop("staging"), spec.pop("kind"), spec.pop("who"), sung=False, **spec)
+
     def section(self, vi: int, sec: Section) -> None:
         v = self.ep.verses[vi]
         ls = [ln for ln in self.timing.lines if ln.verse == vi]
@@ -445,6 +480,8 @@ class _ShowPlanner:
             self.rot = 0
         if v.kind == "reveal" and ls and self.ok("blackout_spot"):
             return self.reveal_section(sec, vi, ls)
+        if v.kind == "entrance" and ls:
+            return self.entrance_section(sec, v, ls)
         if not ls or v.kind in ("entrance", "faceoff"):
             exact = v.kind == "entrance"
             return self.fill(sec.t0, sec.t1, sec, self.fill_specs(v.kind, "body", v.who), v.shot_cn,

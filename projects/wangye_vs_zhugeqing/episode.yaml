@@ -172,7 +172,7 @@ verses:
     who: xu_si
     bars: 3
     lines:
-      - {text: 左边 武侯派 诸葛青, spoken: true}
+      - {text: 左边 武侯派 诸葛青, spoken: true, pause_beats: 2, note: 分屏先走两拍，报到谁的名字就切到谁的近景}
       - {text: 右边 武当山 王也, spoken: true}
 
   - kind: faceoff

@@ -9,6 +9,7 @@ from aigc_mv import cinema
 from aigc_mv.board import audit, plan, render_sheet
 from aigc_mv.episode import Episode, LyricLine, load_episode
 from aigc_mv.timing import analyze, beat_layout, line_beats
+from aigc_mv.tools import han
 
 FIXTURE = Path(__file__).resolve().parent / "fixtures" / "show_mini"
 BPM = 92.0
@@ -293,6 +294,122 @@ def test_show_previz_render_excerpt(tmp_path):
     assert "Audio:" in probe
 
 
+# --------------------------------------------------------------------------- review fixes (v1)
+
+
+def _shifted(timing, dt):
+    t = timing.model_copy(deep=True)
+    for ln in t.lines:
+        ln.t0, ln.t1 = round(ln.t0 + dt, 3), round(ln.t1 + dt, 3)
+        ln.chars = [round(c + dt, 3) for c in ln.chars]
+        for p in ln.phrases:
+            p.t0, p.t1 = round(p.t0 + dt, 3), round(p.t1 + dt, 3)
+    return t
+
+
+@pytest.mark.parametrize("dt", [-1.3, 1.3, 2.6])
+def test_show_sections_follow_drifting_lines(ep, timing, dt):
+    """Lines off the beat layout (ASR on a real take): sections still hold their own lines, audit warns otherwise."""
+    from aigc_mv.timing import sections_from_lines
+
+    t = _shifted(timing, dt)
+    secs = sections_from_lines(ep, t.lines, t.duration, t.grid)
+    assert secs[0].t0 == 0 and abs(secs[-1].t1 - t.duration) < 1e-6
+    for a, b in zip(secs, secs[1:]):
+        assert a.t1 == b.t0 and b.t0 >= a.t0
+    for ln in t.lines:
+        assert secs[ln.verse].t0 <= ln.t0 and ln.t1 <= secs[ln.verse].t1 + 0.3, (ln.text, dt)
+    stale = t.model_copy(update={"sections": timing.sections})  # layout sections on drifted lines
+    res = audit(ep, plan(ep, stale), stale)
+    assert any(w.startswith("section:") for w in res.warnings)
+    fixed = t.model_copy(update={"sections": secs})
+    assert not any(w.startswith("section:") for w in audit(ep, plan(ep, fixed), fixed).warnings)
+
+
+def test_entrance_cuts_on_the_announced_name(ep, board, timing):
+    ent = [s for s in board.shots if s.kind == "entrance"]
+    assert [s.staging for s in ent] == ["split_entrance", "cu_team_bg", "cu_team_bg"]
+    assert [s.who for s in ent[1:]] == [["a"], ["b"]]  # 霸王 is announced before 沛公
+    ln = next(x for x in timing.lines if x.kind == "entrance")
+    t_b = ln.chars[len("左边霸王右边")] - 0.08
+    assert ent[2].t0 >= t_b - 0.11
+
+
+def test_lower_thirds_stay_inside_their_shot(ep, timing, board, tmp_path):
+    from aigc_mv.edit import _show_layers
+    from aigc_mv.overlays import Sheet
+
+    layers: list = []
+    _show_layers(ep, board, timing, Sheet(854, 480), tmp_path, layers)
+    lts = [x for x in layers if x[0].startswith("lt_")]
+    assert lts
+    for png, t0, t1, _ in lts:
+        k = png[3:-4]
+        assert any(k in s.who and s.t0 <= t0 and t1 <= s.t1 for s in board.shots), (k, t0, t1)
+    spans = sorted((t0, t1) for _, t0, t1, _ in lts)
+    for (_, a1), (b0, _) in zip(spans, spans[1:]):
+        assert b0 >= a1  # never stacked
+
+
+def test_previz_labels_sit_above_the_head(ep, board):
+    from aigc_mv.previz import FIG, _Plate
+
+    s = next(x for x in board.shots if x.framing == "CU" and x.background)
+    p = _Plate(ep, s, (1920, 1080))
+    p.figure(s.who[0], 0.5, "CU")
+    p.crew(s.background, 0.5, "CU")
+    r, hy = FIG["CU"]
+    assert p.labels and all(y < hy * 1080 for _, y, _, _, _ in p.labels)
+    assert all(y < 0.5 * 1080 for _, y, _, _, _ in p.labels)  # never in the subtitle / name card band
+
+
+def test_previz_outranks_generic_refs(ep, board, tmp_path):
+    from PIL import Image
+
+    from aigc_mv.edit import build_edl
+
+    (tmp_path / "refs").mkdir()
+    for f in ["venue.png", "a_sheet.png", "b_sheet.png", f"plate_{board.shots[3].id}.png"]:
+        Image.new("RGB", (64, 36)).save(tmp_path / "refs" / f)
+    on = build_edl(tmp_path, ep, board, (854, 480), previz=True).entries
+    assert [e.source for e in on].count("plate") == 1 and on[3].file == f"refs/plate_{board.shots[3].id}.png"
+    assert all(e.source == "previz" for i, e in enumerate(on) if i != 3)
+    off = build_edl(tmp_path, ep, board, (854, 480), previz=False).entries
+    assert all(e.source == "plate" for e in off)  # without previz the stills still stand in
+
+
+def test_previz_beat_follows_the_timing(ep, timing, tmp_path):
+    from aigc_mv.edit import previz_beat
+
+    p = previz_beat(tmp_path, ep, timing)
+    first = p.read_bytes()
+    assert previz_beat(tmp_path, ep, timing).read_bytes() == first  # unchanged timing: reused
+    moved = _shifted(timing, 0.5)
+    assert previz_beat(tmp_path, ep, moved).read_bytes() != first  # re-analyzed: rebuilt
+
+
+def test_battle_sheet_keeps_its_columns(tmp_path):
+    import shutil
+
+    src = Path(__file__).resolve().parents[1] / "projects" / "xiangyu_vs_liubang"
+    d = tmp_path / "ep"
+    d.mkdir()
+    shutil.copy(src / "episode.yaml", d / "episode.yaml")
+    e = load_episode(d)
+    t = analyze(d, e, mode="grid", bpm=92)
+    b = plan(e, t)
+    sheet = render_sheet(e, b, t, audit(e, b, t))
+    example = (Path(__file__).resolve().parents[1] / "docs" / "examples" / "项羽vs刘邦_分镜表.md").read_text(
+        encoding="utf-8")
+    header = next(x for x in sheet.splitlines() if x.startswith("| 镜头"))
+    assert header == next(x for x in example.splitlines() if x.startswith("| 镜头"))
+    assert "调度" not in sheet and "空镜" not in sheet
+
+
+def test_show_sheet_has_no_em_dash(ep, timing, board):
+    assert "—" not in render_sheet(ep, board, timing, audit(ep, board, timing))
+
+
 # --------------------------------------------------------------------------- the demo episode (罗天大醮有嘻哈 第一期)
 
 DEMO = Path(__file__).resolve().parents[1] / "projects" / "wangye_vs_zhugeqing"
@@ -342,6 +459,13 @@ def test_demo_board(demo):
         v = e.verses[ln.verse]
         for m in e.mentions_of(v, v.lines[ln.line]):
             assert any(s.kind == "react" and m in s.who and s.t0 < ln.t1 and s.t1 > ln.t0 for s in b.shots), ln.text
+    # entrance: when the host says a rapper's name, that rapper's CU (with the name card) is on screen
+    for k in e.rappers():
+        c = e.cast[k]
+        ln = next(x for x in t.lines if x.kind == "entrance" and c.name_cn in x.text)
+        t_name = ln.chars[len(han(ln.text[:ln.text.find(c.name_cn)]))]
+        s = next(x for x in b.shots if x.t0 <= t_name < x.t1)
+        assert s.kind == "entrance" and s.who == [k], (k, s.id, s.who)
     on_screen = {w for s in b.shots for w in s.who}
     for k in e.members("judge", "cameo", "host", "dj", "hook"):
         assert k in on_screen, k
