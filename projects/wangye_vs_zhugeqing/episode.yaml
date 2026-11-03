@@ -2,7 +2,7 @@
 # 结构照搬 docs/参考片拆解_火影有嘻哈03.md 第 1 节：冷开场、主持开场、分屏入场、对峙、副歌、A 段（输家先唱、更短）、
 # 间奏、B 段（赢家后唱、更长）、灭灯停顿揭晓、副歌回归、互动结尾。歌词原创。
 # 原作里王也在罗天大醮赢了诸葛青，所以诸葛青先唱、唱得短，王也后唱、唱得长。
-# 每句 note 写原作依据；凭记忆写的地方标【待核对】。show_notes: false，注释不烧进画面。
+# 每句 note 写原作依据；已由官方资料（Bangumi 角色页）确认的写明出处，仍未确认的标【待核对】。show_notes: false，注释不烧进画面。
 title: 诸葛青vs王也
 format: show
 grammar: show
@@ -43,7 +43,7 @@ cast:
     role: teammate
     team: a
     side: left
-    listen_cn: 站在诸葛青身后，一脸崇拜，跟着节奏用力点头
+    listen_cn: 站在诸葛青身后压低礼帽偷看对面，一脸崇拜地跟着节奏点头，偷偷比了个剪刀手
   menren:
     character: zhuge_menren
     name_cn: 诸葛家门人
@@ -101,7 +101,7 @@ cast:
     side: center
     position_cn: DJ台前面
     title_cn: 哪都通 · 主持人
-    listen_cn: 靠在DJ台边上叼着笑，跟着节奏晃脑袋
+    listen_cn: 靠在DJ台边上挂着痞笑，跟着节奏晃脑袋
   xu_san:
     character: xu_san
     name_cn: 徐三
@@ -186,7 +186,7 @@ verses:
     who: baobao
     lines:
       - {text: 啦啦啦啦 谁是年轻一辈第一, beats: 6, note: 冯宝宝面无表情地唱旋律副歌，第三种声音}
-      - {text: 啦啦啦啦 奇门对上奇门, beats: 6, note: 诸葛青是武侯奇门，王也是风后奇门【待核对】}
+      - {text: 啦啦啦啦 奇门对上奇门, beats: 6, note: 诸葛青是武侯奇门，王也是风后奇门（Bangumi 角色页确认）}
       - {text: 你算我 我躲你 今晚见个高低, beats: 4}
 
   # A 段 · 诸葛青（先唱、更短，约 55 秒）。一直押 ing / in / eng 韵：定、命、行、明、心、清、影、名、睛、赢、腥、青、醒
@@ -208,7 +208,7 @@ verses:
       - text: 我算天 算地 算人心
         note: 诸葛家精于推算，奇门推演
       - text: 你那点风后奇门 我闭着眼都能看得清
-        note: 诸葛青平时总眯着眼；风后奇门是八奇技之一，王也身负此术【待核对：来历】
+        note: 诸葛青平时总眯着眼（官方图确认）；风后奇门是八奇技之一，王也是继承人（Bangumi 确认）【待核对：来历】
       - text: 不用睁眼！
         punch: true
         note: 原作里诸葛青认真起来才睁眼
@@ -218,11 +218,11 @@ verses:
       - text: 你去问问风会长 天下会的钱 今晚押的是谁的名
         beats: 8
         punch: false
-        note: 风正豪是天下会会长，财力雄厚；押注是本期玩笑，不是原作情节
+        note: 风正豪是天下会会长（Bangumi 确认），龙虎山篇关注张楚岚的比赛；押注是本期玩笑，不是原作情节
       - text: 莎燕妹妹 你别看他 他没睡醒 你看我的眼睛
         beats: 8
         punch: false
-        note: 诸葛青爱撩的人设【待核对】；风莎燕是风正豪的女儿；笑点是他的眼睛根本没睁开
+        note: 诸葛青别名「诸葛狐狸」，爱撩的人设程度【待核对】；风莎燕是风正豪的女儿，罗天大醮时在场（Bangumi 确认）；笑点是他的眼睛根本没睁开
       - text: 你在武当山学的是躺 我在诸葛家学的是怎么赢
         beats: 8
         punch: false
@@ -234,7 +234,7 @@ verses:
         note: 原作罗天大醮是龙虎山主办的大会【待核对：奖励是不是「天师度」】
       - text: 你回去接着睡吧 王道长 晚安 千万别醒
         punch: true
-        note: 收在 ing 韵上，呼应「睡到天明」；王也常被叫「王道长」【待核对】
+        note: 收在 ing 韵上，呼应「睡到天明」；王也别名「王道长」（Bangumi 确认）
 
   - kind: interlude
     who: baobao
@@ -257,7 +257,7 @@ verses:
       - text: 可这台子是老天师搭的 罗天大醮 不是你家开的场
         beats: 8
         punch: false
-        note: 罗天大醮在龙虎山办，老天师坐镇
+        note: 罗天大醮在龙虎山办，第六十五代天师张之维坐镇（Bangumi 确认）
       - text: 你说武侯后人 是刻在你骨头里的命
         punch: false
         note: 引用诸葛青原话
@@ -316,7 +316,7 @@ verses:
       - text: 陆老在评委席上都看哭了 你还硬撑着往前扛
         beats: 8
         punch: false
-        note: 陆瑾爱才、重情（爱哭是本期喜剧设定）
+        note: 陆瑾号称「一生无暇」，为人豪爽，与老天师感情甚笃（Bangumi 确认）；爱哭是本期喜剧设定
       - text: 你算得清天 算得清地 算得清八方
         punch: false
         note: 排比，引用诸葛青「我算天 算地 算人心」

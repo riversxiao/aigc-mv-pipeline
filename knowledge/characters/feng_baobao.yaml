@@ -1,16 +1,24 @@
 # 冯宝宝 · 《一人之下》同人二创（腾讯动漫，米二）。副歌歌手（面无表情的旋律副歌，「第三种声音」）。
+# 造型按《火影有嘻哈》的做法：原作发色、发型、眼睛和招牌物件不变，服装换成当代舞台装；上镜妆容，脸是原创的。
 id: feng_baobao
 display_name: 冯宝宝 · 哪都通
 age: 25
+canon_refs:
+  - {site: bangumi, id: 42203, url: "https://bgm.tv/character/42203", note: 动画设定图全身，很长的黑直发、浅灰长袖衬衫、深灰长裙}
+canon_look_cn: 官方图：黑色长直发很长，垂到腰下，有几缕碎刘海分在额前；面无表情，眼睛直直地看；浅灰色长袖衬衫扣到领口，衬衫下摆塞进深灰色长裙里，长裙到小腿，黑色平底鞋。
+signature_cn: 垂到腰下的黑色长直发 + 面无表情 + 浅灰长袖衬衫配深灰长裙
+signature_en: very long straight black hair down past the waist, a completely blank expression, a light grey long-sleeve shirt with a long dark grey skirt
 identity: >-
   a Chinese woman who looks 25, slim and small, an oval face with a completely blank calm expression, large dark
-  steady eyes that barely blink, straight black eyebrows, very long straight black hair with blunt bangs, real skin
-  with fine pores and no makeup look
-identity_short: a slim Chinese woman who looks 25 with a blank calm face and very long straight black hair with bangs
-identity_cn: 看上去 25 岁的成年中国女人，瘦小，鹅蛋脸，表情放空、平静，大而黑的眼睛直直看着很少眨；黑色长直发，齐刘海；皮肤有毛孔，像没化妆
+  steady eyes that barely blink, straight black eyebrows, very long straight black hair falling past the waist with
+  a few loose strands parted over the forehead, light on-camera stage makeup with a natural lip, real skin with fine pores
+identity_short: >-
+  a slim Chinese woman who looks 25 with a blank calm face and very long straight black hair past the waist
+identity_cn: 看上去 25 岁的成年中国女人，瘦小，鹅蛋脸，表情放空、平静；大而黑的眼睛直直看着、很少眨；黑色长直发垂到腰下；上镜淡妆，唇色自然，皮肤有毛孔
 wardrobe_default: >-
-  an olive-green work jacket with many pockets over a black top, dark cargo trousers, worn boots, no lettering
-wardrobe_cn: 多口袋的橄榄绿工作外套，黑色上衣，深色工装裤，旧靴子，衣服上没有文字
+  a light grey long-sleeve cotton shirt buttoned to the collar and tucked in, a long dark grey pleated skirt to the
+  mid calf, a slim black leather belt, black lace-up combat boots, no lettering
+wardrobe_cn: 浅灰色长袖衬衫扣到领口、塞进裙子，深灰色百褶长裙到小腿，黑色系带短靴；衣服上没有文字
 props_cn: 站在立麦前，双手扶着话筒架
 voice: flat deadpan female voice singing a simple catchy melody, Sichuan accent, almost no vibrato
 forbidden:
@@ -21,6 +29,9 @@ forbidden:
   - modern logos
 refs: []
 notes: >-
-  原作依据：哪都通临时工，不老不死、实际年龄很大，但外貌像二十多岁，面无表情，说四川话。这里写的是外貌年龄 25 岁。
-  凭记忆、需要核对的细节：发型（长直发、齐刘海）【待核对】，常穿的外套【待核对】，四川口音【待核对】。
+  原作依据（官方资料）：Bangumi 角色页 https://bgm.tv/character/42203 ：对「气」的操纵非常拿手，身体能力异于常人，
+  不谙世事、不懂表达情感，脸上没什么表情。官方图确认垂到腰下的黑色长直发、浅灰衬衫配深灰长裙；
+  原卡里的「齐刘海」「橄榄绿工作外套、工装裤」已按官方图改。这里写的是外貌年龄 25 岁。
+  仍待核对：四川口音【待核对】，「爱吃」的形象【待核对】，原作实际年龄【待核对】。
+  造型参考《火影有嘻哈》的做法：保留原作发色发型、眼睛和招牌物件，服装换成当代舞台装，不照搬该片任何人的脸。
   面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。

@@ -1,23 +1,28 @@
 # 诸葛家长辈 · 原创无名角色（不是原作人物），坐在观众席，唱到「诸葛家」时切他的反应。
+# 造型用诸葛家的藏青加白配色和背带，和诸葛青、诸葛白一眼看出是一家。不戴眼镜，避免和风正豪的圆框眼镜撞脸。
 id: zhuge_zhanglao
 display_name: 诸葛家长辈（原创）
 age: 62
 identity: >-
-  a 62-year-old Chinese man, thin, a long dignified face, round wire-rimmed glasses, a short grey goatee, grey hair
-  combed neatly back, tight proud lips, real skin with wrinkles and age spots on the temples
-identity_short: a thin dignified Chinese man of 62 with round wire glasses and a short grey goatee
-identity_cn: 62 岁的中国男人，瘦，长脸，神情端正，戴圆形细框眼镜，灰色山羊短胡，灰发整齐往后梳，嘴唇抿紧，一脸骄傲；皮肤有皱纹和老年斑
+  a 62-year-old Chinese man, thin, a long dignified face, a short grey goatee and a thin grey moustache, dark
+  navy-grey hair streaked with silver and combed neatly back, tight proud lips, real skin with wrinkles and age
+  spots on the temples
+identity_short: a thin dignified Chinese man of 62 with a short grey goatee and navy-grey hair combed back
+identity_cn: 62 岁的中国男人，瘦，长脸，神情端正；灰色山羊短胡和细八字胡；深藏青带银丝的头发整齐往后梳；嘴唇抿紧，一脸骄傲；皮肤有皱纹，太阳穴有老年斑
 wardrobe_default: >-
-  an off-white traditional long gown with cloth knot buttons, the Zhuge family style, no lettering
-wardrobe_cn: 米白色盘扣长衫，衣服上没有文字
+  a white band-collar shirt, navy suspenders, a long dark navy tailored coat with a thin bagua line embroidered on
+  the cuffs, navy trousers, black leather shoes, no lettering
+wardrobe_cn: 白色立领衬衫，藏青色背带，深藏青修身长外套（袖口细八卦线），藏青西裤，黑皮鞋；衣服上没有文字
 props_cn: 坐在观众席里，双手拄着一根木手杖，不拿话筒
 voice: thin proud old male voice
 forbidden:
   - young face
+  - glasses
   - plastic skin
   - modern logos
 refs: []
 notes: >-
-  原作依据：无，这是原创的诸葛家长辈，没有名字，不对应原作任何人物；用来接「诸葛家」这几个字的反应镜头，
-  表现诸葛青身上背着的家族期望。需要核对：原作里诸葛家对诸葛青的期望怎么写的【待核对】。
+  原创角色，无原作图，第一步用文生图。原作依据：无，这是原创的诸葛家长辈，没有名字，不对应原作任何人物；
+  用来接「诸葛家」这几个字的反应镜头，表现诸葛青身上背着的家族期望。原卡的圆框眼镜去掉了，因为官方图里风正豪戴圆框眼镜。
+  需要核对：原作里诸葛家对诸葛青的期望怎么写的【待核对】。
   面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。

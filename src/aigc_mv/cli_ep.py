@@ -119,6 +119,28 @@ def refs_cmd(ep_dir: Path, knowledge: Path = typer.Option(None, "--knowledge")) 
     typer.echo(f"wrote {write_refs_doc(ep_dir, ep, load_board(ep_dir), knowledge)}")
 
 
+@app.command("canon")
+def canon_cmd(
+    ep_dir: Path,
+    src: Optional[Path] = typer.Option(None, "--src", help="Local folder with <card_id>.jpg official art"),
+    knowledge: Path = typer.Option(None, "--knowledge"),
+) -> None:
+    """refs/canon/<card_id>.jpg: official art for every canon cast member (gitignored, never commit)."""
+    from aigc_mv.canon_refs import fetch_canon
+
+    ep = load_episode(ep_dir)
+    res = fetch_canon(ep_dir, ep, src, knowledge)
+    for k, how in res.placed.items():
+        typer.echo(f"  原作图  {ep.cast[k].name_cn} ({ep.cast[k].character}): {how}")
+    for k in res.original:
+        typer.echo(f"  原创    {ep.cast[k].name_cn} ({ep.cast[k].character}): 无原作图，第一步用文生图")
+    for k, err in res.failed.items():
+        typer.echo(f"  失败    {ep.cast[k].name_cn} ({ep.cast[k].character}): {err}", err=True)
+    typer.echo(f"wrote {Path(ep_dir) / 'refs' / 'canon'} ({len(res.placed)} canon, {len(res.original)} original)")
+    if res.failed:
+        raise typer.Exit(code=1)
+
+
 @app.command("prompts")
 def prompts_cmd(ep_dir: Path, knowledge: Path = typer.Option(None, "--knowledge")) -> None:
     """Audio windows + units/<id>/prompt.txt + request.json for every unit."""

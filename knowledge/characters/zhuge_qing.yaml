@@ -1,18 +1,26 @@
-# 诸葛青 · 《一人之下》同人二创（腾讯动漫，米二）。综艺上镜方向：上镜耐看，但面部原创。
+# 诸葛青 · 《一人之下》同人二创（腾讯动漫，米二）。造型按《火影有嘻哈》的做法：原作发色、发型、眼睛和招牌物件不变，
+# 服装换成当代舞台装；上镜妆容，脸是原创的。
 id: zhuge_qing
 display_name: 诸葛青 · 武侯派
 age: 24
+canon_refs:
+  - {site: bangumi, id: 61836, url: "https://bgm.tv/character/61836", note: 动画截图，白衬衫配背带、敞开的深灰西装外套、绿色玉坠}
+canon_look_cn: 官方图：深藏青色（偏蓝的黑）头发，长侧刘海盖住一边额头，后面头发到后颈；眼睛一直眯成两道弯线，嘴角带笑；白色敞领衬衫，最上面两颗扣子不扣，深棕色细背带，外面敞穿一件深炭灰西装外套；脖子上一根细绳挂着绿色玉坠；嘴里什么都没有。
+signature_cn: 深藏青色长侧刘海 + 一直眯着笑的眼睛 + 细绳上的绿色玉坠
+signature_en: dark navy-blue hair with a long side fringe, eyes always narrowed into smiling curves, a green jade pendant on a thin cord
 identity: >-
-  a 24-year-old Chinese man, slim and long-limbed, a narrow oval face with a soft jaw, a permanent easy smile,
-  narrow curved eyes that stay almost closed like two smiling lines, dark blue-black hair with a long side fringe
-  and a short low ponytail at the nape, real skin with fine pores and a faint mole under the left eye
+  a 24-year-old Chinese man, slim and long-limbed, a narrow oval face with a soft jaw and an easy smile, eyes always
+  narrowed into two smiling curves, dark navy-blue hair with a long layered side fringe falling over one brow and the
+  back trimmed to the nape, styled with a little texture, light on-camera stage makeup, real skin with fine pores and
+  a faint mole under the left eye
 identity_short: >-
-  a slim Chinese man of 24 with almost-closed smiling eyes and a short low ponytail
-identity_cn: 24 岁的中国男人，瘦高，鹅蛋脸，嘴角总挂着笑；细长上弯的眼睛几乎一直眯着；深蓝黑色头发，长侧刘海，脑后扎短的低马尾；皮肤有细小毛孔，左眼下一颗淡痣
+  a slim Chinese man of 24 with dark navy-blue side-fringed hair and eyes narrowed into a smile
+identity_cn: 24 岁的中国男人，瘦高，鹅蛋脸，嘴角总挂着笑；眼睛一直眯成两道弯弯的笑线；深藏青色头发，长侧刘海斜盖住一边眉毛，后面剪到后颈；上镜淡妆，皮肤有毛孔，左眼下一颗淡痣
 wardrobe_default: >-
-  an off-white mandarin-collar shirt with cloth knot buttons under a long light-grey open coat, slim dark trousers,
-  plain fabric with no lettering
-wardrobe_cn: 米白色立领盘扣衬衫，敞着浅灰长外套，深色窄裤，衣服上没有文字
+  a crisp white open-collar shirt with the top two buttons undone, slim dark brown suspenders, an open charcoal
+  tailored blazer with fine tone-on-tone bagua line embroidery on the lapels, slim black trousers, black leather
+  boots, a green jade pendant on a thin black cord, a thin silver ring, plain fabric with no lettering
+wardrobe_cn: 白色敞领衬衫，深棕色细背带，敞穿深炭灰修身西装外套（翻领暗纹八卦线），黑色窄腿裤，黑皮靴，黑细绳挂绿色玉坠；衣服上没有文字
 props_cn: 右手始终握着一支银色有线话筒，话筒线垂下来
 voice: smooth playful male rapper, light tenor, teasing confident flow, a smile in the voice, Mandarin
 forbidden:
@@ -20,10 +28,14 @@ forbidden:
   - boyish face
   - wide open eyes
   - plastic skin
+  - cigarette
   - modern logos
 refs: []
 notes: >-
-  原作依据：武侯派诸葛家的后人，用武侯奇门，平时眯着眼、笑眯眯，一认真才睁眼；在罗天大醮上输给王也。
-  凭记忆、需要核对的细节：发色是深蓝黑还是紫黑【待核对】，脑后小马尾【待核对】，罗天大醮时的服装【待核对】，
-  「撩妹」的人设程度【待核对】。眼下的淡痣是为了让脸不对称而加的原创细节。
+  原作依据（官方资料）：Bangumi 角色页 https://bgm.tv/character/61836 ：诸葛亮后人，几十年来唯一掌握全部武侯奇门的武侯派传人，
+  别名「诸葛狐狸」；官方图确认深藏青色头发、长侧刘海、眯眼笑、白衬衫配背带和深灰外套、绿色玉坠。
+  原卡里的「脑后短马尾」官方图看不到，已去掉；「米白盘扣衬衫配浅灰长外套」已按官方图改。
+  仍待核对：「撩妹」的人设程度【待核对】。眼下的淡痣是为了让脸不对称而加的原创细节。
+  造型参考《火影有嘻哈》的做法：保留原作发色发型、眼睛和招牌物件，服装换成当代舞台装，不照搬该片任何人的脸。
   面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。
+  官方截图里他嘴边叼着东西，本片不保留，不出现任何烟类道具。

@@ -1,17 +1,25 @@
-# 诸葛白 · 《一人之下》同人二创（腾讯动漫，米二）。诸葛青的队友。
+# 诸葛白 · 《一人之下》同人二创（腾讯动漫，米二）。诸葛青的亲弟弟、队友。造型按《火影有嘻哈》的做法：原作发色、发型、
+# 眼睛和招牌物件不变，服装换成当代舞台装；上镜妆容，脸是原创的。
 id: zhuge_bai
 display_name: 诸葛白 · 诸葛家
 age: 20
+canon_refs:
+  - {site: bangumi, id: 127662, url: "https://bgm.tv/character/127662", note: 官方立绘，蓝色波波头、灰色礼帽、白衬衫配灰背带、比剪刀手}
+canon_look_cn: 官方图：亮蓝色齐下巴的波波头，大而圆的蓝眼睛，张嘴大笑；头戴浅灰色礼帽，帽带是深酒红色；白色高立领衬衫，袖子挽到小臂，深灰色背带，黑裤子；一只手伸出来比剪刀手。和哥哥一样是白衬衫配背带。
+signature_cn: 亮蓝色波波头 + 浅灰色礼帽（深酒红帽带）+ 白衬衫配灰背带
+signature_en: a bright blue chin-length bob, a light grey fedora with a dark wine band, a white shirt with grey suspenders
 identity: >-
-  a 20-year-old Chinese man, of average height and lean, a round face with full cheeks, wide-open bright eager
-  eyes, short neat black hair with a straight fringe, real skin with fine pores and a few faint freckles on the nose
-identity_short: a lean Chinese man of 20 with a round face, eager wide-open eyes and a short straight fringe
-identity_cn: 20 岁的成年中国男人，中等个子偏瘦，圆脸，眼睛睁得很大、亮而急切，黑色短发齐刘海；皮肤有毛孔，鼻梁上几颗淡雀斑
+  a 20-year-old adult Chinese man, of average height and lean, a round face with full cheeks, big round bright eyes
+  with dark blue-grey irises, an open eager grin, bright blue chin-length bob hair with a soft fringe, light on-camera
+  stage makeup, real skin with fine pores and a few faint freckles on the nose
+identity_short: a lean adult Chinese man of 20 with a bright blue bob under a light grey fedora and big eager eyes
+identity_cn: 20 岁的成年中国男人，中等个子偏瘦，圆脸；眼睛又大又圆、亮而急切，深蓝灰色虹膜，咧嘴笑；亮蓝色齐下巴波波头；上镜淡妆，皮肤有毛孔，鼻梁上几颗淡雀斑
 wardrobe_default: >-
-  an off-white mandarin-collar jacket with cloth knot buttons, the same family style as Zhuge Qing, dark trousers,
-  plain fabric with no lettering
-wardrobe_cn: 米白色立领盘扣短外套，深色裤子，衣服上没有文字
-props_cn: 双手抱在胸前，不拿话筒
+  a light grey fedora with a dark wine band, a white shirt with a tall open collar and sleeves rolled to the forearm,
+  dark grey suspenders with silver clips, black tapered trousers, white leather sneakers, the same shirt-and-suspenders
+  family look as Zhuge Qing, plain fabric with no lettering
+wardrobe_cn: 浅灰色礼帽配深酒红帽带，白色高立领衬衫挽袖，深灰色背带，黑色收脚裤，白球鞋；衣服上没有文字
+props_cn: 不拿话筒，紧张时会伸手比剪刀手，又赶紧缩回去
 voice: eager male voice, bright and a little loud
 forbidden:
   - teenager
@@ -20,6 +28,9 @@ forbidden:
   - modern logos
 refs: []
 notes: >-
-  原作依据：诸葛家的年轻一辈，崇拜诸葛青。凭记忆、需要核对的细节：和诸葛青是堂兄弟还是亲兄弟【待核对】，
-  他在罗天大醮上的对手和战绩【待核对】，原作发型【待核对】。年龄写成 20 岁是为了保证成年，原作年龄【待核对】。
+  原作依据（官方资料）：Bangumi 角色页 https://bgm.tv/character/127662 ：诸葛青的弟弟（亲弟），诸葛八卦村小辈里人气特别高；
+  罗天大醮是他第一次参加公开正式比赛，胆子太小被对手辽东野人金猛吓晕，后来主动邀请金猛到诸葛八卦村做胆量训练。
+  官方图确认亮蓝色波波头、灰色礼帽、白衬衫配灰背带。原卡里的「黑色齐刘海短发」「米白盘扣外套」「堂兄弟」已按官方资料改。
+  仍待核对：原作年龄【待核对】（写成 20 岁是为了保证成年）。
+  造型参考《火影有嘻哈》的做法：保留原作发色发型、眼睛和招牌物件，服装换成当代舞台装，不照搬该片任何人的脸。
   面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。

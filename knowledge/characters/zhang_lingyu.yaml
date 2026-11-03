@@ -1,16 +1,23 @@
-# 张灵玉 · 《一人之下》同人二创（腾讯动漫，米二）。副歌歌手（副歌回归时和冯宝宝对唱）。
+# 张灵玉 · 《一人之下》同人二创（腾讯动漫，米二）。副歌歌手（副歌回归时和冯宝宝对唱）。造型按《火影有嘻哈》的做法：
+# 原作发色、发型、眼睛和招牌物件不变，服装换成当代舞台装；上镜妆容，脸是原创的。
 id: zhang_lingyu
 display_name: 张灵玉 · 龙虎山天师府
 age: 24
+canon_refs:
+  - {site: bangumi, id: 42208, url: "https://bgm.tv/character/42208", note: 漫画黑白插画，白色长发、白色宽袖道袍、出腿}
+canon_look_cn: 官方图（黑白插画）：白色长发很长，披散飘起，刘海垂在脸前；闭着眼，神情冷静；身穿白色宽袖道袍和白色宽裤，布鞋；周围是大片黑色墨线一样的雷（阴五雷）。
+signature_cn: 白色长发 + 白色宽袖道袍
+signature_en: long white hair, a white wide-sleeved Taoist robe
 identity: >-
-  a 24-year-old Chinese man, tall and very upright, a narrow serious face with high cheekbones, cool straight
-  eyebrows, calm reserved dark eyes, long black hair tied high in a Taoist topknot with a few loose strands, real skin
-  with fine pores and a slight flush on the ears
-identity_short: a tall upright Chinese man of 24 with a serious narrow face and long black hair in a high topknot
-identity_cn: 24 岁的中国男人，高，站得笔直，窄脸，颧骨高，表情严肃，眉毛平直，眼神沉静；黑色长发在头顶高束成道髻，垂几缕碎发；皮肤有毛孔，耳朵微红
+  a 24-year-old Chinese man, tall and very upright, a narrow serious face with high cheekbones, cool straight dark
+  eyebrows, calm reserved dark eyes, long white hair falling past the shoulders with the top half tied back and a few
+  loose strands over the face, light on-camera stage makeup, real skin with fine pores and a slight flush on the ears
+identity_short: a tall upright Chinese man of 24 with a serious narrow face and long white hair half tied back
+identity_cn: 24 岁的中国男人，高，站得笔直，窄脸，颧骨高，表情严肃，深色眉毛平直，眼神沉静；白色长发过肩、上半部分往后束起；上镜淡妆，皮肤有毛孔，耳朵微红
 wardrobe_default: >-
-  a plain white Taoist robe with a dark blue collar and a dark blue cloth belt, white cloth shoes, no lettering
-wardrobe_cn: 素白道袍，深蓝领口和深蓝布腰带，白布鞋，衣服上没有文字
+  a sharply cut white long coat with wide Taoist sleeves and a white crossed collar, a slim white high-neck inner top,
+  white wide trousers, a black cloth sash, white cloth shoes, matte cotton and silk, no lettering
+wardrobe_cn: 剪裁利落的白色宽袖交领长外套，白色高领打底，白色阔腿裤，黑布腰带，白布鞋；衣服上没有文字
 props_cn: 站在立麦前，右手握着话筒
 voice: clear restrained male tenor, clean melodic singing
 forbidden:
@@ -20,6 +27,9 @@ forbidden:
   - modern logos
 refs: []
 notes: >-
-  原作依据：龙虎山天师府弟子，老天师的徒弟，端正、认真、有点死板，罗天大醮时也在场。
-  凭记忆、需要核对的细节：道袍颜色（白配蓝）【待核对】，原作年龄【待核对】。让他唱副歌是本期设定。
+  原作依据（官方资料）：Bangumi 角色页 https://bgm.tv/character/42208 ：龙虎山正一派天师的关门弟子，天师候选人，
+  张楚岚的竞争对手之一，阴五雷使用者，别名「小师叔」。官方图确认白色长发、白色道袍；
+  原卡里的「黑色长发高束道髻」「深蓝领口和腰带」已按官方图改。让他唱副歌是本期设定。
+  仍待核对：原作年龄【待核对】，彩色设定里眼睛的颜色【待核对】（官方图是黑白插画）。
+  造型参考《火影有嘻哈》的做法：保留原作发色发型和招牌物件，服装换成当代舞台装，不照搬该片任何人的脸。
   面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。

@@ -1,16 +1,23 @@
-# 风正豪 · 《一人之下》同人二创（腾讯动漫，米二）。评委，天下会会长。
+# 风正豪 · 《一人之下》同人二创（腾讯动漫，米二）。评委，天下会会长。造型按《火影有嘻哈》的做法：原作发色、发型和
+# 招牌物件不变，服装做得更有舞台感；脸是原创的。
 id: feng_zhenghao
 display_name: 风正豪 · 天下会会长
 age: 50
+canon_refs:
+  - {site: bangumi, id: 45136, url: "https://bgm.tv/character/45136", note: 漫画彩图，圆框细金属眼镜、灰白背头、蓝底白点衬衫配深色外套}
+canon_look_cn: 官方图：灰白色短发整齐往后梳成背头；戴圆形细金属框眼镜；胡子刮净，笑容精明；深蓝底白色小圆点衬衫，外面深灰蓝色西装外套，腰间一条深色宽腰封。
+signature_cn: 圆形细金属框眼镜 + 灰白背头 + 深蓝底白点衬衫
+signature_en: round thin wire-rimmed glasses, grey-white slicked-back hair, a deep blue shirt with small white polka dots
 identity: >-
-  a 50-year-old Chinese man, broad-shouldered and well kept, a square face with a firm jaw, sharp shrewd eyes,
-  black hair with grey at the temples combed back, a short neat moustache, real skin with pores and fine lines
-  around the eyes
-identity_short: a broad-shouldered Chinese man of 50 with combed-back greying hair and a short moustache
-identity_cn: 50 岁的中国男人，肩宽，方脸，下颌有力，眼神精明；黑发往后梳、两鬓斑白，修整齐的短八字胡；皮肤有毛孔，眼角细纹
+  a 50-year-old Chinese man, broad-shouldered and well kept, a square face with a firm jaw, sharp shrewd eyes behind
+  round thin wire-rimmed glasses, grey-white short hair slicked straight back, clean-shaven, a knowing smile, real
+  skin with pores and fine lines around the eyes
+identity_short: a broad-shouldered Chinese man of 50 with round wire glasses and grey-white slicked-back hair
+identity_cn: 50 岁的中国男人，肩宽，方脸，下颌有力；戴圆形细金属框眼镜，眼神精明；灰白色短发往后梳成背头；胡子刮净，嘴角一抹心里有数的笑；皮肤有毛孔，眼角细纹
 wardrobe_default: >-
-  a tailored black three-piece suit with a dark red tie, a white shirt, a silver tie clip, no lettering
-wardrobe_cn: 黑色三件套西装，白衬衫，暗红领带，衣服上没有文字
+  a deep blue silk shirt with small white polka dots buttoned to the neck, a tailored dark slate-blue double-breasted
+  suit jacket, a wide black cummerbund-style sash at the waist, dark trousers, polished black shoes, no lettering
+wardrobe_cn: 深蓝色真丝衬衫印白色小圆点，深石板蓝双排扣西装外套，黑色宽腰封，深色西裤，黑皮鞋；衣服上没有文字
 props_cn: 坐着，十指交叉放在膝前，不拿话筒
 voice: deep composed male voice, businesslike
 forbidden:
@@ -18,6 +25,8 @@ forbidden:
   - modern logos
 refs: []
 notes: >-
-  原作依据：天下会会长，财力雄厚，风莎燕的父亲，会拘灵遣将。
-  凭记忆、需要核对的细节：原作发型和胡子【待核对】，罗天大醮时是否在场【待核对】。
+  原作依据（官方资料）：Bangumi 角色页 https://bgm.tv/character/45136 ：天下会会长、十佬，会拘灵遣将，风莎燕、风星潼的父亲，
+  老狐狸、慧眼识人；龙虎山篇关注张楚岚的比赛、阻拦风莎燕与冯宝宝比赛，所以罗天大醮期间在龙虎山。
+  官方图确认圆框眼镜、灰白背头、胡子刮净、蓝底白点衬衫；原卡里的「黑发两鬓斑白、八字胡、黑三件套红领带」已按官方图改。
+  造型参考《火影有嘻哈》的做法：保留原作发色发型和招牌物件，服装做得更有舞台感，不照搬该片任何人的脸。
   面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。

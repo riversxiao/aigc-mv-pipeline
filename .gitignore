@@ -36,6 +36,8 @@ projects/*/audio/
 projects/*/refs/*.png
 projects/*/refs/REFS.md
 projects/*/refs/refs_plan.json
+# official canon art (copyrighted): local reference only, never commit
+projects/*/refs/canon/
 projects/*/suno.md
 projects/*/ledger.jsonl
 projects/*/approvals.json

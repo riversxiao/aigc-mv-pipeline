@@ -1,15 +1,23 @@
-# 张之维 · 老天师 · 《一人之下》同人二创（腾讯动漫，米二）。主评，坐评委席中间的王座。
+# 张之维 · 老天师 · 《一人之下》同人二创（腾讯动漫，米二）。主评，坐评委席中间的王座。造型按《火影有嘻哈》的做法：
+# 原作发色、发型和招牌物件不变，服装做得更挺括上镜；脸是原创的。
 id: zhang_zhiwei
 display_name: 张之维 · 龙虎山老天师
 age: 90
+canon_refs:
+  - {site: bangumi, id: 103754, url: "https://bgm.tv/character/103754", note: 官方角色卡，灰白长发束在脑后、长白胡子、深色道袍配灰色暗纹领}
+canon_look_cn: 官方图：灰白色长发往后梳，在脑后束起，头顶有个小髻，几缕长发垂在脸边；浓密的白眉，长长的白胡子和八字胡；脸上皱纹很深，眼皮下垂；身穿深色道袍，领口是灰色暗纹缎面宽领，里面露出白色内领。身高 187cm。
+signature_cn: 束在脑后的灰白长发 + 长长的白胡子 + 深色道袍的灰色暗纹宽领
+signature_en: long grey-white hair tied back with a small topknot, a long white beard and moustache, a dark robe with a wide grey patterned collar
 identity: >-
-  a Chinese man who looks about 90, small and thin but upright, a long snow-white beard and white eyebrows, white
-  hair in a small Taoist topknot, deep laugh lines, bright amused eyes, weathered thin skin with age spots
-identity_short: a small upright Chinese man of about 90 with a long snow-white beard and a white topknot
-identity_cn: 看上去约 90 岁的中国老人，瘦小但腰板笔直；雪白长胡子和白眉，白发束成小道髻；笑纹很深，眼睛亮而带笑；皮肤有皱纹和老年斑
+  a Chinese man who looks about 90, tall at 187 cm and upright, long grey-white hair combed back and tied behind the
+  head with a small topknot and a few long strands at the temples, thick white eyebrows, a long flowing white beard
+  and moustache, deep laugh lines, heavy eyelids over bright amused eyes, weathered skin with wrinkles and age spots
+identity_short: a tall upright Chinese man of about 90 with long grey-white hair tied back and a long white beard
+identity_cn: 看上去约 90 岁的中国老人，身高 187 厘米，腰板笔直；灰白长发往后梳、在脑后束起，头顶一个小髻；浓白眉，长长的白胡子；笑纹很深，眼睛亮而带笑；皮肤有皱纹和老年斑
 wardrobe_default: >-
-  a plain faded indigo Taoist robe with wide sleeves, a black cloth belt, cloth shoes, worn cotton, no lettering
-wardrobe_cn: 洗旧的靛蓝色宽袖道袍，黑布腰带，布鞋，衣服上没有文字
+  a sharply tailored long black Taoist robe in heavy matte silk with a wide grey jacquard cloud-pattern collar over
+  a white inner collar, a black cloth belt, black cloth shoes, no lettering
+wardrobe_cn: 剪裁挺括的黑色长道袍，灰色提花云纹宽领，露出白色内领，黑布腰带，黑布鞋；衣服上没有文字
 props_cn: 坐着，双手搭在膝盖上，不拿话筒
 voice: warm old male voice, unhurried, amused
 forbidden:
@@ -19,7 +27,9 @@ forbidden:
   - modern logos
 refs: []
 notes: >-
-  原作依据：龙虎山天师府的老天师，当今公认最强，罗天大醮由龙虎山主办。
-  凭记忆、需要核对的细节：第几代天师【待核对】，原作年龄超过百岁【待核对】（这里按看上去约 90 岁写），
-  道袍颜色【待核对】，罗天大醮的「天师度」设定【待核对】。
+  原作依据（官方资料）：Bangumi 角色页 https://bgm.tv/character/103754 ：天师府第六十五代天师，十佬之一，别名「老天师」，
+  据说是现存最强的异人，对张楚岚十分爱护；身高 187cm。官方图确认灰白长发束在脑后、长白胡子、深色道袍配灰色暗纹领。
+  原卡里的「瘦小」「靛蓝道袍」已按官方资料改成高个、深色道袍。
+  仍待核对：原作年龄【待核对】（这里按看上去约 90 岁写），罗天大醮的「天师度」设定【待核对】。
+  造型参考《火影有嘻哈》的做法：保留原作发色发型和招牌物件，服装做得更挺括上镜，不照搬该片任何人的脸。
   面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。

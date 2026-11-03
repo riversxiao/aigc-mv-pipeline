@@ -1,16 +1,24 @@
-# 张楚岚 · 《一人之下》同人二创（腾讯动漫，米二）。王也的队友（被硬拉来撑场）。
+# 张楚岚 · 《一人之下》同人二创（腾讯动漫，米二）。王也的队友（被硬拉来撑场）。造型按《火影有嘻哈》的做法：原作发色、
+# 发型、眼睛和招牌物件不变，服装换成当代舞台装；上镜妆容，脸是原创的。
 id: zhang_chulan
 display_name: 张楚岚 · 哪都通
 age: 23
+canon_refs:
+  - {site: bangumi, id: 42202, url: "https://bgm.tv/character/42202", note: 动画设定图全身，深藏青外套、白T恤带橙红领口和下摆、浅蓝七分裤}
+canon_look_cn: 官方图：黑色短发有点乱，刘海碎碎地盖在额头；眼神有点无奈、带点小心思；敞穿深藏青色外套，袖子推到小臂，里面浅灰白T恤，领口和下摆是一圈橙红色；浅蓝色七分裤，裤脚挽起，蓝灰色便鞋。身高 180cm。
+signature_cn: 乱糟糟的黑色短发 + 深藏青外套里露出领口和下摆一圈橙红色的白T恤
+signature_en: messy short black hair, a dark navy open jacket over a white tee with orange-red collar and hem trim
 identity: >-
-  a 23-year-old Chinese man, average height and wiry, a narrow face with a pointed chin, quick sly dark eyes and a
-  crooked half grin, short messy black hair sticking up at the crown, real skin with fine pores and a little redness
-  on the nose
-identity_short: a wiry Chinese man of 23 with a sly crooked grin and short messy black hair
-identity_cn: 23 岁的中国男人，中等个子，精瘦，窄脸尖下巴，小眼睛灵活、带着坏笑，嘴角歪着；黑色短发乱翘；皮肤有毛孔，鼻头微红
+  a 23-year-old Chinese man, 180 cm and wiry, a narrow face with a pointed chin, quick sly dark eyes and a crooked half
+  grin, messy short black hair with choppy bangs over the forehead, styled with matte texture, light on-camera stage
+  makeup, real skin with fine pores and a little redness on the nose
+identity_short: a wiry Chinese man of 23 with a sly crooked grin and messy short black hair with choppy bangs
+identity_cn: 23 岁的中国男人，180 厘米，精瘦，窄脸尖下巴，眼睛灵活、带着坏笑，嘴角歪着；乱糟糟的黑色短发，碎刘海盖着额头；上镜淡妆，皮肤有毛孔，鼻头微红
 wardrobe_default: >-
-  a dark navy zip-up track jacket over a white T-shirt, grey trousers, worn sneakers, plain fabric with no lettering
-wardrobe_cn: 深藏青拉链运动外套，白T恤，灰裤子，旧运动鞋，衣服上没有文字
+  a dark navy cropped bomber-cut jacket worn open with sleeves pushed to the forearm, a light grey-white T-shirt with
+  a bold orange-red ribbed collar and orange-red hem band, light blue cropped wide trousers with rolled cuffs,
+  blue-grey slip-on sneakers, plain fabric with no lettering
+wardrobe_cn: 敞穿深藏青短夹克，浅灰白T恤配橙红色领口和下摆边，浅蓝色七分阔腿裤，蓝灰便鞋；衣服上没有文字
 props_cn: 一只手插在外套口袋里，不拿话筒
 voice: cheeky male voice, fast and joking
 forbidden:
@@ -20,7 +28,9 @@ forbidden:
   - modern logos
 refs: []
 notes: >-
-  原作依据：主角，天师府张怀义的孙子，嘴贫、鬼点子多，罗天大醮时和王也关系好。
-  凭记忆、需要核对的细节：他和王也在罗天大醮时是不是一路的【待核对】，常穿的外套款式和颜色【待核对】。
-  站在王也身后是本期设定（被硬拉来撑场），不是原作情节。
+  原作依据（官方资料）：Bangumi 角色页 https://bgm.tv/character/42202 ：主角，被祖父张锡林要求「过普通人的生活」，
+  为解开祖父死亡之谜踏入异人世界，身高 180cm。官方图确认深藏青外套、橙红领口和下摆的白T恤、浅蓝七分裤；
+  原卡里的「拉链运动外套、灰裤子」已按官方图改。
+  仍待核对：他和王也在罗天大醮时的关系【待核对】。站在王也身后是本期设定（被硬拉来撑场），不是原作情节。
+  造型参考《火影有嘻哈》的做法：保留原作发色发型、眼睛和招牌物件，服装换成当代舞台装，不照搬该片任何人的脸。
   面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。

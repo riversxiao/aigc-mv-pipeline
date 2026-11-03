@@ -7,6 +7,15 @@ from typing import Any
 from pydantic import BaseModel, Field
 
 
+class CanonRef(BaseModel):
+    """Where the official art of a canon character lives (the image itself is never committed)."""
+
+    site: str = "bangumi"
+    id: int
+    url: str = Field(..., description="Character page, e.g. https://bgm.tv/character/61836")
+    note: str = ""
+
+
 class Character(BaseModel):
     """A reusable cast member with locked identity text for prompting."""
 
@@ -33,6 +42,14 @@ class Character(BaseModel):
     )
     age: int | None = Field(None, description="Explicit age; never write 'young' (models drift to teen faces)")
     voice: str = Field("", description="Suno voice description")
+
+    # --- canon grounding (optional): official art reference + what must never drift ---
+    canon_refs: list[CanonRef] = Field(
+        default_factory=list, description="Official art sources; empty for original characters"
+    )
+    signature_cn: str = Field("", description="1-2 招牌原作特征，任何画面都不能丢，例如发色发型 + 标志物")
+    signature_en: str = Field("", description="English version of signature_cn")
+    canon_look_cn: str = Field("", description="官方图里看到的样子（平实描述），用于第一步「原作图 -> 真人」提示词")
 
 
 class LoreStory(BaseModel):
