@@ -76,6 +76,17 @@ def file_sha256(path: Path) -> str:
     return h.hexdigest()
 
 
+def is_mp4(path: Path) -> bool:
+    """A real video file: more than 1000 bytes with an ISO BMFF ftyp box at the start."""
+    try:
+        if not path.is_file() or path.stat().st_size <= 1000:
+            return False
+        with open(path, "rb") as f:
+            return f.read(12)[4:8] == b"ftyp"
+    except OSError:
+        return False
+
+
 def unit_ids(project_id: str, unit: str, take: int) -> dict:
     return {
         "node_id": stable_node_id(project_id, unit, str(take)),
@@ -675,8 +686,10 @@ class Runner:
     def prepare(self, unit: str, spec: dict) -> None:
         """Upload refs, save the video node (no run), quote it."""
         rec = self.rec(unit)
-        if rec.get("status") not in ("new", "prepare_error", "saved", "quote_error", "quoted"):
+        if rec.get("status") not in ("new", "prepare_error", "saved", "quote_error", "quoted", "needs_approval"):
             return  # submitted or later: never touch the node again
+        # needs_approval: the confirm or run was refused for price, so nothing ran; re-quote the same saved node
+        # (same node and submit id) and confirm again at the new quote under the cap.
         ulog = self.ulog(unit)
         req = self.request(unit)
         pid = self.state["project_id"]
@@ -845,6 +858,12 @@ class Runner:
         rec, ulog, pid = self.rec(unit), self.ulog(unit), self.state["project_id"]
         dst = self.root / "takes" / unit / f"take-{self.take}.mp4"
         dst.parent.mkdir(parents=True, exist_ok=True)
+        if rec.get("status") == "manual_download" and is_mp4(dst):
+            rec.update({"status": "downloaded", "file": str(dst.relative_to(self.root)), "size": dst.stat().st_size,
+                        "sha256": file_sha256(dst), "error": None, "manual": True})
+            ulog(f"已找到手动放好的 {rec['file']}（{rec['size']} 字节），不再下载")
+            self.save()
+            return rec["status"]
         info = self.cli.call(["resource", "get", rec["resource_id"], "--project-id", pid], unit_log=ulog)
         if info.ok:
             v = info.data.get("video") or {}
@@ -857,11 +876,9 @@ class Runner:
                           unit_log=ulog, timeout=1800)
         ok = r.ok and dst.is_file() and dst.stat().st_size > 1000
         if ok:
-            with open(dst, "rb") as f:
-                head = f.read(12)
-            ok = head[4:8] == b"ftyp"
+            ok = is_mp4(dst)
             if not ok:
-                ulog("下载的文件不是 mp4（文件头 %r）" % head)
+                ulog("下载的文件不是 mp4")
         if ok:
             rec.update({"status": "downloaded", "file": str(dst.relative_to(self.root)),
                         "size": r.data.get("size") or dst.stat().st_size, "sha256": r.data.get("sha256"),
@@ -901,13 +918,12 @@ class Runner:
         waiting = [u for u in units if self.rec(u)["status"] in ("submitting", "submitted")]
         total = sum(int(self.rec(u).get("quote") or 0) for u in todo)
         cap = a.credit_cap if a.credit_cap is not None else _num(os.environ.get("DREAMINA_CREDIT_CAP"))
-        cap_src = "你设定的上限" if cap is not None else "默认上限（总报价 +10%）"
-        if cap is None:
-            cap = math.ceil(total * 1.1)
-        self.say(f"待提交 {len(todo)} 个单元，总报价 {total} 积分；{cap_src} {fmt_num(cap)} 积分；"
+        cap_txt = (f"你设定的总上限 {fmt_num(cap)} 积分" if cap is not None else
+                   "没有设总上限（以账号余额和每个单元自己的报价为准；可用 DREAMINA_CREDIT_CAP 或 --credit-cap 设定）")
+        self.say(f"待提交 {len(todo)} 个单元，总报价 {total} 积分；{cap_txt}；"
                  f"上次已提交、继续等待的 {len(waiting)} 个")
         if todo and not a.dry_run:
-            if total > cap:
+            if cap is not None and total > cap:
                 self.say(f"总报价 {total} 超过上限 {fmt_num(cap)}：没有花任何积分，已停止。"
                          "可以设置 DREAMINA_CREDIT_CAP 或 --credit-cap 提高上限，或用 --units 分批。")
                 self.finish(units)
@@ -942,7 +958,7 @@ class Runner:
             while queue and len(inflight) < a.parallel:
                 u = queue[0]
                 q = int(self.rec(u).get("quote") or 0)
-                if spent + q > cap:
+                if cap is not None and spent + q > cap:
                     self.say(f"{u}：再提交会超过上限 {fmt_num(cap)}（已确认 {spent}），停止提交。")
                     queue = []
                     break
@@ -1023,6 +1039,9 @@ class Runner:
             if redo:
                 self.say(f"失败的单元可以换一个 take 号重新生成（会再次扣分）：python3 run_dreamina.py --units {redo} "
                          f"--take {self.take + 1}")
+            if any(x["status"] == "needs_approval" for x in bad):
+                self.say("“需要重新确认积分”的单元还没有扣分：重跑同一条命令会重新报价，在上限和余额之内按新报价确认并提交"
+                         "（同一个节点和提交 ID）。")
         if pending:
             self.say("还有单元在生成：过一会儿再运行同一条命令，会继续等待并下载，不会重复扣分。")
         return 0 if not bad else 1

@@ -229,9 +229,12 @@ def retakes(ep_dir: Path, board, ep_arg: str | None = None) -> dict:
     for u in board.units:
         ut = load_unit_takes(ep_dir, u.id)
         meta = log.get(u.id, {})
-        for t in ut.takes:
-            max_take = max(max_take, _take_no(t.take))
         last = meta.get("_last_status") or {}
+        # take numbers already used on the canvas: files on disk, recorded rows and a failed take with no file.
+        # Reusing one would rebuild the same node/update/submit ids and replay that submission.
+        used = [t.take for t in ut.takes] + list(meta) + [str(last.get("take") or "")]
+        for name in used:
+            max_take = max(max_take, _take_no(name))
         t = next((x for x in ut.takes if x.take == ut.pick), None) or best_take(ut, u)
         if t is None:
             st = last.get("status", "")

@@ -65,13 +65,23 @@ def _flags(args: list) -> tuple:
 
 class FakeDreamina:
     def __init__(self, state: dict | None = None, models=None, logged_in=True, credits="5000",
-                 polls_to_finish=1, download_works=True, fail_units=(), lose_run_response=False):
+                 polls_to_finish=1, download_works=True, fail_units=(), lose_run_response=False,
+                 drop_first_run=False, raise_after_quote=0):
         self.s = state if state is not None else {}
         for k, v in (("nodes", {}), ("runs", {}), ("polls", {}), ("uploads", {}), ("canvases", {}), ("log", [])):
             self.s.setdefault(k, v)
         self.models = models if models is not None else [SEEDANCE_2, SEEDANCE_1_FAST]
         self.logged_in, self.credits, self.polls_to_finish = logged_in, credits, polls_to_finish
         self.download_works, self.fail_units, self.lose_run_response = download_works, set(fail_units), lose_run_response
+        # drop_first_run: the first node run per submit id never reaches the service (connection reset, nothing
+        # recorded) and operation wait then reports it absent and resubmittable.
+        # raise_after_quote: the price goes up by this much right after each quote (persisted in state["extra"]).
+        self.drop_first_run, self.raise_after_quote = drop_first_run, raise_after_quote
+        self.s.setdefault("extra", 0)
+        self.s.setdefault("dropped", [])
+
+    def _price(self, node: str) -> int:
+        return int(self.s["nodes"][node]["duration"] * 10) + self.s["extra"]
 
     def __call__(self, cmd: list, timeout: float = 0) -> tuple:
         args = [a for a in cmd[1:] if a not in ("--non-interactive",)]
@@ -134,12 +144,13 @@ class FakeDreamina:
             return ok({"nodes": [{"nodeId": nid, "result": "FOUND", "node": {"nodeId": nid}} if n else
                                  {"nodeId": nid, "result": "NOT_FOUND"}]})
         if pos[:2] == ["node", "quote"]:
-            items = [{"nodeId": n, "maxCredits": int(self.s["nodes"][n]["duration"] * 10)} for n in fl["node-id"]]
+            items = [{"nodeId": n, "maxCredits": self._price(n)} for n in fl["node-id"]]
+            self.s["extra"] += self.raise_after_quote
             return ok({"items": items, "totalMaxCredits": sum(i["maxCredits"] for i in items), "draftVersion": 1,
                        "confirmable": True, "confirmationRequired": True})
         if pos[:2] == ["node", "confirm"]:
             n = fl["node-id"][0]
-            need = int(self.s["nodes"][n]["duration"] * 10)
+            need = self._price(n)
             if int(fl["credit-ceiling"][0]) < need:
                 return fail(10, {"code": "cli.generation_confirmation_required", "requiredAction": "confirm"},
                             creditConfirmation={"reason": "below_estimate", "minimumCreditCeiling": need})
@@ -149,6 +160,9 @@ class FakeDreamina:
             n, sid = fl["node-id"][0], fl["submit-id"][0]
             if fl.get("credit-token", [None])[0] != "tok-" + n:
                 return fail(10, {"code": "cli.generation_confirmation_required", "requiredAction": "confirm"})
+            if self.drop_first_run and sid not in self.s["dropped"]:
+                self.s["dropped"].append(sid)
+                return -1, "", "connection reset"
             self.s["runs"][sid] = self.s["runs"].get(sid, 0) + 1
             self.s["nodes"][n]["submit"] = sid
             if self.lose_run_response:
@@ -158,7 +172,8 @@ class FakeDreamina:
             sid = pos[2]
             if sid not in self.s["runs"]:
                 return ok({"operationRef": sid, "state": "unknown", "resources": [],
-                           "submission": {"state": "absent", "resubmittable": False, "adviceCode": "inspect",
+                           "submission": {"state": "absent", "resubmittable": sid in self.s["dropped"],
+                                          "adviceCode": "resubmit" if sid in self.s["dropped"] else "inspect",
                                           "advice": "inspect canvas"}})
             self.s["polls"][sid] = self.s["polls"].get(sid, 0) + 1
             node = next(k for k, v in self.s["nodes"].items() if v.get("submit") == sid)

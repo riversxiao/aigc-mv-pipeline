@@ -12,7 +12,7 @@ import pytest
 
 from aigc_mv import dreamina_runner as dr
 from aigc_mv.dreamina_bundle import build_bundle
-from fake_dreamina import SEEDANCE_1_FAST, SEEDANCE_2, FakeDreamina
+from fake_dreamina import MP4, SEEDANCE_1_FAST, SEEDANCE_2, FakeDreamina
 
 PROMPT_SUNG = ("【音频】视频的声音就是 @音频1 本身。\n\n【参考图】@图片1是诸葛青（选手），@图片2是王也（选手），"
                "@图片3是张楚岚（队友）：只用来认脸。@图片4是场景图（主舞台）：只用来对齐场景。\n\n"
@@ -236,6 +236,65 @@ def test_download_fallback_logs_canvas_url(tmp_path):
     assert res["web_url"].startswith("https://example.invalid/canvas/")
     assert any(res["web_url"] in o for o in out) and any("7 天" in o for o in out)
     assert not (root / "takes.zip").exists()
+
+
+def test_manual_take_is_kept_on_rerun(tmp_path):
+    root = make_bundle(tmp_path / "b")
+    state = {}
+    run(root, FakeDreamina(state, download_works=False))
+    manual = root / "takes" / "u01" / "take-1.mp4"
+    manual.write_bytes(MP4 + b"user")  # the user downloaded it in the browser, as README section 五 says
+    fake2 = FakeDreamina(state, download_works=False)
+    n0 = len(state["log"])
+    code, out, r = run(root, fake2)
+    del state["log"][:n0]  # look at the rerun's calls only
+    assert manual.read_bytes() == MP4 + b"user"
+    assert r.rec("u01")["status"] == "downloaded" and r.rec("u01")["manual"]
+    assert r.rec("u02")["status"] == "manual_download"
+    assert not [c for c in calls(fake2, "resource", "download") if "u01" in " ".join(c)]
+    assert len(calls(fake2, "resource", "download")) == 1        # only u02 is tried again
+    assert not calls(fake2, "node", "run")
+    with zipfile.ZipFile(root / "takes.zip") as zf:
+        assert zf.read("takes/u01/take-1.mp4") == MP4 + b"user"
+
+
+def test_needs_approval_requotes_and_confirms_on_rerun(tmp_path):
+    root = make_bundle(tmp_path / "b")
+    state = {}
+    code, out, r = run(root, FakeDreamina(state, raise_after_quote=5), "--units", "u02")
+    rec = r.rec("u02")
+    assert code == 1 and rec["status"] == "needs_approval" and not state["runs"]
+    assert any("重新报价" in o for o in out)
+    node, sid = rec["node_id"], rec["submit_id"]
+    fake2 = FakeDreamina(state)
+    n0 = len(state["log"])
+    code, out, r = run(root, fake2, "--units", "u02", "--credit-cap", "60")
+    del state["log"][:n0]
+    rec = r.rec("u02")
+    assert code == 0 and rec["status"] == "downloaded" and rec["quote"] == 55
+    assert (rec["node_id"], rec["submit_id"]) == (node, sid)
+    assert not calls(fake2, "node", "create", "video")             # same saved node, re-quoted
+    assert calls(fake2, "node", "confirm")[0][-1] == "55"
+    assert state["runs"] == {sid: 1}
+
+
+def test_absent_resubmittable_reruns_once_with_same_submit_id(tmp_path):
+    root = make_bundle(tmp_path / "b")
+    fake = FakeDreamina(drop_first_run=True)
+    # cap equals the one quote: the dropped run must not be counted twice
+    code, out, r = run(root, fake, "--units", "u02", "--credit-cap", "50")
+    rec = r.rec("u02")
+    assert code == 0 and rec["status"] == "downloaded"
+    runs = calls(fake, "node", "run")
+    assert len(runs) == 2 and {c[c.index("--submit-id") + 1] for c in runs} == {rec["submit_id"]}
+    assert fake.s["runs"] == {rec["submit_id"]: 1} and fake.s["dropped"] == [rec["submit_id"]]
+    assert len(calls(fake, "node", "confirm")) == 2
+
+
+def test_default_has_no_total_cap_only_balance(tmp_path):
+    root = make_bundle(tmp_path / "b")
+    code, out, _ = run(root, FakeDreamina(), "--quote-only")
+    assert code == 0 and any("没有设总上限" in o for o in out)
 
 
 def test_failed_unit_suggests_retake(tmp_path):

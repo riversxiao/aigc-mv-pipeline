@@ -179,6 +179,25 @@ def test_dir_ingest_never_overwrites_and_keeps_user_pick(ep, tmp_path):
     assert rt["take"] == 3  # next take number after take-2
 
 
+def test_retake_number_skips_failed_take_without_file(ep, tmp_path):
+    d, b = ep
+    u = _units(b)[0][0]
+    _mp4(tmp_path / "a" / "takes" / u.id / "take-1.mp4", u.duration, _noise(tmp_path, u.duration))
+    r = runner.invoke(app, ["ingest-takes", str(d), str(tmp_path / "a")])
+    assert r.exit_code == 0, r.output
+    # the take-2 retake bundle came back rejected with no file: take-2 ids are used on the canvas
+    src = tmp_path / "r2"
+    src.mkdir()
+    (src / "results.json").write_text(json.dumps({"episode": "x", "take": 2, "units": [
+        {"unit": u.id, "take": 2, "status": "rejected", "error": "moderation"}]}), encoding="utf-8")
+    r = runner.invoke(app, ["ingest-takes", str(d), str(src)])
+    assert r.exit_code == 0, r.output
+    log = json.loads((d / "units" / "ingest.json").read_text(encoding="utf-8"))
+    assert log[u.id]["_last_status"]["take"] == "take-2.mp4"
+    rt = json.loads((d / "units" / "retakes.json").read_text(encoding="utf-8"))
+    assert rt["take"] == 3 and rt["command"].endswith("--take 3")
+
+
 def test_bad_source_and_non_mp4(ep, tmp_path):
     d, b = ep
     u = b.units[0]
