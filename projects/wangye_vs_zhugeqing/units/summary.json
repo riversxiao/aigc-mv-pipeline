@@ -1,0 +1,369 @@
+[
+  {
+    "unit": "u01",
+    "kind": "motion",
+    "duration": 4,
+    "chars": 1165,
+    "digest": "52b843e8dc3c3828",
+    "warnings": []
+  },
+  {
+    "unit": "u02",
+    "kind": "sung",
+    "duration": 7,
+    "chars": 1385,
+    "digest": "85d61932ab7d5b93",
+    "warnings": []
+  },
+  {
+    "unit": "u03",
+    "kind": "sung",
+    "duration": 4,
+    "chars": 1200,
+    "digest": "be4f64952eef2a58",
+    "warnings": []
+  },
+  {
+    "unit": "u04",
+    "kind": "motion",
+    "duration": 4,
+    "chars": 1657,
+    "digest": "d05cd4b98cf0e30f",
+    "warnings": []
+  },
+  {
+    "unit": "u05",
+    "kind": "motion",
+    "duration": 5,
+    "chars": 1379,
+    "digest": "d0444ac4ea3d2afa",
+    "warnings": []
+  },
+  {
+    "unit": "u06",
+    "kind": "motion",
+    "duration": 4,
+    "chars": 1379,
+    "digest": "8c47cca495371b6d",
+    "warnings": []
+  },
+  {
+    "unit": "u07",
+    "kind": "sung",
+    "duration": 6,
+    "chars": 1208,
+    "digest": "42f3c8fad488e5f2",
+    "warnings": []
+  },
+  {
+    "unit": "u08",
+    "kind": "sung",
+    "duration": 5,
+    "chars": 1102,
+    "digest": "5e936d16583b0f09",
+    "warnings": []
+  },
+  {
+    "unit": "u09",
+    "kind": "sung",
+    "duration": 7,
+    "chars": 1196,
+    "digest": "d0c66da9e6b1170a",
+    "warnings": []
+  },
+  {
+    "unit": "u10",
+    "kind": "sung",
+    "duration": 10,
+    "chars": 1113,
+    "digest": "32f9890d3ebba400",
+    "warnings": []
+  },
+  {
+    "unit": "u11",
+    "kind": "sung",
+    "duration": 6,
+    "chars": 1524,
+    "digest": "65411298e1b2e296",
+    "warnings": []
+  },
+  {
+    "unit": "u12",
+    "kind": "sung",
+    "duration": 7,
+    "chars": 1656,
+    "digest": "a4eb0ac95a622170",
+    "warnings": []
+  },
+  {
+    "unit": "u13",
+    "kind": "sung",
+    "duration": 8,
+    "chars": 1843,
+    "digest": "9f9028f5021ef6c0",
+    "warnings": [
+      "sung prompt is 1843 chars (> 1800); consider fewer shots per unit"
+    ]
+  },
+  {
+    "unit": "u14",
+    "kind": "sung",
+    "duration": 7,
+    "chars": 2039,
+    "digest": "a819f1c9003dd06e",
+    "warnings": [
+      "sung prompt is 2039 chars (> 1800); consider fewer shots per unit",
+      "plates over 2 per unit, not uploaded: venue.png"
+    ]
+  },
+  {
+    "unit": "u15",
+    "kind": "sung",
+    "duration": 6,
+    "chars": 1972,
+    "digest": "ae03d0011347c98e",
+    "warnings": [
+      "sung prompt is 1972 chars (> 1800); consider fewer shots per unit"
+    ]
+  },
+  {
+    "unit": "u16",
+    "kind": "sung",
+    "duration": 7,
+    "chars": 1604,
+    "digest": "5f5fdcfe0c54dc4c",
+    "warnings": []
+  },
+  {
+    "unit": "u17",
+    "kind": "sung",
+    "duration": 5,
+    "chars": 1127,
+    "digest": "cc0563df71c6a755",
+    "warnings": []
+  },
+  {
+    "unit": "u18",
+    "kind": "sung",
+    "duration": 8,
+    "chars": 1758,
+    "digest": "ca29d5cbba04e71f",
+    "warnings": []
+  },
+  {
+    "unit": "u19",
+    "kind": "sung",
+    "duration": 6,
+    "chars": 1633,
+    "digest": "41fe61659db332bd",
+    "warnings": []
+  },
+  {
+    "unit": "u20",
+    "kind": "sung",
+    "duration": 7,
+    "chars": 1945,
+    "digest": "f6d4114e0bc2f6e7",
+    "warnings": [
+      "sung prompt is 1945 chars (> 1800); consider fewer shots per unit"
+    ]
+  },
+  {
+    "unit": "u21",
+    "kind": "sung",
+    "duration": 6,
+    "chars": 1806,
+    "digest": "9d2fa518702c1884",
+    "warnings": [
+      "sung prompt is 1806 chars (> 1800); consider fewer shots per unit"
+    ]
+  },
+  {
+    "unit": "u22",
+    "kind": "sung",
+    "duration": 6,
+    "chars": 1626,
+    "digest": "abe9d70fdedb73b5",
+    "warnings": []
+  },
+  {
+    "unit": "u23",
+    "kind": "sung",
+    "duration": 6,
+    "chars": 1273,
+    "digest": "59721d0196192597",
+    "warnings": []
+  },
+  {
+    "unit": "u24",
+    "kind": "sung",
+    "duration": 5,
+    "chars": 1506,
+    "digest": "3dadcf4015d259d0",
+    "warnings": []
+  },
+  {
+    "unit": "u25",
+    "kind": "sung",
+    "duration": 8,
+    "chars": 1808,
+    "digest": "8711d6de75bf678e",
+    "warnings": [
+      "sung prompt is 1808 chars (> 1800); consider fewer shots per unit"
+    ]
+  },
+  {
+    "unit": "u26",
+    "kind": "sung",
+    "duration": 6,
+    "chars": 1494,
+    "digest": "1e1de6da0714f01f",
+    "warnings": []
+  },
+  {
+    "unit": "u27",
+    "kind": "sung",
+    "duration": 6,
+    "chars": 1865,
+    "digest": "81319a09c34fe93c",
+    "warnings": [
+      "sung prompt is 1865 chars (> 1800); consider fewer shots per unit"
+    ]
+  },
+  {
+    "unit": "u28",
+    "kind": "sung",
+    "duration": 6,
+    "chars": 1488,
+    "digest": "3af347c113e915b8",
+    "warnings": []
+  },
+  {
+    "unit": "u29",
+    "kind": "motion",
+    "duration": 5,
+    "chars": 1310,
+    "digest": "6a3850dbf7c42f13",
+    "warnings": []
+  },
+  {
+    "unit": "u30",
+    "kind": "motion",
+    "duration": 4,
+    "chars": 1115,
+    "digest": "34c23478d66f879d",
+    "warnings": []
+  },
+  {
+    "unit": "u31",
+    "kind": "sung",
+    "duration": 5,
+    "chars": 1330,
+    "digest": "5d863f8baa7b5160",
+    "warnings": []
+  },
+  {
+    "unit": "u32",
+    "kind": "sung",
+    "duration": 5,
+    "chars": 1097,
+    "digest": "7d185caff3b23cb9",
+    "warnings": []
+  },
+  {
+    "unit": "u33",
+    "kind": "sung",
+    "duration": 6,
+    "chars": 1463,
+    "digest": "8fb10686a395f70d",
+    "warnings": []
+  },
+  {
+    "unit": "u34",
+    "kind": "sung",
+    "duration": 4,
+    "chars": 1256,
+    "digest": "1a55f0cd98f71247",
+    "warnings": []
+  },
+  {
+    "unit": "u35",
+    "kind": "motion",
+    "duration": 6,
+    "chars": 1128,
+    "digest": "29093133f7c1b930",
+    "warnings": []
+  },
+  {
+    "unit": "u36",
+    "kind": "motion",
+    "duration": 5,
+    "chars": 1124,
+    "digest": "363872d046cec498",
+    "warnings": []
+  },
+  {
+    "unit": "u37",
+    "kind": "motion",
+    "duration": 5,
+    "chars": 1134,
+    "digest": "b7c0b00e989093bb",
+    "warnings": []
+  },
+  {
+    "unit": "u38",
+    "kind": "motion",
+    "duration": 5,
+    "chars": 1212,
+    "digest": "c832ac00de934ccb",
+    "warnings": []
+  },
+  {
+    "unit": "u39",
+    "kind": "motion",
+    "duration": 5,
+    "chars": 1349,
+    "digest": "5a93758a3eb7c088",
+    "warnings": []
+  },
+  {
+    "unit": "u40",
+    "kind": "motion",
+    "duration": 5,
+    "chars": 1118,
+    "digest": "771dae2d5b0881d9",
+    "warnings": []
+  },
+  {
+    "unit": "u41",
+    "kind": "motion",
+    "duration": 5,
+    "chars": 1134,
+    "digest": "ba502658e96b2d27",
+    "warnings": []
+  },
+  {
+    "unit": "u42",
+    "kind": "motion",
+    "duration": 5,
+    "chars": 1212,
+    "digest": "9445e82d72c776c7",
+    "warnings": []
+  },
+  {
+    "unit": "u43",
+    "kind": "motion",
+    "duration": 5,
+    "chars": 1349,
+    "digest": "203891279c2fa1ac",
+    "warnings": []
+  },
+  {
+    "unit": "u44",
+    "kind": "motion",
+    "duration": 5,
+    "chars": 1343,
+    "digest": "b5bef0aabcda516b",
+    "warnings": []
+  }
+]

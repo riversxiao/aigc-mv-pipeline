@@ -1,0 +1,2525 @@
+{
+  "title": "诸葛青vs王也",
+  "grammar": "show",
+  "look": "luotian_show",
+  "duration": 190.2,
+  "shots": [
+    {
+      "id": "s001",
+      "t0": 0.0,
+      "t1": 1.71,
+      "section": "s01_cold_open",
+      "kind": "establish",
+      "who": [],
+      "singer": null,
+      "sung": false,
+      "lines": [],
+      "role": "mid",
+      "framing": "WS",
+      "lens": "24w",
+      "camera": "crane_in",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "场馆高位全景，黑色擂台上的太极八卦图案一圈圈亮起来，红色灯带依次点亮，远处是夜里的龙虎山",
+      "unit": "u01",
+      "note": "节目 logo 和标题叠在这个镜头上",
+      "staging": "high_ws",
+      "background": []
+    },
+    {
+      "id": "s002",
+      "t0": 1.71,
+      "t1": 5.56,
+      "section": "s02_host",
+      "kind": "host",
+      "who": [
+        "xu_si",
+        "xu_san"
+      ],
+      "singer": "xu_si",
+      "sung": true,
+      "lines": [
+        0
+      ],
+      "role": "mid",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "主持和DJ站在DJ台后面，说话的人对着镜头，另一个跟着节奏点头搓碟",
+      "unit": "u02",
+      "note": "",
+      "staging": "dj_booth",
+      "background": []
+    },
+    {
+      "id": "s003",
+      "t0": 5.56,
+      "t1": 8.19,
+      "section": "s02_host",
+      "kind": "host",
+      "who": [
+        "xu_si"
+      ],
+      "singer": "xu_si",
+      "sung": true,
+      "lines": [
+        1
+      ],
+      "role": "mid",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "对着镜头说话，表情夸张，空着的手往台上一指",
+      "unit": "u02",
+      "note": "",
+      "staging": "dj_cu",
+      "background": []
+    },
+    {
+      "id": "s004",
+      "t0": 8.19,
+      "t1": 10.502,
+      "section": "s02_host",
+      "kind": "host",
+      "who": [
+        "xu_si",
+        "xu_san"
+      ],
+      "singer": "xu_si",
+      "sung": true,
+      "lines": [
+        2
+      ],
+      "role": "mid",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "主持和DJ站在DJ台后面，说话的人对着镜头，另一个跟着节奏点头搓碟",
+      "unit": "u03",
+      "note": "",
+      "staging": "dj_booth",
+      "background": []
+    },
+    {
+      "id": "s005",
+      "t0": 10.502,
+      "t1": 11.67,
+      "section": "s03_entrance",
+      "kind": "entrance",
+      "who": [
+        "a",
+        "zhuge_bai",
+        "menren",
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "singer": "xu_si",
+      "sung": false,
+      "lines": [
+        3
+      ],
+      "role": "mid",
+      "framing": "WS",
+      "lens": "24w",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "分屏：左右两队各三人并排走进场馆，选手走在最前面，队友跟在身后",
+      "unit": "u04",
+      "note": "分屏入场：左右各一队",
+      "staging": "split_entrance",
+      "background": []
+    },
+    {
+      "id": "s006",
+      "t0": 11.67,
+      "t1": 14.85,
+      "section": "s03_entrance",
+      "kind": "entrance",
+      "who": [
+        "a"
+      ],
+      "singer": "xu_si",
+      "sung": false,
+      "lines": [
+        3,
+        4
+      ],
+      "role": "mid",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "诸葛青站定，盯着对面，身后的队友抱着手臂",
+      "unit": "u05",
+      "note": "报名字时出名牌",
+      "staging": "cu_team_bg",
+      "background": [
+        "zhuge_bai",
+        "menren"
+      ]
+    },
+    {
+      "id": "s007",
+      "t0": 14.85,
+      "t1": 16.04,
+      "section": "s03_entrance",
+      "kind": "entrance",
+      "who": [
+        "b"
+      ],
+      "singer": "xu_si",
+      "sung": false,
+      "lines": [
+        4
+      ],
+      "role": "mid",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "王也站定，盯着对面，身后的队友抱着手臂",
+      "unit": "u06",
+      "note": "报名字时出名牌",
+      "staging": "cu_team_bg",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s008",
+      "t0": 16.04,
+      "t1": 20.65,
+      "section": "s04_faceoff",
+      "kind": "react",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "xu_si",
+      "sung": false,
+      "lines": [
+        5,
+        6
+      ],
+      "role": "react",
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "诸葛青和王也面对面站着，谁都不说话，互相盯着",
+      "unit": "u07",
+      "note": "前景是诸葛青虚化的头发和肩膀，焦点在王也；主持的声音在画外",
+      "staging": "ots_hair",
+      "background": []
+    },
+    {
+      "id": "s009",
+      "t0": 20.65,
+      "t1": 24.94,
+      "section": "s05_hook",
+      "kind": "hook",
+      "who": [
+        "baobao"
+      ],
+      "singer": "baobao",
+      "sung": true,
+      "lines": [
+        7
+      ],
+      "role": "mid",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "站在立麦前唱副歌，双手扶着话筒架，身体跟着节奏轻轻晃",
+      "unit": "u08",
+      "note": "",
+      "staging": "hook_mic",
+      "background": []
+    },
+    {
+      "id": "s010",
+      "t0": 24.94,
+      "t1": 30.59,
+      "section": "s05_hook",
+      "kind": "react",
+      "who": [
+        "a"
+      ],
+      "singer": "baobao",
+      "sung": false,
+      "lines": [
+        8
+      ],
+      "role": "react",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "眯着眼笑，脑袋轻轻歪着，手指在话筒上一下一下敲拍子",
+      "unit": "u09",
+      "note": "诸葛青只听不说，嘴一直闭着",
+      "staging": "cu_team_bg",
+      "background": [
+        "zhuge_bai",
+        "menren"
+      ]
+    },
+    {
+      "id": "s011",
+      "t0": 30.59,
+      "t1": 40.064,
+      "section": "s05_hook",
+      "kind": "hook",
+      "who": [
+        "baobao"
+      ],
+      "singer": "baobao",
+      "sung": true,
+      "lines": [
+        9
+      ],
+      "role": "mid",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "站在立麦前唱副歌，双手扶着话筒架，身体跟着节奏轻轻晃",
+      "unit": "u10",
+      "note": "",
+      "staging": "hook_mic",
+      "background": []
+    },
+    {
+      "id": "s012",
+      "t0": 40.064,
+      "t1": 42.628,
+      "section": "s06_verse",
+      "kind": "perform",
+      "who": [
+        "a"
+      ],
+      "singer": "a",
+      "sung": true,
+      "lines": [
+        10
+      ],
+      "role": "open",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "开口前先把话筒往镜头前一递，再收回嘴边唱",
+      "unit": "u11",
+      "note": "",
+      "staging": "mic_to_lens",
+      "background": [
+        "zhuge_bai",
+        "menren"
+      ]
+    },
+    {
+      "id": "s013",
+      "t0": 42.628,
+      "t1": 45.182,
+      "section": "s06_verse",
+      "kind": "perform",
+      "who": [
+        "a"
+      ],
+      "singer": "a",
+      "sung": true,
+      "lines": [
+        11
+      ],
+      "role": "mid",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "握着话筒对着对手唱，空着的手跟着重音比划，身后的队友跟着节奏点头",
+      "unit": "u11",
+      "note": "",
+      "staging": "cu_team_bg",
+      "background": [
+        "zhuge_bai",
+        "menren"
+      ]
+    },
+    {
+      "id": "s014",
+      "t0": 45.182,
+      "t1": 47.761,
+      "section": "s06_verse",
+      "kind": "perform",
+      "who": [
+        "b",
+        "a"
+      ],
+      "singer": "a",
+      "sung": true,
+      "lines": [
+        12
+      ],
+      "role": "mid",
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "盯着对手的眼睛唱，一字一句往前压",
+      "unit": "u12",
+      "note": "前景是王也虚化的头发和肩膀",
+      "staging": "ots_hair",
+      "background": [
+        "zhuge_bai",
+        "menren"
+      ]
+    },
+    {
+      "id": "s015",
+      "t0": 47.761,
+      "t1": 50.83,
+      "section": "s06_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "a",
+      "sung": true,
+      "lines": [
+        13,
+        14
+      ],
+      "role": "punch",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "snap_zoom",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "两人侧脸贴近，鼻尖几乎相碰，唱的人把最后几个字咬得很重，听的人一动不动",
+      "unit": "u12",
+      "note": "",
+      "staging": "faceoff_profile",
+      "background": []
+    },
+    {
+      "id": "s016",
+      "t0": 50.83,
+      "t1": 53.87,
+      "section": "s06_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "a",
+      "sung": true,
+      "lines": [
+        15,
+        16
+      ],
+      "role": "mid",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "一个唱一个听，唱的人往前逼一步，听的人站着不动",
+      "unit": "u13",
+      "note": "",
+      "staging": "two_shot",
+      "background": []
+    },
+    {
+      "id": "s017",
+      "t0": 53.87,
+      "t1": 55.2,
+      "section": "s06_verse",
+      "kind": "react",
+      "who": [
+        "b"
+      ],
+      "singer": "a",
+      "sung": false,
+      "lines": [
+        16
+      ],
+      "role": "react",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "半耷拉着眼皮听，打了个小哈欠，嘴角却慢慢挑起来",
+      "unit": "u13",
+      "note": "王也只听不说，嘴一直闭着",
+      "staging": "rival_react",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s018",
+      "t0": 55.2,
+      "t1": 58.003,
+      "section": "s06_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "a",
+      "sung": true,
+      "lines": [
+        17,
+        18
+      ],
+      "role": "punch",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "snap_zoom",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "两人侧脸贴近，鼻尖几乎相碰，唱的人把最后几个字咬得很重，听的人一动不动",
+      "unit": "u13",
+      "note": "",
+      "staging": "faceoff_profile",
+      "background": []
+    },
+    {
+      "id": "s019",
+      "t0": 58.003,
+      "t1": 59.21,
+      "section": "s06_verse",
+      "kind": "perform",
+      "who": [
+        "a"
+      ],
+      "singer": "a",
+      "sung": true,
+      "lines": [
+        19
+      ],
+      "role": "mid",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "转向镜头，伸手指着镜头唱",
+      "unit": "u14",
+      "note": "",
+      "staging": "point_lens",
+      "background": [
+        "zhuge_bai",
+        "menren"
+      ]
+    },
+    {
+      "id": "s020",
+      "t0": 59.21,
+      "t1": 60.93,
+      "section": "s06_verse",
+      "kind": "react",
+      "who": [
+        "feng_zhenghao"
+      ],
+      "singer": "a",
+      "sung": false,
+      "lines": [
+        19
+      ],
+      "role": "react",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "坐在王座上十指交叉，眉毛一挑，嘴角绷住不笑",
+      "unit": "u14",
+      "note": "风正豪只听不说，嘴一直闭着",
+      "staging": "judge_react",
+      "background": []
+    },
+    {
+      "id": "s021",
+      "t0": 60.93,
+      "t1": 61.73,
+      "section": "s06_verse",
+      "kind": "perform",
+      "who": [
+        "a"
+      ],
+      "singer": "a",
+      "sung": true,
+      "lines": [
+        20
+      ],
+      "role": "mid",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "握着话筒对着对手唱，空着的手跟着重音比划，身后的队友跟着节奏点头",
+      "unit": "u14",
+      "note": "",
+      "staging": "cu_team_bg",
+      "background": [
+        "zhuge_bai",
+        "menren"
+      ]
+    },
+    {
+      "id": "s022",
+      "t0": 61.73,
+      "t1": 63.99,
+      "section": "s06_verse",
+      "kind": "react",
+      "who": [
+        "shayan"
+      ],
+      "singer": "a",
+      "sung": false,
+      "lines": [
+        20
+      ],
+      "role": "react",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "坐在观众席里翻了个白眼，又忍不住笑出来，赶紧捂住嘴",
+      "unit": "u14",
+      "note": "风莎燕只听不说，嘴一直闭着",
+      "staging": "cameo_react",
+      "background": []
+    },
+    {
+      "id": "s023",
+      "t0": 63.99,
+      "t1": 65.17,
+      "section": "s06_verse",
+      "kind": "perform",
+      "who": [
+        "b",
+        "a"
+      ],
+      "singer": "a",
+      "sung": true,
+      "lines": [
+        21
+      ],
+      "role": "mid",
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "盯着对手的眼睛唱，一字一句往前压",
+      "unit": "u15",
+      "note": "前景是王也虚化的头发和肩膀",
+      "staging": "ots_hair",
+      "background": [
+        "zhuge_bai",
+        "menren"
+      ]
+    },
+    {
+      "id": "s024",
+      "t0": 65.17,
+      "t1": 66.54,
+      "section": "s06_verse",
+      "kind": "react",
+      "who": [
+        "zhanglao"
+      ],
+      "singer": "a",
+      "sung": false,
+      "lines": [
+        21
+      ],
+      "role": "react",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "坐在观众席里双手拄着手杖，嘴唇抿紧，下巴微微抬起，眼神里全是期望",
+      "unit": "u15",
+      "note": "诸葛家长辈只听不说，嘴一直闭着",
+      "staging": "cameo_react",
+      "background": []
+    },
+    {
+      "id": "s025",
+      "t0": 66.54,
+      "t1": 69.13,
+      "section": "s06_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "a",
+      "sung": true,
+      "lines": [
+        22
+      ],
+      "role": "mid",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "一个唱一个听，唱的人往前逼一步，听的人站着不动",
+      "unit": "u15",
+      "note": "",
+      "staging": "two_shot",
+      "background": []
+    },
+    {
+      "id": "s026",
+      "t0": 69.13,
+      "t1": 71.69,
+      "section": "s06_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "a",
+      "sung": true,
+      "lines": [
+        23
+      ],
+      "role": "punch",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "snap_zoom",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "两人侧脸贴近，鼻尖几乎相碰，唱的人把最后几个字咬得很重，听的人一动不动",
+      "unit": "u16",
+      "note": "",
+      "staging": "faceoff_profile",
+      "background": []
+    },
+    {
+      "id": "s027",
+      "t0": 71.69,
+      "t1": 74.91,
+      "section": "s06_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "a",
+      "sung": true,
+      "lines": [
+        24
+      ],
+      "role": "punch",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "两人侧脸贴近，鼻尖几乎相碰，唱的人把最后几个字咬得很重，听的人一动不动",
+      "unit": "u16",
+      "note": "",
+      "staging": "faceoff_profile",
+      "background": []
+    },
+    {
+      "id": "s028",
+      "t0": 74.91,
+      "t1": 79.17,
+      "section": "s07_interlude",
+      "kind": "hook",
+      "who": [
+        "baobao"
+      ],
+      "singer": "baobao",
+      "sung": true,
+      "lines": [
+        25,
+        26
+      ],
+      "role": "mid",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "站在立麦前唱副歌，双手扶着话筒架，身体跟着节奏轻轻晃",
+      "unit": "u17",
+      "note": "",
+      "staging": "hook_mic",
+      "background": []
+    },
+    {
+      "id": "s029",
+      "t0": 79.17,
+      "t1": 83.051,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        27,
+        28
+      ],
+      "role": "open",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "开口前先把话筒往镜头前一递，再收回嘴边唱",
+      "unit": "u18",
+      "note": "",
+      "staging": "mic_to_lens",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s030",
+      "t0": 83.051,
+      "t1": 84.81,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        29
+      ],
+      "role": "mid",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "握着话筒对着对手唱，空着的手跟着重音比划，身后的队友跟着节奏点头",
+      "unit": "u18",
+      "note": "",
+      "staging": "cu_team_bg",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s031",
+      "t0": 84.81,
+      "t1": 86.63,
+      "section": "s08_verse",
+      "kind": "react",
+      "who": [
+        "tianshi"
+      ],
+      "singer": "b",
+      "sung": false,
+      "lines": [
+        29
+      ],
+      "role": "react",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "坐在王座上捋着白胡子，眯眼笑着点了一下头",
+      "unit": "u18",
+      "note": "张之维只听不说，嘴一直闭着",
+      "staging": "judge_react",
+      "background": []
+    },
+    {
+      "id": "s032",
+      "t0": 86.63,
+      "t1": 89.13,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        30
+      ],
+      "role": "mid",
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "盯着对手的眼睛唱，一字一句往前压",
+      "unit": "u19",
+      "note": "前景是诸葛青虚化的头发和肩膀",
+      "staging": "ots_hair",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s033",
+      "t0": 89.13,
+      "t1": 91.7,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        31
+      ],
+      "role": "punch",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "两人侧脸贴近，鼻尖几乎相碰，唱的人把最后几个字咬得很重，听的人一动不动",
+      "unit": "u19",
+      "note": "",
+      "staging": "faceoff_profile",
+      "background": []
+    },
+    {
+      "id": "s034",
+      "t0": 91.7,
+      "t1": 93.95,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        32
+      ],
+      "role": "mid",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "一个唱一个听，唱的人往前逼一步，听的人站着不动",
+      "unit": "u20",
+      "note": "",
+      "staging": "two_shot",
+      "background": []
+    },
+    {
+      "id": "s035",
+      "t0": 93.95,
+      "t1": 94.8,
+      "section": "s08_verse",
+      "kind": "react",
+      "who": [
+        "zhanglao"
+      ],
+      "singer": "b",
+      "sung": false,
+      "lines": [
+        32
+      ],
+      "role": "react",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "坐在观众席里双手拄着手杖，嘴唇抿紧，下巴微微抬起，眼神里全是期望",
+      "unit": "u20",
+      "note": "诸葛家长辈只听不说，嘴一直闭着",
+      "staging": "cameo_react",
+      "background": []
+    },
+    {
+      "id": "s036",
+      "t0": 94.8,
+      "t1": 97.49,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        33,
+        34
+      ],
+      "role": "punch",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "两人侧脸贴近，鼻尖几乎相碰，唱的人把最后几个字咬得很重，听的人一动不动",
+      "unit": "u20",
+      "note": "",
+      "staging": "faceoff_profile",
+      "background": []
+    },
+    {
+      "id": "s037",
+      "t0": 97.49,
+      "t1": 99.91,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        35
+      ],
+      "role": "mid",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "转向镜头，伸手指着镜头唱",
+      "unit": "u21",
+      "note": "",
+      "staging": "point_lens",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s038",
+      "t0": 99.91,
+      "t1": 101.73,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        36
+      ],
+      "role": "mid",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "握着话筒对着对手唱，空着的手跟着重音比划，身后的队友跟着节奏点头",
+      "unit": "u21",
+      "note": "",
+      "staging": "cu_team_bg",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s039",
+      "t0": 101.73,
+      "t1": 102.53,
+      "section": "s08_verse",
+      "kind": "react",
+      "who": [
+        "a"
+      ],
+      "singer": "b",
+      "sung": false,
+      "lines": [
+        36
+      ],
+      "role": "react",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "眯着眼笑，脑袋轻轻歪着，手指在话筒上一下一下敲拍子",
+      "unit": "u21",
+      "note": "诸葛青只听不说，嘴一直闭着",
+      "staging": "rival_react",
+      "background": [
+        "zhuge_bai",
+        "menren"
+      ]
+    },
+    {
+      "id": "s040",
+      "t0": 102.53,
+      "t1": 105.025,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        37
+      ],
+      "role": "mid",
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "盯着对手的眼睛唱，一字一句往前压",
+      "unit": "u22",
+      "note": "前景是诸葛青虚化的头发和肩膀",
+      "staging": "ots_hair",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s041",
+      "t0": 105.025,
+      "t1": 107.35,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        38
+      ],
+      "role": "punch",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "一个唱一个听，唱的人往前逼一步，听的人站着不动",
+      "unit": "u22",
+      "note": "",
+      "staging": "two_shot",
+      "background": []
+    },
+    {
+      "id": "s042",
+      "t0": 107.35,
+      "t1": 112.12,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        39
+      ],
+      "role": "mid",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "转向镜头，伸手指着镜头唱",
+      "unit": "u23",
+      "note": "",
+      "staging": "point_lens",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s043",
+      "t0": 112.12,
+      "t1": 113.87,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        40
+      ],
+      "role": "mid",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "握着话筒对着对手唱，空着的手跟着重音比划，身后的队友跟着节奏点头",
+      "unit": "u24",
+      "note": "",
+      "staging": "cu_team_bg",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s044",
+      "t0": 113.87,
+      "t1": 116.01,
+      "section": "s08_verse",
+      "kind": "react",
+      "who": [
+        "feng_zhenghao"
+      ],
+      "singer": "b",
+      "sung": false,
+      "lines": [
+        40
+      ],
+      "role": "react",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "坐在王座上十指交叉，眉毛一挑，嘴角绷住不笑",
+      "unit": "u24",
+      "note": "风正豪只听不说，嘴一直闭着",
+      "staging": "judge_react",
+      "background": []
+    },
+    {
+      "id": "s045",
+      "t0": 116.01,
+      "t1": 118.05,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        41
+      ],
+      "role": "mid",
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "盯着对手的眼睛唱，一字一句往前压",
+      "unit": "u25",
+      "note": "前景是诸葛青虚化的头发和肩膀",
+      "staging": "ots_hair",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s046",
+      "t0": 118.05,
+      "t1": 120.287,
+      "section": "s08_verse",
+      "kind": "react",
+      "who": [
+        "chulan"
+      ],
+      "singer": "b",
+      "sung": false,
+      "lines": [
+        41
+      ],
+      "role": "react",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "站在王也身后憋着坏笑，冲对面挤眉弄眼",
+      "unit": "u25",
+      "note": "张楚岚只听不说，嘴一直闭着",
+      "staging": "teammate_react",
+      "background": []
+    },
+    {
+      "id": "s047",
+      "t0": 120.287,
+      "t1": 122.59,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        42
+      ],
+      "role": "mid",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "一个唱一个听，唱的人往前逼一步，听的人站着不动",
+      "unit": "u25",
+      "note": "",
+      "staging": "two_shot",
+      "background": []
+    },
+    {
+      "id": "s048",
+      "t0": 122.59,
+      "t1": 126.093,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        43,
+        44
+      ],
+      "role": "punch",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "转向镜头，伸手指着镜头唱",
+      "unit": "u26",
+      "note": "",
+      "staging": "point_lens",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s049",
+      "t0": 126.093,
+      "t1": 127.989,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        45
+      ],
+      "role": "mid",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "握着话筒对着对手唱，空着的手跟着重音比划，身后的队友跟着节奏点头",
+      "unit": "u26",
+      "note": "",
+      "staging": "cu_team_bg",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s050",
+      "t0": 127.989,
+      "t1": 130.69,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        46
+      ],
+      "role": "mid",
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "盯着对手的眼睛唱，一字一句往前压",
+      "unit": "u27",
+      "note": "前景是诸葛青虚化的头发和肩膀",
+      "staging": "ots_hair",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s051",
+      "t0": 130.69,
+      "t1": 132.27,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        47
+      ],
+      "role": "mid",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "一个唱一个听，唱的人往前逼一步，听的人站着不动",
+      "unit": "u27",
+      "note": "",
+      "staging": "two_shot",
+      "background": []
+    },
+    {
+      "id": "s052",
+      "t0": 132.27,
+      "t1": 133.43,
+      "section": "s08_verse",
+      "kind": "react",
+      "who": [
+        "lu_jin"
+      ],
+      "singer": "b",
+      "sung": false,
+      "lines": [
+        47
+      ],
+      "role": "react",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "坐在王座上眼眶一下红了，拿白手帕擦眼泪，又板起脸装没事",
+      "unit": "u27",
+      "note": "陆瑾只听不说，嘴一直闭着",
+      "staging": "judge_react",
+      "background": []
+    },
+    {
+      "id": "s053",
+      "t0": 133.43,
+      "t1": 135.58,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        48
+      ],
+      "role": "mid",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "转向镜头，伸手指着镜头唱",
+      "unit": "u28",
+      "note": "",
+      "staging": "point_lens",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s054",
+      "t0": 135.58,
+      "t1": 138.899,
+      "section": "s08_verse",
+      "kind": "perform",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        49
+      ],
+      "role": "punch",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "握着话筒对着对手唱，空着的手跟着重音比划，身后的队友跟着节奏点头",
+      "unit": "u28",
+      "note": "",
+      "staging": "cu_team_bg",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s055",
+      "t0": 138.899,
+      "t1": 141.905,
+      "section": "s09_reveal",
+      "kind": "blackout",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": false,
+      "lines": [
+        50,
+        51
+      ],
+      "role": "mid",
+      "framing": "WS",
+      "lens": "24w",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "全场灯灭，只剩头顶一束追光打在唱的人身上，从背后拍，只看得到背影剪影",
+      "unit": "u29",
+      "note": "",
+      "staging": "blackout_spot",
+      "background": []
+    },
+    {
+      "id": "s056",
+      "t0": 141.905,
+      "t1": 143.575,
+      "section": "s09_reveal",
+      "kind": "blackout",
+      "who": [],
+      "singer": "b",
+      "sung": false,
+      "lines": [
+        51
+      ],
+      "role": "mid",
+      "framing": "WS",
+      "lens": "24w",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "灭灯后的空舞台，只有追光落在地板的八卦图案上，观众席一片黑",
+      "unit": "u30",
+      "note": "",
+      "staging": "empty_stage_ws",
+      "background": []
+    },
+    {
+      "id": "s057",
+      "t0": 143.575,
+      "t1": 145.58,
+      "section": "s09_reveal",
+      "kind": "react",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": false,
+      "lines": [
+        51
+      ],
+      "role": "react",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "低着头，嘴闭着，呼吸很重，停了一拍",
+      "unit": "u31",
+      "note": "",
+      "staging": "head_down_cu",
+      "background": []
+    },
+    {
+      "id": "s058",
+      "t0": 145.58,
+      "t1": 146.42,
+      "section": "s09_reveal",
+      "kind": "perform",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        52
+      ],
+      "role": "punch",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "在追光里抬起头，看着对手轻轻说出最后一句",
+      "unit": "u31",
+      "note": "",
+      "staging": "spot_cu",
+      "background": []
+    },
+    {
+      "id": "s059",
+      "t0": 146.42,
+      "t1": 150.27,
+      "section": "s10_hook",
+      "kind": "hook",
+      "who": [
+        "baobao"
+      ],
+      "singer": "baobao",
+      "sung": true,
+      "lines": [
+        53
+      ],
+      "role": "mid",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "站在立麦前唱副歌，双手扶着话筒架，身体跟着节奏轻轻晃",
+      "unit": "u32",
+      "note": "",
+      "staging": "hook_mic",
+      "background": []
+    },
+    {
+      "id": "s060",
+      "t0": 150.27,
+      "t1": 152.59,
+      "section": "s10_hook",
+      "kind": "react",
+      "who": [
+        "a"
+      ],
+      "singer": "lingyu",
+      "sung": false,
+      "lines": [
+        54
+      ],
+      "role": "react",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "眯着眼笑，脑袋轻轻歪着，手指在话筒上一下一下敲拍子",
+      "unit": "u33",
+      "note": "诸葛青只听不说，嘴一直闭着",
+      "staging": "cu_team_bg",
+      "background": [
+        "zhuge_bai",
+        "menren"
+      ]
+    },
+    {
+      "id": "s061",
+      "t0": 152.59,
+      "t1": 154.91,
+      "section": "s10_hook",
+      "kind": "hook",
+      "who": [
+        "lingyu"
+      ],
+      "singer": "lingyu",
+      "sung": true,
+      "lines": [
+        55
+      ],
+      "role": "mid",
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "站在立麦前唱副歌，双手扶着话筒架，身体跟着节奏轻轻晃",
+      "unit": "u33",
+      "note": "",
+      "staging": "hook_mic",
+      "background": []
+    },
+    {
+      "id": "s062",
+      "t0": 154.91,
+      "t1": 156.75,
+      "section": "s11_outro",
+      "kind": "perform",
+      "who": [
+        "b"
+      ],
+      "singer": "b",
+      "sung": true,
+      "lines": [
+        56
+      ],
+      "role": "mid",
+      "framing": "MS",
+      "lens": "50",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "把话筒伸向观众，另一只手往上招，示意全场一起喊",
+      "unit": "u34",
+      "note": "",
+      "staging": "mic_to_crowd",
+      "background": [
+        "chulan",
+        "daotong"
+      ]
+    },
+    {
+      "id": "s063",
+      "t0": 156.75,
+      "t1": 161.01,
+      "section": "s11_outro",
+      "kind": "crowd",
+      "who": [],
+      "singer": "xu_si",
+      "sung": false,
+      "lines": [
+        57,
+        58
+      ],
+      "role": "crowd",
+      "framing": "WS",
+      "lens": "24w",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "看台上层层叠叠坐满了观众，挥着红色荧光棒，跟着一起喊",
+      "unit": "u35",
+      "note": "",
+      "staging": "crowd_ws",
+      "background": []
+    },
+    {
+      "id": "s064",
+      "t0": 161.01,
+      "t1": 164.253,
+      "section": "s11_outro",
+      "kind": "crowd",
+      "who": [],
+      "singer": null,
+      "sung": false,
+      "lines": [],
+      "role": "crowd",
+      "framing": "WS",
+      "lens": "24w",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "看台上层层叠叠坐满了观众，挥着红色荧光棒，挥手欢呼",
+      "unit": "u36",
+      "note": "",
+      "staging": "crowd_ws",
+      "background": []
+    },
+    {
+      "id": "s065",
+      "t0": 164.253,
+      "t1": 167.497,
+      "section": "s11_outro",
+      "kind": "establish",
+      "who": [],
+      "singer": null,
+      "sung": false,
+      "lines": [],
+      "role": "mid",
+      "framing": "WS",
+      "lens": "24w",
+      "camera": "crane_up",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "场馆高位全景，全场观众站起来挥手，台上两队站在八卦图案两边",
+      "unit": "u37",
+      "note": "",
+      "staging": "high_ws",
+      "background": []
+    },
+    {
+      "id": "s066",
+      "t0": 167.497,
+      "t1": 170.74,
+      "section": "s11_outro",
+      "kind": "host",
+      "who": [
+        "xu_san"
+      ],
+      "singer": null,
+      "sung": false,
+      "lines": [],
+      "role": "mid",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "DJ 双手举过头顶，跟着观众一起喊",
+      "unit": "u38",
+      "note": "",
+      "staging": "dj_cu",
+      "background": []
+    },
+    {
+      "id": "s067",
+      "t0": 170.74,
+      "t1": 174.226,
+      "section": "s11_outro",
+      "kind": "outro",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": null,
+      "sung": false,
+      "lines": [],
+      "role": "mid",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "两位选手放下话筒，隔着舞台互相看着，嘴角都挑了一下，嘴闭着",
+      "unit": "u39",
+      "note": "片尾问题叠在这里",
+      "staging": "two_shot",
+      "background": []
+    },
+    {
+      "id": "s068",
+      "t0": 174.226,
+      "t1": 177.436,
+      "section": "s11_outro",
+      "kind": "crowd",
+      "who": [],
+      "singer": null,
+      "sung": false,
+      "lines": [],
+      "role": "crowd",
+      "framing": "WS",
+      "lens": "24w",
+      "camera": "locked",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "看台上层层叠叠坐满了观众，挥着红色荧光棒，挥手欢呼",
+      "unit": "u40",
+      "note": "",
+      "staging": "crowd_ws",
+      "background": []
+    },
+    {
+      "id": "s069",
+      "t0": 177.436,
+      "t1": 180.629,
+      "section": "s11_outro",
+      "kind": "establish",
+      "who": [],
+      "singer": null,
+      "sung": false,
+      "lines": [],
+      "role": "mid",
+      "framing": "WS",
+      "lens": "24w",
+      "camera": "crane_up",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "场馆高位全景，全场观众站起来挥手，台上两队站在八卦图案两边",
+      "unit": "u41",
+      "note": "",
+      "staging": "high_ws",
+      "background": []
+    },
+    {
+      "id": "s070",
+      "t0": 180.629,
+      "t1": 183.862,
+      "section": "s11_outro",
+      "kind": "host",
+      "who": [
+        "xu_san"
+      ],
+      "singer": null,
+      "sung": false,
+      "lines": [],
+      "role": "mid",
+      "framing": "CU",
+      "lens": "135",
+      "camera": "tele_float",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "DJ 双手举过头顶，跟着观众一起喊",
+      "unit": "u42",
+      "note": "",
+      "staging": "dj_cu",
+      "background": []
+    },
+    {
+      "id": "s071",
+      "t0": 183.862,
+      "t1": 187.035,
+      "section": "s11_outro",
+      "kind": "outro",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": null,
+      "sung": false,
+      "lines": [],
+      "role": "mid",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "handheld",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "两位选手放下话筒，隔着舞台互相看着，嘴角都挑了一下，嘴闭着",
+      "unit": "u43",
+      "note": "片尾问题叠在这里",
+      "staging": "two_shot",
+      "background": []
+    },
+    {
+      "id": "s072",
+      "t0": 187.035,
+      "t1": 190.2,
+      "section": "s11_outro",
+      "kind": "outro",
+      "who": [
+        "a",
+        "b"
+      ],
+      "singer": null,
+      "sung": false,
+      "lines": [],
+      "role": "mid",
+      "framing": "2S",
+      "lens": "50",
+      "camera": "push_slow",
+      "location": "venue",
+      "grammar": "show",
+      "action_cn": "两位选手放下话筒，隔着舞台互相看着，嘴角都挑了一下，嘴闭着",
+      "unit": "u44",
+      "note": "片尾问题叠在这里",
+      "staging": "two_shot",
+      "background": []
+    }
+  ],
+  "units": [
+    {
+      "id": "u01",
+      "kind": "motion",
+      "shots": [
+        "s001"
+      ],
+      "song_t0": 0.0,
+      "duration": 4,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u02",
+      "kind": "sung",
+      "shots": [
+        "s002",
+        "s003"
+      ],
+      "song_t0": 1.51,
+      "duration": 7,
+      "singer": "xu_si",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u03",
+      "kind": "sung",
+      "shots": [
+        "s004"
+      ],
+      "song_t0": 7.99,
+      "duration": 4,
+      "singer": "xu_si",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u04",
+      "kind": "motion",
+      "shots": [
+        "s005"
+      ],
+      "song_t0": 10.002,
+      "duration": 4,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u05",
+      "kind": "motion",
+      "shots": [
+        "s006"
+      ],
+      "song_t0": 11.17,
+      "duration": 5,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u06",
+      "kind": "motion",
+      "shots": [
+        "s007"
+      ],
+      "song_t0": 14.35,
+      "duration": 4,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u07",
+      "kind": "sung",
+      "shots": [
+        "s008"
+      ],
+      "song_t0": 15.84,
+      "duration": 6,
+      "singer": "xu_si",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u08",
+      "kind": "sung",
+      "shots": [
+        "s009"
+      ],
+      "song_t0": 20.45,
+      "duration": 5,
+      "singer": "baobao",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u09",
+      "kind": "sung",
+      "shots": [
+        "s010"
+      ],
+      "song_t0": 24.74,
+      "duration": 7,
+      "singer": "baobao",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u10",
+      "kind": "sung",
+      "shots": [
+        "s011"
+      ],
+      "song_t0": 30.39,
+      "duration": 10,
+      "singer": "baobao",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u11",
+      "kind": "sung",
+      "shots": [
+        "s012",
+        "s013"
+      ],
+      "song_t0": 39.864,
+      "duration": 6,
+      "singer": "a",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u12",
+      "kind": "sung",
+      "shots": [
+        "s014",
+        "s015"
+      ],
+      "song_t0": 44.982,
+      "duration": 7,
+      "singer": "a",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u13",
+      "kind": "sung",
+      "shots": [
+        "s016",
+        "s017",
+        "s018"
+      ],
+      "song_t0": 50.63,
+      "duration": 8,
+      "singer": "a",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u14",
+      "kind": "sung",
+      "shots": [
+        "s019",
+        "s020",
+        "s021",
+        "s022"
+      ],
+      "song_t0": 57.77,
+      "duration": 7,
+      "singer": "a",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u15",
+      "kind": "sung",
+      "shots": [
+        "s023",
+        "s024",
+        "s025"
+      ],
+      "song_t0": 63.79,
+      "duration": 6,
+      "singer": "a",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u16",
+      "kind": "sung",
+      "shots": [
+        "s026",
+        "s027"
+      ],
+      "song_t0": 68.93,
+      "duration": 7,
+      "singer": "a",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u17",
+      "kind": "sung",
+      "shots": [
+        "s028"
+      ],
+      "song_t0": 74.71,
+      "duration": 5,
+      "singer": "baobao",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u18",
+      "kind": "sung",
+      "shots": [
+        "s029",
+        "s030",
+        "s031"
+      ],
+      "song_t0": 78.97,
+      "duration": 8,
+      "singer": "b",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u19",
+      "kind": "sung",
+      "shots": [
+        "s032",
+        "s033"
+      ],
+      "song_t0": 86.43,
+      "duration": 6,
+      "singer": "b",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u20",
+      "kind": "sung",
+      "shots": [
+        "s034",
+        "s035",
+        "s036"
+      ],
+      "song_t0": 91.5,
+      "duration": 7,
+      "singer": "b",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u21",
+      "kind": "sung",
+      "shots": [
+        "s037",
+        "s038",
+        "s039"
+      ],
+      "song_t0": 97.29,
+      "duration": 6,
+      "singer": "b",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u22",
+      "kind": "sung",
+      "shots": [
+        "s040",
+        "s041"
+      ],
+      "song_t0": 102.33,
+      "duration": 6,
+      "singer": "b",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u23",
+      "kind": "sung",
+      "shots": [
+        "s042"
+      ],
+      "song_t0": 107.15,
+      "duration": 6,
+      "singer": "b",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u24",
+      "kind": "sung",
+      "shots": [
+        "s043",
+        "s044"
+      ],
+      "song_t0": 111.92,
+      "duration": 5,
+      "singer": "b",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u25",
+      "kind": "sung",
+      "shots": [
+        "s045",
+        "s046",
+        "s047"
+      ],
+      "song_t0": 115.81,
+      "duration": 8,
+      "singer": "b",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u26",
+      "kind": "sung",
+      "shots": [
+        "s048",
+        "s049"
+      ],
+      "song_t0": 122.39,
+      "duration": 6,
+      "singer": "b",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u27",
+      "kind": "sung",
+      "shots": [
+        "s050",
+        "s051",
+        "s052"
+      ],
+      "song_t0": 127.789,
+      "duration": 6,
+      "singer": "b",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u28",
+      "kind": "sung",
+      "shots": [
+        "s053",
+        "s054"
+      ],
+      "song_t0": 133.23,
+      "duration": 6,
+      "singer": "b",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u29",
+      "kind": "motion",
+      "shots": [
+        "s055"
+      ],
+      "song_t0": 138.399,
+      "duration": 5,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u30",
+      "kind": "motion",
+      "shots": [
+        "s056"
+      ],
+      "song_t0": 141.405,
+      "duration": 4,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u31",
+      "kind": "sung",
+      "shots": [
+        "s057",
+        "s058"
+      ],
+      "song_t0": 141.51,
+      "duration": 5,
+      "singer": "b",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u32",
+      "kind": "sung",
+      "shots": [
+        "s059"
+      ],
+      "song_t0": 146.22,
+      "duration": 5,
+      "singer": "baobao",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u33",
+      "kind": "sung",
+      "shots": [
+        "s060",
+        "s061"
+      ],
+      "song_t0": 150.07,
+      "duration": 6,
+      "singer": "lingyu",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u34",
+      "kind": "sung",
+      "shots": [
+        "s062"
+      ],
+      "song_t0": 154.71,
+      "duration": 4,
+      "singer": "b",
+      "audio": "vocal",
+      "location": "venue"
+    },
+    {
+      "id": "u35",
+      "kind": "motion",
+      "shots": [
+        "s063"
+      ],
+      "song_t0": 156.25,
+      "duration": 6,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u36",
+      "kind": "motion",
+      "shots": [
+        "s064"
+      ],
+      "song_t0": 160.51,
+      "duration": 5,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u37",
+      "kind": "motion",
+      "shots": [
+        "s065"
+      ],
+      "song_t0": 163.753,
+      "duration": 5,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u38",
+      "kind": "motion",
+      "shots": [
+        "s066"
+      ],
+      "song_t0": 166.997,
+      "duration": 5,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u39",
+      "kind": "motion",
+      "shots": [
+        "s067"
+      ],
+      "song_t0": 170.24,
+      "duration": 5,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u40",
+      "kind": "motion",
+      "shots": [
+        "s068"
+      ],
+      "song_t0": 173.726,
+      "duration": 5,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u41",
+      "kind": "motion",
+      "shots": [
+        "s069"
+      ],
+      "song_t0": 176.936,
+      "duration": 5,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u42",
+      "kind": "motion",
+      "shots": [
+        "s070"
+      ],
+      "song_t0": 180.129,
+      "duration": 5,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u43",
+      "kind": "motion",
+      "shots": [
+        "s071"
+      ],
+      "song_t0": 183.362,
+      "duration": 5,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    },
+    {
+      "id": "u44",
+      "kind": "motion",
+      "shots": [
+        "s072"
+      ],
+      "song_t0": 186.535,
+      "duration": 5,
+      "singer": null,
+      "audio": "instrumental",
+      "location": "venue"
+    }
+  ]
+}

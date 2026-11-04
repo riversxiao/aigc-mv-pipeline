@@ -1,0 +1,58 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [
+    "length: s021 is 0.80s (< 0.8s)",
+    "length: s039 is 0.80s (< 0.8s)",
+    "framing: s025-s027 three 2S in a row",
+    "framing: s063-s065 three WS in a row"
+  ],
+  "stats": {
+    "shots": 72,
+    "units": 44,
+    "sung_units": 28,
+    "generated_seconds": 252,
+    "estimate_usd_2_takes": 115.92,
+    "lead_share": 0.834,
+    "mean_shot_s": 2.64,
+    "camera_moves": {
+      "crane_in": 1,
+      "locked": 17,
+      "push_slow": 17,
+      "handheld": 16,
+      "tele_float": 16,
+      "snap_zoom": 3,
+      "crane_up": 2
+    },
+    "stagings": {
+      "high_ws": 3,
+      "dj_booth": 2,
+      "dj_cu": 3,
+      "split_entrance": 1,
+      "cu_team_bg": 11,
+      "ots_hair": 7,
+      "hook_mic": 5,
+      "mic_to_lens": 2,
+      "faceoff_profile": 6,
+      "two_shot": 9,
+      "rival_react": 2,
+      "point_lens": 5,
+      "judge_react": 4,
+      "cameo_react": 3,
+      "teammate_react": 1,
+      "blackout_spot": 1,
+      "empty_stage_ws": 1,
+      "head_down_cu": 1,
+      "spot_cu": 1,
+      "mic_to_crowd": 1,
+      "crowd_ws": 3
+    },
+    "reactions_by_role": {
+      "rapper": 7,
+      "judge": 4,
+      "cameo": 3,
+      "teammate": 1
+    },
+    "calm_share": 0.917
+  }
+}
