@@ -7,7 +7,63 @@
 
 《一人之下》同人二创（腾讯动漫，作者米二），AI生成 仅供娱乐。
 
-## 视频
+## 最终预览剪辑（预览 / animatic 版本，不是最终 AI 视频）
+
+这是本期能交付的最好版本：一版 1080p 的预览剪辑（预览 / animatic），用真实 Suno 歌曲、调色、白色广播字幕、节目台标、人名条、片头片尾卡，把整期节目完整走了一遍。
+
+**它为什么不是最终 AI 视频？** 因为 Dreamina 的视频生成被账号层面的风控拦截了：每一次视频生成请求都被服务端风控直接拒绝，需要账号持有人本人去做人工核验 / 申诉之后才能解除，这个动作在我们这边无法完成，也不允许绕过。所以目前没有任何一条 AI 视频镜头被生成出来（0 条），画面里的人物仍然是带标注的占位剪影（PREVIZ 占位），背景用的是已锁定的真实场景图。等账号的视频权限被持有人解除后，才能把这版预览替换成真正的 AI 视频。
+
+### 怎么看
+
+完整 720p 预览（19.3 MB，1280x720，H.264 CRF 23 + AAC 192k，已 faststart）：
+
+[preview_720p.mp4](wangye_vs_zhugeqing/preview_720p.mp4)（3:10.2）
+
+因为推送有单文件体积限制，同一支片子也切成了 3 段（每段 < 8 MB，直接流拷贝、无重新编码）：
+
+- [preview_720p_part00.mp4](wangye_vs_zhugeqing/preview_720p_part00.mp4)（约 0:00–1:11）
+- [preview_720p_part01.mp4](wangye_vs_zhugeqing/preview_720p_part01.mp4)（约 1:11–2:21）
+- [preview_720p_part02.mp4](wangye_vs_zhugeqing/preview_720p_part02.mp4)（约 2:21–3:10.2）
+
+三段可以按顺序单独播放；也可以用 ffmpeg 的 concat 分离器把它们无损拼回一整支（新建一个文本文件，每行写 `file 'preview_720p_part0X.mp4'`，再 `ffmpeg -f concat -safe 0 -i 列表.txt -c copy preview_720p.mp4`）。
+
+### 本期最终剪辑分镜总览（每镜一帧）
+
+从最终剪辑里按每个镜头的中间时刻各取一帧，共 72 格，标注镜头编号、起止时间、运镜方式：
+
+![final contact sheet 1](wangye_vs_zhugeqing/final_contact_sheet_1_s001-s024.jpg)
+
+![final contact sheet 2](wangye_vs_zhugeqing/final_contact_sheet_2_s025-s048.jpg)
+
+![final contact sheet 3](wangye_vs_zhugeqing/final_contact_sheet_3_s049-s072.jpg)
+
+### 模型 / 画质决策（只是报价，未实际消费）
+
+视频生成一旦解封，计划用的配置（已在平台做过报价，以下数字都是报价，不是真实扣费）：
+
+- 唱段镜头（28 个，含对口型）：seedance_2.0_fast。
+- 动作镜头（16 个）：seedance_2.0_mini。
+- 模式 m2v（图生视频，带图参考和音频窗口），画质 720p，每镜 1 条。
+- 首轮报价合计 2114 个积分，本任务的总消费上限是 2153 个积分。
+
+### 积分
+
+- 起始余额 2267，实际消费 3（只有一次 seedream 文生图探针用掉 3），剩余约 2264。
+- 视频生成消费 0 个积分（风控在扣费之前就拒绝了）。
+
+### 单元完成 / 重拍 / 回退统计
+
+- AI 视频单元成功生成：0（全部被账号风控拦截）。
+- 本预览剪辑用的是真实场景图 + 占位剪影，没有一条真实 AI 视频镜头。
+- 对口型核验：0（没有 AI 视频可核验）。
+
+### 已知问题
+
+- 人物是占位剪影，不是 AI 生成的角色画面。
+- 没有对口型。
+- 真正的 AI 视频要等账号的视频权限被持有人解除后才能生成。
+
+## 视频（更早的动态分镜）
 
 [animatic_480p.mp4](wangye_vs_zhugeqing/animatic_480p.mp4)（3:10.2，854x480，H.264 + AAC）
 
