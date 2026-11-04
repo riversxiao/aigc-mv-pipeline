@@ -14,8 +14,6 @@
 [第 4 段](wangye_vs_zhugeqing/first_cut/first_cut_720p_part03.mp4) ·
 [第 5 段](wangye_vs_zhugeqing/first_cut/first_cut_720p_part04.mp4)
 
-完整版（720p，36 MB）：[first_cut_720p.mp4](wangye_vs_zhugeqing/first_cut/first_cut_720p.mp4)
-
 ![frames](wangye_vs_zhugeqing/first_cut/frames.jpg)
 
 
