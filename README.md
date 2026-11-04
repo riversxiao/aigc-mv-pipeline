@@ -1,4 +1,23 @@
-# 罗天大醮有嘻哈 第一期：诸葛青 VS 王也 · 动态分镜 demo
+# 罗天大醮有嘻哈 第一期：诸葛青 VS 王也
+
+## 第一版成片（2026-11-04）
+
+用你在即梦网页上生成的 29 段真视频拼的第一版成片：3 分 10.2 秒，配你的 Suno 原曲，带调色、白色字幕、节目台标、人名条和片头片尾。
+
+- 72 个镜头里 55 个是真视频，17 个还是占位画面（缺 u01–u04、u32–u38、u41–u44 这 15 段，主要是开场、副歌回归和结尾）。
+- 有 11 段口型检测没过（u12、u15、u16、u19、u20、u21、u22、u24、u25、u28、u31），请用眼睛看一下嘴型，告诉我哪些要重拍。
+
+分段观看（按顺序播放）：
+[第 1 段](wangye_vs_zhugeqing/first_cut/first_cut_720p_part00.mp4) ·
+[第 2 段](wangye_vs_zhugeqing/first_cut/first_cut_720p_part01.mp4) ·
+[第 3 段](wangye_vs_zhugeqing/first_cut/first_cut_720p_part02.mp4) ·
+[第 4 段](wangye_vs_zhugeqing/first_cut/first_cut_720p_part03.mp4) ·
+[第 5 段](wangye_vs_zhugeqing/first_cut/first_cut_720p_part04.mp4)
+
+完整版（720p，36 MB）：[first_cut_720p.mp4](wangye_vs_zhugeqing/first_cut/first_cut_720p.mp4)
+
+![frames](wangye_vs_zhugeqing/first_cut/frames.jpg)
+
 
 这是一版动态分镜（animatic），只用来检查结构、节奏和包装：
 
