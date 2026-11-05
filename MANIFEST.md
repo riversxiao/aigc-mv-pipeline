@@ -199,3 +199,12 @@
 | `projects/wangye_vs_zhugeqing/units/u44/request.json` | 4.2 KB | 单元请求（提示词、参考图、音频） |
 | `projects/wangye_vs_zhugeqing/units/u44/u44_inst.wav` | 441.0 KB | 单元音频窗口 |
 | `tools/restore_audio.py` | 1.5 KB | FLAC 分块合并并解码为 wav 的脚本 |
+
+## 2026-11-05 新增
+
+| 路径 | 用途 |
+| --- | --- |
+| `projects/wangye_vs_zhugeqing/refs/<key>_{34,profile,half,full}.png` | 15 个角色的四个角度定妆图（60 张，AI 生成） |
+| `projects/wangye_vs_zhugeqing/units/<编号>/takes/take-1.mp4` | 已用即梦生成的 29 段视频，720p |
+| `projects/wangye_vs_zhugeqing/shots.csv`、`shots.json` | 72 个镜头的总表 |
+| `doc/colab_h3.md` | 在 Colab 里用 MiniMax H3 做视频的说明 |
