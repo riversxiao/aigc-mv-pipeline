@@ -22,6 +22,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
+motion = ["av>=14.0", "rtmlib>=0.0.16"]  # optional CPU pose extraction / silent motion-video pilot
 asr = ["faster-whisper>=1.0", "pypinyin>=0.50"]  # lyric alignment on the real vocal stem
 mcp = ["mcp>=1.0"]  # optional FastMCP server deps
 

@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
 from pathlib import Path
 from typing import Optional
@@ -16,15 +17,238 @@ from aigc_mv.board import audit, load_board, plan, render_sheet
 from aigc_mv.episode import load_episode
 from aigc_mv.tools import jsave
 
-app = typer.Typer(help="Episode pipeline: photoreal rap battles / MVs (Suno + Seedance/即梦)", no_args_is_help=True)
+app = typer.Typer(help="Episode pipeline: shared series assets, character voices, H3 / Seedance and frame-exact edit", no_args_is_help=True)
 
 _REPO = Path(__file__).resolve().parents[2]
 _EXAMPLE = _REPO / "projects" / "xiangyu_vs_liubang"
 
 
+@app.command("h3-bundle")
+def h3_bundle_cmd(
+    ep_dir: Path,
+    assets: Path = typer.Option(..., "--assets", help="Approved portraits, shot first frames and overrides JSON"),
+    template: Path = typer.Option(..., "--template", help="Validated Comfy H3 API workflow JSON"),
+    out: Path = typer.Option(..., "--out"),
+    shots: str = typer.Option(..., "--shots", help="Explicit comma-separated shot ids"),
+    steps: int = typer.Option(12, "--steps", min=1, max=40),
+    allow_legacy_audio: bool = typer.Option(False, "--allow-legacy-audio", help="Historical regeneration only; voice identity remains unverified"),
+) -> None:
+    """Compile independent H3 shot graphs and target audio locally; never starts Colab."""
+    from aigc_mv.h3 import export_bundle
+
+    try:
+        result = export_bundle(ep_dir, assets, template, out,
+                               [x.strip() for x in shots.split(",") if x.strip()], steps,
+                               allow_legacy_audio=allow_legacy_audio)
+    except (ValueError, KeyError, FileNotFoundError, FileExistsError) as e:
+        _fail(str(e))
+    typer.echo(f"H3 bundle: {len(result['jobs'])} jobs, {len(result['files'])} verified inputs → {out}")
+
+
+@app.command("h3-ingest")
+def h3_ingest_cmd(ep_dir: Path, bundle: Path, results: Path) -> None:
+    """Import H3 shot candidates; visual/identity review stays unreviewed."""
+    from aigc_mv.h3 import ingest_shot_results
+    data = ingest_shot_results(ep_dir.resolve(), bundle, results)
+    typer.echo(f"Imported candidates for {len(data)} shots; visual acceptance is still required")
+
+
 def _fail(msg: str) -> None:
     typer.echo(f"ERROR: {msg}", err=True)
     raise typer.Exit(code=1)
+
+
+@app.command("shared-assets")
+def shared_assets_cmd(ep_dir: Path, library: Path = typer.Option(..., "--library"),
+                      out: Optional[Path] = typer.Option(None, "--out")) -> None:
+    """Create a series H3 draft, binding portraits by stable character identity."""
+    from aigc_mv.shared_assets import scaffold_shared_assets
+    target = out or ep_dir / "h3_assets.json"
+    try:
+        scaffold_shared_assets(ep_dir, library, target)
+    except (OSError, ValueError, KeyError) as exc:
+        _fail(str(exc))
+    typer.echo(f"Shared asset draft: {target}; finish direction, motion selection, first frames and voice review before production")
+
+
+@app.command("direct-plan")
+def direct_plan_cmd(ep_dir: Path, assets: Path = typer.Option(..., "--assets"),
+                    out: Optional[Path] = typer.Option(None, "--out"),
+                    shots: Optional[str] = typer.Option(None, "--shots")) -> None:
+    """Create and attach a draft shot-performance plan; never starts generation."""
+    from aigc_mv.directing import scaffold_direction
+    target = out or ep_dir/"direction.json"
+    try:
+        scaffold_direction(ep_dir, assets, target, [x.strip() for x in shots.split(",")] if shots else None)
+        cfg = json.loads(assets.read_text())
+        cfg["directing_plan"] = os.path.relpath(target.resolve(), assets.resolve().parent)
+        assets.write_text(json.dumps(cfg, ensure_ascii=False, indent=2)+"\n")
+    except (OSError, ValueError, KeyError, StopIteration) as exc:
+        _fail(str(exc))
+    typer.echo(f"Direction draft: {target}; fill stage geometry, performance beats, other actors and motion bindings")
+
+
+@app.command("direction-check")
+def direction_check_cmd(ep_dir: Path, assets: Path = typer.Option(..., "--assets"),
+                        shots: Optional[str] = typer.Option(None, "--shots")) -> None:
+    """Check the shot plan and external motion index locally, independently of voice casting."""
+    from aigc_mv.directing import direction_readiness
+    from aigc_mv.shared_assets import load_asset_config
+    try:
+        cfg, _ = load_asset_config(assets)
+        report = direction_readiness(ep_dir.resolve(), assets.resolve(), cfg,
+                                    [x.strip() for x in shots.split(",")] if shots else None)
+    except (OSError, ValueError, KeyError) as exc:
+        _fail(str(exc))
+    typer.echo(json.dumps(report, ensure_ascii=False, indent=2))
+    if not report["ready"]:
+        raise typer.Exit(1)
+
+
+@app.command("h3-review")
+def h3_review_cmd(ep_dir: Path, shot: str, job_id: str,
+                  review: Path = typer.Option(..., "--review")) -> None:
+    """Record actual take checks; a keep decision requires every criterion to pass."""
+    from aigc_mv.shot_review import record_review
+    try:
+        result = record_review(ep_dir.resolve(), shot, job_id, review)
+    except (OSError, ValueError, KeyError) as exc:
+        _fail(str(exc))
+    typer.echo(json.dumps(result, ensure_ascii=False, indent=2))
+
+
+@app.command("h3-retake-plan")
+def h3_retake_plan_cmd(ep_dir: Path, shot: str, job_id: str,
+                       proposal: Path = typer.Option(..., "--proposal"),
+                       out: Path = typer.Option(..., "--out")) -> None:
+    """Write an evidence-based, one-change retake proposal; submits nothing."""
+    from aigc_mv.shot_review import retake_plan
+    try:
+        result = retake_plan(ep_dir.resolve(), shot, job_id, proposal, out)
+    except (OSError, ValueError, KeyError) as exc:
+        _fail(str(exc))
+    typer.echo(json.dumps(result, ensure_ascii=False, indent=2))
+
+
+@app.command("asset-register")
+def asset_register_cmd(library: Path = typer.Option(..., "--library"),
+                       asset_id: str = typer.Option(..., "--id"),
+                       source: Path = typer.Option(..., "--source"),
+                       kind: str = typer.Option(..., "--kind"),
+                       characters: str = typer.Option("", "--characters", help="Stable character IDs, comma-separated"),
+                       description: str = typer.Option("", "--description"),
+                       view: str = typer.Option("", "--view"),
+                       positions: str = typer.Option("{}", "--positions", help="JSON mapping stable character IDs to stage sides")) -> None:
+    """Register an immutable portrait, scene, composition or voice asset locally."""
+    from aigc_mv.shared_assets import register_asset
+    try:
+        record = register_asset(library, asset_id, source, kind,
+                                [x.strip() for x in characters.split(",") if x.strip()],
+                                description=description, view=view, positions=json.loads(positions))
+    except (OSError, ValueError, KeyError) as exc:
+        _fail(str(exc))
+    typer.echo(json.dumps({"id": asset_id, **record}, ensure_ascii=False, indent=2))
+
+
+@app.command("production-check")
+def production_check_cmd(ep_dir: Path, assets: Path = typer.Option(..., "--assets")) -> None:
+    """Check shared identities, first frames and voice casting locally, without GPU work."""
+    from aigc_mv.shared_assets import production_readiness
+    try:
+        report = production_readiness(ep_dir, assets)
+    except (OSError, ValueError, KeyError) as exc:
+        _fail(str(exc))
+    typer.echo(json.dumps(report, ensure_ascii=False, indent=2))
+    if not report["ready_for_h3_production"]:
+        raise typer.Exit(1)
+
+
+@app.command("asset-pack")
+def asset_pack_cmd(library: Path = typer.Option(..., "--library"),
+                   out: Path = typer.Option(..., "--out")) -> None:
+    """Package a shared library for backup or transfer to another machine."""
+    from aigc_mv.shared_assets import pack_library
+    try:
+        report = pack_library(library, out)
+    except (OSError, ValueError, KeyError) as exc:
+        _fail(str(exc))
+    typer.echo(json.dumps(report, ensure_ascii=False, indent=2))
+
+
+@app.command("asset-unpack")
+def asset_unpack_cmd(archive: Path, out: Path = typer.Option(..., "--out")) -> None:
+    """Restore and verify a shared library into a new directory."""
+    from aigc_mv.shared_assets import unpack_library
+    try:
+        catalog = unpack_library(archive, out)
+    except (OSError, ValueError, KeyError) as exc:
+        _fail(str(exc))
+    typer.echo(f"Restored verified library: {catalog}")
+
+
+@app.command("asset-library-summary")
+def asset_library_summary_cmd(
+    library: Path = typer.Option(_REPO / "libraries/luotian/catalog.json", "--library"),
+    motion_library: Optional[Path] = typer.Option(_REPO / "libraries/motions", "--motion-library"),
+) -> None:
+    """Inspect unified series visual/audio/character-sheet assets and federated motion libraries."""
+    from aigc_mv.motion_assets import MotionLibrary
+    from aigc_mv.shared_assets import AssetLibrary
+    try:
+        lib = AssetLibrary(library)
+        report: dict = {"visual_and_character_library": lib.summary()}
+        if motion_library and Path(motion_library).exists():
+            mlib = MotionLibrary(motion_library)
+            report["motion_library"] = mlib.summary()
+    except (OSError, ValueError, KeyError) as exc:
+        _fail(str(exc))
+    typer.echo(json.dumps(report, ensure_ascii=False, indent=2))
+
+
+@app.command("motion-search")
+def motion_search_cmd(
+    library: Path = typer.Option(_REPO / "libraries/motions", "--library"),
+    category: Optional[str] = typer.Option(None, "--category"),
+    pose_format: Optional[str] = typer.Option(None, "--pose-format"),
+    hand: Optional[str] = typer.Option(None, "--hand"),
+    framing: Optional[str] = typer.Option(None, "--framing"),
+    view: Optional[str] = typer.Option(None, "--view"),
+    people: Optional[int] = typer.Option(None, "--people"),
+    tag: Optional[str] = typer.Option(None, "--tag"),
+    character: Optional[str] = typer.Option(None, "--character"),
+) -> None:
+    """Search federated motion catalogs (battle_rap, instruments, kpop_dance, luotian_combat, etc.)."""
+    from aigc_mv.motion_assets import MotionLibrary
+    try:
+        mlib = MotionLibrary(library)
+        matches = mlib.search(
+            category=category,
+            pose_format=pose_format,
+            hand=hand,
+            framing=framing,
+            view=view,
+            people=people,
+            tag=tag,
+            character=character,
+        )
+    except (OSError, ValueError, KeyError) as exc:
+        _fail(str(exc))
+    typer.echo(json.dumps({"count": len(matches), "matches": matches}, ensure_ascii=False, indent=2))
+
+
+@app.command("voice-review")
+def voice_review_cmd(ep_dir: Path, assets: Path = typer.Option(..., "--assets"),
+                     approve: bool = typer.Option(False, "--approve"),
+                     notes: str = typer.Option("", "--notes")) -> None:
+    """Inspect voice bindings, or record completed listening review of the actual mix."""
+    from aigc_mv.shared_assets import approve_voices, voice_readiness
+    try:
+        report = approve_voices(ep_dir, assets, notes) if approve else voice_readiness(ep_dir, assets)
+    except (OSError, ValueError, KeyError) as exc:
+        _fail(str(exc))
+    typer.echo(json.dumps(report, ensure_ascii=False, indent=2))
+    if not report["ready"]:
+        raise typer.Exit(1)
 
 
 @app.command("init")

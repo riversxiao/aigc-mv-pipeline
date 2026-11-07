@@ -1,0 +1,2153 @@
+{
+  "schema_version": 1,
+  "source_folder": "https://drive.google.com/drive/folders/13kFZbtgLOPLkcz-41D0QYQL92N5VYeVD",
+  "motions": {
+    "battle_rap.pack04.seg01.white.v1": {
+      "kind": "pose_video",
+      "status": "pending",
+      "people": 3,
+      "path": "incoming/BattleRap_CloseupHands_Pack04/BattleRap_CloseupHands_Pack04_seg01_whitemodel_73f_1344x768.mp4",
+      "sha256": "57142fb19a19cb79dd629ca0f754e84e03143ed66c58fa6e3a927ff07a36102a",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1wJUYAHh5cxgPV6t2nsrEbjOiEOw1Zx7o",
+      "source_video": "CloseupHands_seg01_GunsNCake_vs_TworkNi_19s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "isolate one stable target actor before use",
+        "large gestures, cropping and hand tracking need review"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "unprepared_incoming"
+    },
+    "battle_rap.pack04.seg02.white.v1": {
+      "kind": "pose_video",
+      "status": "pending",
+      "people": 3,
+      "path": "incoming/BattleRap_CloseupHands_Pack04/BattleRap_CloseupHands_Pack04_seg02_whitemodel_73f_1344x768.mp4",
+      "sha256": "10dd42fd2472697dbaa93e5ae3d91b88cdf001a7892d8b689061a853dceff3b3",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1wJUYAHh5cxgPV6t2nsrEbjOiEOw1Zx7o",
+      "source_video": "CloseupHands_seg02_MurdaMook_vs_BiggK_RBE_35s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "isolate one stable target actor before use",
+        "large gestures, cropping and hand tracking need review"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "unprepared_incoming"
+    },
+    "battle_rap.pack04.seg03.white.v1": {
+      "kind": "pose_video",
+      "status": "pending",
+      "people": 3,
+      "path": "incoming/BattleRap_CloseupHands_Pack04/BattleRap_CloseupHands_Pack04_seg03_whitemodel_73f_1344x768.mp4",
+      "sha256": "2e2b039674a1870c9670ca9c8216f88ce2985f5088bf001fecc2226d04e5414c",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1wJUYAHh5cxgPV6t2nsrEbjOiEOw1Zx7o",
+      "source_video": "CloseupHands_seg03_MurdaMook_vs_BiggK_RBE_30s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "isolate one stable target actor before use",
+        "large gestures, cropping and hand tracking need review"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "unprepared_incoming"
+    },
+    "battle_rap.pack02.seg01.white.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/battle_rap.pack02.seg01.white.v1.mp4",
+      "sha256": "a51596b7d42eb42c455341592b3742148ea61a246be72f945883d1259090e676",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1DAVVj7Py7B_8MLSDIbZNHIr5aUw7yrgh",
+      "source_video": "HitmanHolla_10M_Classic_cutfree_01_13s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "pilot body motion only; no handheld mic; source finger artifacts must not transfer"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "pilot_body_motion"
+    },
+    "battle_rap.pack02.seg02.white.v1": {
+      "kind": "pose_video",
+      "status": "pending",
+      "people": 3,
+      "path": "incoming/BattleRap_HitmanHolla_TsuSurf_Pack02/BattleRap_HitmanHolla_TsuSurf_Pack02_seg02_whitemodel_73f_1344x768.mp4",
+      "sha256": "cef24e4a5ba92cfdda8ad2c963d438c928461b4615edaf4251b65069e932ec78",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1DAVVj7Py7B_8MLSDIbZNHIr5aUw7yrgh",
+      "source_video": "TsuSurf_vs_HitmanHolla_cutfree_01_65s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "isolate one stable target actor before use"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "unprepared_incoming"
+    },
+    "battle_rap.pack02.seg03.white.v1": {
+      "kind": "pose_video",
+      "status": "pending",
+      "people": 3,
+      "path": "incoming/BattleRap_HitmanHolla_TsuSurf_Pack02/BattleRap_HitmanHolla_TsuSurf_Pack02_seg03_whitemodel_73f_1344x768.mp4",
+      "sha256": "d2e28646a681f70860f7eab7ce4a5981eb4a8865e8c236a8ac5a97cd38c273af",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1DAVVj7Py7B_8MLSDIbZNHIr5aUw7yrgh",
+      "source_video": "TsuSurf_vs_HitmanHolla_cutfree_02_17s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "isolate one stable target actor before use"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "unprepared_incoming"
+    },
+    "battle_rap.pack05.seg01.white.v1": {
+      "kind": "pose_video",
+      "status": "pending",
+      "people": 3,
+      "path": "incoming/BattleRap_OrbitCam_Pack05/BattleRap_OrbitCam_Pack05_seg01_whitemodel_73f_1344x768.mp4",
+      "sha256": "a792328c95e795284e0cdd16643a82e069e8ac8ef1458c53305627c9de9e1b5d",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1BzLvGGJ0P__smjQvz2Hi2pATgvyL7AuO",
+      "source_video": "OrbitCam_seg01_GunsNCake_vs_TworkNitt_18s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "isolate one stable target actor before use",
+        "camera movement/perspective changes need separate review"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "unprepared_incoming"
+    },
+    "battle_rap.pack05.seg02.white.v1": {
+      "kind": "pose_video",
+      "status": "pending",
+      "people": 3,
+      "path": "incoming/BattleRap_OrbitCam_Pack05/BattleRap_OrbitCam_Pack05_seg02_whitemodel_73f_1344x768.mp4",
+      "sha256": "9baa0ed6202bc1dd70d74470d4d0e8865239e9b46526cf6b9de8b01101351050",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1BzLvGGJ0P__smjQvz2Hi2pATgvyL7AuO",
+      "source_video": "OrbitCam_seg02_TayRoc_vs_RumNitty_URL_26s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "isolate one stable target actor before use",
+        "camera movement/perspective changes need separate review"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "unprepared_incoming"
+    },
+    "battle_rap.pack05.seg03.white.v1": {
+      "kind": "pose_video",
+      "status": "pending",
+      "people": 3,
+      "path": "incoming/BattleRap_OrbitCam_Pack05/BattleRap_OrbitCam_Pack05_seg03_whitemodel_73f_1344x768.mp4",
+      "sha256": "80622bead036c2508e71de9fec360dac94c660d133b84e258ec0b471146c526e",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1BzLvGGJ0P__smjQvz2Hi2pATgvyL7AuO",
+      "source_video": "OrbitCam_seg03_TayRoc_vs_RumNitty_U_45s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "isolate one stable target actor before use",
+        "camera movement/perspective changes need separate review"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "unprepared_incoming"
+    },
+    "battle_rap.pack03.seg01.white.v1": {
+      "kind": "pose_video",
+      "status": "pending",
+      "people": 3,
+      "path": "incoming/BattleRap_URLTV_2on2_Pack03/BattleRap_URLTV_2on2_Pack03_seg01_whitemodel_73f_1344x768.mp4",
+      "sha256": "e9440cbbf2a006171a5a258e234e8fc4f637d639725ae4f851e80e0e6f9f896e",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1UQJFeAeb2m_cEPlH5zzZmTcBoPvmPtSf",
+      "source_video": "URLTV_2on2_DuoBattle_cutfree_01_24s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "isolate one stable target actor before use"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "unprepared_incoming"
+    },
+    "battle_rap.pack03.seg02.white.v1": {
+      "kind": "pose_video",
+      "status": "pending",
+      "people": 3,
+      "path": "incoming/BattleRap_URLTV_2on2_Pack03/BattleRap_URLTV_2on2_Pack03_seg02_whitemodel_73f_1344x768.mp4",
+      "sha256": "28e44eadaaa5c916f21fe389276d6728cf594bb2026ae2028dd3eb6040425487",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1UQJFeAeb2m_cEPlH5zzZmTcBoPvmPtSf",
+      "source_video": "URLTV_2on2_DuoBattle_cutfree_02_7s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "isolate one stable target actor before use"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "unprepared_incoming"
+    },
+    "battle_rap.pack01.seg01.white.v1": {
+      "kind": "pose_video",
+      "status": "pending",
+      "people": 3,
+      "path": "incoming/BattleRap_URLTV_KOTD_Pack01/BattleRap_URLTV_KOTD_Pack01_seg01_whitemodel_73f_1344x768.mp4",
+      "sha256": "6eace815e723d7e1e174bb9e6d227863d6da6a026cad4be135e63dd8ad533565",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1X0HHdbzokFqZgQh4z6A2qYFm2jGNIy1j",
+      "source_video": "01_URLTV_CharlieClips.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "isolate one stable target actor before use"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "unprepared_incoming"
+    },
+    "battle_rap.pack01.seg02.white.v1": {
+      "kind": "pose_video",
+      "status": "pending",
+      "people": 3,
+      "path": "incoming/BattleRap_URLTV_KOTD_Pack01/BattleRap_URLTV_KOTD_Pack01_seg02_whitemodel_73f_1344x768.mp4",
+      "sha256": "1744330b3b0bcd4e20352735eab5442695cab16297a0a84ef44fd2b1cf9ce08a",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1X0HHdbzokFqZgQh4z6A2qYFm2jGNIy1j",
+      "source_video": "02_KOTD_Conceited_vs_Dumbfoundead.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "isolate one stable target actor before use"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "unprepared_incoming"
+    },
+    "battle_rap.pack01.seg03.white.v1": {
+      "kind": "pose_video",
+      "status": "pending",
+      "people": 3,
+      "path": "incoming/BattleRap_URLTV_KOTD_Pack01/BattleRap_URLTV_KOTD_Pack01_seg03_whitemodel_73f_1344x768.mp4",
+      "sha256": "add8887f007183d6dce96a3c201f53a8747397192cf412ab8db76749bb31f1a8",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "source_url": "https://drive.google.com/drive/folders/1X0HHdbzokFqZgQh4z6A2qYFm2jGNIy1j",
+      "source_video": "03_8Mile_Eminem_FinalBattle.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Free-hand rap body-motion reference; not a verified hand/finger or lip controller.",
+      "limitations": [
+        "isolate one stable target actor before use"
+      ],
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only"
+      ],
+      "scope": "unprepared_incoming"
+    },
+    "battle_rap.wo8.50_95.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.50_95.right.skel.v2.mp4",
+      "sha256": "64e95425d41885e121ee1d37104845ddee6994f3567daa7770db1d335cc05fbe",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "MS",
+        "CU",
+        "OTS",
+        "2S"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 94,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        50.95,
+        54.875
+      ],
+      "source_audio_used": false,
+      "description": "aggressive forward point at camera with the free left hand, mic held at the mouth in the right hand; jabbing downbeats with the pointing hand",
+      "energy": "high",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "point_forward",
+        "downbeat_jabs",
+        "aggressive",
+        "bandaged_rapper"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "source is a tight CU: elbows partly out of frame in some frames"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 42,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.50_95.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.33,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 94,
+        "duration": 3.916667
+      }
+    },
+    "battle_rap.wo8.77_98.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.77_98.right.skel.v2.mp4",
+      "sha256": "d0641b6d51b221b05aec38df9a2e491140634bdf2548fe61255bd0ac45d41ac0",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "MS",
+        "OTS",
+        "2S",
+        "CU"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 64,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        77.983,
+        80.642
+      ],
+      "source_audio_used": false,
+      "description": "MS delivery: mic in right hand at mouth, free left hand punches/chops downbeats, strong head bob",
+      "energy": "high",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "chopping_downbeats",
+        "head_bob",
+        "bandaged_rapper"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "other performers stand close to the target in the source frame; skeleton tracks the bandaged rapper only",
+        "CU use: upper-body motion applied to a tighter target crop"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 0,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.77_98.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.405,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 64,
+        "duration": 2.666667
+      }
+    },
+    "battle_rap.wo8.88_15.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.88_15.right.skel.v2.mp4",
+      "sha256": "defe44174a58631954e95c277b92663a16d3856547cfa7db0081411f5926f35f",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "MS",
+        "OTS",
+        "2S",
+        "CU"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 110,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        88.15,
+        92.742
+      ],
+      "source_audio_used": false,
+      "description": "3/4 turned delivery: mic in right hand at mouth, free left hand sweeps out and chops (about six downbeats), ends turning to camera with a thumb-to-chest gesture",
+      "energy": "high",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "chopping_downbeats",
+        "sweep",
+        "chest_tap",
+        "three_quarter_view",
+        "bandaged_rapper"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "3/4 profile for most frames: shoulder line foreshortened",
+        "CU use: upper-body motion applied to a tighter target crop"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 9,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.88_15.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.271,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 110,
+        "duration": 4.583008
+      }
+    },
+    "battle_rap.wo8.119_80.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.119_80.right.skel.v2.mp4",
+      "sha256": "2a92959c1b129aa213272b57e697fe919adb4c2f48c5f608777527ae34c90e2d",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "MS",
+        "OTS",
+        "2S",
+        "CU"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 101,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        119.8,
+        124.008
+      ],
+      "source_audio_used": false,
+      "description": "aggressive forward point toward the opponent with the free left arm thrown out, then chopping downbeats; mic stays at the mouth in the right hand",
+      "energy": "high",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "point_forward",
+        "chopping_downbeats",
+        "taunt",
+        "bandaged_rapper"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "dark out-of-focus foreground shoulder at frame left in the source (not tracked)",
+        "starts in profile",
+        "CU use: upper-body motion applied to a tighter target crop"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 19,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.119_80.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.356,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 101,
+        "duration": 4.208008
+      }
+    },
+    "battle_rap.wo8.124_08.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.124_08.right.skel.v2.mp4",
+      "sha256": "a20e4195ab43f6a64fd0c79cb487475f388d5959e881e36ac4b9a070b237ec38",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "MS",
+        "CU",
+        "OTS",
+        "2S"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 89,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        124.083,
+        127.792
+      ],
+      "source_audio_used": false,
+      "description": "shouted bar: mic pushed hard to the mouth in the right hand, head thrown back, free left arm flares out to the side",
+      "energy": "high",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "shout",
+        "arm_flare",
+        "aggressive",
+        "bandaged_rapper"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "source is a CU: free arm leaves frame at times"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 0,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.124_08.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 1,
+        "upper_body_min_confidence": 0.236,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 89,
+        "duration": 3.708008
+      }
+    },
+    "battle_rap.wo8.153_15.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.153_15.right.skel.v2.mp4",
+      "sha256": "cf2939ff23864c513278db5518e4b42a50e20572e90419a89c95d653f42b7829",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "CU",
+        "OTS",
+        "2S"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 59,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        153.15,
+        155.608
+      ],
+      "source_audio_used": false,
+      "description": "tight CU: mic gripped at the mouth in the right hand, free left hand jabs/points beside the face on the beat",
+      "energy": "high",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "point_jabs",
+        "aggressive",
+        "hat_rapper",
+        "tight_cu"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "extreme close-up source: elbows and lower arms mostly out of frame"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 52,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.153_15.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.266,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 59,
+        "duration": 2.458333
+      }
+    },
+    "battle_rap.wo8.167_98.left.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.167_98.left.skel.v2.mp4",
+      "sha256": "a5a760c4e8bb027738243f458e38a756bed8a10cb877ee0e3d95d22af6ba63f1",
+      "microphone_hand": "left",
+      "framings": [
+        "MCU",
+        "MS",
+        "OTS",
+        "2S",
+        "CU"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 123,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        167.983,
+        173.108
+      ],
+      "source_audio_used": false,
+      "description": "left-hand mic at the mouth, free right arm swings and chops about six downbeats, body rocks forward; camera push-in compensated",
+      "energy": "high",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "chopping_downbeats",
+        "body_rock",
+        "hat_rapper"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "source camera pushes in ~2x; zoom compensated with a 25-frame span average",
+        "out-of-focus opponent head in the foreground at frame right (not tracked)",
+        "CU use: upper-body motion applied to a tighter target crop"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 5,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.167_98.left.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.453,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 123,
+        "duration": 5.125
+      }
+    },
+    "battle_rap.wo8.167_98.mirrored.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.167_98.mirrored.right.skel.v2.mp4",
+      "sha256": "446b167c341939095007b0ad6c50d7cb1630569d53eb2e2ec07ad04dadfeab9d",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "MS",
+        "OTS",
+        "2S",
+        "CU"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 123,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        167.983,
+        173.108
+      ],
+      "source_audio_used": false,
+      "description": "right-hand mic (mirrored) at the mouth, free right arm swings and chops about six downbeats, body rocks forward; camera push-in compensated [mirrored derivative: x flipped and left/right body+hand keypoints swapped before drawing]",
+      "energy": "high",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "chopping_downbeats",
+        "body_rock",
+        "hat_rapper",
+        "mirrored"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "source camera pushes in ~2x; zoom compensated with a 25-frame span average",
+        "out-of-focus opponent head in the foreground at frame right (not tracked)",
+        "mirrored derivative of a left-hand-mic performance; source overlay preview is a plain hflip (colours not swapped)",
+        "CU use: upper-body motion applied to a tighter target crop"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 5,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.167_98.mirrored.right.skel.v2.overlay_hflip.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.453,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "mirrored_from": "battle_rap.wo8.167_98.left.skel.v2",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 123,
+        "duration": 5.125
+      }
+    },
+    "battle_rap.wo8.254_45.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.254_45.right.skel.v2.mp4",
+      "sha256": "b3a1fa4afdc67089c7f560f0268047c0eb07d2d07cc76ae3ee3625dd5cd201b0",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "MS",
+        "OTS",
+        "2S",
+        "CU"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 80,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        254.45,
+        257.792
+      ],
+      "source_audio_used": false,
+      "description": "leaning in toward the opponent: mic in right hand, free left hand pushes/flicks outward, emphatic head bobs",
+      "energy": "high",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "lean_in",
+        "push_gesture",
+        "head_bob",
+        "bandaged_rapper"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "opponent's hat/shoulder in the foreground at frame left (not tracked); clip ends before the foreground occludes the performer",
+        "CU use: upper-body motion applied to a tighter target crop"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 5,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.254_45.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.33,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 80,
+        "duration": 3.333333
+      }
+    },
+    "battle_rap.wo8.264_10.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.264_10.right.skel.v2.mp4",
+      "sha256": "b004881b282e536114939d27a55e531d1427f79924c3939bbf19c8edd2d5d539",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "CU",
+        "OTS",
+        "2S"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 105,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        264.1,
+        268.475
+      ],
+      "source_audio_used": false,
+      "description": "tight CU: mic gripped at the mouth in the right hand, free left hand repeatedly flicks and points forward",
+      "energy": "high",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "point_flicks",
+        "hat_rapper",
+        "tight_cu"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "extreme close-up source: elbows mostly out of frame"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 86,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.264_10.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.255,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 105,
+        "duration": 4.375
+      }
+    },
+    "battle_rap.wo8.65_93.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.65_93.right.skel.v2.mp4",
+      "sha256": "ea50cc8da3c528a80719698a1afb228a0128a43dd7df5b6fb2bc7a550b6d1b42",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "MS",
+        "OTS",
+        "2S",
+        "CU"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 77,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        65.933,
+        69.142
+      ],
+      "source_audio_used": false,
+      "description": "steady delivery: mic in right hand at the mouth, free left arm hangs and swings loosely, slight forward lean",
+      "energy": "medium",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "steady_delivery",
+        "bandaged_rapper"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "opponent's hat in the out-of-focus foreground at frame left (not tracked)",
+        "CU use: upper-body motion applied to a tighter target crop"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 60,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.65_93.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.388,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 77,
+        "duration": 3.208333
+      }
+    },
+    "battle_rap.wo8.60_85.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.60_85.right.skel.v2.mp4",
+      "sha256": "b074036156f6a81cf28025c7fc1f8eeeb5c2af9f4fb7395967f32fd5d670f6b4",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "CU",
+        "OTS",
+        "2S"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 79,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        60.85,
+        64.142
+      ],
+      "source_audio_used": false,
+      "description": "mic close in the right hand, small head nods; free left hand rises into frame near the end",
+      "energy": "medium",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "mic_close",
+        "head_nod",
+        "bandaged_rapper",
+        "tight_cu"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "extreme close-up source: arms mostly below frame"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 70,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.60_85.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.267,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 79,
+        "duration": 3.291667
+      }
+    },
+    "battle_rap.wo8.56_13.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.56_13.right.skel.v2.mp4",
+      "sha256": "39fe41076773abf2ea469cbdb869e5745e79be914fec0427655be89f1548ed70",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "MS",
+        "OTS",
+        "2S",
+        "CU"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 84,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        56.133,
+        59.625
+      ],
+      "source_audio_used": false,
+      "description": "profile delivery facing the opponent: mic in right hand at the mouth, small forward-leaning nods, turns toward camera at the end",
+      "energy": "medium",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "profile",
+        "face_off",
+        "bandaged_rapper"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "opponent and a foreground head are also large in the source; skeleton tracks the right-side rapper only (no identity switch detected)",
+        "profile view: shoulder line foreshortened",
+        "CU use: upper-body motion applied to a tighter target crop"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 67,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.56_13.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 3,
+        "upper_body_min_confidence": 0.218,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 84,
+        "duration": 3.5
+      }
+    },
+    "battle_rap.wo8.97_73.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.97_73.right.skel.v2.mp4",
+      "sha256": "1cecd49b166adba5603b75696c28010af4a25de40175a8afb70a00b550e30099",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "CU",
+        "OTS",
+        "2S"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 60,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        97.733,
+        100.242
+      ],
+      "source_audio_used": false,
+      "description": "mic close in the right hand, chin-down head bobs, minimal arm movement",
+      "energy": "medium",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "mic_close",
+        "head_bob",
+        "bandaged_rapper",
+        "tight_cu"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "extreme close-up source; trimmed before a crash zoom-out"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 2,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.97_73.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.368,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 60,
+        "duration": 2.5
+      }
+    },
+    "battle_rap.wo8.42_03.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.42_03.right.skel.v2.mp4",
+      "sha256": "db2931987d1707afee359cd000202def2945ef8adc753fbfbdad67cc2ea56027",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "CU",
+        "OTS",
+        "2S"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 112,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        42.033,
+        46.692
+      ],
+      "source_audio_used": false,
+      "description": "opens with a smirk, then lifts the mic in the right hand to the mouth; steady mic-close delivery with minimal gesture",
+      "energy": "medium",
+      "tags": [
+        "rap",
+        "handheld_mic",
+        "mic_raise",
+        "mic_close",
+        "bandaged_rapper",
+        "tight_cu"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "extreme close-up source: arms mostly below frame"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 24,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.42_03.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.286,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 112,
+        "duration": 4.666667
+      }
+    },
+    "battle_rap.wo8.134_28.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.134_28.right.skel.v2.mp4",
+      "sha256": "47e6ec9cd474b962ce701deb18368a2e0ba04a295cdb9084f2f3f663260eb94f",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "CU",
+        "OTS",
+        "2S"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 106,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        134.283,
+        138.692
+      ],
+      "source_audio_used": false,
+      "description": "calm vocal CU (singing, not idle): mic held close to the lips in the right hand, gentle head sway",
+      "energy": "low",
+      "tags": [
+        "calm_singing",
+        "handheld_mic",
+        "mic_close",
+        "female_vocalist",
+        "tight_cu"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "extreme close-up source: arms below frame",
+        "singer, not a rapper"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 77,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.134_28.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.253,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 106,
+        "duration": 4.416667
+      }
+    },
+    "battle_rap.wo8.32_33.right.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.32_33.right.skel.v2.mp4",
+      "sha256": "e14e54ee5f2f8fd4c43ce3184854db308f8f45f1384f50e1bb55e7254a132a1e",
+      "microphone_hand": "right",
+      "framings": [
+        "MCU",
+        "MS",
+        "OTS",
+        "2S",
+        "CU"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 76,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        32.333,
+        35.492
+      ],
+      "source_audio_used": false,
+      "description": "calm standing vocalist (singing, not idle): mic at the mouth in the right hand, free left arm relaxed at the side, slow sway",
+      "energy": "low",
+      "tags": [
+        "calm_singing",
+        "handheld_mic",
+        "sway",
+        "female_vocalist"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "full-figure source scaled to the MCU canvas",
+        "singer, not a rapper",
+        "CU use: upper-body motion applied to a tighter target crop"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 45,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.32_33.right.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.647,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 76,
+        "duration": 3.166667
+      }
+    },
+    "battle_rap.wo8.70_78.none.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.70_78.none.skel.v2.mp4",
+      "sha256": "584e67d079323070588bc7431a0b388cc1fb09dbaaad108744579c1af157a583",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS",
+        "OTS",
+        "2S",
+        "CU"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 125,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        70.783,
+        75.992
+      ],
+      "source_audio_used": false,
+      "description": "calm listening/idle: performer stands square to camera, arms down, mic low/not raised, subtle weight shift (reaction shot)",
+      "energy": "low",
+      "tags": [
+        "idle",
+        "listening",
+        "reaction",
+        "arms_down",
+        "hat_rapper"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "opponent's head in the foreground at frame left in the source (not tracked)",
+        "mic not visible in the skeleton",
+        "CU use: upper-body motion applied to a tighter target crop"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 97,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.70_78.none.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.331,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 125,
+        "duration": 5.208333
+      }
+    },
+    "battle_rap.wo8.162_88.none.skel.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.wo8.162_88.none.skel.v2.mp4",
+      "sha256": "70eeaa1a46314443ad2125d53777741ea65e3f4d856ef729b1c2350ff284637d",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS",
+        "OTS",
+        "2S",
+        "CU"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 94,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_url": "https://www.youtube.com/watch?v=wO8_kr2NL68",
+      "source_interval_seconds": [
+        162.883,
+        166.792
+      ],
+      "source_audio_used": false,
+      "description": "calm listening/idle: seated reactor laughs, shoulders bounce lightly, hands resting low (reaction shot)",
+      "energy": "low",
+      "tags": [
+        "idle",
+        "listening",
+        "reaction",
+        "seated",
+        "laugh"
+      ],
+      "limitations": [
+        "2D RTMW wholebody skeleton, not a 3D mesh",
+        "fingers approximate",
+        "face landmarks, eyes/ears and lower body hidden (recipe of the approved 189.10s pilot)",
+        "source is a stylised stage video, not mocap ground truth",
+        "framing normalised: fixed scale, slow camera drift removed with a 25-frame moving average",
+        "seated judge, no microphone",
+        "neighbours visible at frame edges in the source (not tracked)",
+        "CU use: upper-body motion applied to a tighter target crop"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "contact_frame": 1,
+      "qa_preview": "clips/v2/qa_previews/battle_rap.wo8.162_88.none.skel.v2.overlay.mp4",
+      "extraction": {
+        "model": "rtmlib Wholebody yolox_tiny + rtmw_dw_l_m (onnxruntime CPU)",
+        "tracking": "dominant performer, IoU identity tracking, cut/switch rejection",
+        "smoothing": "0.7 current / 0.3 previous",
+        "gate": "nose/shoulders/elbows/wrists >= 0.25",
+        "weak_gate_frames": 0,
+        "upper_body_min_confidence": 0.652,
+        "canvas": [
+          1344,
+          768
+        ],
+        "shoulder_line_y_frac": 0.585,
+        "head_top_y_frac_target": 0.15
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 94,
+        "duration": 3.916667
+      }
+    },
+    "battle_rap.pack01.seg02.white_isolated.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.pack01.seg02.white_isolated.v2.mp4",
+      "sha256": "3352e9bb9649b9e16d5e6ccca79aaaef77c3380cdd7638b967120ecdd73ceb0b",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "02_KOTD_Conceited_vs_Dumbfoundead.mp4",
+      "source_url": "https://drive.google.com/drive/folders/1X0HHdbzokFqZgQh4z6A2qYFm2jGNIy1j",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "derived_from": "battle_rap.pack01.seg02.white.v1",
+      "description": "standing upper-body mannequin, calm: one hand brushes up to the shoulder at the start, then arms relax at the sides with slight sway and head tilts",
+      "energy": "low",
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only",
+        "isolated",
+        "calm_sway"
+      ],
+      "limitations": [
+        "2-3 frames show a dark gap at the neck/elbow where the joint sphere is darker than the mask threshold",
+        "faint grey source halo kept inside the dilated mask",
+        "no handheld mic"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "isolation": {
+        "method": "pure image isolation: bright-pixel mannequin mask, connected components, multi-actor mask tracking with nearest-mask split on contact, dilated target mask, everything else black; no pose estimation",
+        "target": "right-hand actor (cx~900 px at f40)",
+        "audio": "dropped"
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667
+      }
+    },
+    "battle_rap.pack03.seg02.white_isolated.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.pack03.seg02.white_isolated.v2.mp4",
+      "sha256": "5e58c558583776718f549f8287f2d9911db5bbd9c3ef5221aa68085c74c44390",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "URLTV_2on2_DuoBattle_cutfree_02_7s.mp4",
+      "source_url": "https://drive.google.com/drive/folders/1UQJFeAeb2m_cEPlH5zzZmTcBoPvmPtSf",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "derived_from": "battle_rap.pack03.seg02.white.v1",
+      "description": "full-figure mannequin: both hands clasped on the head in disbelief, then hands drop to mouth/chest with a small bounce",
+      "energy": "medium",
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only",
+        "isolated",
+        "hands_on_head",
+        "reaction"
+      ],
+      "limitations": [
+        "neighbour's hand touches the target's shoulder in the last ~6 frames: a small foreign hand fragment remains there",
+        "full-figure framing (legs visible); crop for MCU",
+        "faint grey source halo kept inside the dilated mask",
+        "no handheld mic"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "isolation": {
+        "method": "pure image isolation: bright-pixel mannequin mask, connected components, multi-actor mask tracking with nearest-mask split on contact, dilated target mask, everything else black; no pose estimation",
+        "target": "left actor (cx~270 px at f0)",
+        "audio": "dropped"
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667
+      }
+    },
+    "battle_rap.pack04.seg01.white_isolated.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.pack04.seg01.white_isolated.v2.mp4",
+      "sha256": "ae7394aace5863b94be8dac4e825b55826218be111bfbc56dcf8479f33bd1bbc",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "CloseupHands_seg01_GunsNCake_vs_TworkNi_19s.mp4",
+      "source_url": "https://drive.google.com/drive/folders/1wJUYAHh5cxgPV6t2nsrEbjOiEOw1Zx7o",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "derived_from": "battle_rap.pack04.seg01.white.v1",
+      "description": "full-figure dance: arm raised overhead, twist, hand to head, crouch, ends in a low side lean with one arm extended",
+      "energy": "high",
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only",
+        "isolated",
+        "dance",
+        "arm_raise"
+      ],
+      "limitations": [
+        "full-figure framing; ends in a low lean that leaves the MCU frame",
+        "faint grey source halo kept inside the dilated mask",
+        "no handheld mic"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "isolation": {
+        "method": "pure image isolation: bright-pixel mannequin mask, connected components, multi-actor mask tracking with nearest-mask split on contact, dilated target mask, everything else black; no pose estimation",
+        "target": "central dancing actor (cx~740 px at f54)",
+        "audio": "dropped"
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667
+      }
+    },
+    "battle_rap.pack05.seg01.white_isolated.v2": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v2/battle_rap.pack05.seg01.white_isolated.v2.mp4",
+      "sha256": "3f6418b12646d1cecd8dd8544b7accd9464d5239842e4d57fcc7b658d826b10a",
+      "microphone_hand": "none",
+      "framings": [
+        "MCU",
+        "MS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "OrbitCam_seg01_GunsNCake_vs_TworkNitt_18s.mp4",
+      "source_url": "https://drive.google.com/drive/folders/1BzLvGGJ0P__smjQvz2Hi2pATgvyL7AuO",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "derived_from": "battle_rap.pack05.seg01.white.v1",
+      "description": "full-figure: big arm sweep overhead, hand over the head, step and lean, ends with a hand on the head and the other at the hip",
+      "energy": "high",
+      "tags": [
+        "rap",
+        "free_hands",
+        "white_model",
+        "body_only",
+        "isolated",
+        "arm_sweep",
+        "hand_on_head"
+      ],
+      "limitations": [
+        "full-figure framing (legs visible); crop for MCU",
+        "faint grey source halo kept inside the dilated mask",
+        "no handheld mic"
+      ],
+      "scope": "ep02_v09_full_rerun",
+      "isolation": {
+        "method": "pure image isolation: bright-pixel mannequin mask, connected components, multi-actor mask tracking with nearest-mask split on contact, dilated target mask, everything else black; no pose estimation",
+        "target": "right actor (cx~760 px at f40)",
+        "audio": "dropped"
+      },
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667
+      }
+    },
+    "battle_rap.luotian_highlight.pack01.seg01.white.v2": {
+      "kind": "pose_video",
+      "representation": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "single_performer": true,
+      "path": "clips/v2/battle_rap.luotian_highlight.pack01.seg01.white.v2.mp4",
+      "file": "clips/v2/battle_rap.luotian_highlight.pack01.seg01.white.v2.mp4",
+      "sha256": "18798cb27e5680a691cb296eea1382cca5638b26d59a3c3623f93cdc0c37efcb",
+      "microphone_hand": "none",
+      "mic_hand": "none",
+      "framings": [
+        "MS",
+        "MCU",
+        "WS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "alabaster_clay_3d_white_mannequin",
+      "fps": 24,
+      "frames": 90,
+      "duration": 3.75,
+      "width": 1344,
+      "height": 768,
+      "source_video": "luotian_highlight_source_reel.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.75
+      ],
+      "source_audio_used": false,
+      "description": "High-energy Luotian action/stage highlight 3D white model (seg01, 90f @ 24fps)",
+      "energy": "high",
+      "categories": [
+        "high_energy_action",
+        "martial_arts",
+        "stage_highlight"
+      ],
+      "tags": [
+        "luotian",
+        "highlight",
+        "white_model",
+        "alabaster_clay",
+        "high_energy"
+      ],
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 90,
+        "duration": 3.75,
+        "width": 1344,
+        "height": 768
+      }
+    },
+    "battle_rap.luotian_highlight.pack01.seg02.white.v2": {
+      "kind": "pose_video",
+      "representation": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "single_performer": true,
+      "path": "clips/v2/battle_rap.luotian_highlight.pack01.seg02.white.v2.mp4",
+      "file": "clips/v2/battle_rap.luotian_highlight.pack01.seg02.white.v2.mp4",
+      "sha256": "0730ef125c5fbebc6d6c1b1bcfd3db3588d1d1f1720595af21bbf46cb48a0185",
+      "microphone_hand": "none",
+      "mic_hand": "none",
+      "framings": [
+        "MS",
+        "MCU",
+        "WS"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "alabaster_clay_3d_white_mannequin",
+      "fps": 24,
+      "frames": 90,
+      "duration": 3.75,
+      "width": 1344,
+      "height": 768,
+      "source_video": "luotian_highlight_source_reel.mp4",
+      "source_interval_seconds": [
+        4.458,
+        8.208
+      ],
+      "source_audio_used": false,
+      "description": "High-energy Luotian action/stage highlight 3D white model (seg02, 90f @ 24fps)",
+      "energy": "high",
+      "categories": [
+        "high_energy_action",
+        "martial_arts",
+        "stage_highlight"
+      ],
+      "tags": [
+        "luotian",
+        "highlight",
+        "white_model",
+        "alabaster_clay",
+        "high_energy"
+      ],
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 90,
+        "duration": 3.75,
+        "width": 1344,
+        "height": 768
+      }
+    }
+  }
+}

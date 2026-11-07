@@ -1,0 +1,340 @@
+# v0.5 用户提供的真实成曲与歌词：252.4秒，148BPM Trap方向，鼓点测量147.91。
+# 夏禾为清冷女高音，开场与两段副歌；A冷男低音、B颗粒男高音；无新增徐四口播。
+# 乐手身份是节目舞台安排，精确字幕与演奏动作仍须复核。
+title: 张灵玉VS张楚岚：雷有两面
+format: show
+grammar: show
+look: luotian_show
+realism: idol_show
+show_name: 异人开麦
+episode_no: 第二期
+logo_bug: 异人开麦
+show_notes: false
+subtitle_style: broadcast
+disclaimer: AI生成  仅供娱乐 · 一人之下同人二创
+fps: 24
+aspect: '16:9'
+bpm_hint: 147.91
+intro_bars: 0
+outro_bars: 1
+cast:
+  a:
+    character: zhang_lingyu
+    name_cn: 张灵玉
+    name_en: Zhang Lingyu
+    role: rapper
+    side: left
+    title_cn: 龙虎山天师府
+    voice: cold male baritone，冷峻男中低音，念白后利落断奏说唱；与B分开。
+    listen_cn: 站得端正，目光落在对方身上；被说中时短暂垂眼，随后抬头。
+  b:
+    character: zhang_chulan
+    name_cn: 张楚岚
+    name_en: Zhang Chulan
+    role: rapper
+    side: right
+    title_cn: 哪都通
+    voice: gritty male tenor，带颗粒的男高音，快速三连音与高速切分；末副歌只作短句ad-libs。
+    listen_cn: 嘴角带笑但不频繁耸肩；被问到来意时笑意收住，认真看向对方。
+  tianshi:
+    character: zhang_zhiwei
+    name_cn: 张之维
+    aka: 老天师
+    nicknames:
+    - 天师
+    role: judge
+    side: center
+    position_cn: 评委席中间的王座
+    title_cn: 龙虎山天师府 · 主评
+    listen_cn: 坐在王座上捋着白胡子，眯眼笑着点了一下头
+  lu_jin:
+    character: lu_jin
+    name_cn: 陆瑾
+    nicknames:
+    - 陆老
+    role: judge
+    side: center
+    position_cn: 评委席左边的王座
+    title_cn: 陆家 · 评委
+    listen_cn: 坐在王座上眼眶一下红了，拿白手帕擦眼泪，又板起脸装没事
+  feng_zhenghao:
+    character: feng_zhenghao
+    name_cn: 风正豪
+    nicknames:
+    - 风会长
+    role: judge
+    side: center
+    position_cn: 评委席右边的王座
+    title_cn: 天下会会长 · 评委
+    listen_cn: 坐在王座上十指交叉，眉毛一挑，嘴角绷住不笑
+  xu_si:
+    character: xu_si
+    name_cn: 徐四
+    role: host
+    side: center
+    position_cn: 主持台，仅作反应；用户成曲中没有另加徐四口播。
+    title_cn: 哪都通 · 主持人
+    listen_cn: 靠在DJ台边上挂着痞笑，跟着节奏晃脑袋
+    voice: 独立主持念白，不并入双男主歌唱声线；待试听。
+  xu_san:
+    character: xu_san
+    name_cn: 徐三
+    role: dj
+    side: center
+    position_cn: DJ台后面
+    title_cn: 哪都通 · DJ
+    listen_cn: 戴着一边耳机，面无表情地跟着节奏点头
+  baobao:
+    character: feng_baobao
+    name_cn: 冯宝宝
+    nicknames:
+    - 宝儿姐
+    role: cameo
+    side: center
+    position_cn: 右侧贵宾席；本期不唱副歌
+    title_cn: 哪都通 · 特邀观众
+    listen_cn: 安静注视张楚岚，眼神清醒；不做卡通式夸张表情。
+  shayan:
+    character: feng_shayan
+    name_cn: 风莎燕
+    nicknames:
+    - 莎燕
+    role: cameo
+    side: center
+    position_cn: 天下会来宾席，与全性侧廊在地理上明确分开。
+    title_cn: 天下会 · 特邀观众
+    listen_cn: 目光锋利、神态自信；听到漂亮回应时嘴角略扬，不反复翻白眼或捂嘴。
+  qing:
+    character: zhuge_qing
+    name_cn: 诸葛青
+    role: cameo
+    side: center
+    position_cn: 贵宾席
+    listen_cn: 嘴角略扬，认真听两人的回应。
+  wang:
+    character: wang_ye
+    name_cn: 王也
+    role: cameo
+    side: center
+    position_cn: 左前侧安静琴台
+    listen_cn: 非演唱乐手；保持嘴部自然闭合。女声开场与器乐尾奏；不要把古琴拨弦误认成吉他独奏。
+    title_cn: 乐队 · 古琴
+  xia_he:
+    character: xia_he
+    name_cn: 夏禾
+    role: hook
+    side: center
+    title_cn: 全性 · 开场与副歌主唱
+    position_cn: 全性侧廊相连的独立副歌表演台；两段副歌面向主舞台演唱。
+    listen_cn: 非演唱时留在副歌台，目光从容；张灵玉承认自身雷法时，短暂停顿后轻微认可。
+    voice: ethereal cold female soprano，空灵清冷女高音；女声开场、主副歌、尾段副歌均为主唱。
+  lv_liang:
+    character: lv_liang
+    name_cn: 吕良
+    role: cameo
+    side: center
+    title_cn: 全性 · 特邀来宾
+    position_cn: 全性侧廊夏禾后侧，不进入主角对峙轴线。
+    listen_cn: 张灵玉追问“哪一句是真的”后，短暂抬眼观察张楚岚；手停在扶手上，不连续推眼镜。
+  shen_chong:
+    character: shen_chong
+    name_cn: 沈冲
+    role: cameo
+    side: center
+    title_cn: 全性 · 特邀来宾
+    position_cn: 全性侧廊另一侧，与吕良保留身高与轮廓差异。
+    listen_cn: 听到“人情当然能借力”时笑意略起，接“本事不能代替”后收住。
+  lu_linglong:
+    character: lu_linglong
+    name_cn: 陆玲珑
+    role: cameo
+    side: center
+    title_cn: 乐队 · 鼓
+    position_cn: 后左鼓台
+    listen_cn: 非演唱乐手；保持嘴部自然闭合。鼓落点和过门短镜头，动作需鼓手参考，不套说唱摆手骨骼。
+  zhi_jinhua:
+    character: zhi_jinhua
+    name_cn: 枳瑾花
+    role: cameo
+    side: center
+    title_cn: 乐队 · 键盘
+    position_cn: 后右键盘台
+    listen_cn: 非演唱乐手；保持嘴部自然闭合。铺底、旋律及余响；手势幅度小，键位、手指与发声段落一致。
+  feng_xingtong:
+    character: feng_xingtong
+    name_cn: 风星潼
+    role: cameo
+    side: center
+    position_cn: 后中偏左
+    title_cn: 乐队 · 贝斯
+    listen_cn: 非演唱乐手；保持嘴部自然闭合。808低频的舞台化视觉安排；不是声称原录音由电贝斯录制。
+  jia_zhengliang:
+    character: jia_zhengliang
+    name_cn: 贾正亮
+    role: cameo
+    side: center
+    position_cn: 后中偏右
+    title_cn: 乐队 · 吉他
+    listen_cn: 非演唱乐手；保持嘴部自然闭合。吉他镜头预备；Guitar分轨可能含古琴等拨弦，未听辨确认前不放成主奏近景。
+venue:
+  cn: 《异人开麦》的跨阵营同人音乐舞台：沿用靛蓝石、青玉、古铜的电影级CG质感，山水夜景与太极擂台。哪都通、天师府、天下会、陆家来宾及全性各有可识别席位，群像关系通过座次和视线呈现。
+  en: 'Yiren Open Mic, a cross-faction fan-made music stage: refined cinematic CG,
+    indigo stone, jade and bronze, a taiji performance ring and mountain-night backdrop,
+    recognizable faction galleries with coherent seating and eyelines.'
+crowd_cn: 有姓名的《一人之下》人物近景与各阵营来宾中景，远处是门派弟子轮廓；全性单独成席，不混入无关动漫角色。
+end_question: 雷有两面|哪一句让你改观？
+verses:
+- kind: hook
+  lines:
+  - text: （啊——）
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 雷有两面，人有两难——
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 白衣掌心翻黑水，俗人袖里，偏偏起金电……
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 风云入局，分得出胜负，分不出冷暖，
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 等这盏灯亮透了，别急着，把谁看穿。
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  who: xia_he
+- kind: cold_open
+  lines:
+  - text: 从山上算计到山下……张楚岚，你嘴里到底哪句是真的？
+    spoken: true
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  who: a
+- kind: cold_open
+  lines:
+  - text: （呵）小师叔，听好了——这盘大局，我想赢！
+    spoken: true
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  who: b
+- kind: verse
+  lines:
+  - text: 算退路、算人心、算得太精，连认输都留余地，嘴上挂着没所谓，脚底下步步算计！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 十年金光藏锋芒、藏不住满城猜疑，从山上算到山下，你赔个笑脸又换话题！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  who: a
+- kind: verse
+  lines:
+  - text: 我也曾白衣不染泥、三千日夜苦心磨砺，就算踏进这红尘俗世里，也没丢天师府的功底！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 借各方人情博弈、布满盘暗棋诡计，把所有人都拉进局里，手底下真章拿什么代替？！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 五雷正法不看嘴皮、劈碎你满身假意，比快你藏着燥火气、比静我压着真锋利！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 异人江湖这盘棋、不认嬉皮只认根基，别等漫天暗夜全熄、才敢亮出你的真底细！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 从碧游村到秦岭深谷，我不笑你追查前尘的执意，可把天下人都当成棋——谁敢拿性命后背赌你？！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 杀招留半手、真心瞒到底，既然并肩站在风暴里，别拿混话当谜底！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  who: a
+- kind: hook
+  lines:
+  - text: （啊——）
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 雷有两面，人有两难——
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 白衣掌心翻黑水，俗人袖里，偏偏起金电！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 风云入局，分得出胜负，分不出冷暖，
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 等这盏灯亮透了，别急着，把谁看穿。
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  who: xia_he
+- kind: verse
+  lines:
+  - text: （哈！）笑我处处留余地？因为我背后，从来没有名门正派的高墙！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 深山里你修你的清净、泥潭里我学我的躲藏，把金光死死按进骨头缝里，谁不想活得亮堂堂？！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 一路入局不为虚名、只为把百年旧账照亮！小师叔一身白衣比谁都端庄，可掌心那团黑躲得过几道目光？！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 雷分阴阳不分贵贱、北冥黑水照样锋芒，别拿正统那把戒尺，把你自己的道心一道捆上！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  who: b
+- kind: verse
+  lines:
+  - text: 全天下骂我不摇碧莲、骂我嬉皮笑脸、骂我满嘴跑偏，我拍拍灰尘接着演！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 体面算什么排场？虚名算什么封赏？少留一分给面子，护住身边人才算真担当！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 能躺赢绝不硬抗、能认怂绝不逞强，入局前先把生死算停当，哪一回向这命运投过降？！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 我认你五雷够硬、傲骨够刚，可别仗着穿一身白就把俗人全判成脏，名声留给天下榜，绝路我自己去闯！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  who: b
+- kind: verse
+  lines:
+  - text: 下山趟过这片泥泞……你的难处，我如今才算踏过，守着昔日门规倒把我自己反锁，
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 掌心纵是阴雷黑水，这一路我不再闪躲——刚才那句实话我认下，张楚岚，往后的局正面接我！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  who: a
+- kind: verse
+  lines:
+  - text: 既然小师叔把话认了、那我也把笑脸放下，真话之所以绕弯、是因为肩上背着牵挂！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 搅动风云不为掌门位、更不图名震天下，只想替死在荒野的爷——向这世道问句当年真假！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 从甲申迷雾一路查到深谷底，她陪我趟过刀山火海，我陪她找回走散的家！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 你们守的规矩我绝不砸、可我护的人——满天神佛也别想拦下！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 我认我心眼太多、算计太深、也怕过人心变卦，可到了掀桌亮剑这一刻——你睁眼看看我退过半步吗？！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  who: b
+- kind: hook
+  lines:
+  - text: 雷有两面，人有两难——
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 白衣掌心翻黑水，俗人袖里，偏偏起金电！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 风云入局，分得出胜负，分不出冷暖，
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  - text: 等这盏灯亮透了，别急着，把谁看穿！
+    spoken: false
+    note: 用户提供的实际Suno歌词，按成曲核对；不是原作对白。
+  who: xia_he
+- kind: outro
+  lines: []
+  bars: 1
+  shot_cn: 尾奏以王也古琴与键盘余响收束；实际时长跟随已导入整曲。

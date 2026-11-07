@@ -4,6 +4,14 @@
 
 **EN**｜A pipeline for photoreal AI rap battles and music videos: song timing, a film-language storyboard with an audit, script-style Seedance prompts with timed half-lines, per-take lip-sync measurement, and a frame-exact graded conform.
 
+罗天系列已增加 H3 的共享资产与角色声线预检。新一期使用 `ep shared-assets` 生成配置，
+经 `ep production-check` 检查后导出 H3 任务，详见 [H3 系列化制作](docs/H3_Colab.md#系列共享资产与第二期)。
+共享库 `libraries/luotian/catalog.json` 已登记第一期选用的 15 个角色、33 项图片资产；声音参考仍待定样。
+图片对象不进入 Git，通过 `ep asset-pack` / `ep asset-unpack` 备份和恢复。
+新建一期使用 schema 4：`ep direct-plan` 编写逐镜表演计划，`ep direction-check` 检查导演字段与骨骼引用，
+通过 `ep production-check` 后才导出正式任务。新任务逐项审核人物、表演、手与道具、口型和连续性。
+骨骼素材库可独立建设，按 [交接接口](docs/Motion_Library_Handoff.md) 提供索引和视频。
+
 方法来源：[claudia.gallery](https://claudia.gallery/) 的制作记录（节拍分镜、人声 stem 口型、花钱闸门、逐镜头调色）、[ancient-rap-battle](https://github.com/10291124jcjc-dotcom/ancient-rap-battle)（按半句写秒数、固定站位、史料注释），以及两支参考片的镜头语言：Keynes vs Hayek《Fear the Boom and Bust》（广角贴脸、对手同框、真实场景）和《火影有嘻哈》（综艺长焦机位、反应镜头）。每条规则的来由见 [docs/方法论.md](docs/方法论.md)。
 
 ## 相比原版改了什么

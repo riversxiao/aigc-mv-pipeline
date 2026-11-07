@@ -1,0 +1,3239 @@
+{
+  "schema_version": 1,
+  "episode_sha256": "2a060abee9bbd8ea0a1c82474c183644b3bcafc96f4f36a46f0f34f4742bfdb7",
+  "board_sha256": "27500b1c09d6c1adfbe0779fa98877441258d1cbbf6d489f39ccb58403821aab",
+  "reference_roles": {
+    "portraits": "identity_costume",
+    "first_frame": "composition_stage_light",
+    "motion": "body_only",
+    "audio": "target_guide_timing",
+    "camera": "shot_plan"
+  },
+  "floor_plan": "",
+  "shots": {
+    "s001": {
+      "status": "draft",
+      "primary": null,
+      "framing": "WS",
+      "camera": "crane_in",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {},
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s002": {
+      "status": "draft",
+      "primary": "xu_si",
+      "framing": "2S",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "xu_si": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "xu_san": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "xu_san": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s003": {
+      "status": "draft",
+      "primary": "xu_si",
+      "framing": "MCU",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "xu_si": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s004": {
+      "status": "draft",
+      "primary": "xu_si",
+      "framing": "2S",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "xu_si": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "xu_san": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "xu_san": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s005": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "WS",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_bai": "",
+        "zhuge_menren": "",
+        "wang_ye": "",
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s006": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_bai": "",
+        "zhuge_menren": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s007": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s008": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "OTS",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "wang_ye": "",
+        "zhuge_bai": "",
+        "zhuge_menren": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s009": {
+      "status": "draft",
+      "primary": "feng_baobao",
+      "framing": "MS",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "feng_baobao": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s010": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_bai": "",
+        "zhuge_menren": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s011": {
+      "status": "draft",
+      "primary": "feng_baobao",
+      "framing": "MS",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "feng_baobao": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s012": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_bai": "",
+        "zhuge_menren": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s013": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "MCU",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_bai": "",
+        "zhuge_menren": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s014": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "OTS",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "wang_ye": "",
+        "zhuge_bai": "",
+        "zhuge_menren": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s015": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "2S",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "wang_ye": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s016": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "2S",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "wang_ye": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s017": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s018": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "2S",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "wang_ye": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s019": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "MCU",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_bai": "",
+        "zhuge_menren": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s020": {
+      "status": "draft",
+      "primary": "feng_zhenghao",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "feng_zhenghao": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s021": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "MCU",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_bai": "",
+        "zhuge_menren": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s022": {
+      "status": "draft",
+      "primary": "feng_shayan",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "feng_shayan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s023": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "OTS",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "wang_ye": "",
+        "zhuge_bai": "",
+        "zhuge_menren": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s024": {
+      "status": "draft",
+      "primary": "zhuge_zhanglao",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_zhanglao": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s025": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "2S",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "wang_ye": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s026": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "2S",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "wang_ye": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s027": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "2S",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "wang_ye": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s028": {
+      "status": "draft",
+      "primary": "feng_baobao",
+      "framing": "MS",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "feng_baobao": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s029": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s030": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s031": {
+      "status": "draft",
+      "primary": "zhang_zhiwei",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhang_zhiwei": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s032": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "OTS",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_qing": "",
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s033": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "2S",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_qing": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s034": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "2S",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_qing": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s035": {
+      "status": "draft",
+      "primary": "zhuge_zhanglao",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_zhanglao": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s036": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "2S",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_qing": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s037": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s038": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s039": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_bai": "",
+        "zhuge_menren": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s040": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "OTS",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_qing": "",
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s041": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "2S",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_qing": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s042": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s043": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s044": {
+      "status": "draft",
+      "primary": "feng_zhenghao",
+      "framing": "MCU",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "feng_zhenghao": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s045": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "OTS",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_qing": "",
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s046": {
+      "status": "draft",
+      "primary": "zhang_chulan",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s047": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "2S",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_qing": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s048": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s049": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s050": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "OTS",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_qing": "",
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s051": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "2S",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_qing": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s052": {
+      "status": "draft",
+      "primary": "lu_jin",
+      "framing": "MCU",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "lu_jin": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s053": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s054": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s055": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "WS",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s056": {
+      "status": "draft",
+      "primary": null,
+      "framing": "WS",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {},
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s057": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s058": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s059": {
+      "status": "draft",
+      "primary": "feng_baobao",
+      "framing": "MS",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "feng_baobao": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s060": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "MCU",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_bai": "",
+        "zhuge_menren": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s061": {
+      "status": "draft",
+      "primary": "zhang_lingyu",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s062": {
+      "status": "draft",
+      "primary": "wang_ye",
+      "framing": "MCU",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "right",
+        "position": ""
+      },
+      "motion": {
+        "required": true,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s063": {
+      "status": "draft",
+      "primary": null,
+      "framing": "MWS",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "feng_shayan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_zhanglao": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "feng_shayan": "",
+        "zhuge_zhanglao": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s064": {
+      "status": "draft",
+      "primary": null,
+      "framing": "MWS",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "feng_shayan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_zhanglao": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "feng_shayan": "",
+        "zhuge_zhanglao": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s065": {
+      "status": "draft",
+      "primary": null,
+      "framing": "WS",
+      "camera": "crane_up",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_qing": "",
+        "zhuge_bai": "",
+        "zhuge_menren": "",
+        "wang_ye": "",
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s066": {
+      "status": "draft",
+      "primary": "xu_san",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "xu_san": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s067": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "2S",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "wang_ye": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s068": {
+      "status": "draft",
+      "primary": null,
+      "framing": "MWS",
+      "camera": "locked",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "feng_shayan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_zhanglao": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "feng_shayan": "",
+        "zhuge_zhanglao": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s069": {
+      "status": "draft",
+      "primary": null,
+      "framing": "WS",
+      "camera": "crane_up",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_bai": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhuge_menren": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "zhang_chulan": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wudang_daotong": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "zhuge_qing": "",
+        "zhuge_bai": "",
+        "zhuge_menren": "",
+        "wang_ye": "",
+        "zhang_chulan": "",
+        "wudang_daotong": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s070": {
+      "status": "draft",
+      "primary": "xu_san",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "xu_san": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {},
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s071": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "2S",
+      "camera": "handheld",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "wang_ye": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s072": {
+      "status": "draft",
+      "primary": "zhuge_qing",
+      "framing": "2S",
+      "camera": "push_slow",
+      "camera_side": "",
+      "light": "",
+      "view": "front",
+      "blocking": {
+        "zhuge_qing": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        },
+        "wang_ye": {
+          "position": "",
+          "facing": "",
+          "eyeline": ""
+        }
+      },
+      "emotion": "",
+      "primary_action": "",
+      "ending": "",
+      "beats": {
+        "prepare": "",
+        "accent": "",
+        "settle": ""
+      },
+      "others": {
+        "wang_ye": ""
+      },
+      "microphone": {
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    }
+  }
+}
