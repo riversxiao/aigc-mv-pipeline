@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "style": "luotian_stage_v2_neo_taoist_concert",
+  "assets": {
+    "stage_v2.master_panorama.v1": {
+      "kind": "scene",
+      "path": "stage_v2_master_panorama.jpg",
+      "sha256": "399687299024aa9d0f9c98e48b8576d12caf4445a1588f902dd1385abc0ad93d",
+      "characters": [],
+      "description": "Neo-Taoist Cyber-Mystic Luotian Arena Master Panorama with Bagua floor mandala and celestial astrolabe.",
+      "width": 1920,
+      "height": 1080
+    },
+    "stage_v2.rivals_thunder_duel.v1": {
+      "kind": "composition",
+      "path": "stage_v2_rivals_thunder_duel.jpg",
+      "sha256": "09f464e459c1487ef240076ba648a194d592fe41e07a8242bda870e072a43e44",
+      "characters": [
+        "zhang_lingyu",
+        "zhang_chulan"
+      ],
+      "description": "Stage v2.0 Yin/Yang Five-Thunder duel composition with volumetric concert beams and fractal lightning.",
+      "width": 1920,
+      "height": 1080
+    },
+    "stage_v2.xia_he_chorus_balcony.v1": {
+      "kind": "composition",
+      "path": "stage_v2_xia_he_chorus_balcony.jpg",
+      "sha256": "9c4ecf77112fa3d9019657d0ce49ab63a4db341268a007e67a35e998fe6e7fe3",
+      "characters": [
+        "xia_he"
+      ],
+      "description": "Stage v2.0 Xia He chorus balcony with rose-magenta concert lighting and packed glowing arena.",
+      "width": 1920,
+      "height": 1080
+    },
+    "stage_v2.wang_ye_qimen_guqin.v1": {
+      "kind": "composition",
+      "path": "stage_v2_wang_ye_qimen_guqin.jpg",
+      "sha256": "881e5d9646e64b0c2c7beb44138894178c9bcb5e00de6c7f0314bb2a544043ff",
+      "characters": [
+        "wang_ye"
+      ],
+      "description": "Stage v2.0 Wang Ye Fenghou Qimen guqin performance with bronze astrolabe and cyan-gold star rings.",
+      "width": 1920,
+      "height": 1080
+    },
+    "stage_v2.band_lu_linglong_drums.v1": {
+      "kind": "composition",
+      "path": "stage_v2_band_lu_linglong_drums.jpg",
+      "sha256": "fefa925a70c0616d3e8fe7cb3d1c6ccae068f4dd12f54db43472d1dd64edc6d4",
+      "characters": [
+        "lu_linglong"
+      ],
+      "description": "Stage v2.0 Lu Linglong drum kit stage with concert spotlight matrix and glowing Bagua arena.",
+      "width": 1920,
+      "height": 1080
+    },
+    "stage_v2.judges_tianshi_throne.v1": {
+      "kind": "composition",
+      "path": "stage_v2_judges_tianshi_throne.jpg",
+      "sha256": "c8e4c9e24fcb081e2e754d0bd7835611e4f899b4322bc49e2e9f4cacf13c07c7",
+      "characters": [
+        "zhang_zhiwei",
+        "lu_jin",
+        "feng_zhenghao"
+      ],
+      "description": "Stage v2.0 Lao Tianshi Zhang Zhiwei central judge throne with golden Qi aura and celestial Bagua canopy.",
+      "width": 1920,
+      "height": 1080
+    },
+    "stage_v2.before_after_overview.v1": {
+      "kind": "overview",
+      "path": "stage_v2_before_after_overview.jpg",
+      "sha256": "e52a88f111442a01d5f9704750732a4b82f19518a89d58415bf56799119dd5e2",
+      "characters": [],
+      "description": "Stage v1 vs Stage v2.0 visual upgrade comparison overview sheet.",
+      "width": 1920,
+      "height": 1080
+    }
+  }
+}

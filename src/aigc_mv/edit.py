@@ -26,7 +26,7 @@ from aigc_mv.episode import Episode
 from aigc_mv.overlays import Sheet
 from aigc_mv.sync import load_unit_takes, takes_dir
 from aigc_mv.timing import Timing
-from aigc_mv.tools import ffmpeg_exe, run_ffmpeg
+from aigc_mv.tools import ffmpeg_exe, run_ffmpeg, video_size
 
 SIZES = {"480p": (854, 480), "720p": (1280, 720), "1080p": (1920, 1080), "2k": (2560, 1440)}
 
@@ -59,10 +59,20 @@ class Edl(BaseModel):
 
 def _pick_take(project_dir: Path, unit: str):
     ut = load_unit_takes(project_dir, unit)
-    if not ut.takes:
+    have = [x for x in ut.takes if (takes_dir(project_dir, unit) / x.take).is_file()]
+    if not have:
         return None, None
-    t = next((x for x in ut.takes if x.take == ut.pick), None) or max(ut.takes, key=lambda x: x.ncc)
+    t = next((x for x in have if x.take == ut.pick), None) or max(have, key=lambda x: x.ncc)
     return t, ut
+
+
+def take_fit(src_size: tuple[int, int] | None, W: int, H: int) -> str:
+    """Scale a take of any size to W x H: fill and crop when its aspect is within 6 % of the frame (no thin
+    bars from 1248x704-style sizes), else fit and pad with black (never cut faces off a 1:1 or 9:16 take)."""
+    if src_size and abs((src_size[0] / src_size[1]) / (W / H) - 1) <= 0.06:
+        return f"scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H}"
+    return (f"scale={W}:{H}:force_original_aspect_ratio=decrease:flags=lanczos,"
+            f"pad={W}:{H}:(ow-iw)/2:(oh-ih)/2:black")
 
 
 def build_edl(project_dir: Path, ep: Episode, board: Board, size: tuple[int, int], previz: bool = False) -> Edl:
@@ -70,11 +80,22 @@ def build_edl(project_dir: Path, ep: Episode, board: Board, size: tuple[int, int
     when previz is on) > face sheet / location still in refs/ (only when previz is off) > card."""
     project_dir = Path(project_dir)
     units = {u.id: u for u in board.units}
+    from aigc_mv.h3 import approved_shot_takes
+    h3_takes = approved_shot_takes(project_dir)
     entries = []
     for s in board.shots:
         u = units[s.unit]
-        take, _ = _pick_take(project_dir, u.id)
         e = EdlEntry(shot=s.id, t0=s.t0, t1=s.t1, source="card", move=s.camera)
+        if s.id in h3_takes:
+            record = h3_takes[s.id]
+            if abs(record["song_t0"] - s.t0) > 1e-5 or abs(record["song_t1"] - s.t1) > 1e-5:
+                raise ValueError(f"H3 shot {s.id} was generated for a different edit")
+            if record["src_in"] + s.dur > record["duration"] + 1 / ep.fps:
+                raise ValueError(f"Approved H3 take is shorter than shot {s.id}")
+            e.source, e.file, e.src_in = "take", record["file"], record["src_in"]
+            entries.append(e)
+            continue
+        take, _ = _pick_take(project_dir, u.id)
         if take is not None:
             lag = take.lag if (u.kind == "sung" and take.copy_) else 0.0
             src_in = round(s.t0 - u.song_t0 + lag, 3)
@@ -176,7 +197,7 @@ def _segment(project_dir: Path, ep: Episode, e: EdlEntry, s: BoardShot, out: Pat
         src = project_dir / e.file
         if not e.grade:
             e.grade = measure_grade(src, e.src_in, dur)
-        vf = (f"scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},setsar=1,fps={fps},"
+        vf = (f"{take_fit(video_size(src), W, H)},setsar=1,fps={fps},"
               f"{grade_filter(e.grade, warm)},tpad=stop_mode=clone:stop_duration={dur:.3f},setpts=N/({fps}*TB)")
         run_ffmpeg(["-ss", f"{e.src_in:.3f}", "-i", str(src), "-vf", vf, "-frames:v", str(n), *enc, str(out)])
         return
@@ -187,7 +208,7 @@ def _segment(project_dir: Path, ep: Episode, e: EdlEntry, s: BoardShot, out: Pat
 
         img = project_dir / e.file
         img.parent.mkdir(parents=True, exist_ok=True)
-        shot_plate(ep, s, (W * 2, H * 2), timing).save(img)
+        shot_plate(ep, s, (W * 2, H * 2), timing, refs=project_dir / "refs").save(img)
     else:
         img = tmp / f"card_{s.id}.png"
         text = {ln.idx: ln.text for ln in timing.lines}
@@ -376,5 +397,7 @@ def package(project_dir: Path, ep: Episode, board: Board, timing: Timing, pictur
     run_ffmpeg([*inputs, "-filter_complex", ";".join(fc), "-map", f"[{last}]", "-map", "1:a",
                 "-c:v", "libx264", "-preset", "medium", "-crf", "17", "-pix_fmt", "yuv420p", "-r", str(fps),
                 "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709",
-                "-c:a", "aac", "-b:a", "256k", "-shortest", "-movflags", "+faststart", str(out)])
+                "-c:a", "aac", "-b:a", "256k",
+                "-frames:v", str(round(t_to * fps) - round(t_from * fps)),
+                "-movflags", "+faststart", str(out)])
     return out

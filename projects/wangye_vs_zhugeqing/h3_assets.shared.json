@@ -1,0 +1,1021 @@
+{
+  "schema_version": 3,
+  "mode": "production",
+  "series_id": "luotian_rap",
+  "asset_library": "../../libraries/luotian/catalog.json",
+  "seed_base": 1000000,
+  "lead_frames": 8,
+  "lock_guide_audio": true,
+  "cast": {
+    "a": {
+      "portrait": "asset:character.zhuge_qing.front.v1",
+      "description": "Adult Zhuge Qing, navy-blue layered hair, narrow smiling foxlike eyes, small beauty mark, charcoal embroidered tailored jacket, open white collar and small green jade pendant. Plain matte-black wireless microphone with black grille when performing."
+    },
+    "b": {
+      "portrait": "asset:character.wang_ye.front.v1",
+      "description": "Adult Wang Ye, casual dark high topknot, intelligent sleepy half-lidded dark eyes, relaxed low eyebrows, indigo HIP-LENGTH wrap jacket tied at waist, white crew-neck tee and separate indigo trousers. Plain matte-black wireless microphone with black grille; understated confident acting."
+    },
+    "zhuge_bai": {
+      "portrait": "asset:character.zhuge_bai.front.v1",
+      "description": "Adult performer Zhuge Bai, blue chin-length bob, grey fedora with wine band, white raised-collar shirt, grey suspenders, dark trousers, youthful eager but restrained expression."
+    },
+    "menren": {
+      "portrait": "asset:character.zhuge_menren.front.v1",
+      "description": "Adult Zhuge-family teammate, broad square face, short dark hair, neat moustache and chin beard, white band-collar shirt and navy sleeveless long vest, dark trousers."
+    },
+    "chulan": {
+      "portrait": "asset:character.zhang_chulan.front.v1",
+      "description": "Adult Zhang Chulan, messy black hair, sly crooked closed smile, navy work jacket over white tee with orange-red collar, dark work trousers."
+    },
+    "daotong": {
+      "portrait": "asset:character.wudang_daotong.front.v1",
+      "description": "Adult Wudang teammate, earnest dark eyes, thick brows, modest dark topknot and plain wooden pin, grey-blue crossed-collar robe with white trim over white shirt."
+    },
+    "tianshi": {
+      "portrait": "asset:character.zhang_zhiwei.front.v1",
+      "description": "Lao Tianshi Zhang Zhiwei, dignified venerable elder with radiant evenly toned clean ivory skin, NO black spots, NO brown age spots or uneven pigmentation. Natural delicate elder wrinkles remain. Serene wise clear eyes, pure airy silver-white brows, long white beard and elegant white topknot. Black Taoist robe, grey cloud-jacquard collar, white inner collar, carved central judge chair. 仙风道骨、鹤发童颜、清癯高古。"
+    },
+    "lu_jin": {
+      "portrait": "asset:character.lu_jin.front.v1",
+      "description": "Venerable Lu Jin, long straight center-parted white hair, white moustache and chin beard, stern watery eyes, black suit and white shirt, seated carved left judge chair, a white handkerchief kept low."
+    },
+    "feng_zhenghao": {
+      "portrait": "asset:character.feng_zhenghao.front.v1",
+      "description": "Middle-aged Feng Zhenghao, slicked-back grey-white hair, round wire glasses, slate-blue double-breasted suit over blue polka-dot shirt, composed calculating smile, carved right judge chair."
+    },
+    "xu_si": {
+      "portrait": "asset:character.xu_si.front.v1",
+      "description": "Adult Xu Si, tousled short silver hair, faint chin goatee/stubble, khaki jacket with small brass collar bars, white scoop tee and silver chain, plain matte-black wireless microphone low at sternum."
+    },
+    "xu_san": {
+      "portrait": "asset:character.xu_san.front.v1",
+      "description": "Adult Xu San, neat short dark hair, rectangular glasses, black suit and open white shirt, black over-ear headphones on neck, professional DJ at the bronze and dark wood console."
+    },
+    "baobao": {
+      "portrait": "asset:character.feng_baobao.front.v1",
+      "description": "Adult Feng Baobao, exquisitely refined natural face, very long straight jet-black hair, clear dark eyes, neutral unbothered expression, pale grey-blue simple work shirt. Plain matte-black stand microphone offset below chin, lips unobstructed."
+    },
+    "lingyu": {
+      "portrait": "asset:character.zhang_lingyu.front.v1",
+      "description": "Adult Zhang Lingyu, beautiful dignified ascetic face, silver-white long hair half tied with dark ornament, white layered embroidered Taoist robe and dark waist sash. Serious calm eyes, plain matte-black stand microphone below chin."
+    },
+    "shayan": {
+      "portrait": "asset:character.feng_shayan.front.v1",
+      "description": "Adult Feng Shayan, exquisite confident face, short icy lavender bob and side fringe, matching tailored lavender suit and modest smooth pale lavender high-neck top, seated second-row VIP guest."
+    },
+    "zhanglao": {
+      "portrait": "asset:character.zhuge_zhanglao.front.v1",
+      "description": "Mature Zhuge-family elder, long lean face, swept salt-pepper hair, short salt-pepper moustache and chin beard, navy coat, white mandarin collar and navy suspenders, seated first-row guest with hands on a plain wooden walking stick."
+    }
+  },
+  "keyframes": {
+    "s001": "asset:scene.venue_front.v1",
+    "s002": "asset:frame.host_booth.v1",
+    "s003": "asset:frame.xu_si_solo.v1",
+    "s004": "asset:frame.host_booth.v1",
+    "s005": "asset:frame.teams_wide.v1",
+    "s006": "asset:frame.team_a_mcu.v1",
+    "s007": "asset:frame.team_b_mcu.v1",
+    "s008": "asset:frame.a_over_b_v2.v1",
+    "s009": "asset:frame.baobao_hook.v1",
+    "s010": "asset:frame.team_a_mcu.v1",
+    "s011": "asset:frame.baobao_hook.v1",
+    "s012": "asset:frame.team_a_mcu.v1",
+    "s013": "asset:frame.team_a_mcu.v1",
+    "s014": "asset:frame.a_over_b_v2.v1",
+    "s015": "asset:frame.rivals_profile.v1",
+    "s016": "asset:frame.rivals_two_shot.v1",
+    "s017": "asset:frame.team_b_mcu.v1",
+    "s018": "asset:frame.rivals_profile.v1",
+    "s019": "asset:frame.team_a_mcu.v1",
+    "s020": "asset:character.feng_zhenghao.front.v1",
+    "s021": "asset:frame.team_a_mcu.v1",
+    "s022": "asset:frame.shayan_seated.v1",
+    "s023": "asset:frame.a_over_b_v2.v1",
+    "s024": "asset:character.zhuge_zhanglao.front.v1",
+    "s025": "asset:frame.rivals_two_shot.v1",
+    "s026": "asset:frame.rivals_profile.v1",
+    "s027": "asset:frame.rivals_profile.v1",
+    "s028": "asset:frame.baobao_hook.v1",
+    "s029": "asset:frame.team_b_mcu.v1",
+    "s030": "asset:frame.team_b_mcu.v1",
+    "s031": "asset:character.zhang_zhiwei.front.v1",
+    "s032": "asset:frame.b_over_a_v2.v1",
+    "s033": "asset:frame.rivals_profile.v1",
+    "s034": "asset:frame.rivals_two_shot.v1",
+    "s035": "asset:character.zhuge_zhanglao.front.v1",
+    "s036": "asset:frame.rivals_profile.v1",
+    "s037": "asset:frame.team_b_mcu.v1",
+    "s038": "asset:frame.team_b_mcu.v1",
+    "s039": "asset:frame.team_a_mcu.v1",
+    "s040": "asset:frame.b_over_a_v2.v1",
+    "s041": "asset:frame.rivals_two_shot.v1",
+    "s042": "asset:frame.team_b_mcu.v1",
+    "s043": "asset:frame.team_b_mcu.v1",
+    "s044": "asset:character.feng_zhenghao.front.v1",
+    "s045": "asset:frame.b_over_a_v2.v1",
+    "s046": "asset:character.zhang_chulan.front.v1",
+    "s047": "asset:frame.rivals_two_shot.v1",
+    "s048": "asset:frame.team_b_mcu.v1",
+    "s049": "asset:frame.team_b_mcu.v1",
+    "s050": "asset:frame.b_over_a_v2.v1",
+    "s051": "asset:frame.rivals_two_shot.v1",
+    "s052": "asset:character.lu_jin.front.v1",
+    "s053": "asset:frame.team_b_mcu.v1",
+    "s054": "asset:frame.team_b_mcu.v1",
+    "s055": "asset:frame.blackout_wide_v2.v1",
+    "s056": "asset:scene.blackout_empty.v1",
+    "s057": "asset:frame.blackout_down.v1",
+    "s058": "asset:frame.blackout_down.v1",
+    "s059": "asset:frame.baobao_hook.v1",
+    "s060": "asset:frame.team_a_mcu.v1",
+    "s061": "asset:frame.lingyu_hook.v1",
+    "s062": "asset:frame.team_b_mcu.v1",
+    "s063": "asset:frame.crowd_named.v1",
+    "s064": "asset:frame.crowd_named.v1",
+    "s065": "asset:frame.teams_wide.v1",
+    "s066": "asset:character.xu_san.front.v1",
+    "s067": "asset:frame.rivals_two_shot.v1",
+    "s068": "asset:frame.crowd_named.v1",
+    "s069": "asset:frame.teams_wide.v1",
+    "s070": "asset:character.xu_san.front.v1",
+    "s071": "asset:frame.rivals_two_shot.v1",
+    "s072": "asset:frame.rivals_two_shot.v1"
+  },
+  "shot_overrides": {
+    "s001": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [],
+      "framing": "WS",
+      "lens": "35",
+      "camera": "crane_in",
+      "action": "The empty taiji stage floor and jade/bronze ring illumination rise gently; distant spectators remain subdued. Slowly approach the empty performance space, without spawning foreground people.",
+      "camera_description": "a slow shallow forward move toward the empty taiji floor and unlit inner ring, remaining above all spectators with the foreground unobstructed"
+    },
+    "s002": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "xu_si",
+        "xu_san"
+      ],
+      "framing": "2S",
+      "lens": "50",
+      "camera": "locked",
+      "action": "Xu Si alone delivers the guided host line, adding one low free-hand welcoming gesture. Xu San remains silent, makes a tiny head nod and moves one mixer fader, hands below face."
+    },
+    "s003": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "xu_si"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "push_slow",
+      "action": "Xu Si addresses the audience with a witty restrained expression and a small free-hand gesture below shoulder height."
+    },
+    "s004": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "xu_si",
+        "xu_san"
+      ],
+      "framing": "2S",
+      "lens": "50",
+      "camera": "handheld",
+      "action": "Xu Si alone delivers the guided host line, adding one low free-hand welcoming gesture. Xu San remains silent, makes a tiny head nod and moves one mixer fader, hands below face."
+    },
+    "s005": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained. Source split-screen entrance becomes one coherent six-person wide shot.",
+      "visible_cast": [
+        "a",
+        "zhuge_bai",
+        "menren",
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "WS",
+      "lens": "35",
+      "camera": "locked",
+      "action": "One continuous full-stage shot: the two leads each settle with one small half-step, their two respective teammates remain a step behind. All six adult people stay on the taiji platform and within frame. No split screen, teleportation or long walk. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s006": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "zhuge_bai",
+        "menren"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "Listen silently with a tiny closed-mouth knowing smile, a very small head inclination and subtle finger tap below face level. Teammates remain quiet and make one subtle approving nod."
+    },
+    "s007": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "push_slow",
+      "action": "Listen silently with a tiny closed-mouth knowing smile, a very small head inclination and subtle finger tap below face level. Teammates remain quiet and make one subtle approving nod. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s008": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "composition": "Sharp Zhuge Qing at center-left faces right; blurred Wang Ye shoulder remains only at right edge. The sharp face and lips stay unobstructed. Background teammates remain soft.",
+      "visible_cast": [
+        "b",
+        "a",
+        "zhuge_bai",
+        "menren"
+      ],
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "The sharp lead holds steady eye contact with the rival, a tiny nod marks the rhythm; all faces keep their own identities, foreground shoulder barely moves, no forward lunge. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s009": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "baobao"
+      ],
+      "framing": "MS",
+      "lens": "85",
+      "camera": "handheld",
+      "action": "The solo hook singer matches the fixed guide vocal, a very gentle body sway and natural breathing. Hands remain low at waist or lower stand, no hand approaching lips; stand mic stays offset and below chin. Keep complete hair and comfortable headroom."
+    },
+    "s010": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "zhuge_bai",
+        "menren"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "action": "Listen silently with a tiny closed-mouth knowing smile, a very small head inclination and subtle finger tap below face level. Teammates remain quiet and make one subtle approving nod."
+    },
+    "s011": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "baobao"
+      ],
+      "framing": "MS",
+      "lens": "85",
+      "camera": "push_slow",
+      "action": "The solo hook singer matches the fixed guide vocal, a very gentle body sway and natural breathing. Hands remain low at waist or lower stand, no hand approaching lips; stand mic stays offset and below chin. Keep complete hair and comfortable headroom."
+    },
+    "s012": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "zhuge_bai",
+        "menren"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "Rap toward the rival with small rhythmic nods; the free hand marks one accent low in frame, microphone steady below chin. The two teammates remain a step behind, silent with subtle nods."
+    },
+    "s013": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "zhuge_bai",
+        "menren"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "handheld",
+      "action": "Rap toward the rival with small rhythmic nods; the free hand marks one accent low in frame, microphone steady below chin. The two teammates remain a step behind, silent with subtle nods."
+    },
+    "s014": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "composition": "Sharp Zhuge Qing at center-left faces right; blurred Wang Ye shoulder remains only at right edge. The sharp face and lips stay unobstructed. Background teammates remain soft.",
+      "visible_cast": [
+        "b",
+        "a",
+        "zhuge_bai",
+        "menren"
+      ],
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "The sharp lead holds steady eye contact with the rival, a tiny nod marks the rhythm; all faces keep their own identities, foreground shoulder barely moves, no forward lunge. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s015": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained. Replace snap zoom with controlled push to protect facial identity. Keep a clean physical gap instead of source nose-to-nose blocking.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "85",
+      "camera": "push_slow",
+      "action": "A calm competitive face-off: Zhuge Qing stays LEFT and Wang Ye RIGHT, about 0.9 metre apart, both profiles cheated toward camera so the active mouth remains readable. Only the guided singer articulates, accenting the final words with a tiny nod. The listener stays still and closed-mouthed; no touching or stepping into each other. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s016": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "50",
+      "camera": "locked",
+      "action": "Only the guided singer articulates, with one small nod and low free-hand accent; the rival listens calmly and closed-mouthed. Preserve the clear gap and both fixed stage sides. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s017": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "push_slow",
+      "action": "Listen silently with a tiny closed-mouth knowing smile, a very small head inclination and subtle finger tap below face level. Teammates remain quiet and make one subtle approving nod. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s018": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained. Replace snap zoom with controlled push to protect facial identity. Keep a clean physical gap instead of source nose-to-nose blocking.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "85",
+      "camera": "push_slow",
+      "action": "A calm competitive face-off: Zhuge Qing stays LEFT and Wang Ye RIGHT, about 0.9 metre apart, both profiles cheated toward camera so the active mouth remains readable. Only the guided singer articulates, accenting the final words with a tiny nod. The listener stays still and closed-mouthed; no touching or stepping into each other. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s019": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "zhuge_bai",
+        "menren"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "handheld",
+      "action": "Direct one short restrained free-hand gesture toward the audience below shoulder height, then return it low. Keep the mic steady at sternum; articulate the fixed vocal with level low eyebrows. Teammates stay silent."
+    },
+    "s020": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "feng_zhenghao"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "action": "Feng Zhenghao keeps fingers comfortably interlaced low, one restrained brow shift and a tiny closed-mouth approving smile, seated posture unchanged."
+    },
+    "s021": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "zhuge_bai",
+        "menren"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "push_slow",
+      "action": "Rap toward the rival with small rhythmic nods; the free hand marks one accent low in frame, microphone steady below chin. The two teammates remain a step behind, silent with subtle nods."
+    },
+    "s022": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "shayan"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "Feng Shayan glances lightly toward the stage, a tiny amused closed smile and a subtle eye roll; both hands stay low, preserving her lovely face and effortless confidence."
+    },
+    "s023": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "composition": "Sharp Zhuge Qing at center-left faces right; blurred Wang Ye shoulder remains only at right edge. The sharp face and lips stay unobstructed. Background teammates remain soft.",
+      "visible_cast": [
+        "b",
+        "a",
+        "zhuge_bai",
+        "menren"
+      ],
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "handheld",
+      "action": "The sharp lead holds steady eye contact with the rival, a tiny nod marks the rhythm; all faces keep their own identities, foreground shoulder barely moves, no forward lunge. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s024": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "zhanglao"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "action": "The Zhuge-family elder stays seated with both hands on the walking stick, a slight chin lift and an intent proud gaze toward the stage, lips closed."
+    },
+    "s025": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "50",
+      "camera": "push_slow",
+      "action": "Only the guided singer articulates, with one small nod and low free-hand accent; the rival listens calmly and closed-mouthed. Preserve the clear gap and both fixed stage sides. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s026": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained. Replace snap zoom with controlled push to protect facial identity. Keep a clean physical gap instead of source nose-to-nose blocking.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "85",
+      "camera": "push_slow",
+      "action": "A calm competitive face-off: Zhuge Qing stays LEFT and Wang Ye RIGHT, about 0.9 metre apart, both profiles cheated toward camera so the active mouth remains readable. Only the guided singer articulates, accenting the final words with a tiny nod. The listener stays still and closed-mouthed; no touching or stepping into each other. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s027": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained. Keep a clean physical gap instead of source nose-to-nose blocking.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "85",
+      "camera": "handheld",
+      "action": "A calm competitive face-off: Zhuge Qing stays LEFT and Wang Ye RIGHT, about 0.9 metre apart, both profiles cheated toward camera so the active mouth remains readable. Only the guided singer articulates, accenting the final words with a tiny nod. The listener stays still and closed-mouthed; no touching or stepping into each other. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s028": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "baobao"
+      ],
+      "framing": "MS",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "The solo hook singer matches the fixed guide vocal, a very gentle body sway and natural breathing. Hands remain low at waist or lower stand, no hand approaching lips; stand mic stays offset and below chin. Keep complete hair and comfortable headroom."
+    },
+    "s029": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "action": "Rap toward the rival with small rhythmic nods; the free hand marks one accent low in frame, microphone steady below chin. The two teammates remain a step behind, silent with subtle nods. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s030": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "push_slow",
+      "action": "Rap toward the rival with small rhythmic nods; the free hand marks one accent low in frame, microphone steady below chin. The two teammates remain a step behind, silent with subtle nods. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s031": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "tianshi"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "Lao Tianshi sits upright in the central judge chair, composed and sage-like. One very small knowing nod and soft closed smile; a graceful low beard touch only at its tip, never obscure face. His skin remains evenly toned and clean with natural elder wrinkles, no black/brown facial spots."
+    },
+    "s032": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "composition": "Sharp Wang Ye at center-right faces left; blurred Zhuge Qing shoulder remains only at left edge. The sharp face and lips stay unobstructed. Background teammates remain soft.",
+      "visible_cast": [
+        "a",
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "handheld",
+      "action": "The sharp lead holds steady eye contact with the rival, a tiny nod marks the rhythm; all faces keep their own identities, foreground shoulder barely moves, no forward lunge. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s033": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained. Keep a clean physical gap instead of source nose-to-nose blocking.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "85",
+      "camera": "locked",
+      "action": "A calm competitive face-off: Zhuge Qing stays LEFT and Wang Ye RIGHT, about 0.9 metre apart, both profiles cheated toward camera so the active mouth remains readable. Only the guided singer articulates, accenting the final words with a tiny nod. The listener stays still and closed-mouthed; no touching or stepping into each other. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s034": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "50",
+      "camera": "push_slow",
+      "action": "Only the guided singer articulates, with one small nod and low free-hand accent; the rival listens calmly and closed-mouthed. Preserve the clear gap and both fixed stage sides. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s035": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "zhanglao"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "The Zhuge-family elder stays seated with both hands on the walking stick, a slight chin lift and an intent proud gaze toward the stage, lips closed."
+    },
+    "s036": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained. Keep a clean physical gap instead of source nose-to-nose blocking.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "85",
+      "camera": "handheld",
+      "action": "A calm competitive face-off: Zhuge Qing stays LEFT and Wang Ye RIGHT, about 0.9 metre apart, both profiles cheated toward camera so the active mouth remains readable. Only the guided singer articulates, accenting the final words with a tiny nod. The listener stays still and closed-mouthed; no touching or stepping into each other. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s037": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "action": "Direct one short restrained free-hand gesture toward the audience below shoulder height, then return it low. Keep the mic steady at sternum; articulate the fixed vocal with level low eyebrows. Teammates stay silent. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s038": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "push_slow",
+      "action": "Rap toward the rival with small rhythmic nods; the free hand marks one accent low in frame, microphone steady below chin. The two teammates remain a step behind, silent with subtle nods. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s039": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "zhuge_bai",
+        "menren"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "Listen silently with a tiny closed-mouth knowing smile, a very small head inclination and subtle finger tap below face level. Teammates remain quiet and make one subtle approving nod."
+    },
+    "s040": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "composition": "Sharp Wang Ye at center-right faces left; blurred Zhuge Qing shoulder remains only at left edge. The sharp face and lips stay unobstructed. Background teammates remain soft.",
+      "visible_cast": [
+        "a",
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "handheld",
+      "action": "The sharp lead holds steady eye contact with the rival, a tiny nod marks the rhythm; all faces keep their own identities, foreground shoulder barely moves, no forward lunge. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s041": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "50",
+      "camera": "locked",
+      "action": "Only the guided singer articulates, with one small nod and low free-hand accent; the rival listens calmly and closed-mouthed. Preserve the clear gap and both fixed stage sides. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s042": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "push_slow",
+      "action": "Direct one short restrained free-hand gesture toward the audience below shoulder height, then return it low. Keep the mic steady at sternum; articulate the fixed vocal with level low eyebrows. Teammates stay silent. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s043": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "Rap toward the rival with small rhythmic nods; the free hand marks one accent low in frame, microphone steady below chin. The two teammates remain a step behind, silent with subtle nods. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s044": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "feng_zhenghao"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "handheld",
+      "action": "Feng Zhenghao keeps fingers comfortably interlaced low, one restrained brow shift and a tiny closed-mouth approving smile, seated posture unchanged."
+    },
+    "s045": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "composition": "Sharp Wang Ye at center-right faces left; blurred Zhuge Qing shoulder remains only at left edge. The sharp face and lips stay unobstructed. Background teammates remain soft.",
+      "visible_cast": [
+        "a",
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "The sharp lead holds steady eye contact with the rival, a tiny nod marks the rhythm; all faces keep their own identities, foreground shoulder barely moves, no forward lunge. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s046": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "chulan"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "action": "Zhang Chulan holds back a sly closed-mouth grin and makes one tiny eyebrow shift; no cartoon grimace or large head motion."
+    },
+    "s047": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "50",
+      "camera": "push_slow",
+      "action": "Only the guided singer articulates, with one small nod and low free-hand accent; the rival listens calmly and closed-mouthed. Preserve the clear gap and both fixed stage sides. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s048": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "handheld",
+      "action": "Direct one short restrained free-hand gesture toward the audience below shoulder height, then return it low. Keep the mic steady at sternum; articulate the fixed vocal with level low eyebrows. Teammates stay silent. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s049": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "action": "Rap toward the rival with small rhythmic nods; the free hand marks one accent low in frame, microphone steady below chin. The two teammates remain a step behind, silent with subtle nods. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s050": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "composition": "Sharp Wang Ye at center-right faces left; blurred Zhuge Qing shoulder remains only at left edge. The sharp face and lips stay unobstructed. Background teammates remain soft.",
+      "visible_cast": [
+        "a",
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "OTS",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "The sharp lead holds steady eye contact with the rival, a tiny nod marks the rhythm; all faces keep their own identities, foreground shoulder barely moves, no forward lunge. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s051": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "50",
+      "camera": "push_slow",
+      "action": "Only the guided singer articulates, with one small nod and low free-hand accent; the rival listens calmly and closed-mouthed. Preserve the clear gap and both fixed stage sides. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s052": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "lu_jin"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "handheld",
+      "action": "Lu Jin blinks with slightly moist eyes, briefly presses the white handkerchief to the outer cheek below the eye, then lowers it, recovering a dignified stern closed-mouth expression. No broad crying or head tilt out of frame."
+    },
+    "s053": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "locked",
+      "action": "Direct one short restrained free-hand gesture toward the audience below shoulder height, then return it low. Keep the mic steady at sternum; articulate the fixed vocal with level low eyebrows. Teammates stay silent. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s054": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "push_slow",
+      "action": "Rap toward the rival with small rhythmic nods; the free hand marks one accent low in frame, microphone steady below chin. The two teammates remain a step behind, silent with subtle nods. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s055": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "WS",
+      "lens": "35",
+      "camera": "locked",
+      "action": "The rear-facing figure remains planted on the same spotlight mark, with only a tiny breath in his shoulders. Right hand keeps the black handheld microphone pointing down beside the thigh. Jacket hem ends at hips, separate trousers stay visible; body orientation, costume and single spotlight remain constant. Maintain this one exact wide view for the full interval.",
+      "look_description": "Refined cinematic Chinese CG, a continuously dark low-exposure indigo blackout. The monumental bronze ring is unlit metal, jade rails are unlit dark stone. The sole pale overhead spotlight keeps exactly the same dim brightness and footprint throughout; soft silver rims only. Architecture and gallery remain deep shadow. All clothing remains dark indigo.",
+      "gallery_description": "The seated sect gallery remains indistinct in deep shadow throughout, with no lit faces or raised props.",
+      "acting_description": "Only tiny natural atmospheric motion. ",
+      "camera_description": "The camera is completely stationary at its initial distant wide-shot position for the entire uninterrupted interval; framing and focal length stay constant",
+      "composition": "A single LOCKED WIDE REAR VIEW of the complete taiji stage. The sole full-body man occupies only about one quarter of frame height at the right third, viewed continuously from BEHIND. Keep the entire stage and all four platform corners in the same positions throughout. The small rear-facing silhouette remains the same size. His face stays unseen.",
+      "portraits": {
+        "b": "asset:character.wang_ye.back.v1"
+      },
+      "view": "back"
+    },
+    "s056": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "scene_reference": "asset:scene.blackout_empty.v1",
+      "visible_cast": [],
+      "framing": "WS",
+      "lens": "35",
+      "camera": "locked",
+      "action": "Hold this empty, deeply shadowed stage continuously at the same low exposure. Only a faint wisp of air drifts through the existing dim light pool. Fixed architecture, fixed darkness, fixed light intensity; the stage remains empty throughout.",
+      "look_description": "Refined cinematic Chinese CG, a continuously dark low-exposure indigo blackout. The monumental bronze ring is unlit metal, jade rails are unlit dark stone. The sole pale overhead spotlight keeps exactly the same dim brightness and footprint throughout; soft silver rims only. Architecture and gallery remain deep shadow. All clothing remains dark indigo.",
+      "gallery_description": "The seated sect gallery remains indistinct in deep shadow throughout, with no lit faces or raised props.",
+      "acting_description": "Only tiny natural atmospheric motion. ",
+      "camera_description": "The camera is completely stationary at its initial distant wide-shot position for the entire uninterrupted interval; framing and focal length stay constant",
+      "composition": "The identical empty dark arena remains in the locked wide composition for the full interval, with one dim pale spotlight pool on the empty stage. Bronze ring, jade strips and audience stay unlit."
+    },
+    "s057": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "Wang Ye keeps chin slightly lowered and lips closed through the quiet pause, takes one restrained breath, no dramatic grimace. Dim neutral spotlight preserves clear face; background ring stays OFF. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s058": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "handheld",
+      "action": "Wang Ye gently lifts his gaze toward the rival before the target word, then articulates the brief final guided phrase with quiet confidence and returns lips to rest. Eyebrows stay relaxed; dim spotlight and unlit background unchanged. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s059": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "baobao"
+      ],
+      "framing": "MS",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "The solo hook singer matches the fixed guide vocal, a very gentle body sway and natural breathing. Hands remain low at waist or lower stand, no hand approaching lips; stand mic stays offset and below chin. Keep complete hair and comfortable headroom."
+    },
+    "s060": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "zhuge_bai",
+        "menren"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "handheld",
+      "action": "Listen silently with a tiny closed-mouth knowing smile, a very small head inclination and subtle finger tap below face level. Teammates remain quiet and make one subtle approving nod."
+    },
+    "s061": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "lingyu"
+      ],
+      "framing": "MS",
+      "lens": "85",
+      "camera": "locked",
+      "action": "The solo hook singer matches the fixed guide vocal, a very gentle body sway and natural breathing. Hands remain low at waist or lower stand, no hand approaching lips; stand mic stays offset and below chin. Keep complete hair and comfortable headroom."
+    },
+    "s062": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "push_slow",
+      "action": "Address the front audience with one small open free-hand invitation at chest level; the microphone remains below the mouth for the guided lyric. Teammates nod softly, all other mouths closed. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s063": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained. Replace red glowsticks and generic crowd with named guests and martial-world audience.",
+      "visible_cast": [
+        "shayan",
+        "zhanglao"
+      ],
+      "framing": "MWS",
+      "lens": "50",
+      "camera": "locked",
+      "action": "The named foreground guests retain their seats and identities. Feng Shayan gives a subtle approving nod, Zhuge-family elder watches proudly with hands on the stick. Background adult sect spectators give restrained chest-level applause, mouths mostly closed. Their unoccupied hands stay quietly below the rails, each guest remains a distinct single person."
+    },
+    "s064": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained. Replace red glowsticks and generic crowd with named guests and martial-world audience.",
+      "visible_cast": [
+        "shayan",
+        "zhanglao"
+      ],
+      "framing": "MWS",
+      "lens": "50",
+      "camera": "push_slow",
+      "action": "The named foreground guests retain their seats and identities. Feng Shayan gives a subtle approving nod, Zhuge-family elder watches proudly with hands on the stick. Background adult sect spectators give restrained chest-level applause, mouths mostly closed. Their unoccupied hands stay quietly below the rails, each guest remains a distinct single person."
+    },
+    "s065": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "zhuge_bai",
+        "menren",
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "WS",
+      "lens": "35",
+      "camera": "crane_up",
+      "action": "Both complete teams remain at their established left/right positions on the taiji floor. Distant martial-world audience applauds gently. Slow crane rise reveals the layered arena, never losing complete bodies. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s066": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "xu_san"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "Xu San remains silent and composed, one small approving nod and a short low hand gesture above the console; do not raise arms over his head or chant."
+    },
+    "s067": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "50",
+      "camera": "handheld",
+      "action": "Both rivals lower their microphones toward waist level, exchange a restrained closed-mouth knowing smile and a small respectful nod, staying at the same left/right positions. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s068": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained. Replace red glowsticks and generic crowd with named guests and martial-world audience.",
+      "visible_cast": [
+        "shayan",
+        "zhanglao"
+      ],
+      "framing": "MWS",
+      "lens": "50",
+      "camera": "locked",
+      "action": "The named foreground guests retain their seats and identities. Feng Shayan gives a subtle approving nod, Zhuge-family elder watches proudly with hands on the stick. Background adult sect spectators give restrained chest-level applause, mouths mostly closed. Their unoccupied hands stay quietly below the rails, each guest remains a distinct single person."
+    },
+    "s069": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "zhuge_bai",
+        "menren",
+        "b",
+        "chulan",
+        "daotong"
+      ],
+      "framing": "WS",
+      "lens": "35",
+      "camera": "crane_up",
+      "action": "Both complete teams remain at their established left/right positions on the taiji floor. Distant martial-world audience applauds gently. Slow crane rise reveals the layered arena, never losing complete bodies. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s070": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "xu_san"
+      ],
+      "framing": "MCU",
+      "lens": "85",
+      "camera": "tele_float",
+      "action": "Xu San remains silent and composed, one small approving nod and a short low hand gesture above the console; do not raise arms over his head or chant."
+    },
+    "s071": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "50",
+      "camera": "handheld",
+      "action": "Both rivals lower their microphones toward waist level, exchange a restrained closed-mouth knowing smile and a small respectful nod, staying at the same left/right positions. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    },
+    "s072": {
+      "reason": "Approved upgraded art and bounded natural performance; original song/edit clocks retained.",
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "lens": "50",
+      "camera": "push_slow",
+      "action": "Both rivals lower their microphones toward waist level, exchange a restrained closed-mouth knowing smile and a small respectful nod, staying at the same left/right positions. Wang Ye maintains a smooth forehead and level low brows, half-lidded eyes and quietly detached confidence."
+    }
+  },
+  "audio_cast": {
+    "voices": {
+      "xu_si": {
+        "voice_id": null,
+        "reference": null,
+        "vocals": "audio/xu_si_vocals.wav",
+        "direction": ""
+      },
+      "feng_baobao": {
+        "voice_id": null,
+        "reference": null,
+        "vocals": "audio/feng_baobao_vocals.wav",
+        "direction": ""
+      },
+      "zhuge_qing": {
+        "voice_id": null,
+        "reference": null,
+        "vocals": "audio/zhuge_qing_vocals.wav",
+        "direction": "清亮、精致，咬字利落，带一点自信和锋芒（待试听定样）"
+      },
+      "wang_ye": {
+        "voice_id": null,
+        "reference": null,
+        "vocals": "audio/wang_ye_vocals.wav",
+        "direction": "中低声线、松弛略沙、轻北京口音，节奏落点稳（待试听定样）"
+      },
+      "zhang_lingyu": {
+        "voice_id": null,
+        "reference": null,
+        "vocals": "audio/zhang_lingyu_vocals.wav",
+        "direction": ""
+      }
+    },
+    "review": {
+      "status": "pending"
+    }
+  }
+}

@@ -1,0 +1,418 @@
+{
+  "schema_version": 1,
+  "category": "piano",
+  "motions": {
+    "piano.instrument_piano_stage_pack02.seg01.whitemodel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/piano.instrument_piano_stage_pack02.seg01.whitemodel.v1.mp4",
+      "sha256": "85105e5e00e3eeaa29d8a0e603fa4e41ede48fbed8c2694406cd987f6b650d0d",
+      "microphone_hand": "either",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "three_quarter",
+        "front",
+        "profile"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "instrument_type": "piano",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "HayatoSumino_Cateen_ChopinWinterWind_4K.mp4",
+      "source_url": "https://www.youtube.com/watch?v=pHlqEvAwdVc",
+      "source_interval_seconds": [
+        12.513,
+        15.554
+      ],
+      "source_audio_used": false,
+      "description": "Virtuoso concert grand piano performance (Hayato Sumino 'Chopin Winter Wind' Op.25-11): rapid two-handed cascade arpeggios, expressive upper-body sway, 3D grand piano keyboard deck (seg01, 12.51s-15.55s) [3D Rigged White Mannequin + 3D Stage/Instrument Proxy]",
+      "energy": "high",
+      "tags": [
+        "piano",
+        "instruments",
+        "grand_piano",
+        "virtuoso_hands",
+        "cateen",
+        "classical_stage",
+        "white_model",
+        "rigged_3d_mannequin"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Instrument_Piano_Stage_Pack02_seg01_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "piano.instrument_piano_stage_pack02.seg01.skel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/piano.instrument_piano_stage_pack02.seg01.skel.v1.mp4",
+      "sha256": "60d73a153c9689d1804f539611bbe2ca24e047ae1d53348bf9c3f5e759d666a2",
+      "microphone_hand": "either",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "three_quarter",
+        "front",
+        "profile"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "instrument_type": "piano",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "HayatoSumino_Cateen_ChopinWinterWind_4K.mp4",
+      "source_url": "https://www.youtube.com/watch?v=pHlqEvAwdVc",
+      "source_interval_seconds": [
+        12.513,
+        15.554
+      ],
+      "source_audio_used": false,
+      "description": "Virtuoso concert grand piano performance (Hayato Sumino 'Chopin Winter Wind' Op.25-11): rapid two-handed cascade arpeggios, expressive upper-body sway, 3D grand piano keyboard deck (seg01, 12.51s-15.55s) [2D 133-KP Wholebody + 21-Joint Hand Skeleton]",
+      "energy": "high",
+      "tags": [
+        "piano",
+        "instruments",
+        "grand_piano",
+        "virtuoso_hands",
+        "cateen",
+        "classical_stage",
+        "skeleton_2d",
+        "rtmw_133kp"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Instrument_Piano_Stage_Pack02_seg01_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "piano.instrument_piano_stage_pack02.seg02.whitemodel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/piano.instrument_piano_stage_pack02.seg02.whitemodel.v1.mp4",
+      "sha256": "8cce11403148126c16a0213f40383597f5a1a3fcf51f9666950386a6038c1030",
+      "microphone_hand": "either",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "three_quarter",
+        "front",
+        "profile"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "instrument_type": "piano",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "HayatoSumino_Cateen_ChopinWinterWind_4K.mp4",
+      "source_url": "https://www.youtube.com/watch?v=pHlqEvAwdVc",
+      "source_interval_seconds": [
+        46.547,
+        49.588
+      ],
+      "source_audio_used": false,
+      "description": "Virtuoso concert grand piano performance (Hayato Sumino 'Chopin Winter Wind' Op.25-11): rapid two-handed cascade arpeggios, expressive upper-body sway, 3D grand piano keyboard deck (seg02, 46.55s-49.58s) [3D Rigged White Mannequin + 3D Stage/Instrument Proxy]",
+      "energy": "high",
+      "tags": [
+        "piano",
+        "instruments",
+        "grand_piano",
+        "virtuoso_hands",
+        "cateen",
+        "classical_stage",
+        "white_model",
+        "rigged_3d_mannequin"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Instrument_Piano_Stage_Pack02_seg02_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "piano.instrument_piano_stage_pack02.seg02.skel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/piano.instrument_piano_stage_pack02.seg02.skel.v1.mp4",
+      "sha256": "ed6b55986be8d239c4461594fc6c34ac332690b4a2985c64e014da05e622bb44",
+      "microphone_hand": "either",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "three_quarter",
+        "front",
+        "profile"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "instrument_type": "piano",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "HayatoSumino_Cateen_ChopinWinterWind_4K.mp4",
+      "source_url": "https://www.youtube.com/watch?v=pHlqEvAwdVc",
+      "source_interval_seconds": [
+        46.547,
+        49.588
+      ],
+      "source_audio_used": false,
+      "description": "Virtuoso concert grand piano performance (Hayato Sumino 'Chopin Winter Wind' Op.25-11): rapid two-handed cascade arpeggios, expressive upper-body sway, 3D grand piano keyboard deck (seg02, 46.55s-49.58s) [2D 133-KP Wholebody + 21-Joint Hand Skeleton]",
+      "energy": "high",
+      "tags": [
+        "piano",
+        "instruments",
+        "grand_piano",
+        "virtuoso_hands",
+        "cateen",
+        "classical_stage",
+        "skeleton_2d",
+        "rtmw_133kp"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Instrument_Piano_Stage_Pack02_seg02_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "piano.instrument_piano_stage_pack02.seg03.whitemodel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/piano.instrument_piano_stage_pack02.seg03.whitemodel.v1.mp4",
+      "sha256": "8fb76499d8270e96ca2ee2107e24b843724f0524a8d0647767f41d1fd3f6bc11",
+      "microphone_hand": "either",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "three_quarter",
+        "front",
+        "profile"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "instrument_type": "piano",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "JohnLegend_Nervous_LivePianoVocal.mp4",
+      "source_url": "https://www.youtube.com/watch?v=Uq1ckViVlS0",
+      "source_interval_seconds": [
+        16.6,
+        19.642
+      ],
+      "source_audio_used": false,
+      "description": "Live vocal + grand piano stage performance (John Legend 'Nervous'): soulful chord playing on piano keys with simultaneous lead vocal head/mouth articulation (seg03, 16.60s-19.64s) [3D Rigged White Mannequin + 3D Stage/Instrument Proxy]",
+      "energy": "high",
+      "tags": [
+        "piano",
+        "vocal_piano",
+        "instruments",
+        "stage_music",
+        "grand_piano",
+        "white_model",
+        "rigged_3d_mannequin"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Instrument_Piano_Stage_Pack02_seg03_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "piano.instrument_piano_stage_pack02.seg03.skel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/piano.instrument_piano_stage_pack02.seg03.skel.v1.mp4",
+      "sha256": "cd1e9414fbdf2d910eea9e789ab2e689fa3a30cd619ea89e3d27fca18fbc4f06",
+      "microphone_hand": "either",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "three_quarter",
+        "front",
+        "profile"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "instrument_type": "piano",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "JohnLegend_Nervous_LivePianoVocal.mp4",
+      "source_url": "https://www.youtube.com/watch?v=Uq1ckViVlS0",
+      "source_interval_seconds": [
+        16.6,
+        19.642
+      ],
+      "source_audio_used": false,
+      "description": "Live vocal + grand piano stage performance (John Legend 'Nervous'): soulful chord playing on piano keys with simultaneous lead vocal head/mouth articulation (seg03, 16.60s-19.64s) [2D 133-KP Wholebody + 21-Joint Hand Skeleton]",
+      "energy": "high",
+      "tags": [
+        "piano",
+        "vocal_piano",
+        "instruments",
+        "stage_music",
+        "grand_piano",
+        "skeleton_2d",
+        "rtmw_133kp"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Instrument_Piano_Stage_Pack02_seg03_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "piano.instrument_piano_stage_pack02.seg04.whitemodel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/piano.instrument_piano_stage_pack02.seg04.whitemodel.v1.mp4",
+      "sha256": "8c5c051dcf583926d6f2144499c4c3447bd8d3eb45fd9be1bbdac098dad0c35d",
+      "microphone_hand": "either",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "three_quarter",
+        "front",
+        "profile"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "instrument_type": "piano",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "JohnLegend_Nervous_LivePianoVocal.mp4",
+      "source_url": "https://www.youtube.com/watch?v=Uq1ckViVlS0",
+      "source_interval_seconds": [
+        33.283,
+        36.325
+      ],
+      "source_audio_used": false,
+      "description": "Live vocal + grand piano stage performance (John Legend 'Nervous'): soulful chord playing on piano keys with simultaneous lead vocal head/mouth articulation (seg04, 33.28s-36.33s) [3D Rigged White Mannequin + 3D Stage/Instrument Proxy]",
+      "energy": "high",
+      "tags": [
+        "piano",
+        "vocal_piano",
+        "instruments",
+        "stage_music",
+        "grand_piano",
+        "white_model",
+        "rigged_3d_mannequin"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Instrument_Piano_Stage_Pack02_seg04_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "piano.instrument_piano_stage_pack02.seg04.skel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/piano.instrument_piano_stage_pack02.seg04.skel.v1.mp4",
+      "sha256": "eecd63b0406775f2c7a212a984d8b2853adccddfb1ba815657b35b53dc2b88cb",
+      "microphone_hand": "either",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "three_quarter",
+        "front",
+        "profile"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "instrument_type": "piano",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "JohnLegend_Nervous_LivePianoVocal.mp4",
+      "source_url": "https://www.youtube.com/watch?v=Uq1ckViVlS0",
+      "source_interval_seconds": [
+        33.283,
+        36.325
+      ],
+      "source_audio_used": false,
+      "description": "Live vocal + grand piano stage performance (John Legend 'Nervous'): soulful chord playing on piano keys with simultaneous lead vocal head/mouth articulation (seg04, 33.28s-36.33s) [2D 133-KP Wholebody + 21-Joint Hand Skeleton]",
+      "energy": "high",
+      "tags": [
+        "piano",
+        "vocal_piano",
+        "instruments",
+        "stage_music",
+        "grand_piano",
+        "skeleton_2d",
+        "rtmw_133kp"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Instrument_Piano_Stage_Pack02_seg04_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    }
+  }
+}

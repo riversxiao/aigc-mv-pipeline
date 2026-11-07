@@ -1,0 +1,395 @@
+{
+  "schema_version": 1,
+  "motions": {
+    "instruments.piano.pack01.seg01.white.v2": {
+      "kind": "pose_video",
+      "representation": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "single_performer": true,
+      "path": "clips/instruments.piano.pack01.seg01.white.v2.mp4",
+      "file": "clips/v2/instruments.piano.pack01.seg01.white.v2.mp4",
+      "sha256": "e5c2f0f6df141e4b10847fc80dcbd3474b65cb4cdab970a2cf479b881a9d1afc",
+      "microphone_hand": "none",
+      "mic_hand": "none",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "fps": 24,
+      "frames": 73,
+      "duration": 3.0417,
+      "width": 1344,
+      "height": 768,
+      "source_video": "Piano_seg01_LangLang_LaCampanella_29s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Piano virtuoso performance (Lang Lang La Campanella): 3D rigged mannequin with full 21-joint finger articulation on keyboard (seg01, 73f)",
+      "energy": "high",
+      "categories": [
+        "instrument_performance",
+        "piano",
+        "stage_musician"
+      ],
+      "tags": [
+        "instrument",
+        "piano",
+        "white_model",
+        "rigged_3d_mannequin",
+        "21_joint_hands"
+      ],
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768
+      }
+    },
+    "instruments.piano.pack01.seg02.white.v2": {
+      "kind": "pose_video",
+      "representation": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "single_performer": true,
+      "path": "clips/instruments.piano.pack01.seg02.white.v2.mp4",
+      "file": "clips/v2/instruments.piano.pack01.seg02.white.v2.mp4",
+      "sha256": "e9f4157a0901d91b91fae21e88b4db20e8c24d266005236a9474d53b3c2d4807",
+      "microphone_hand": "none",
+      "mic_hand": "none",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "fps": 24,
+      "frames": 73,
+      "duration": 3.0417,
+      "width": 1344,
+      "height": 768,
+      "source_video": "Piano_seg02_Piano_PeterBence_Africa_50s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Piano virtuoso performance (Lang Lang La Campanella): 3D rigged mannequin with full 21-joint finger articulation on keyboard (seg02, 73f)",
+      "energy": "high",
+      "categories": [
+        "instrument_performance",
+        "piano",
+        "stage_musician"
+      ],
+      "tags": [
+        "instrument",
+        "piano",
+        "white_model",
+        "rigged_3d_mannequin",
+        "21_joint_hands"
+      ],
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768
+      }
+    },
+    "instruments.piano.pack01.seg03.white.v2": {
+      "kind": "pose_video",
+      "representation": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "single_performer": true,
+      "path": "clips/instruments.piano.pack01.seg03.white.v2.mp4",
+      "file": "clips/v2/instruments.piano.pack01.seg03.white.v2.mp4",
+      "sha256": "3b8d6cac7a3f25877609e7f984fa5dd03d34edb8ac8199dda88bb8254e5227af",
+      "microphone_hand": "none",
+      "mic_hand": "none",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "fps": 24,
+      "frames": 73,
+      "duration": 3.0417,
+      "width": 1344,
+      "height": 768,
+      "source_video": "Piano_seg03_Animenz_Unravel_28s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Piano virtuoso performance (Lang Lang La Campanella): 3D rigged mannequin with full 21-joint finger articulation on keyboard (seg03, 73f)",
+      "energy": "high",
+      "categories": [
+        "instrument_performance",
+        "piano",
+        "stage_musician"
+      ],
+      "tags": [
+        "instrument",
+        "piano",
+        "white_model",
+        "rigged_3d_mannequin",
+        "21_joint_hands"
+      ],
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768
+      }
+    },
+    "instruments.guitar.pack01.seg01.white.v2": {
+      "kind": "pose_video",
+      "representation": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "single_performer": true,
+      "path": "clips/instruments.guitar.pack01.seg01.white.v2.mp4",
+      "file": "clips/v2/instruments.guitar.pack01.seg01.white.v2.mp4",
+      "sha256": "4d20860699bf184e814a4bde6b528f038015686552649e628ff1bbb4eab5b0c3",
+      "microphone_hand": "none",
+      "mic_hand": "none",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "fps": 24,
+      "frames": 73,
+      "duration": 3.0417,
+      "width": 1344,
+      "height": 768,
+      "source_video": "Guitar_seg01_Polyphia_PlayingGod_65s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Guitar virtuoso performance (Polyphia Playing God): 3D rigged mannequin with fretboard & picking hand articulation (seg01, 73f)",
+      "energy": "high",
+      "categories": [
+        "instrument_performance",
+        "guitar",
+        "stage_musician"
+      ],
+      "tags": [
+        "instrument",
+        "guitar",
+        "white_model",
+        "rigged_3d_mannequin",
+        "21_joint_hands"
+      ],
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768
+      }
+    },
+    "instruments.guitar.pack01.seg02.white.v2": {
+      "kind": "pose_video",
+      "representation": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "single_performer": true,
+      "path": "clips/instruments.guitar.pack01.seg02.white.v2.mp4",
+      "file": "clips/v2/instruments.guitar.pack01.seg02.white.v2.mp4",
+      "sha256": "3143e9927c34cec03d1229547079dc252ddd465dcf8e4fb868543cdf12874bc9",
+      "microphone_hand": "none",
+      "mic_hand": "none",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "fps": 24,
+      "frames": 73,
+      "duration": 3.0417,
+      "width": 1344,
+      "height": 768,
+      "source_video": "Guitar_seg02_Polyphia_EgoDeath_39s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Guitar virtuoso performance (Polyphia Playing God): 3D rigged mannequin with fretboard & picking hand articulation (seg02, 73f)",
+      "energy": "high",
+      "categories": [
+        "instrument_performance",
+        "guitar",
+        "stage_musician"
+      ],
+      "tags": [
+        "instrument",
+        "guitar",
+        "white_model",
+        "rigged_3d_mannequin",
+        "21_joint_hands"
+      ],
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768
+      }
+    },
+    "instruments.guitar.pack01.seg03.white.v2": {
+      "kind": "pose_video",
+      "representation": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "single_performer": true,
+      "path": "clips/instruments.guitar.pack01.seg03.white.v2.mp4",
+      "file": "clips/v2/instruments.guitar.pack01.seg03.white.v2.mp4",
+      "sha256": "51b6a02b9b143589b9971994b8ecc0184571eb1c1821ef63375eed0db1c75245",
+      "microphone_hand": "none",
+      "mic_hand": "none",
+      "framings": [
+        "MS",
+        "MCU",
+        "CU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "fps": 24,
+      "frames": 73,
+      "duration": 3.0417,
+      "width": 1344,
+      "height": 768,
+      "source_video": "Guitar_seg03_IchikaNito_Awakening_21s.mp4",
+      "source_interval_seconds": [
+        0.0,
+        3.042
+      ],
+      "source_audio_used": false,
+      "description": "Guitar virtuoso performance (Polyphia Playing God): 3D rigged mannequin with fretboard & picking hand articulation (seg03, 73f)",
+      "energy": "high",
+      "categories": [
+        "instrument_performance",
+        "guitar",
+        "stage_musician"
+      ],
+      "tags": [
+        "instrument",
+        "guitar",
+        "white_model",
+        "rigged_3d_mannequin",
+        "21_joint_hands"
+      ],
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768
+      }
+    },
+    "instruments.shamisen.wo8.296_60.skel.v2": {
+      "kind": "pose_video",
+      "representation": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "single_performer": true,
+      "path": "clips/instruments.shamisen.wo8.296_60.skel.v2.mp4",
+      "file": "clips/v2/instruments.shamisen.wo8.296_60.skel.v2.mp4",
+      "sha256": "f582669dfc2abdc9b393502c0bb7dc2abff2f33a639f9862a6448db3b6d079f1",
+      "microphone_hand": "none",
+      "mic_hand": "none",
+      "framings": [
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "fps": 24,
+      "frames": 60,
+      "duration": 2.5,
+      "width": 1344,
+      "height": 768,
+      "source_video": "wO8_kr2NL68.mp4",
+      "source_interval_seconds": [
+        296.6,
+        299.108
+      ],
+      "source_audio_used": false,
+      "description": "Seated traditional string instrument (shamisen/pipa/guqin style) performance: hands plucking & fretting on beat (60f)",
+      "energy": "medium",
+      "categories": [
+        "instrument_performance",
+        "plucked_string",
+        "stage_musician"
+      ],
+      "tags": [
+        "instrument",
+        "shamisen",
+        "string_instrument",
+        "skeleton_v2"
+      ],
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 60,
+        "duration": 2.5,
+        "width": 1344,
+        "height": 768
+      }
+    }
+  },
+  "category": "instruments"
+}

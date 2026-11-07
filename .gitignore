@@ -38,9 +38,29 @@ projects/*/refs/REFS.md
 projects/*/refs/refs_plan.json
 # official canon art (copyrighted): local reference only, never commit
 projects/*/refs/canon/
+# paid face-test candidates (derived from canon art): local only
+projects/*/refs/candidates/
 projects/*/suno.md
 projects/*/ledger.jsonl
 projects/*/approvals.json
+projects/*/dreamina_bundle/
+projects/*/dreamina_bundle.zip
+projects/*/h3/
+libraries/*/objects/
+libraries/*/character_sheets/*.jpg
+libraries/*/character_sheets/*.png
+libraries/*/stage_v2/*.jpg
+libraries/*/stage_v2/*.png
+libraries/*/meoogo_refs/*.jpg
+libraries/*/meoogo_refs/*.jpeg
+libraries/*/meoogo_refs/*.png
+libraries/*/meoogo_padded_16x9/*.jpg
+libraries/*/meoogo_padded_16x9/*.png
+libraries/motions/**/clips/
+libraries/motions/**/incoming/
+libraries/motions/**/overview_sheets/
+libraries/motions/kpop_dance/Kpop_Dance_*/
+projects/*/audio_flac/
 # the same outputs when an episode fixture is boarded by hand
 tests/fixtures/*/analysis/
 tests/fixtures/*/board/

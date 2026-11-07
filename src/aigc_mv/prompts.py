@@ -11,7 +11,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
-from aigc_mv import cinema
+from aigc_mv import cinema, plates
 from aigc_mv.board import Board, BoardShot, Unit
 from aigc_mv.canon import load_character
 from aigc_mv.episode import Episode
@@ -49,8 +49,27 @@ def _who_cn(ep: Episode, keys: list[str]) -> str:
     return "、".join(ep.cast[k].name_cn for k in keys)
 
 
-def _move_text(ep: Episode, shot: BoardShot, who: str | None, other: str | None) -> str:
+# Sung show units only: the same camera moves and long lenses in fewer words (long sung prompts make Seedance
+# re-sing instead of copying the audio). Moves missing here keep their full text.
+SHORT_MOVE_CN = {
+    "locked": "固定机位，几乎不动",
+    "push_slow": "缓慢平稳地推近一个景别",
+    "tele_float": "长焦跟拍，随人物轻微漂移",
+    "handheld": "肩扛手持跟拍，轻微晃动，不剧烈",
+    "snap_zoom": "前面稳定，最后半秒急推到大特写",
+}
+SHORT_LENS_CN = {
+    "24w": "24mm 广角贴近人物",
+    "135": "135mm 长焦，空间压缩，背景虚成大片光斑",
+}
+# Sung show units always upload at least one locked environment plate: the venue look is carried by it.
+SHOW_PLATE_LOOK_CN = "场馆、擂台、灯光和配色照场景图；像电视直播画面但有电影感，细腻颗粒。"
+
+
+def _move_text(ep: Episode, shot: BoardShot, who: str | None, other: str | None, short: bool = False) -> str:
     m = cinema.MOVES[shot.camera]
+    if short and shot.camera in SHORT_MOVE_CN:
+        return SHORT_MOVE_CN[shot.camera]
     return m.cn.format(
         who=ep.cast[who].name_cn if who else "人物",
         other=ep.cast[other].name_cn if other else "对手",
@@ -83,10 +102,10 @@ class UnitPrompt:
 
 ROLE_CN = {"rapper": "选手", "teammate": "队友", "judge": "评委", "host": "主持", "dj": "DJ", "hook": "副歌",
            "cameo": "客串"}
-MAX_FACE_REFS = 6  # Seedance reference image limit leaves room for the scene + crowd
-CROWD_STAGINGS = ("crowd_ws", "mic_to_crowd", "cameo_react", "high_ws")
-JUDGE_STAGINGS = ("judge_react",)
-DJ_STAGINGS = ("dj_booth", "dj_cu")
+# 即梦 Seedance 2.0「全能参考」: at most 9 images per generation (plus up to 3 videos and 3 audio, 12 files in
+# all). Check again when the API field spec arrives (docs/接口对接.md).
+MAX_UPLOADS = 9
+MAX_FACE_REFS = 6  # one sheet per person; leaves room for the environment plates (plates.MAX_UNIT_PLATES)
 
 
 def _show_people(board_shots: list[BoardShot]) -> tuple[list[str], list[str]]:
@@ -106,27 +125,45 @@ def _show_people(board_shots: list[BoardShot]) -> tuple[list[str], list[str]]:
     return fg, bg
 
 
-def _show_unit_refs(ep: Episode, board: Board, u: Unit) -> list[tuple[str, str]]:
+def show_unit_uploads(ep: Episode, board: Board, u: Unit) -> tuple[list[tuple[str, str]], list[str]]:
+    """(uploads, warnings) of a show unit: one sheet per person (singer first, background crew last), then the
+    environment plates of its stagings (plates.pick_unit_plates). Over MAX_UPLOADS, background people go first,
+    then extra plates; one plate always stays."""
     shots = board.unit_shots(u)
     fg, bg = _show_people(shots)
+    warn: list[str] = []
+    people = (fg + bg)[:MAX_FACE_REFS]
+    if len(fg + bg) > MAX_FACE_REFS:
+        warn.append("more than %d people, not uploaded: %s" % (MAX_FACE_REFS, ", ".join((fg + bg)[MAX_FACE_REFS:])))
+    env, dropped = plates.pick_unit_plates(ep, shots)
+    if dropped:
+        warn.append("plates over %d per unit, not uploaded: %s" % (plates.MAX_UNIT_PLATES,
+                                                                  ", ".join(p.file for p in dropped)))
+    while len(people) + len(env) > MAX_UPLOADS and any(w in bg for w in people):
+        w = next(w for w in reversed(people) if w in bg)
+        people.remove(w)
+        warn.append(f"over {MAX_UPLOADS} uploads: background {w}_sheet.png dropped")
+    while len(people) + len(env) > MAX_UPLOADS and len(env) > 1:
+        warn.append(f"over {MAX_UPLOADS} uploads: plate {env.pop().file} dropped")
+    while len(people) + len(env) > MAX_UPLOADS:
+        warn.append(f"over {MAX_UPLOADS} uploads: {people.pop()}_sheet.png dropped")
     refs: list[tuple[str, str]] = []
-    for w in (fg + bg)[:MAX_FACE_REFS]:
+    for w in people:
         c = ep.cast[w]
         role = f"是{c.name_cn}（{ROLE_CN[c.role]}）的锁定定妆图（正侧面和全身），只用来认脸、发型和服装，不要把这张图当成画面出现"
         if w in bg:
             role += f"；{c.name_cn}只在背景里虚化出现"
         refs.append((f"{w}_sheet.png", role))
-    stg = {s.staging for s in shots}
-    special = set(JUDGE_STAGINGS) | set(DJ_STAGINGS)
-    if not stg or stg - special:
-        refs.append(("venue.png", f"是场景：{ep.venue.cn}"))
-    if stg & set(JUDGE_STAGINGS) and ep.members("judge"):
-        refs.append(("judges.png", "是评委席（三张王座）的样子"))
-    if stg & set(DJ_STAGINGS) and ep.members("dj"):
-        refs.append(("dj_booth.png", "是 DJ 台的样子"))
-    if stg & set(CROWD_STAGINGS) or any(s.kind in ("crowd", "establish") for s in shots):
-        refs.append(("crowd.png", "是台下观众的样子（每个人长得都不一样）"))
-    return refs
+    refs += [(p.file, plates.upload_role(p)) for p in env]
+    return refs, warn
+
+
+def _show_unit_refs(ep: Episode, board: Board, u: Unit) -> list[tuple[str, str]]:
+    return show_unit_uploads(ep, board, u)[0]
+
+
+def upload_warnings(ep: Episode, board: Board, u: Unit) -> list[str]:
+    return show_unit_uploads(ep, board, u)[1] if ep.format == "show" else []
 
 
 def unit_refs(ep: Episode, board: Board, u: Unit) -> list[tuple[str, str]]:
@@ -151,6 +188,39 @@ def unit_refs(ep: Episode, board: Board, u: Unit) -> list[tuple[str, str]]:
     if any(s.kind in ("crowd", "establish") for s in shots):
         refs.append(("crowd.png", "是台下观众的样子（每个人长得都不一样）"))
     return refs
+
+
+SHOW_SHEET_RULE_CN = "每人一张锁定定妆图（正侧面和全身），只用来认脸、发型和服装，不要把这些图当成画面出现"
+SHOW_PLATE_RULE_CN = "只用来对齐场馆、灯光和观众席的样子，人物照定妆图，不要把场景图原样当成画面"
+
+
+def _show_ref_text(ep: Episode, uploads: list[tuple[str, str]]) -> str:
+    """【参考图】 of a show unit in two sentences: every @图片N named once, the identity-only rule and the
+    background-only rule said once for all sheets and once for all plates (sung prompts must stay short)."""
+    sheets, envs, other = [], [], []
+    for i, (f, role) in enumerate(uploads, 1):
+        key = f[: -len("_sheet.png")] if f.endswith("_sheet.png") else ""
+        if key in ep.cast:
+            c = ep.cast[key]
+            sheets.append(f"@图片{i}是{c.name_cn}（{ROLE_CN[c.role]}）")
+        elif f in plates.BY_FILE:
+            envs.append(f"@图片{i}是场景图（{plates.BY_FILE[f].title_cn}）")
+        else:
+            other.append(f"@图片{i}{role}。")
+    out = "【参考图】"
+    if sheets:
+        out += "，".join(sheets) + f"：{SHOW_SHEET_RULE_CN}。"
+    if envs:
+        out += "，".join(envs) + f"：{SHOW_PLATE_RULE_CN}。"
+    return out + "".join(other)
+
+
+def _show_person_cn(name: str, c: Character) -> str:
+    """Foreground person of a show unit: the sheet carries face, hair and costume, so only age and sex (first
+    clause of the card), the signature details and what the hands do are restated."""
+    ident = (c.identity_cn or c.identity).replace(",", "，").split("，")[0].strip("。；; ")
+    bits = [ident, c.signature_cn, c.props_cn]
+    return f"{name}：" + "；".join(b.strip("。；; ") for b in bits if b) + "。"
 
 
 def _show_goal(ep: Episode, u: Unit) -> str:
@@ -178,23 +248,37 @@ def _position_cn(ep: Episode, w: str) -> str:
     return f"{c.name_cn}{'站在' if c.role == 'teammate' else '坐在'}{pos}，"
 
 
+def _cameo_seat_cn(ep: Episode, w: str, plate_idx: dict[str, int]) -> str:
+    """'沙燕坐在观众席第二排靠中间偏左（@图片5 里留空的那个座位），左右和身后…' (same seat in every shot)."""
+    c = ep.cast[w]
+    n = plate_idx.get("cameo_seats.png")
+    ref = f"（@图片{n} 里留空的那个座位）" if n else ""
+    return (f"{c.name_cn}坐在{plates.cameo_seats(ep)[w]}{ref}，"
+            "左右和身后坐满了不认识的普通观众，长相各不相同，都不是剧中角色；")
+
+
 def _show_timeline(ep: Episode, timing: Timing, u: Unit, shots: list[BoardShot],
-                   lines_by_idx: dict) -> list[str]:
+                   lines_by_idx: dict, plate_idx: dict[str, int] | None = None) -> list[str]:
     """Timeline of a variety-show unit: staging first, then who says / sings what, reactions by seat."""
+    plate_idx = plate_idx or {}
+    short = u.kind == "sung"
     out = []
     for k, s in enumerate(shots, 1):
         a, b = s.t0 - u.song_t0, s.t1 - u.song_t0
         if k == len(shots):
             b = u.duration
         fr = cinema.FRAMINGS[s.framing][0]
-        lens = cinema.LENSES[s.lens][0]
+        lens = SHORT_LENS_CN.get(s.lens, cinema.LENSES[s.lens][0]) if short else cinema.LENSES[s.lens][0]
         visible_singer = s.singer if s.singer and s.singer in s.who else None
         focus = s.who[0] if s.kind == "react" and s.who else (visible_singer or (s.who[0] if s.who else None))
-        move = _move_text(ep, s, focus, ep.other(focus) if focus else None)
+        move = _move_text(ep, s, focus, ep.other(focus) if focus else None, short=short)
         land = _beat_landing(timing, u, a, b)
         head = f"镜头{k}（{a:.1f}–{b:.1f} 秒）：{fr}，{lens}；运镜：{move}，{land}。"
         if s.staging in cinema.SHOW_STAGINGS:
             head += f"调度：{cinema.SHOW_STAGINGS[s.staging].cn}。"
+        n_plate = plate_idx.get(plates.plate_for(ep, s.staging).file)
+        if n_plate:
+            head += f"背景照 @图片{n_plate}。"
         bg = ""
         if s.background:
             front = visible_singer or (s.who[0] if s.who else None)
@@ -227,7 +311,8 @@ def _show_timeline(ep: Episode, timing: Timing, u: Unit, shots: list[BoardShot],
                        + f"，嘴型逐字对上 @音频1 这几秒的声音；{singer}边{verb}边{s.action_cn}。" + listen + bg)
         elif s.kind == "react" and s.who:
             nm = _who_cn(ep, s.who)
-            seat = "".join(_position_cn(ep, w) for w in s.who)
+            seat = "".join(_cameo_seat_cn(ep, w, plate_idx) if ep.cast[w].role == "cameo" else _position_cn(ep, w)
+                           for w in s.who)
             voice = f"{ep.cast[s.singer].name_cn}的声音在画外继续，" if s.singer and s.lines else ""
             out.append(head + f"{seat}{nm}的反应镜头：{voice}{nm}嘴一直闭着，不说不唱，{s.action_cn}。" + bg)
         else:
@@ -255,13 +340,16 @@ def video_prompt(ep: Episode, board: Board, timing: Timing, u: Unit,
                 if w not in who_all:
                     who_all.append(w)
 
-    ref_text = "【参考图】" + "".join(f"@图片{i}{role}。" for i, (_, role) in enumerate(uploads, 1))
+    if show:
+        ref_text = _show_ref_text(ep, uploads)
+    else:
+        ref_text = "【参考图】" + "".join(f"@图片{i}{role}。" for i, (_, role) in enumerate(uploads, 1))
     people = []
     for w in who_all:
         c = chars[w]
-        if show and w in bg:  # blurred second layer: the face sheet carries the identity, keep the prompt short
-            wear = (c.wardrobe_cn or c.wardrobe_default).strip("。 ")
-            people.append(f"{ep.cast[w].name_cn}：" + (wear + "，" if wear else "") + "只在背景里虚化出现，长相照参考图。")
+        if show:  # the locked sheet carries the identity; blurred background people get one shared sentence
+            if w not in bg:
+                people.append(_show_person_cn(ep.cast[w].name_cn, c))
             continue
         bits = [c.identity_cn or c.identity, c.wardrobe_cn or c.wardrobe_default, c.props_cn]
         people.append(f"{ep.cast[w].name_cn}：" + "；".join(b.strip("。 ") for b in bits if b) + "。")
@@ -270,13 +358,18 @@ def video_prompt(ep: Episode, board: Board, timing: Timing, u: Unit,
         sides = sides_cn(ep) if len(rappers) == 2 and any(w in rappers for w in who_all) else ""
     else:
         sides = sides_cn(ep) if len(ep.cast) == 2 else ""
+    if show and bg:
+        people.append(f"{_who_cn(ep, bg)}只在背景里虚化出现，长相和服装照定妆图。")
     people_txt = "【人物】" + "".join(people) + sides
 
     loc_full = ep.venue.cn if u.location == "venue" else ep.locations[u.location].cn
     loc_name = loc_full.replace("；", "，").split("，")[0]
     timeline = []
+    crowd_txt = ""
     if show:
-        timeline = _show_timeline(ep, timing, u, shots, lines_by_idx)
+        plate_idx = {f: i for i, (f, _) in enumerate(uploads, 1) if f in plates.BY_FILE}
+        timeline = _show_timeline(ep, timing, u, shots, lines_by_idx, plate_idx)
+        crowd_txt = plates.crowd_line(ep, shots)
     for k, s in enumerate([] if show else shots, 1):
         a, b = s.t0 - u.song_t0, s.t1 - u.song_t0
         if k == len(shots):
@@ -319,8 +412,9 @@ def video_prompt(ep: Episode, board: Board, timing: Timing, u: Unit,
             goal = _show_goal(ep, u)
         else:
             goal = f"【目标】{loc_name}，{singer}在说唱对决里正面开火，一镜一句、动作照歌词字面演。"
-        body = [AUDIO_COPY_CN, goal, ref_text, people_txt, "【分镜】", *timeline, LIPSYNC_CN,
-                "【画面】" + look.cn + cinema.realism_cn(ep.realism, sung=True),
+        look_cn = SHOW_PLATE_LOOK_CN if show and any(f in plates.BY_FILE for f, _ in uploads) else look.cn
+        body = [AUDIO_COPY_CN, goal, ref_text, people_txt, crowd_txt, "【分镜】", *timeline, LIPSYNC_CN,
+                "【画面】" + look_cn + cinema.realism_cn(ep.realism, sung=True),
                 CORE_CN + cinema.NO_TEXT_CN, AUDIO_COPY_CN]
     else:
         if show:
@@ -328,7 +422,7 @@ def video_prompt(ep: Episode, board: Board, timing: Timing, u: Unit,
         else:
             goal = f"【目标】{loc_name}。" + (shots[0].note or "")
         body = [AUDIO_RHYTHM_CN if u.audio == "instrumental" else "【音频】无声视频。", goal, ref_text,
-                people_txt if who_all else "", "【分镜】", *timeline,
+                people_txt if who_all else "", crowd_txt, "【分镜】", *timeline,
                 "【画面】" + look.cn + cinema.realism_cn(ep.realism) + cinema.MOTION_CN + cinema.CAMERA_REAL_CN,
                 CORE_CN + cinema.NO_TEXT_CN,
                 AUDIO_RHYTHM_CN if u.audio == "instrumental" else ""]
@@ -495,7 +589,10 @@ def refs_plan(ep: Episode, board: Board, chars: dict[str, Character]) -> list[di
             "cn": still_prompt_cn(ep, ch, "MS", "50", f"中灰色无缝背景布，柔和均匀的影棚光，同一个人的正面头肩、四分之三侧面、"
                                   f"正侧面和一张{'朝右' if c.side == 'left' else '朝左'}的半身照，四格拼在一张图里"),
         })
-    scenes = [("venue.png", "主场景（正面、对称、平视；开场推镜头要正对着推）", ep.venue)]
+    show = ep.format == "show"
+    if show:  # the arena plate set replaces venue / judges / DJ booth / crowd stills
+        out += plate_items(ep, board)
+    scenes = [] if show else [("venue.png", "主场景（正面、对称、平视；开场推镜头要正对着推）", ep.venue)]
     scenes += [(f"loc_{k}.png", f"叙事场景：{v.cn}", v) for k, v in ep.locations.items()]
     for f, use, loc in scenes:
         out.append({
@@ -505,7 +602,7 @@ def refs_plan(ep: Episode, board: Board, chars: dict[str, Character]) -> list[di
                                   + (loc.en or loc.cn)),
             "cn": still_prompt_cn(ep, None, "WS", "35", "正面对称平视，地平线水平，画面里没有人，" + loc.cn),
         })
-    if ep.members("judge"):
+    if ep.members("judge") and not show:
         out.append({
             "file": "judges.png", "use": "评委席（评委反应镜头的场景图）",
             "en": still_prompt_en(ep, None, "MS", "50",
@@ -515,7 +612,7 @@ def refs_plan(ep: Episode, board: Board, chars: dict[str, Character]) -> list[di
             "cn": still_prompt_cn(ep, None, "MS", "50", "说唱节目的评委席：舞台边的高台上并排摆着三张高背深色木王座，"
                                   "红色轮廓光，座位上没有人，" + ep.venue.cn),
         })
-    if ep.members("dj"):
+    if ep.members("dj") and not show:
         out.append({
             "file": "dj_booth.png", "use": "DJ 台（主持和 DJ 镜头的场景图）",
             "en": still_prompt_en(ep, None, "MS", "50",
@@ -525,13 +622,14 @@ def refs_plan(ep: Episode, board: Board, chars: dict[str, Character]) -> list[di
             "cn": still_prompt_cn(ep, None, "MS", "50", "舞台后方的 DJ 台：黑色台子上两台唱机和一台调音台，几盏小台灯，"
                                   "背后是红色 LED 大屏，画面里没有人，" + ep.venue.cn),
         })
-    out.append({
-        "file": "crowd.png", "use": "观众（开场、间奏、片尾）",
-        "en": still_prompt_en(ep, None, "MS", "50",
-                              "a packed crowd of about twenty people aged 18 to 60 with clearly different faces, "
-                              "builds and clothes, cheering toward the stage, " + (ep.venue.en or ep.venue.cn)),
-        "cn": still_prompt_cn(ep, None, "MS", "50", ep.crowd_cn + "，大约二十个人，年龄和长相各不相同，冲着舞台欢呼"),
-    })
+    if not show:
+        out.append({
+            "file": "crowd.png", "use": "观众（开场、间奏、片尾）",
+            "en": still_prompt_en(ep, None, "MS", "50",
+                                  "a packed crowd of about twenty people aged 18 to 60 with clearly different faces, "
+                                  "builds and clothes, cheering toward the stage, " + (ep.venue.en or ep.venue.cn)),
+            "cn": still_prompt_cn(ep, None, "MS", "50", ep.crowd_cn + "，大约二十个人，年龄和长相各不相同，冲着舞台欢呼"),
+        })
     # first frames for motion units (cutaways etc.): one still per shot, never reused
     for u in board.units:
         if u.kind != "motion":
@@ -539,10 +637,44 @@ def refs_plan(ep: Episode, board: Board, chars: dict[str, Character]) -> list[di
         s = board.unit_shots(u)[0]
         char = chars.get(s.who[0]) if s.who else None
         loc = ep.venue if s.location == "venue" else ep.locations[s.location]
-        out.append({
+        item = {
             "file": f"plate_{u.id}.png", "use": f"{u.id} 首帧（{s.section} · {s.kind}）",
             "en": still_prompt_en(ep, char, s.framing, s.lens, f"{s.action_cn}; {loc.en or loc.cn}"),
             "cn": still_prompt_cn(ep, char, s.framing, s.lens, f"{s.action_cn}，{loc.cn}"),
+        }
+        if show and s.location == "venue":  # first frames sit in the locked environment plate
+            env = plates.plate_for(ep, s.staging)
+            item["env_plate"] = env.file
+            item["uploads"] = [{"file": env.file, "role": "场景图：保持同一个场馆、灯光、配色和观众席"}]
+            lead = f"图1是场景图 {env.file}（{env.title_cn}）：保持同一个场馆、同样的灯光、配色和观众席"
+            if s.who:
+                k = s.who[0]
+                item["uploads"].append({"file": f"{k}_sheet.png", "role": f"{ep.cast[k].name_cn}的锁定定妆组图"})
+                lead += f"，图2是{ep.cast[k].name_cn}的锁定定妆组图：只认脸、发型和服装"
+            if env.crowd == "full":
+                lead += f"，{ep.crowd_cn.strip('。，, ')}，{plates.DENSE_CN}"
+            elif env.crowd == "dark":
+                lead += f"，{plates.DARK_CN}"
+            item["cn"] = lead + "，" + item["cn"]
+            item["mj_note"] = f"Midjourney 里把锁定的 {env.file} 当 --sref 风格参考，或者用即梦上传它当图1"
+        out.append(item)
+    return out
+
+
+def plate_items(ep: Episode, board: Board) -> list[dict]:
+    """refs_plan entries of the environment plates, with the shots and units that use each one."""
+    uploads = {u.id: {f for f, _ in _show_unit_refs(ep, board, u)} for u in board.units}
+    out = []
+    for p in plates.ep_plates(ep):
+        pr = plates.plate_prompts(ep, p)
+        shots = [s.id for s in board.shots if plates.plate_for(ep, s.staging).file == p.file]
+        out.append({
+            "file": p.file, "plate": True, "title": p.title_cn, "use": p.use_cn, "stagings": list(p.stagings),
+            "camera": f"{cinema.FRAMINGS[p.framing][0]}，{cinema.LENSES[p.lens][0]}；{p.angle_cn}",
+            "crowd": p.crowd, "aspect": p.aspect, "candidates": plates.CANDIDATES, "must": p.must,
+            "shots": shots, "units": [u.id for u in board.units if p.file in uploads[u.id]],
+            "uploads": [{"file": p.guide, "role": "已锁定的场景图：保持同一个场馆、布景、灯光和配色"}] if p.guide else [],
+            "cn": pr["cn"], "en": pr["en"], "gpt": pr["gpt"],
         })
     return out
 

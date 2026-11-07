@@ -1,0 +1,1016 @@
+{
+  "schema_version": 1,
+  "series_id": "luotian_rap",
+  "version": "v1",
+  "style_id": "luotian_cinematic_cg_v1",
+  "defaults": {
+    "look_description": "Premium refined semi-realistic Chinese cinematic character rendering, detailed hair and fabric, soft dimensional skin, flattering neutral key with cool hair edge, indigo stone, jade and bronze.",
+    "gallery_description": "The distant gallery contains seated sect disciples in muted robes, their unoccupied hands resting quietly below the jade rails.",
+    "scene_reference": "asset:scene.venue_front.v1",
+    "model_profile": {
+      "name": "h3_scheme_a_cinematic_cg_v1",
+      "template_sha256": "0701a6586b01c5ba81e3bd001156d8f6c611f7a86bf37f40b9a78d12d18b109a"
+    }
+  },
+  "characters": {
+    "zhuge_qing": {
+      "portrait": "asset:character.zhuge_qing.front.v1",
+      "description": "Adult Zhuge Qing, navy-blue layered hair, narrow smiling foxlike eyes, small beauty mark, charcoal embroidered tailored jacket, open white collar and small green jade pendant. Plain matte-black wireless microphone with black grille when performing.",
+      "voice_direction": "清亮、精致，咬字利落，带一点自信和锋芒（待试听定样）",
+      "voice_status": "not_cast"
+    },
+    "wang_ye": {
+      "portrait": "asset:character.wang_ye.front.v1",
+      "description": "Adult Wang Ye, casual dark high topknot, intelligent sleepy half-lidded dark eyes, relaxed low eyebrows, indigo HIP-LENGTH wrap jacket tied at waist, white crew-neck tee and separate indigo trousers. Plain matte-black wireless microphone with black grille; understated confident acting.",
+      "voice_direction": "中低声线、松弛略沙、轻北京口音，节奏落点稳（待试听定样）",
+      "voice_status": "not_cast",
+      "performance_assets": {
+        "guqin_front_v1": "asset:composition.wang_ye.guqin.front.v1"
+      }
+    },
+    "zhuge_bai": {
+      "portrait": "asset:character.zhuge_bai.front.v1",
+      "description": "Adult performer Zhuge Bai, blue chin-length bob, grey fedora with wine band, white raised-collar shirt, grey suspenders, dark trousers, youthful eager but restrained expression.",
+      "voice_status": "not_cast"
+    },
+    "zhuge_menren": {
+      "portrait": "asset:character.zhuge_menren.front.v1",
+      "description": "Adult Zhuge-family teammate, broad square face, short dark hair, neat moustache and chin beard, white band-collar shirt and navy sleeveless long vest, dark trousers.",
+      "voice_status": "not_cast"
+    },
+    "zhang_chulan": {
+      "portrait": "asset:character.zhang_chulan.front.v1",
+      "description": "Adult Zhang Chulan, messy black hair, sly crooked closed smile, navy work jacket over white tee with orange-red collar, dark work trousers.",
+      "voice_status": "not_cast"
+    },
+    "wudang_daotong": {
+      "portrait": "asset:character.wudang_daotong.front.v1",
+      "description": "Adult Wudang teammate, earnest dark eyes, thick brows, modest dark topknot and plain wooden pin, grey-blue crossed-collar robe with white trim over white shirt.",
+      "voice_status": "not_cast"
+    },
+    "zhang_zhiwei": {
+      "portrait": "asset:character.zhang_zhiwei.front.v1",
+      "description": "Lao Tianshi Zhang Zhiwei, dignified venerable elder with radiant evenly toned clean ivory skin, NO black spots, NO brown age spots or uneven pigmentation. Natural delicate elder wrinkles remain. Serene wise clear eyes, pure airy silver-white brows, long white beard and elegant white topknot. Black Taoist robe, grey cloud-jacquard collar, white inner collar, carved central judge chair. 仙风道骨、鹤发童颜、清癯高古。",
+      "voice_status": "not_cast"
+    },
+    "lu_jin": {
+      "portrait": "asset:character.lu_jin.front.v1",
+      "description": "Venerable Lu Jin, long straight center-parted white hair, white moustache and chin beard, stern watery eyes, black suit and white shirt, seated carved left judge chair, a white handkerchief kept low.",
+      "voice_status": "not_cast"
+    },
+    "feng_zhenghao": {
+      "portrait": "asset:character.feng_zhenghao.front.v1",
+      "description": "Middle-aged Feng Zhenghao, slicked-back grey-white hair, round wire glasses, slate-blue double-breasted suit over blue polka-dot shirt, composed calculating smile, carved right judge chair.",
+      "voice_status": "not_cast"
+    },
+    "xu_si": {
+      "portrait": "asset:character.xu_si.front.v1",
+      "description": "Adult Xu Si, tousled short silver hair, faint chin goatee/stubble, khaki jacket with small brass collar bars, white scoop tee and silver chain, plain matte-black wireless microphone low at sternum.",
+      "voice_status": "not_cast"
+    },
+    "xu_san": {
+      "portrait": "asset:character.xu_san.front.v1",
+      "description": "Adult Xu San, neat short dark hair, rectangular glasses, black suit and open white shirt, black over-ear headphones on neck, professional DJ at the bronze and dark wood console.",
+      "voice_status": "not_cast"
+    },
+    "feng_baobao": {
+      "portrait": "asset:character.feng_baobao.front.v1",
+      "description": "Adult Feng Baobao, exquisitely refined natural face, very long straight jet-black hair, clear dark eyes, neutral unbothered expression, pale grey-blue simple work shirt. Plain matte-black stand microphone offset below chin, lips unobstructed.",
+      "voice_status": "not_cast"
+    },
+    "zhang_lingyu": {
+      "portrait": "asset:character.zhang_lingyu.front.v1",
+      "description": "Adult Zhang Lingyu, beautiful dignified ascetic face, silver-white long hair half tied with dark ornament, white layered embroidered Taoist robe and dark waist sash. Serious calm eyes, plain matte-black stand microphone below chin.",
+      "voice_status": "not_cast"
+    },
+    "feng_shayan": {
+      "portrait": "asset:character.feng_shayan.front.v1",
+      "description": "Adult Feng Shayan, exquisite confident face, short icy lavender bob and side fringe, matching tailored lavender suit and modest smooth pale lavender high-neck top, seated second-row VIP guest.",
+      "voice_status": "not_cast"
+    },
+    "zhuge_zhanglao": {
+      "portrait": "asset:character.zhuge_zhanglao.front.v1",
+      "description": "Mature Zhuge-family elder, long lean face, swept salt-pepper hair, short salt-pepper moustache and chin beard, navy coat, white mandarin collar and navy suspenders, seated first-row guest with hands on a plain wooden walking stick.",
+      "voice_status": "not_cast"
+    },
+    "xia_he": {
+      "portrait": "asset:character.xia_he.front.v1",
+      "description": "Adult stage Xia He, shoulder-length rose-pink hair with sweeping long side fringe, green almond eyes, composed alluring half smile, elegant defined cheekbones. Ivory tailored jacket over a deep-plum silk wrap blouse, charcoal high-waisted trousers; refined cinematic CG.",
+      "portrait_review": {
+        "status": "agent_visual_pass_user_review_pending",
+        "version": "v1"
+      },
+      "voice_status": "not_cast",
+      "voice_direction": "醇暖、有磁性的中低女声，少量气声但咬字清晰，旋律副歌留长音与停顿；从容、自信，句尾干净，不用甜幼音。须与两位男声分别试听。",
+      "performance_assets": {
+        "chorus_front_v1": "asset:composition.xia_he.hook.front.v1"
+      }
+    },
+    "lu_linglong": {
+      "portrait": "asset:character.lu_linglong.front.v1",
+      "description": "Adult stage Lu Linglong, long warm-pink hair, separated forward fringe and a small upward cowlick, bright blue eyes, open oval face and candid expression. Ivory short jacket with warm-pink piping over ivory crew-neck top, light taupe high-waisted trousers; refined cinematic CG.",
+      "portrait_review": {
+        "status": "agent_visual_pass_user_review_pending",
+        "version": "v1"
+      },
+      "voice_status": "not_cast",
+      "performance_assets": {
+        "drums_front_v1": "asset:composition.lu_linglong.drums.front.v1"
+      }
+    },
+    "zhi_jinhua": {
+      "portrait": "asset:character.zhi_jinhua.front.v1",
+      "description": "Adult stage Zhi Jinhua, long straight blue-black hair with separated fringe, thin dark-red rectangular glasses, perceptive brown eyes, elegant long-oval face and knowing slight smile. Violet collared blouse with rolled sleeves, pale stone-grey trousers and dark belt; refined cinematic CG.",
+      "portrait_review": {
+        "status": "agent_visual_pass_user_review_pending",
+        "version": "v1"
+      },
+      "voice_status": "not_cast",
+      "performance_assets": {
+        "keyboard_front_v1": "asset:composition.zhi_jinhua.keyboard.front.v1"
+      }
+    },
+    "lv_liang": {
+      "portrait": "asset:character.lv_liang.front.v1",
+      "description": "Adult stage Lv Liang, short rounded chestnut-black bowl haircut, thin round wire glasses, alert amber-gold eyes and a controlled mischievous smile. Moss-green open overshirt over pale-sage crew-neck shirt, dark trousers; refined cinematic CG.",
+      "portrait_review": {
+        "status": "agent_visual_pass_user_review_pending",
+        "version": "v1"
+      },
+      "voice_status": "not_cast"
+    },
+    "shen_chong": {
+      "portrait": "asset:character.shen_chong.front.v1",
+      "description": "Adult stage Shen Chong, charcoal-black longer uneven layered fringe, thin rectangular glasses, narrow grey-brown eyes, long angular face and calculating restraint. Charcoal tailored blazer over deep grey-violet open-neck collared shirt; refined cinematic CG.",
+      "portrait_review": {
+        "status": "agent_visual_pass_user_review_pending",
+        "version": "v1"
+      },
+      "voice_status": "not_cast"
+    },
+    "feng_xingtong": {
+      "portrait": "asset:character.feng_xingtong.front.v1",
+      "description": "Adult stage Feng Xingtong, short silver-white center-parted swept-back hair, loose temple strands, friendly grey eyes and calm slight smile. Charcoal stand-collar zip jacket with muted-lime sleeve stripes, dark tee and dark trousers.",
+      "performance_assets": {
+        "bass_front_v1": "asset:composition.feng_xingtong.bass.front.v1"
+      }
+    },
+    "jia_zhengliang": {
+      "portrait": "asset:character.jia_zhengliang.front.v1",
+      "description": "Adult stage Jia Zhengliang, crimson-red spiky swept-back hair with two long cheek strands, amber-orange eyes, strong brows, firm angular jaw, earnest grounded confidence. Black hooded raised-collar jacket, ivory tee and dark trousers.",
+      "performance_assets": {
+        "guitar_front_v1": "asset:composition.jia_zhengliang.guitar.front.v1"
+      }
+    }
+  },
+  "assets": {
+    "character.zhuge_qing.front.v1": {
+      "kind": "portrait",
+      "path": "objects/83858674308fc2b645075447e0df847324365f5405f44925a4af266c385c9f58.png",
+      "sha256": "83858674308fc2b645075447e0df847324365f5405f44925a4af266c385c9f58",
+      "characters": [
+        "zhuge_qing"
+      ],
+      "positions": {},
+      "description": "Adult Zhuge Qing, navy-blue layered hair, narrow smiling foxlike eyes, small beauty mark, charcoal embroidered tailored jacket, open white collar and small green jade pendant. Plain matte-black wireless microphone with black grille when performing.",
+      "view": "front"
+    },
+    "character.wang_ye.front.v1": {
+      "kind": "portrait",
+      "path": "objects/9c337c9f13210234e1f072a7a008b836fa22753be2270dd0f81637cf3f38ef41.png",
+      "sha256": "9c337c9f13210234e1f072a7a008b836fa22753be2270dd0f81637cf3f38ef41",
+      "characters": [
+        "wang_ye"
+      ],
+      "positions": {},
+      "description": "Adult Wang Ye, casual dark high topknot, intelligent sleepy half-lidded dark eyes, relaxed low eyebrows, indigo HIP-LENGTH wrap jacket tied at waist, white crew-neck tee and separate indigo trousers. Plain matte-black wireless microphone with black grille; understated confident acting.",
+      "view": "front"
+    },
+    "character.zhuge_bai.front.v1": {
+      "kind": "portrait",
+      "path": "objects/824037b22f8621ea5a23459dda6daf09208b7170983c9471dade4702dd5bc060.png",
+      "sha256": "824037b22f8621ea5a23459dda6daf09208b7170983c9471dade4702dd5bc060",
+      "characters": [
+        "zhuge_bai"
+      ],
+      "positions": {},
+      "description": "Adult performer Zhuge Bai, blue chin-length bob, grey fedora with wine band, white raised-collar shirt, grey suspenders, dark trousers, youthful eager but restrained expression.",
+      "view": "front"
+    },
+    "character.zhuge_menren.front.v1": {
+      "kind": "portrait",
+      "path": "objects/82cfb6d44909dce6cc82bba1547703e0308a6aff5120f1d2e995c979c99c3cd4.png",
+      "sha256": "82cfb6d44909dce6cc82bba1547703e0308a6aff5120f1d2e995c979c99c3cd4",
+      "characters": [
+        "zhuge_menren"
+      ],
+      "positions": {},
+      "description": "Adult Zhuge-family teammate, broad square face, short dark hair, neat moustache and chin beard, white band-collar shirt and navy sleeveless long vest, dark trousers.",
+      "view": "front"
+    },
+    "character.zhang_chulan.front.v1": {
+      "kind": "portrait",
+      "path": "objects/6b2eeecd214ede2a2b11d8aa343ac08a53bdb2a0e3c802ef4eb543508a03daaa.png",
+      "sha256": "6b2eeecd214ede2a2b11d8aa343ac08a53bdb2a0e3c802ef4eb543508a03daaa",
+      "characters": [
+        "zhang_chulan"
+      ],
+      "positions": {},
+      "description": "Adult Zhang Chulan, messy black hair, sly crooked closed smile, navy work jacket over white tee with orange-red collar, dark work trousers.",
+      "view": "front"
+    },
+    "character.wudang_daotong.front.v1": {
+      "kind": "portrait",
+      "path": "objects/c6d09dd2be2834b6b4c59c24664852a904cdb183c2404bbaefea293639b785aa.png",
+      "sha256": "c6d09dd2be2834b6b4c59c24664852a904cdb183c2404bbaefea293639b785aa",
+      "characters": [
+        "wudang_daotong"
+      ],
+      "positions": {},
+      "description": "Adult Wudang teammate, earnest dark eyes, thick brows, modest dark topknot and plain wooden pin, grey-blue crossed-collar robe with white trim over white shirt.",
+      "view": "front"
+    },
+    "character.zhang_zhiwei.front.v1": {
+      "kind": "portrait",
+      "path": "objects/f828a8c3ac3751934fbc68e2e0527a7aa34e0b5d8a521866bf6ce677f24e3b18.png",
+      "sha256": "f828a8c3ac3751934fbc68e2e0527a7aa34e0b5d8a521866bf6ce677f24e3b18",
+      "characters": [
+        "zhang_zhiwei"
+      ],
+      "positions": {},
+      "description": "Lao Tianshi Zhang Zhiwei, dignified venerable elder with radiant evenly toned clean ivory skin, NO black spots, NO brown age spots or uneven pigmentation. Natural delicate elder wrinkles remain. Serene wise clear eyes, pure airy silver-white brows, long white beard and elegant white topknot. Black Taoist robe, grey cloud-jacquard collar, white inner collar, carved central judge chair. 仙风道骨、鹤发童颜、清癯高古。",
+      "view": "front"
+    },
+    "character.lu_jin.front.v1": {
+      "kind": "portrait",
+      "path": "objects/fe3ce594e2ef0bd9629db0a43f25f8cbff79f07010e65e8c9ca515d1ce2157e9.png",
+      "sha256": "fe3ce594e2ef0bd9629db0a43f25f8cbff79f07010e65e8c9ca515d1ce2157e9",
+      "characters": [
+        "lu_jin"
+      ],
+      "positions": {},
+      "description": "Venerable Lu Jin, long straight center-parted white hair, white moustache and chin beard, stern watery eyes, black suit and white shirt, seated carved left judge chair, a white handkerchief kept low.",
+      "view": "front"
+    },
+    "character.feng_zhenghao.front.v1": {
+      "kind": "portrait",
+      "path": "objects/18d809c1ace3c9bb043be1bc43fee443ffe1685c3f8e95be7278066712d960d8.png",
+      "sha256": "18d809c1ace3c9bb043be1bc43fee443ffe1685c3f8e95be7278066712d960d8",
+      "characters": [
+        "feng_zhenghao"
+      ],
+      "positions": {},
+      "description": "Middle-aged Feng Zhenghao, slicked-back grey-white hair, round wire glasses, slate-blue double-breasted suit over blue polka-dot shirt, composed calculating smile, carved right judge chair.",
+      "view": "front"
+    },
+    "character.xu_si.front.v1": {
+      "kind": "portrait",
+      "path": "objects/133820f4d991fdd1584da299d6c0cd76059e52c675986ad550b5c7c6a6fa8183.png",
+      "sha256": "133820f4d991fdd1584da299d6c0cd76059e52c675986ad550b5c7c6a6fa8183",
+      "characters": [
+        "xu_si"
+      ],
+      "positions": {},
+      "description": "Adult Xu Si, tousled short silver hair, faint chin goatee/stubble, khaki jacket with small brass collar bars, white scoop tee and silver chain, plain matte-black wireless microphone low at sternum.",
+      "view": "front"
+    },
+    "character.xu_san.front.v1": {
+      "kind": "portrait",
+      "path": "objects/ec2345ead099b56322e8da55abac41cc565c9beb34f0cd4b701f939e22fa230f.png",
+      "sha256": "ec2345ead099b56322e8da55abac41cc565c9beb34f0cd4b701f939e22fa230f",
+      "characters": [
+        "xu_san"
+      ],
+      "positions": {},
+      "description": "Adult Xu San, neat short dark hair, rectangular glasses, black suit and open white shirt, black over-ear headphones on neck, professional DJ at the bronze and dark wood console.",
+      "view": "front"
+    },
+    "character.feng_baobao.front.v1": {
+      "kind": "portrait",
+      "path": "objects/169bcbef1d5423cd481d8435e1faae79ccfaa3b69e7c5e1996b368b3d6edb2e2.png",
+      "sha256": "169bcbef1d5423cd481d8435e1faae79ccfaa3b69e7c5e1996b368b3d6edb2e2",
+      "characters": [
+        "feng_baobao"
+      ],
+      "positions": {},
+      "description": "Adult Feng Baobao, exquisitely refined natural face, very long straight jet-black hair, clear dark eyes, neutral unbothered expression, pale grey-blue simple work shirt. Plain matte-black stand microphone offset below chin, lips unobstructed.",
+      "view": "front"
+    },
+    "character.zhang_lingyu.front.v1": {
+      "kind": "portrait",
+      "path": "objects/29616e438f91da833560759cdd16fcb451e2b0d85158326e5f80e7cc1ecf2723.png",
+      "sha256": "29616e438f91da833560759cdd16fcb451e2b0d85158326e5f80e7cc1ecf2723",
+      "characters": [
+        "zhang_lingyu"
+      ],
+      "positions": {},
+      "description": "Adult Zhang Lingyu, beautiful dignified ascetic face, silver-white long hair half tied with dark ornament, white layered embroidered Taoist robe and dark waist sash. Serious calm eyes, plain matte-black stand microphone below chin.",
+      "view": "front"
+    },
+    "character.feng_shayan.front.v1": {
+      "kind": "portrait",
+      "path": "objects/17879aa5a41308b9de2e757af9407b2e5ed91cb6e781aafde877538b11d4db23.png",
+      "sha256": "17879aa5a41308b9de2e757af9407b2e5ed91cb6e781aafde877538b11d4db23",
+      "characters": [
+        "feng_shayan"
+      ],
+      "positions": {},
+      "description": "Adult Feng Shayan, exquisite confident face, short icy lavender bob and side fringe, matching tailored lavender suit and modest smooth pale lavender high-neck top, seated second-row VIP guest.",
+      "view": "front"
+    },
+    "character.zhuge_zhanglao.front.v1": {
+      "kind": "portrait",
+      "path": "objects/893d1c5aa83a7dc1a43d05afd9e9ea2f73f3b95854c14f23c06cd5d60abad110.png",
+      "sha256": "893d1c5aa83a7dc1a43d05afd9e9ea2f73f3b95854c14f23c06cd5d60abad110",
+      "characters": [
+        "zhuge_zhanglao"
+      ],
+      "positions": {},
+      "description": "Mature Zhuge-family elder, long lean face, swept salt-pepper hair, short salt-pepper moustache and chin beard, navy coat, white mandarin collar and navy suspenders, seated first-row guest with hands on a plain wooden walking stick.",
+      "view": "front"
+    },
+    "character.wang_ye.back.v1": {
+      "kind": "portrait",
+      "path": "objects/d377489bf1efb4cbdeb529eb39ef1d15f58dcf289c90353176c1ee02204bf87d.png",
+      "sha256": "d377489bf1efb4cbdeb529eb39ef1d15f58dcf289c90353176c1ee02204bf87d",
+      "characters": [
+        "wang_ye"
+      ],
+      "positions": {},
+      "description": "Rear view of adult Wang Ye: dark loose high topknot, slim shoulders, hip-length dark indigo cloud-embroidered wrap jacket with tied waist belt, separate indigo trousers. Back of head and both shoulders continuously face camera; face stays entirely unseen. His right arm hangs relaxed with a plain matte-black HANDHELD microphone held down by right thigh.",
+      "view": "back"
+    },
+    "frame.a_over_b_v2.v1": {
+      "kind": "composition",
+      "path": "objects/068b38ca9cbfb2698410d81e81f8353d380307a0f5734b05b8b3078419c017cc.png",
+      "sha256": "068b38ca9cbfb2698410d81e81f8353d380307a0f5734b05b8b3078419c017cc",
+      "characters": [
+        "wang_ye",
+        "zhuge_qing",
+        "zhuge_bai",
+        "zhuge_menren"
+      ],
+      "positions": {
+        "wang_ye": "right",
+        "zhuge_qing": "left",
+        "zhuge_bai": "left",
+        "zhuge_menren": "left"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "frame.b_over_a_v2.v1": {
+      "kind": "composition",
+      "path": "objects/5f30bcb918a147486087ab8d341f7990d4a858c7f119eb9046b421a1849fc87b.png",
+      "sha256": "5f30bcb918a147486087ab8d341f7990d4a858c7f119eb9046b421a1849fc87b",
+      "characters": [
+        "zhuge_qing",
+        "wang_ye",
+        "zhang_chulan",
+        "wudang_daotong"
+      ],
+      "positions": {
+        "zhuge_qing": "left",
+        "wang_ye": "right",
+        "zhang_chulan": "right",
+        "wudang_daotong": "right"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "frame.baobao_hook.v1": {
+      "kind": "composition",
+      "path": "objects/41880ab2d522872e5b5eec8b903f277960f6682a92e378ab869cb9f04f17028d.png",
+      "sha256": "41880ab2d522872e5b5eec8b903f277960f6682a92e378ab869cb9f04f17028d",
+      "characters": [
+        "feng_baobao"
+      ],
+      "positions": {
+        "feng_baobao": "center"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "frame.blackout_down.v1": {
+      "kind": "composition",
+      "path": "objects/6b6ae2550f3ef0b00fb04d0b286bca629ad5c1dc2be9045c0a220cb4ce1340c1.png",
+      "sha256": "6b6ae2550f3ef0b00fb04d0b286bca629ad5c1dc2be9045c0a220cb4ce1340c1",
+      "characters": [
+        "wang_ye"
+      ],
+      "positions": {
+        "wang_ye": "right"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "scene.blackout_empty.v1": {
+      "kind": "scene",
+      "path": "objects/c66622e5c1a9d9609299da3ade37324bdf17fe7a53883dfe215daf8a732a2046.png",
+      "sha256": "c66622e5c1a9d9609299da3ade37324bdf17fe7a53883dfe215daf8a732a2046",
+      "characters": [],
+      "positions": {},
+      "description": "Luotian empty dark arena with a single pale spotlight; bronze ring and rails unlit.",
+      "view": ""
+    },
+    "frame.blackout_wide_v2.v1": {
+      "kind": "composition",
+      "path": "objects/0e9ebd676e416614ac8d3df72c5d064976b4059555075e5385f76f154edb9682.png",
+      "sha256": "0e9ebd676e416614ac8d3df72c5d064976b4059555075e5385f76f154edb9682",
+      "characters": [
+        "wang_ye"
+      ],
+      "positions": {
+        "wang_ye": "right"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": "back"
+    },
+    "frame.crowd_named.v1": {
+      "kind": "composition",
+      "path": "objects/e6fafa1e44e537764347fec128ee5ad0674840e8c62b08c7668fd45750e4d29f.png",
+      "sha256": "e6fafa1e44e537764347fec128ee5ad0674840e8c62b08c7668fd45750e4d29f",
+      "characters": [
+        "feng_shayan",
+        "zhuge_zhanglao"
+      ],
+      "positions": {
+        "feng_shayan": "center",
+        "zhuge_zhanglao": "center"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "frame.host_booth.v1": {
+      "kind": "composition",
+      "path": "objects/174adfa5ea9ed1a2a9a33630fd778b54c5afc6cab2a5e182a991c95e4b02c134.png",
+      "sha256": "174adfa5ea9ed1a2a9a33630fd778b54c5afc6cab2a5e182a991c95e4b02c134",
+      "characters": [
+        "xu_si",
+        "xu_san"
+      ],
+      "positions": {
+        "xu_si": "center",
+        "xu_san": "center"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "frame.lingyu_hook.v1": {
+      "kind": "composition",
+      "path": "objects/21fcf299518754ff6d7ab19ed20e0b8ba29f330b3639e752a933e00c6492fbed.png",
+      "sha256": "21fcf299518754ff6d7ab19ed20e0b8ba29f330b3639e752a933e00c6492fbed",
+      "characters": [
+        "zhang_lingyu"
+      ],
+      "positions": {
+        "zhang_lingyu": "center"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "frame.rivals_profile.v1": {
+      "kind": "composition",
+      "path": "objects/8cc04638002c6939f863e979778f7a3ef6b217daa772ff8066436fa72c7c5141.png",
+      "sha256": "8cc04638002c6939f863e979778f7a3ef6b217daa772ff8066436fa72c7c5141",
+      "characters": [
+        "zhuge_qing",
+        "wang_ye"
+      ],
+      "positions": {
+        "zhuge_qing": "left",
+        "wang_ye": "right"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "frame.rivals_two_shot.v1": {
+      "kind": "composition",
+      "path": "objects/80d1e552acead4ddcb1e2d9e19154dc6940ae8e5a692a37efc0abf0553a32b92.png",
+      "sha256": "80d1e552acead4ddcb1e2d9e19154dc6940ae8e5a692a37efc0abf0553a32b92",
+      "characters": [
+        "zhuge_qing",
+        "wang_ye"
+      ],
+      "positions": {
+        "zhuge_qing": "left",
+        "wang_ye": "right"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "frame.shayan_seated.v1": {
+      "kind": "composition",
+      "path": "objects/764dfff7f09e74fa436741a99a47edf5612f0e7a0843af9106792fbd4b94cc56.png",
+      "sha256": "764dfff7f09e74fa436741a99a47edf5612f0e7a0843af9106792fbd4b94cc56",
+      "characters": [
+        "feng_shayan"
+      ],
+      "positions": {
+        "feng_shayan": "center"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "frame.team_a_mcu.v1": {
+      "kind": "composition",
+      "path": "objects/0b8678e0cc6d1c9f25e17fe95e23ab0579d1cdda06313526249b3acb7bfb2f1d.png",
+      "sha256": "0b8678e0cc6d1c9f25e17fe95e23ab0579d1cdda06313526249b3acb7bfb2f1d",
+      "characters": [
+        "zhuge_qing",
+        "zhuge_bai",
+        "zhuge_menren"
+      ],
+      "positions": {
+        "zhuge_qing": "left",
+        "zhuge_bai": "left",
+        "zhuge_menren": "left"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "frame.team_b_mcu.v1": {
+      "kind": "composition",
+      "path": "objects/b6d4d6b0547c521062f0c5597d73bafab9c457e846db9d090a3c3aa321996c4e.png",
+      "sha256": "b6d4d6b0547c521062f0c5597d73bafab9c457e846db9d090a3c3aa321996c4e",
+      "characters": [
+        "wang_ye",
+        "zhang_chulan",
+        "wudang_daotong"
+      ],
+      "positions": {
+        "wang_ye": "right",
+        "zhang_chulan": "right",
+        "wudang_daotong": "right"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "frame.teams_wide.v1": {
+      "kind": "composition",
+      "path": "objects/a97131bd47ac93f689f1e23386bc81454b3884feeb09eb01bffd488a006dfd34.png",
+      "sha256": "a97131bd47ac93f689f1e23386bc81454b3884feeb09eb01bffd488a006dfd34",
+      "characters": [
+        "zhuge_qing",
+        "zhuge_bai",
+        "zhuge_menren",
+        "wang_ye",
+        "zhang_chulan",
+        "wudang_daotong"
+      ],
+      "positions": {
+        "zhuge_qing": "left",
+        "zhuge_bai": "left",
+        "zhuge_menren": "left",
+        "wang_ye": "right",
+        "zhang_chulan": "right",
+        "wudang_daotong": "right"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "frame.xu_si_solo.v1": {
+      "kind": "composition",
+      "path": "objects/e08bd7de75f1698c4a82d9f38a08662c6192e4507a07eb26bfdf7f6ba609e2da.png",
+      "sha256": "e08bd7de75f1698c4a82d9f38a08662c6192e4507a07eb26bfdf7f6ba609e2da",
+      "characters": [
+        "xu_si"
+      ],
+      "positions": {
+        "xu_si": "center"
+      },
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "scene.venue_front.v1": {
+      "kind": "scene",
+      "path": "objects/0c54570d3db77c85c1805fab20ec5e40006bb7f0105c9dd8780683c5252e6ba3.png",
+      "sha256": "0c54570d3db77c85c1805fab20ec5e40006bb7f0105c9dd8780683c5252e6ba3",
+      "characters": [],
+      "positions": {},
+      "description": "Selected Luotian series camera composition.",
+      "view": ""
+    },
+    "character.xia_he.front.v1": {
+      "kind": "portrait",
+      "path": "objects/f6e85543afea82e073eb3e72fe4d2e51e01ec5e1fb85efb33d6ce74cdc8ec2cc.png",
+      "sha256": "f6e85543afea82e073eb3e72fe4d2e51e01ec5e1fb85efb33d6ce74cdc8ec2cc",
+      "characters": [
+        "xia_he"
+      ],
+      "positions": {},
+      "description": "Adult stage Xia He, shoulder-length rose-pink hair with sweeping long side fringe, green almond eyes, composed alluring half smile, elegant defined cheekbones. Ivory tailored jacket over a deep-plum silk wrap blouse, charcoal high-waisted trousers; refined cinematic CG.",
+      "view": "front"
+    },
+    "character.lu_linglong.front.v1": {
+      "kind": "portrait",
+      "path": "objects/82a328fa6ad18a12ba49b34a3e819ee30f2c16393e4a973095ed684d9724cb5f.png",
+      "sha256": "82a328fa6ad18a12ba49b34a3e819ee30f2c16393e4a973095ed684d9724cb5f",
+      "characters": [
+        "lu_linglong"
+      ],
+      "positions": {},
+      "description": "Adult stage Lu Linglong, long warm-pink hair, separated forward fringe and a small upward cowlick, bright blue eyes, open oval face and candid expression. Ivory short jacket with warm-pink piping over ivory crew-neck top, light taupe high-waisted trousers; refined cinematic CG.",
+      "view": "front"
+    },
+    "character.zhi_jinhua.front.v1": {
+      "kind": "portrait",
+      "path": "objects/81e9a38f7d1f804d3d7f049af629cb1525121844c7ef5d645bc1c57ad06c2080.png",
+      "sha256": "81e9a38f7d1f804d3d7f049af629cb1525121844c7ef5d645bc1c57ad06c2080",
+      "characters": [
+        "zhi_jinhua"
+      ],
+      "positions": {},
+      "description": "Adult stage Zhi Jinhua, long straight blue-black hair with separated fringe, thin dark-red rectangular glasses, perceptive brown eyes, elegant long-oval face and knowing slight smile. Violet collared blouse with rolled sleeves, pale stone-grey trousers and dark belt; refined cinematic CG.",
+      "view": "front"
+    },
+    "character.lv_liang.front.v1": {
+      "kind": "portrait",
+      "path": "objects/94aad0f311f2d27cdbb9c232411d62b4b27d9810af17fab6c4855d33bedd7b41.png",
+      "sha256": "94aad0f311f2d27cdbb9c232411d62b4b27d9810af17fab6c4855d33bedd7b41",
+      "characters": [
+        "lv_liang"
+      ],
+      "positions": {},
+      "description": "Adult stage Lv Liang, short rounded chestnut-black bowl haircut, thin round wire glasses, alert amber-gold eyes and a controlled mischievous smile. Moss-green open overshirt over pale-sage crew-neck shirt, dark trousers; refined cinematic CG.",
+      "view": "front"
+    },
+    "character.shen_chong.front.v1": {
+      "kind": "portrait",
+      "path": "objects/a44ef4aa3bc72bf03fa8ba9f934dc6a1b55df9db42c7d58b373595aba3a16222.png",
+      "sha256": "a44ef4aa3bc72bf03fa8ba9f934dc6a1b55df9db42c7d58b373595aba3a16222",
+      "characters": [
+        "shen_chong"
+      ],
+      "positions": {},
+      "description": "Adult stage Shen Chong, charcoal-black longer uneven layered fringe, thin rectangular glasses, narrow grey-brown eyes, long angular face and calculating restraint. Charcoal tailored blazer over deep grey-violet open-neck collared shirt; refined cinematic CG.",
+      "view": "front"
+    },
+    "composition.xia_he.hook.front.v1": {
+      "kind": "composition",
+      "path": "objects/8906cbaa6626a083d76ebd024b5b40eed00ec8d661fc347cd6da9afdecb46587.png",
+      "sha256": "8906cbaa6626a083d76ebd024b5b40eed00ec8d661fc347cd6da9afdecb46587",
+      "characters": [
+        "xia_he"
+      ],
+      "positions": {
+        "xia_he": "center"
+      },
+      "description": "Adult stage Xia He, shoulder-length rose-pink hair with sweeping long side fringe, green almond eyes, composed alluring half smile, elegant defined cheekbones. Ivory tailored jacket over a deep-plum silk wrap blouse, charcoal high-waisted trousers; refined cinematic CG. Chorus performance: center solo medium shot, anatomical right hand holds matte-black wireless microphone below and offset from chin, lips unobstructed, left hand open low. Jade-and-bronze side dais beside indigo arena.",
+      "view": "front"
+    },
+    "character.feng_xingtong.front.v1": {
+      "kind": "portrait",
+      "path": "objects/b829b80551e42e43894dacdb1cf23f670868d70f8a6e0b363678ab29dea1427b.png",
+      "sha256": "b829b80551e42e43894dacdb1cf23f670868d70f8a6e0b363678ab29dea1427b",
+      "characters": [
+        "feng_xingtong"
+      ],
+      "positions": {},
+      "description": "Adult stage Feng Xingtong, short silver-white center-parted swept-back hair, loose temple strands, friendly grey eyes and calm slight smile. Charcoal stand-collar zip jacket with muted-lime sleeve stripes, dark tee and dark trousers.",
+      "view": "front"
+    },
+    "character.jia_zhengliang.front.v1": {
+      "kind": "portrait",
+      "path": "objects/9f6b56dab3c5f63f417caaa91184326c69295fbb930ad27400b502ae5fc9cae1.png",
+      "sha256": "9f6b56dab3c5f63f417caaa91184326c69295fbb930ad27400b502ae5fc9cae1",
+      "characters": [
+        "jia_zhengliang"
+      ],
+      "positions": {},
+      "description": "Adult stage Jia Zhengliang, crimson-red spiky swept-back hair with two long cheek strands, amber-orange eyes, strong brows, firm angular jaw, earnest grounded confidence. Black hooded raised-collar jacket, ivory tee and dark trousers.",
+      "view": "front"
+    },
+    "composition.wang_ye.guqin.front.v1": {
+      "kind": "composition",
+      "path": "objects/b7eb3088ecb517958cdc274f713e7ed9849c65c91757e4dfdd85d8cc4703bce0.png",
+      "sha256": "b7eb3088ecb517958cdc274f713e7ed9849c65c91757e4dfdd85d8cc4703bce0",
+      "characters": [
+        "wang_ye"
+      ],
+      "positions": {
+        "wang_ye": "center"
+      },
+      "description": "王也 古琴 performance first frame; no singing; identity and original stage costume preserved.",
+      "view": "front"
+    },
+    "composition.lu_linglong.drums.front.v1": {
+      "kind": "composition",
+      "path": "objects/a034fe2b28f6a075ea0f5d5d37cab7ea6572db637366bd65935bf9051e1d0add.png",
+      "sha256": "a034fe2b28f6a075ea0f5d5d37cab7ea6572db637366bd65935bf9051e1d0add",
+      "characters": [
+        "lu_linglong"
+      ],
+      "positions": {
+        "lu_linglong": "center"
+      },
+      "description": "陆玲珑 鼓 performance first frame; no singing; identity and original stage costume preserved.",
+      "view": "front"
+    },
+    "composition.zhi_jinhua.keyboard.front.v1": {
+      "kind": "composition",
+      "path": "objects/6a37e6d3a759d8ec3be97ae0d0267f5d7df8182f5e0cb726133f2b22c1cd772b.png",
+      "sha256": "6a37e6d3a759d8ec3be97ae0d0267f5d7df8182f5e0cb726133f2b22c1cd772b",
+      "characters": [
+        "zhi_jinhua"
+      ],
+      "positions": {
+        "zhi_jinhua": "center"
+      },
+      "description": "枳瑾花 键盘 performance first frame; no singing; identity and original stage costume preserved.",
+      "view": "front"
+    },
+    "composition.feng_xingtong.bass.front.v1": {
+      "kind": "composition",
+      "path": "objects/2e756bfe623449903454533c9cc87ecc92b02f0e8eb86f4951674bb2ac026de4.png",
+      "sha256": "2e756bfe623449903454533c9cc87ecc92b02f0e8eb86f4951674bb2ac026de4",
+      "characters": [
+        "feng_xingtong"
+      ],
+      "positions": {
+        "feng_xingtong": "center"
+      },
+      "description": "风星潼 贝斯 performance first frame; no singing; identity and original stage costume preserved.",
+      "view": "front"
+    },
+    "composition.jia_zhengliang.guitar.front.v1": {
+      "kind": "composition",
+      "path": "objects/da77aee70536290556cbe4e332a63cb04da1f83f51e1552678802f7917fc3868.png",
+      "sha256": "da77aee70536290556cbe4e332a63cb04da1f83f51e1552678802f7917fc3868",
+      "characters": [
+        "jia_zhengliang"
+      ],
+      "positions": {
+        "jia_zhengliang": "center"
+      },
+      "description": "贾正亮 吉他 performance first frame; no singing; identity and original stage costume preserved.",
+      "view": "front"
+    },
+    "composition.zhang_lingyu.lavalier.motion_pilot.v1": {
+      "kind": "composition",
+      "path": "objects/e73355ce323aa1be2459aca651e8d3159a3f9bc70551f2fdbffda653e4097bcf.png",
+      "sha256": "e73355ce323aa1be2459aca651e8d3159a3f9bc70551f2fdbffda653e4097bcf",
+      "characters": [
+        "zhang_lingyu"
+      ],
+      "positions": {
+        "zhang_lingyu": "left"
+      },
+      "description": "Motion pilot medium shot: original identity and costume, discreet lavalier, both hands free; no handheld or stand microphone.",
+      "view": "front"
+    },
+    "composition.zhang_chulan.lavalier.motion_pilot.v1": {
+      "kind": "composition",
+      "path": "objects/1875567ad82269c8d1fec770c3eb6a0f586fa823745cfdd2c11bdfeadb7703fc.png",
+      "sha256": "1875567ad82269c8d1fec770c3eb6a0f586fa823745cfdd2c11bdfeadb7703fc",
+      "characters": [
+        "zhang_chulan"
+      ],
+      "positions": {
+        "zhang_chulan": "right"
+      },
+      "description": "Motion pilot medium shot: original identity and costume, discreet lavalier, both hands free; no handheld or stand microphone.",
+      "view": "front"
+    },
+    "composition.xia_he.opening.mcu.v1": {
+      "kind": "composition",
+      "path": "objects/faf75b004b0953016987276c65c6500a916ca69aad0e548bb1d810f70223b370.png",
+      "sha256": "faf75b004b0953016987276c65c6500a916ca69aad0e548bb1d810f70223b370",
+      "characters": [
+        "xia_he"
+      ],
+      "positions": {
+        "xia_he": "center"
+      },
+      "description": "Closed-mouth opening first frame, anatomical right-hand wireless mic at upper sternum, empty background. Same identity, costume and stage as the approved Xia He hook.",
+      "view": "front"
+    },
+    "composition.xia_he.opening.ms.v1": {
+      "kind": "composition",
+      "path": "objects/cd672b0fafe6f9be74dc58214cc659dbe9f548c7bf554780bf82d75f24565f35.png",
+      "sha256": "cd672b0fafe6f9be74dc58214cc659dbe9f548c7bf554780bf82d75f24565f35",
+      "characters": [
+        "xia_he"
+      ],
+      "positions": {
+        "xia_he": "center"
+      },
+      "description": "Closed-mouth opening first frame, anatomical right-hand wireless mic at upper sternum, empty background. Same identity, costume and stage as the approved Xia He hook.",
+      "view": "front"
+    },
+    "voice.zhang_lingyu.ep02.suno.v1": {
+      "kind": "voice",
+      "path": "objects/1c8de14e06c271d2c88a96c62236be0f83439f4805a4efc25c71a3eede240b42.wav",
+      "sha256": "1c8de14e06c271d2c88a96c62236be0f83439f4805a4efc25c71a3eede240b42",
+      "characters": [
+        "zhang_lingyu"
+      ],
+      "positions": {},
+      "description": "Reference excerpt from the user-provided episode 2 Suno lead stem; not a separately cloned or regenerated voice.",
+      "view": ""
+    },
+    "voice.zhang_chulan.ep02.suno.v1": {
+      "kind": "voice",
+      "path": "objects/d7186d7bfe54420a58104f463fe3dd97205c2c7c903bbd06cbcdb05577688143.wav",
+      "sha256": "d7186d7bfe54420a58104f463fe3dd97205c2c7c903bbd06cbcdb05577688143",
+      "characters": [
+        "zhang_chulan"
+      ],
+      "positions": {},
+      "description": "Reference excerpt from the user-provided episode 2 Suno lead stem; not a separately cloned or regenerated voice.",
+      "view": ""
+    },
+    "voice.xia_he.ep02.suno.v1": {
+      "kind": "voice",
+      "path": "objects/0e4607779bd9d8b2216e560baf128f385a49e884009cbadff187804166585327.wav",
+      "sha256": "0e4607779bd9d8b2216e560baf128f385a49e884009cbadff187804166585327",
+      "characters": [
+        "xia_he"
+      ],
+      "positions": {},
+      "description": "Reference excerpt from the user-provided episode 2 Suno lead stem; not a separately cloned or regenerated voice.",
+      "view": ""
+    },
+    "composition.zhang_lingyu.handheld.mcu.v1": {
+      "kind": "composition",
+      "path": "objects/4bbbb5eb38c1f111ecbb0a594a7b68a90be8cc170e84146d91fe0b9d15306a43.png",
+      "sha256": "4bbbb5eb38c1f111ecbb0a594a7b68a90be8cc170e84146d91fe0b9d15306a43",
+      "characters": [
+        "zhang_lingyu"
+      ],
+      "positions": {
+        "zhang_lingyu": "left"
+      },
+      "description": "Zhang Lingyu MCU, right-hand handheld mic at chin, three-quarter toward screen-right, packed arena behind.",
+      "view": ""
+    },
+    "composition.zhang_lingyu.handheld.cu.v1": {
+      "kind": "composition",
+      "path": "objects/f6de30dd2b4b88599a782359551d41ac53e3e12bf9247c7085c7ae88dfb127bc.png",
+      "sha256": "f6de30dd2b4b88599a782359551d41ac53e3e12bf9247c7085c7ae88dfb127bc",
+      "characters": [
+        "zhang_lingyu"
+      ],
+      "positions": {
+        "zhang_lingyu": "left"
+      },
+      "description": "Zhang Lingyu close-up, handheld mic at chin, cold piercing gaze toward screen-right.",
+      "view": ""
+    },
+    "composition.zhang_lingyu.handheld.ms_gesture.v1": {
+      "kind": "composition",
+      "path": "objects/b034c77646098d8a621667b894d242b3976f393e70a0c12a2c0eb1ed3c5ab2dc.png",
+      "sha256": "b034c77646098d8a621667b894d242b3976f393e70a0c12a2c0eb1ed3c5ab2dc",
+      "characters": [
+        "zhang_lingyu"
+      ],
+      "positions": {
+        "zhang_lingyu": "left"
+      },
+      "description": "Zhang Lingyu waist-up, right-hand mic, free left hand raised in a chopping gesture toward screen-right.",
+      "view": ""
+    },
+    "composition.zhang_lingyu.handheld.lowangle.v1": {
+      "kind": "composition",
+      "path": "objects/72012e2888deac8851fb50eae683a9e19dc9d3cc08a04cef5e966229700ffd39.png",
+      "sha256": "72012e2888deac8851fb50eae683a9e19dc9d3cc08a04cef5e966229700ffd39",
+      "characters": [
+        "zhang_lingyu"
+      ],
+      "positions": {
+        "zhang_lingyu": "left"
+      },
+      "description": "Zhang Lingyu low-angle heroic MCU with spotlight rim, handheld mic at chin.",
+      "view": ""
+    },
+    "composition.zhang_chulan.handheld.mcu.v1": {
+      "kind": "composition",
+      "path": "objects/4670b825450b52c1815ca546938d595fdb96d5c61d970325e98756bfd124643b.png",
+      "sha256": "4670b825450b52c1815ca546938d595fdb96d5c61d970325e98756bfd124643b",
+      "characters": [
+        "zhang_chulan"
+      ],
+      "positions": {
+        "zhang_chulan": "right"
+      },
+      "description": "Zhang Chulan MCU, right-hand handheld mic at chin, three-quarter toward screen-left, packed arena behind.",
+      "view": ""
+    },
+    "composition.zhang_chulan.handheld.cu.v1": {
+      "kind": "composition",
+      "path": "objects/9df511b9727c13333dd67655c0c7a7688cae5611e4e7611a9772b2ea6a0ff553.png",
+      "sha256": "9df511b9727c13333dd67655c0c7a7688cae5611e4e7611a9772b2ea6a0ff553",
+      "characters": [
+        "zhang_chulan"
+      ],
+      "positions": {
+        "zhang_chulan": "right"
+      },
+      "description": "Zhang Chulan close-up, handheld mic at chin, sly alert eyes toward screen-left.",
+      "view": ""
+    },
+    "composition.zhang_chulan.handheld.ms_gesture.v1": {
+      "kind": "composition",
+      "path": "objects/0fb4445e87e886983a7e0b253dadd51bf3e4eb488e78bee21422360bffad9cda.png",
+      "sha256": "0fb4445e87e886983a7e0b253dadd51bf3e4eb488e78bee21422360bffad9cda",
+      "characters": [
+        "zhang_chulan"
+      ],
+      "positions": {
+        "zhang_chulan": "right"
+      },
+      "description": "Zhang Chulan waist-up, right-hand mic, free left hand thrust forward toward screen-left.",
+      "view": ""
+    },
+    "composition.zhang_chulan.handheld.team.v1": {
+      "kind": "composition",
+      "path": "objects/5a43954bc13fbf83f432467a8888d1bd18ec62cc6fc5bdc6cc91fbe4819a6fd6.png",
+      "sha256": "5a43954bc13fbf83f432467a8888d1bd18ec62cc6fc5bdc6cc91fbe4819a6fd6",
+      "characters": [
+        "zhang_chulan",
+        "feng_baobao",
+        "xu_si"
+      ],
+      "positions": {
+        "zhang_chulan": "right",
+        "feng_baobao": "center",
+        "xu_si": "center"
+      },
+      "description": "Zhang Chulan MCU with handheld mic; Nadutong teammates Feng Baobao and Xu Si standing behind, softly out of focus.",
+      "view": ""
+    },
+    "composition.rivals.b_over_a.handheld.v1": {
+      "kind": "composition",
+      "path": "objects/97b88dbca86f75aa4d1cd8be87db76afe8e5e0a2e8151fea998635e1f1fc5e99.png",
+      "sha256": "97b88dbca86f75aa4d1cd8be87db76afe8e5e0a2e8151fea998635e1f1fc5e99",
+      "characters": [
+        "zhang_lingyu",
+        "zhang_chulan"
+      ],
+      "positions": {
+        "zhang_lingyu": "left",
+        "zhang_chulan": "right"
+      },
+      "description": "Over Zhang Chulan's blurred shoulder onto Zhang Lingyu facing camera with handheld mic.",
+      "view": ""
+    },
+    "composition.rivals.a_over_b.handheld.v1": {
+      "kind": "composition",
+      "path": "objects/325aa1358888e7d7b60ecd9ff6662f20c337da33a2c6fa1f1ddd12406fb22dca.png",
+      "sha256": "325aa1358888e7d7b60ecd9ff6662f20c337da33a2c6fa1f1ddd12406fb22dca",
+      "characters": [
+        "zhang_lingyu",
+        "zhang_chulan"
+      ],
+      "positions": {
+        "zhang_lingyu": "left",
+        "zhang_chulan": "right"
+      },
+      "description": "Over Zhang Lingyu's blurred silver-haired shoulder onto Zhang Chulan facing camera with handheld mic.",
+      "view": ""
+    },
+    "composition.rivals.profile.handheld.v1": {
+      "kind": "composition",
+      "path": "objects/3244aaf46b77c80959154299facb6c888f79871578b53c169053391702ab0c0e.png",
+      "sha256": "3244aaf46b77c80959154299facb6c888f79871578b53c169053391702ab0c0e",
+      "characters": [
+        "zhang_lingyu",
+        "zhang_chulan"
+      ],
+      "positions": {
+        "zhang_lingyu": "left",
+        "zhang_chulan": "right"
+      },
+      "description": "Profile face-off: Zhang Lingyu left facing right, Zhang Chulan right facing left, handheld mics, bronze ring between.",
+      "view": ""
+    },
+    "composition.rivals.two_shot.handheld.v1": {
+      "kind": "composition",
+      "path": "objects/97749138c07b33db4dd71a199a0b4da3a0e98794520c5b9e06b689c3a5ef5f97.png",
+      "sha256": "97749138c07b33db4dd71a199a0b4da3a0e98794520c5b9e06b689c3a5ef5f97",
+      "characters": [
+        "zhang_lingyu",
+        "zhang_chulan"
+      ],
+      "positions": {
+        "zhang_lingyu": "left",
+        "zhang_chulan": "right"
+      },
+      "description": "Front two-shot of both rivals on the taiji floor turned toward each other, handheld mics, packed arena.",
+      "view": ""
+    }
+  },
+  "source_episode": "wangye_vs_zhugeqing",
+  "selection_basis": "Image assets used in the accepted H3 v2 film. Voice assets have not been selected or approved.",
+  "extensions": {
+    "character_sheets": "character_sheets/character_sheets_catalog.json",
+    "stage_v2": "stage_v2/catalog.json",
+    "meoogo_universe": "meoogo_refs/meoogo_characters_catalog.json",
+    "timeline_multi_age": "meoogo_refs/meoogo_timeline_multi_age_catalog.json",
+    "meoogo_padded_16x9_dir": "meoogo_padded_16x9",
+    "h3_charsheet_specs": "h3_charsheet_jobs/all_378_micw_charsheet_specs.json",
+    "multi_age_charsheet_specs": "h3_charsheet_jobs/multi_age_charsheet_specs.json",
+    "drive_sync": "master_asset_library_drive.json",
+    "motion_library": "../motions/stage_music_dance_index.json"
+  }
+}

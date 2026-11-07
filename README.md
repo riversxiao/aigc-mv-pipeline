@@ -4,6 +4,14 @@
 
 **EN**｜A pipeline for photoreal AI rap battles and music videos: song timing, a film-language storyboard with an audit, script-style Seedance prompts with timed half-lines, per-take lip-sync measurement, and a frame-exact graded conform.
 
+罗天系列已增加 H3 的共享资产与角色声线预检。新一期使用 `ep shared-assets` 生成配置，
+经 `ep production-check` 检查后导出 H3 任务，详见 [H3 系列化制作](docs/H3_Colab.md#系列共享资产与第二期)。
+共享库 `libraries/luotian/catalog.json` 已登记第一期选用的 15 个角色、33 项图片资产；声音参考仍待定样。
+图片对象不进入 Git，通过 `ep asset-pack` / `ep asset-unpack` 备份和恢复。
+新建一期使用 schema 4：`ep direct-plan` 编写逐镜表演计划，`ep direction-check` 检查导演字段与骨骼引用，
+通过 `ep production-check` 后才导出正式任务。新任务逐项审核人物、表演、手与道具、口型和连续性。
+骨骼素材库可独立建设，按 [交接接口](docs/Motion_Library_Handoff.md) 提供索引和视频。
+
 方法来源：[claudia.gallery](https://claudia.gallery/) 的制作记录（节拍分镜、人声 stem 口型、花钱闸门、逐镜头调色）、[ancient-rap-battle](https://github.com/10291124jcjc-dotcom/ancient-rap-battle)（按半句写秒数、固定站位、史料注释），以及两支参考片的镜头语言：Keynes vs Hayek《Fear the Boom and Bust》（广角贴脸、对手同框、真实场景）和《火影有嘻哈》（综艺长焦机位、反应镜头）。每条规则的来由见 [docs/方法论.md](docs/方法论.md)。
 
 ## 相比原版改了什么
@@ -29,6 +37,10 @@ E=projects/xiangyu_vs_liubang       # 示例一期：项羽 vs 刘邦
 aigc-mv ep suno $E                  # suno.md：两段生成 + Extend 的风格和歌词栏
 # 把 Suno 的歌、人声 stem、伴奏 stem 放进 $E/audio/（song.wav / vocals.wav / instrumental.wav）
 aigc-mv ep analyze $E               # 节拍、每句和每半句的时间 → analysis/timing.json
+#   有真歌时：aigc-mv ep analyze $E --mode asr  （pip install -e '.[asr]'；逐字识别主唱轨，没听全的句子到整曲 / 伴奏轨里找，
+#   主唱轨听清六成以上的句子要别的音轨多听清 15% 以上才换，
+#   识别结果缓存在 analysis/asr_<音轨>.json，另写 analysis/timing_report.md：每句的置信度、来源音轨、标记、建议先听的句子）
+#   aigc-mv ep timing-report $E --notes 核对笔记.md   （重写对时报告，把人工核对的笔记接在后面）
 #   还没有歌时：aigc-mv ep analyze $E --bpm 92   （用合成节拍网格先做分镜）
 aigc-mv ep board $E                 # 分镜 + 生成单元 + 审核 → board/board.md（给导演看）
 aigc-mv ep refs $E                  # refs/REFS.md：定妆图、场景图、首帧的提示词（MJ 英文 / 即梦中文）
@@ -49,7 +61,8 @@ aigc-mv ep render $E --res 1080p    # final/<标题>.mp4
 projects/<一期>/
   episode.yaml          唯一的创作源文件：演员、歌词（半句用空格分）、注释、动作、叙事插入、场景、画风
   audio/                song.wav  vocals.wav  instrumental.wav
-  analysis/timing.json  节拍网格、每句 / 半句 / 每个字的时间、段落、每小节能量
+  analysis/timing.json  节拍网格、每句 / 半句 / 每个字的时间、段落、每小节能量（ASR 模式另有每句的 conf / source / flags）
+  analysis/timing_report.md  ASR 对时报告（中文）；asr_<音轨>.json 是识别缓存
   board/                board.json  board.md（分镜表）  audit.json
   refs/                 REFS.md + 你生成的 a_sheet.png  b_sheet.png  venue.png  loc_*.png  crowd.png  plate_u*.png
   units/<id>/           prompt.txt  request.json  <id>_vocal.wav  takes/  takes.json
@@ -90,7 +103,8 @@ E=projects/wangye_vs_zhugeqing
 aigc-mv ep analyze $E --bpm 92     # 还没有歌：合成节拍网格（约 3:40）
 aigc-mv ep board $E                # 分镜 + 审核（audit: PASS）
 aigc-mv ep canon $E --src <本地官方图文件夹>   # 原作图放进 refs/canon/（gitignore，不进 git）
-aigc-mv ep refs $E                 # 15 人三步定妆（原作图 → 正面像 → 五个角度）+ 场馆 / 评委席 / DJ台 / 观众的提示词
+aigc-mv ep refs $E                 # 15 人三步定妆（原作图 → 正面像 → 五个角度）+ 9 张场馆背景板（满场观众）的提示词
+aigc-mv ep plates $E               # 背景板清单：每张用在哪些单元、费用估算（不调用接口）
 aigc-mv ep sheets $E               # 第三步：把锁定的 face/34/profile/half/full 拼成 <key>_sheet.png
 aigc-mv ep prompts $E              # 每个生成单元的即梦提示词
 aigc-mv ep suno $E                 # 多声部 Suno 栏（分段 Extend，主持念白）
@@ -116,6 +130,7 @@ aigc-mv ep render $E --res 480p    # 全长预演动画：占位画面 + 合成�
 | `edit.py` / `overlays.py` | EDL、按帧对齐渲染、逐镜头调色、胶片感、字幕 / 注释 / 名字卡 / 标题 |
 | `packs.py` | 写出每个单元的上传清单和请求；refs/REFS.md（综艺按人物和三步定妆分组） |
 | `sheets.py` | `ep sheets`：把锁定的五个角度拼成每人一张定妆组图 |
+| `plates.py` | 综艺场馆背景板：调度对应哪张图、每单元最多两张、满场观众和客串座位的写法、费用估算 |
 | `providers/` | 花钱闸门 + Dreamina / Suno 适配器（待接口，见 [docs/接口对接.md](docs/接口对接.md)） |
 
 旧的知识层命令（`list-characters`、`get-canon`、`build-prompt`、`list-lore`、`lyric-brief`、`align`、`storyboard`、`preview`）保留不变，MCP 服务见 [`mcp_server/README.md`](mcp_server/README.md)。

@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "display_name": "异人开麦",
+  "spoken_name": "异人开麦",
+  "pronunciation_guide": "yì rén kāi mài",
+  "branding_status": "working_name_user_can_revise",
+  "scope": "《一人之下》跨阵营同人音乐节目；逐期轮换角色，不按某场原作赛事限定来宾。",
+  "canon_boundary": "同台参加节目是二创设定；不表示原作结盟。各期涉及关系、经历、能力时仍须核对对应篇章。",
+  "existing_asset_catalog": "catalog.json",
+  "episode_02_cast_plan": "../../projects/luotian_ep02/cast_plan.v0.5.json",
+  "women_featured_ep02": [
+    "feng_baobao",
+    "feng_shayan",
+    "xia_he",
+    "lu_linglong",
+    "zhi_jinhua"
+  ],
+  "quanxing_featured_ep02": [
+    "xia_he",
+    "lv_liang",
+    "shen_chong"
+  ],
+  "future_candidates": [
+    {
+      "name": "陈朵",
+      "note": "适合围绕选择与自我安排独立主题；篇章和形象单独复核"
+    },
+    {
+      "name": "傅蓉",
+      "note": "干练与生活感；候选主场或来宾，待角色卡与参考"
+    },
+    {
+      "name": "高二壮",
+      "note": "先按角色设定设计媒介化登场，不擅自安排普通舞台站位"
+    },
+    {
+      "name": "陶桃",
+      "note": "保留独立轮廓和表演气质；待原作参考"
+    },
+    {
+      "name": "梅金凤",
+      "note": "保留年长女性自身的风采与经历，不统一年轻化"
+    },
+    {
+      "name": "柳妍妍",
+      "note": "身份与篇章关系复核后再安排来宾席位"
+    },
+    {
+      "name": "涂君房",
+      "note": "全性后续候选；待原作关系、造型与动作参考"
+    },
+    {
+      "name": "丁嶋安",
+      "note": "全性后续候选；适合未来强者对局"
+    },
+    {
+      "name": "夏柳青",
+      "note": "全性后续候选；与梅金凤关系涉及原作时需核对"
+    },
+    {
+      "name": "苑陶",
+      "note": "全性后续候选；不必每期全员出现"
+    },
+    {
+      "name": "风星潼",
+      "note": "天下会方向，待肖像资产"
+    },
+    {
+      "name": "贾正亮",
+      "note": "后续主场或来宾，待肖像和动作风格"
+    },
+    {
+      "name": "王震球",
+      "note": "后续主场候选，独立表演气质"
+    },
+    {
+      "name": "肖自在",
+      "note": "后续主场候选，独立声线与克制动作"
+    },
+    {
+      "name": "黑管儿",
+      "note": "后续主场或来宾候选"
+    },
+    {
+      "name": "老孟",
+      "note": "后续群像候选"
+    }
+  ],
+  "art_direction": "保持每人眼型、面部比例、发型、轮廓、服装语言和气质的差异；女性美感通过人物性格、表情、质感与有目的的镜头表现。",
+  "episode_02_hook": "xia_he",
+  "generated_ep02_portraits": [
+    "xia_he",
+    "lu_linglong",
+    "zhi_jinhua",
+    "lv_liang",
+    "shen_chong"
+  ],
+  "episode_02_band_plan": "../../projects/luotian_ep02/band_plan.v0.5.json"
+}

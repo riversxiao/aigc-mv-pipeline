@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "decision_date": "2026-11-06",
+  "preferred_approach": "native_h3_skeleton_video_reference",
+  "decision_source": {
+    "date": "2026-11-06",
+    "reviewer": "user",
+    "selected_variant": "pose_reference",
+    "comment": "这三个版本里 骨骼视频 明显更好",
+    "scope": "Aesthetic preference for the completed Wang Ye single-shot pilot"
+  },
+  "scope": [
+    "single-performer rap shots with deliberate visible gestures"
+  ],
+  "workflow": [
+    "Select a performance consistent with the character",
+    "Extract and inspect skeleton motion",
+    "Match the target framing, microphone hand and lyric accent timing",
+    "Generate with approved character images, stage first frame and target vocal guide",
+    "Review identity, hand shape, mouth timing and the final held pose"
+  ],
+  "character_directions": {
+    "wang_ye": "Relaxed, restrained, small gestures with settled pauses",
+    "zhuge_qing": "Composed, precise, clean hand accents"
+  },
+  "reference_example": {
+    "motion_id": "motion.rap.two_downbeats.upper_body.v1",
+    "pose_video_sha256": "84aca4e291edabc79ff0a0a95c29e55bfd8d703db4783f57f64f419193f4b2e4",
+    "preview_url": "https://drive.google.com/file/d/1C2jimF5L7Cro7pQzD79p2roffW_go_eL/view?usp=drivesdk"
+  },
+  "policy_type": "production planning preference; per-shot references still need preparation",
+  "automatic_production_approval": false,
+  "gpu_started_by_this_update": false
+}

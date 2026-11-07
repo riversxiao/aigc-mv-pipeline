@@ -1,0 +1,79 @@
+{
+  "version": "0.5",
+  "stage_roles_are_fan_show_arrangements": true,
+  "players": [
+    {
+      "alias": "wang",
+      "character": "wang_ye",
+      "name": "王也",
+      "instrument": "guqin",
+      "instrument_cn": "古琴",
+      "frame": "wang_ye_guqin_firstframe_v1",
+      "placement": "左前侧安静琴台",
+      "guide": "audio/instrumental.wav",
+      "focus": "女声开场与器乐尾奏；不要把古琴拨弦误认成吉他独奏。",
+      "reference": "asset:composition.wang_ye.guqin.front.v1"
+    },
+    {
+      "alias": "lu_linglong",
+      "character": "lu_linglong",
+      "name": "陆玲珑",
+      "instrument": "drums",
+      "instrument_cn": "鼓",
+      "frame": "lu_linglong_drums_firstframe_v1",
+      "placement": "后左鼓台",
+      "guide": "audio/stems/drums.wav",
+      "focus": "鼓落点和过门短镜头，动作需鼓手参考，不套说唱摆手骨骼。",
+      "reference": "asset:composition.lu_linglong.drums.front.v1"
+    },
+    {
+      "alias": "zhi_jinhua",
+      "character": "zhi_jinhua",
+      "name": "枳瑾花",
+      "instrument": "keyboard",
+      "instrument_cn": "键盘",
+      "frame": "zhi_jinhua_keyboard_firstframe_v1",
+      "placement": "后右键盘台",
+      "guide": "audio/stems/keyboard.wav",
+      "focus": "铺底、旋律及余响；手势幅度小，键位、手指与发声段落一致。",
+      "reference": "asset:composition.zhi_jinhua.keyboard.front.v1"
+    },
+    {
+      "alias": "feng_xingtong",
+      "character": "feng_xingtong",
+      "name": "风星潼",
+      "instrument": "bass",
+      "instrument_cn": "贝斯",
+      "frame": "feng_xingtong_bass_firstframe_v1",
+      "placement": "后中偏左",
+      "guide": "audio/stems/bass.wav",
+      "focus": "808低频的舞台化视觉安排；不是声称原录音由电贝斯录制。",
+      "reference": "asset:composition.feng_xingtong.bass.front.v1"
+    },
+    {
+      "alias": "jia_zhengliang",
+      "character": "jia_zhengliang",
+      "name": "贾正亮",
+      "instrument": "guitar",
+      "instrument_cn": "吉他",
+      "frame": "jia_zhengliang_guitar_firstframe_v1",
+      "placement": "后中偏右",
+      "guide": "audio/stems/guitar.wav",
+      "focus": "吉他镜头预备；Guitar分轨可能含古琴等拨弦，未听辨确认前不放成主奏近景。",
+      "reference": "asset:composition.jia_zhengliang.guitar.front.v1"
+    }
+  ],
+  "dj": {
+    "character": "xu_san",
+    "name": "徐三",
+    "instrument_cn": "DJ / 合成器 / 采样",
+    "guide": "audio/stems/synth.wav"
+  },
+  "accompaniment_only": [
+    "strings",
+    "brass",
+    "other"
+  ],
+  "note": "分轨声部是导出标签，不直接等于实录乐器。保留原整曲作最终混音母版；乐手镜头用声部活动与真实演奏动作参考来选。",
+  "motion_status": "instrument-specific reference clips and hand/finger checks pending; rap-pose library does not cover instrument technique"
+}

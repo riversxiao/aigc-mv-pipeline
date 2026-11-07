@@ -58,6 +58,19 @@ def media_duration(path: Path) -> float:
     raise RuntimeError(f"could not read duration of {path}")
 
 
+def video_size(path: Path) -> tuple[int, int] | None:
+    """(width, height) of the first video stream from ffmpeg's banner, None when there is none."""
+    import re
+
+    proc = subprocess.run([ffmpeg_exe(), "-hide_banner", "-i", str(path)], capture_output=True, text=True)
+    for line in proc.stderr.splitlines():
+        if "Video:" in line:
+            m = re.search(r"\b(\d{2,5})x(\d{2,5})\b", line)
+            if m:
+                return int(m.group(1)), int(m.group(2))
+    return None
+
+
 def load_audio(path: Path, sr: int = 22050, mono: bool = True) -> tuple[np.ndarray, int]:
     """Decode any audio/video file to float32 via ffmpeg (no soundfile format limits)."""
     ch = "1" if mono else "2"

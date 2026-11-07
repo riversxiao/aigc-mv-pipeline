@@ -1,0 +1,1105 @@
+{
+  "schema_version": 4,
+  "mode": "production",
+  "series_id": "luotian_rap",
+  "asset_library": "../../libraries/luotian/catalog.json",
+  "seed_base": 2026110900,
+  "lead_frames": 8,
+  "lock_guide_audio": true,
+  "cast": {
+    "a": {
+      "portrait": "asset:character.zhang_lingyu.front.v1",
+      "description": "Adult Zhang Lingyu, beautiful dignified ascetic face, silver-white long hair half tied with dark ornament, white layered embroidered Taoist robe and dark waist sash. Serious calm eyes. Episode 2 battle: holds one plain matte-black wireless handheld microphone in his RIGHT hand at chin level, lips always visible; free left hand for gestures."
+    },
+    "b": {
+      "portrait": "asset:character.zhang_chulan.front.v1",
+      "description": "Adult Zhang Chulan, messy black hair, sly crooked closed smile, navy work jacket over white tee with orange-red collar, dark work trousers. Episode 2 battle: holds one plain matte-black wireless handheld microphone in his RIGHT hand at chin level, lips always visible; free left hand for agile gestures."
+    },
+    "tianshi": {
+      "portrait": "asset:character.zhang_zhiwei.front.v1",
+      "description": "Lao Tianshi Zhang Zhiwei, dignified venerable elder with radiant evenly toned clean ivory skin, NO black spots, NO brown age spots or uneven pigmentation. Natural delicate elder wrinkles remain. Serene wise clear eyes, pure airy silver-white brows, long white beard and elegant white topknot. Black Taoist robe, grey cloud-jacquard collar, white inner collar, carved central judge chair. 仙风道骨、鹤发童颜、清癯高古。"
+    },
+    "lu_jin": {
+      "portrait": "asset:character.lu_jin.front.v1",
+      "description": "Venerable Lu Jin, long straight center-parted white hair, white moustache and chin beard, stern watery eyes, black suit and white shirt, seated carved left judge chair, a white handkerchief kept low."
+    },
+    "feng_zhenghao": {
+      "portrait": "asset:character.feng_zhenghao.front.v1",
+      "description": "Middle-aged Feng Zhenghao, slicked-back grey-white hair, round wire glasses, slate-blue double-breasted suit over blue polka-dot shirt, composed calculating smile, carved right judge chair."
+    },
+    "xu_si": {
+      "portrait": "asset:character.xu_si.front.v1",
+      "description": "Adult Xu Si, tousled short silver hair, faint chin goatee/stubble, khaki jacket with small brass collar bars, white scoop tee and silver chain, plain matte-black wireless microphone low at sternum."
+    },
+    "xu_san": {
+      "portrait": "asset:character.xu_san.front.v1",
+      "description": "Adult Xu San, neat short dark hair, rectangular glasses, black suit and open white shirt, black over-ear headphones on neck, professional DJ at the bronze and dark wood console."
+    },
+    "baobao": {
+      "portrait": "asset:character.feng_baobao.front.v1",
+      "description": "Adult Feng Baobao, exquisitely refined natural face, very long straight jet-black hair, clear dark eyes, neutral unbothered expression, pale grey-blue simple work shirt."
+    },
+    "shayan": {
+      "portrait": "asset:character.feng_shayan.front.v1",
+      "description": "Adult Feng Shayan, exquisite confident face, short icy lavender bob and side fringe, matching tailored lavender suit and modest smooth pale lavender high-neck top, seated second-row VIP guest."
+    },
+    "qing": {
+      "portrait": "asset:character.zhuge_qing.front.v1",
+      "description": "Adult Zhuge Qing, navy-blue layered hair, narrow smiling foxlike eyes, small beauty mark, charcoal embroidered tailored jacket, open white collar and small green jade pendant. Plain matte-black wireless microphone with black grille when performing."
+    },
+    "wang": {
+      "portrait": "asset:character.wang_ye.front.v1",
+      "description": "Adult Wang Ye, casual dark high topknot, intelligent sleepy half-lidded dark eyes, relaxed low eyebrows, indigo hip-length wrap jacket over white crew-neck tee and separate indigo trousers. For this episode he is a quiet guqin player. Take only his face, hair and costume from the portrait; the first frame defines the guqin, empty hands and seated position. No handheld or stand microphone, no speech, no singing."
+    },
+    "xia_he": {
+      "portrait": "asset:character.xia_he.front.v1",
+      "description": "Adult stage Xia He, shoulder-length rose-pink hair with sweeping long side fringe, green almond eyes, composed alluring half smile, elegant defined cheekbones. Ivory tailored jacket over a deep-plum silk wrap blouse, charcoal high-waisted trousers; refined cinematic CG. This episode: solo female chorus performer, anatomical RIGHT hand holds matte-black wireless mic below chin; use the matching chorus composition for performance, not the mic-free identity portrait."
+    },
+    "lv_liang": {
+      "portrait": "asset:character.lv_liang.front.v1",
+      "description": "Adult stage Lv Liang, short rounded chestnut-black bowl haircut, thin round wire glasses, alert amber-gold eyes and a controlled mischievous smile. Moss-green open overshirt over pale-sage crew-neck shirt, dark trousers; refined cinematic CG."
+    },
+    "shen_chong": {
+      "portrait": "asset:character.shen_chong.front.v1",
+      "description": "Adult stage Shen Chong, charcoal-black longer uneven layered fringe, thin rectangular glasses, narrow grey-brown eyes, long angular face and calculating restraint. Charcoal tailored blazer over deep grey-violet open-neck collared shirt; refined cinematic CG."
+    },
+    "lu_linglong": {
+      "portrait": "asset:character.lu_linglong.front.v1",
+      "description": "Adult stage Lu Linglong, long warm-pink hair, separated forward fringe and a small upward cowlick, bright blue eyes, open oval face and candid expression. Ivory short jacket with warm-pink piping over ivory crew-neck top, light taupe high-waisted trousers; refined cinematic CG."
+    },
+    "zhi_jinhua": {
+      "portrait": "asset:character.zhi_jinhua.front.v1",
+      "description": "Adult stage Zhi Jinhua, long straight blue-black hair with separated fringe, thin dark-red rectangular glasses, perceptive brown eyes, elegant long-oval face and knowing slight smile. Violet collared blouse with rolled sleeves, pale stone-grey trousers and dark belt; refined cinematic CG."
+    },
+    "feng_xingtong": {
+      "portrait": "asset:character.feng_xingtong.front.v1",
+      "description": "Adult stage Feng Xingtong, short silver-white center-parted swept-back hair, loose temple strands, friendly grey eyes and calm slight smile. Charcoal stand-collar zip jacket with muted-lime sleeve stripes, dark tee and dark trousers."
+    },
+    "jia_zhengliang": {
+      "portrait": "asset:character.jia_zhengliang.front.v1",
+      "description": "Adult stage Jia Zhengliang, crimson-red spiky swept-back hair with two long cheek strands, amber-orange eyes, strong brows, firm angular jaw, earnest grounded confidence. Black hooded raised-collar jacket, ivory tee and dark trousers."
+    }
+  },
+  "keyframes": {
+    "s001": "asset:scene.venue_front.v1",
+    "s002": "asset:composition.wang_ye.guqin.front.v1",
+    "s003": "asset:composition.xia_he.opening.mcu.v1",
+    "s004": "asset:composition.xia_he.opening.ms.v1",
+    "s005": "asset:composition.xia_he.opening.mcu.v1",
+    "s006": "asset:composition.xia_he.opening.ms.v1",
+    "s007": "asset:composition.zhang_lingyu.handheld.mcu.v1",
+    "s008": "asset:composition.zhang_lingyu.handheld.cu.v1",
+    "s009": "asset:composition.xia_he.opening.mcu.v1",
+    "s010": "asset:composition.zhang_chulan.handheld.mcu.v1",
+    "s011": "asset:composition.zhang_lingyu.handheld.ms_gesture.v1",
+    "s012": "asset:composition.rivals.b_over_a.handheld.v1",
+    "s013": "asset:composition.zhang_lingyu.handheld.cu.v1",
+    "s014": "asset:composition.zhang_lingyu.handheld.lowangle.v1",
+    "s015": "asset:composition.zhang_lingyu.handheld.mcu.v1",
+    "s017": "asset:composition.rivals.profile.handheld.v1",
+    "s019": "asset:composition.zhang_lingyu.handheld.ms_gesture.v1",
+    "s020": "asset:composition.zhang_lingyu.handheld.cu.v1",
+    "s021": "asset:composition.rivals.b_over_a.handheld.v1",
+    "s022": "asset:composition.zhang_lingyu.handheld.lowangle.v1",
+    "s023": "asset:composition.zhang_lingyu.handheld.mcu.v1",
+    "s024": "asset:composition.zhang_chulan.handheld.team.v1",
+    "s025": "asset:composition.zhang_lingyu.handheld.cu.v1",
+    "s026": "asset:composition.rivals.two_shot.handheld.v1",
+    "s027": "asset:composition.lu_linglong.drums.front.v1",
+    "s028": "asset:composition.xia_he.opening.mcu.v1",
+    "s029": "asset:composition.lu_linglong.drums.front.v1",
+    "s030": "asset:composition.xia_he.opening.mcu.v1",
+    "s031": "asset:composition.zhang_chulan.handheld.cu.v1",
+    "s032": "asset:composition.xia_he.opening.mcu.v1",
+    "s033": "asset:composition.xia_he.opening.ms.v1",
+    "s034": "asset:composition.zhang_chulan.handheld.cu.v1",
+    "s035": "asset:composition.xia_he.opening.mcu.v1",
+    "s036": "asset:composition.xia_he.opening.ms.v1",
+    "s037": "asset:composition.xia_he.opening.mcu.v1",
+    "s038": "asset:composition.xia_he.opening.mcu.v1",
+    "s039": "asset:composition.zhang_chulan.handheld.ms_gesture.v1",
+    "s040": "asset:composition.zhang_chulan.handheld.mcu.v1",
+    "s041": "asset:composition.rivals.a_over_b.handheld.v1",
+    "s042": "asset:composition.zhang_chulan.handheld.cu.v1",
+    "s043": "asset:composition.zhang_lingyu.handheld.cu.v1",
+    "s044": "asset:composition.zhang_chulan.handheld.team.v1",
+    "s045": "asset:composition.rivals.profile.handheld.v1",
+    "s046": "asset:composition.zhang_chulan.handheld.ms_gesture.v1",
+    "s047": "asset:composition.xia_he.opening.mcu.v1",
+    "s048": "asset:composition.zhang_chulan.handheld.cu.v1",
+    "s049": "asset:composition.rivals.a_over_b.handheld.v1",
+    "s050": "asset:composition.zhang_chulan.handheld.mcu.v1",
+    "s051": "asset:composition.zhang_chulan.handheld.ms_gesture.v1",
+    "s052": "asset:composition.zhang_chulan.handheld.team.v1",
+    "s053": "asset:composition.zhang_chulan.handheld.cu.v1",
+    "s054": "asset:composition.rivals.two_shot.handheld.v1",
+    "s055": "asset:composition.wang_ye.guqin.front.v1",
+    "s056": "asset:composition.zhang_lingyu.handheld.lowangle.v1",
+    "s057": "asset:composition.rivals.b_over_a.handheld.v1",
+    "s058": "asset:composition.zhang_lingyu.handheld.cu.v1",
+    "s059": "asset:composition.rivals.a_over_b.handheld.v1",
+    "s060": "asset:composition.zhang_chulan.handheld.mcu.v1",
+    "s061": "asset:composition.zhang_chulan.handheld.ms_gesture.v1",
+    "s062": "asset:composition.rivals.a_over_b.handheld.v1",
+    "s063": "asset:composition.zhang_chulan.handheld.cu.v1",
+    "s064": "asset:composition.zhang_chulan.handheld.team.v1",
+    "s066": "asset:composition.zhang_chulan.handheld.mcu.v1",
+    "s067": "asset:composition.zhang_chulan.handheld.ms_gesture.v1",
+    "s068": "asset:composition.xia_he.opening.mcu.v1",
+    "s069": "asset:composition.rivals.two_shot.handheld.v1",
+    "s070": "asset:frame.shayan_seated.v1",
+    "s071": "asset:composition.xia_he.opening.mcu.v1",
+    "s072": "asset:composition.xia_he.opening.mcu.v1",
+    "s073": "asset:composition.xia_he.opening.mcu.v1",
+    "s074": "asset:composition.zhang_chulan.handheld.cu.v1",
+    "s075": "asset:composition.xia_he.opening.mcu.v1",
+    "s076": "asset:composition.xia_he.opening.ms.v1",
+    "s077": "asset:composition.xia_he.opening.mcu.v1",
+    "s078": "asset:composition.wang_ye.guqin.front.v1",
+    "s079": "asset:composition.zhi_jinhua.keyboard.front.v1",
+    "s080": "asset:scene.venue_front.v1",
+    "s016": "asset:character.zhang_zhiwei.front.v1",
+    "s018": "asset:character.lv_liang.front.v1",
+    "s065": "asset:character.feng_baobao.front.v1"
+  },
+  "shot_overrides": {
+    "s001": {
+      "visible_cast": [],
+      "framing": "WS",
+      "camera": "push_slow",
+      "composition": "Preserve the exact first-frame architectural symmetry, empty central taiji floor and distant gallery geometry. No person or silhouette enters the central stage.",
+      "camera_description": "a slow shallow forward move toward the empty taiji floor and bronze ring, remaining above the foreground rail with the central stage completely unobstructed",
+      "look_description": "Premium refined Chinese cinematic architectural rendering, carved indigo stone, jade railings, bronze trigram ring, warm temple lantern glow and moonlit mountain night atmosphere.",
+      "gallery_description": "The distant side galleries remain static in subdued warm lantern light as shown in the first frame; the central octagonal taiji stage floor stays completely empty and uninhabited.",
+      "acting_description": ""
+    },
+    "s002": {
+      "visible_cast": [
+        "wang"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, architecture, empty floor and background occupancy. No additional person appears."
+    },
+    "s003": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MCU",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, architecture, empty floor and background occupancy. No additional person appears."
+    },
+    "s004": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, architecture, empty floor and background occupancy. No additional person appears."
+    },
+    "s005": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MCU",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, architecture, empty floor and background occupancy. No additional person appears."
+    },
+    "s006": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, architecture, empty floor and background occupancy. No additional person appears."
+    },
+    "s007": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "MCU",
+      "camera": "tele_float",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "从山上算计到山下……张楚岚，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s008": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "CU",
+      "camera": "push_slow",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "你嘴里到底哪句是真的？",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "135"
+    },
+    "s009": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s010": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "MCU",
+      "camera": "tele_float",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "（呵）小师叔，听好了——这盘大局，我想赢！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s011": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "MS",
+      "camera": "handheld",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "算退路、算人心、算得太精，连认输都留余地，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s012": {
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "嘴上挂着没所谓，脚底下步步算计！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "85"
+    },
+    "s013": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "CU",
+      "camera": "tele_float",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "十年金光藏锋芒、藏不住满城猜疑，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "135"
+    },
+    "s014": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "MCU",
+      "camera": "low_push",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "从山上算到山下，你赔个笑脸又换话题！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s015": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "MCU",
+      "camera": "handheld",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "我也曾白衣不染泥、三千日夜苦心磨砺，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s016": {
+      "visible_cast": [
+        "tianshi"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s017": {
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "camera": "push_slow",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "借各方人情博弈、布满盘暗棋诡计，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "50"
+    },
+    "s018": {
+      "visible_cast": [
+        "lv_liang"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s019": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "MS",
+      "camera": "handheld",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "五雷正法不看嘴皮、劈碎你满身假意，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s020": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "CU",
+      "camera": "push_slow",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "比快你藏着燥火气、比静我压着真锋利！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "135"
+    },
+    "s021": {
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "异人江湖这盘棋、不认嬉皮只认根基，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "85"
+    },
+    "s022": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "MCU",
+      "camera": "low_push",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "别等漫天暗夜全熄、才敢亮出你的真底细！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s023": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "MCU",
+      "camera": "tele_float",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "从碧游村到秦岭深谷，我不笑你追查前尘的执意，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s024": {
+      "visible_cast": [
+        "b",
+        "baobao",
+        "xu_si"
+      ],
+      "framing": "MCU",
+      "camera": "handheld",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s025": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "CU",
+      "camera": "push_slow",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "杀招留半手、真心瞒到底，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "135"
+    },
+    "s026": {
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "camera": "arc_short",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "既然并肩站在风暴里，别拿混话当谜底！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "50"
+    },
+    "s027": {
+      "visible_cast": [
+        "lu_linglong"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s028": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MCU",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "lyric_excerpt": "（啊——）",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s029": {
+      "visible_cast": [
+        "lu_linglong"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s030": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MCU",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "lyric_excerpt": "雷有两面，人有两难——",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s031": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "CU",
+      "camera": "locked",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "135"
+    },
+    "s032": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MCU",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "lyric_excerpt": "白衣掌心翻黑水，",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s033": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "lyric_excerpt": "俗人袖里，偏偏起金电！",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s034": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "CU",
+      "camera": "locked",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "135"
+    },
+    "s035": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MCU",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "lyric_excerpt": "风云入局，分得出胜负，",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s036": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "lyric_excerpt": "分不出冷暖，",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s037": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MCU",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "lyric_excerpt": "等这盏灯亮透了，别急着，把谁看穿。",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s038": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s039": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "MS",
+      "camera": "handheld",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "（哈！）笑我处处留余地？因为我背后，从来没有名门正派的高墙！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s040": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "MCU",
+      "camera": "tele_float",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "深山里你修你的清净、泥潭里我学我的躲藏，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s041": {
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "把金光死死按进骨头缝里，谁不想活得亮堂堂？！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "85"
+    },
+    "s042": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "CU",
+      "camera": "push_slow",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "一路入局不为虚名、只为把百年旧账照亮！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "135"
+    },
+    "s043": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "CU",
+      "camera": "locked",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "135"
+    },
+    "s044": {
+      "visible_cast": [
+        "b",
+        "baobao",
+        "xu_si"
+      ],
+      "framing": "MCU",
+      "camera": "handheld",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "雷分阴阳不分贵贱、北冥黑水照样锋芒，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s045": {
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "camera": "push_slow",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "别拿正统那把戒尺，把你自己的道心一道捆上！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "50"
+    },
+    "s046": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "MS",
+      "camera": "snap_zoom",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "全天下骂我不摇碧莲、骂我嬉皮笑脸、骂我满嘴跑偏，我拍拍灰尘接着演！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s047": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s048": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "CU",
+      "camera": "tele_float",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "体面算什么排场？虚名算什么封赏？",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "135"
+    },
+    "s049": {
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "少留一分给面子，护住身边人才算真担当！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "85"
+    },
+    "s050": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "MCU",
+      "camera": "handheld",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "能躺赢绝不硬抗、能认怂绝不逞强，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s051": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "MS",
+      "camera": "low_push",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "入局前先把生死算停当，哪一回向这命运投过降？！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s052": {
+      "visible_cast": [
+        "b",
+        "baobao",
+        "xu_si"
+      ],
+      "framing": "MCU",
+      "camera": "tele_float",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "我认你五雷够硬、傲骨够刚，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s053": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "CU",
+      "camera": "push_slow",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "可别仗着穿一身白就把俗人全判成脏，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "135"
+    },
+    "s054": {
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "camera": "arc_short",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "名声留给天下榜，绝路我自己去闯！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "50"
+    },
+    "s055": {
+      "visible_cast": [
+        "wang"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s056": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "MCU",
+      "camera": "low_push",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "下山趟过这片泥泞……你的难处，我如今才算踏过，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s057": {
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "守着昔日门规倒把我自己反锁，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "85"
+    },
+    "s058": {
+      "visible_cast": [
+        "a"
+      ],
+      "framing": "CU",
+      "camera": "push_slow",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "掌心纵是阴雷黑水，这一路我不再闪躲——",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "135"
+    },
+    "s059": {
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "85"
+    },
+    "s060": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "MCU",
+      "camera": "tele_float",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "既然小师叔把话认了、那我也把笑脸放下，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s061": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "MS",
+      "camera": "handheld",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "真话之所以绕弯、是因为肩上背着牵挂！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s062": {
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "搅动风云不为掌门位、更不图名震天下，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "85"
+    },
+    "s063": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "CU",
+      "camera": "push_slow",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "只想替死在荒野的爷——向这世道问句当年真假！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "135"
+    },
+    "s064": {
+      "visible_cast": [
+        "b",
+        "baobao",
+        "xu_si"
+      ],
+      "framing": "MCU",
+      "camera": "handheld",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "从甲申迷雾一路查到深谷底，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s065": {
+      "visible_cast": [
+        "baobao"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s066": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "MCU",
+      "camera": "tele_float",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "你们守的规矩我绝不砸、",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s067": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "MS",
+      "camera": "snap_zoom",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "可我护的人——满天神佛也别想拦下！",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field."
+    },
+    "s068": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s069": {
+      "visible_cast": [
+        "a",
+        "b"
+      ],
+      "framing": "2S",
+      "camera": "arc_short",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "lyric_excerpt": "我认我心眼太多、算计太深、也怕过人心变卦，",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "50"
+    },
+    "s070": {
+      "visible_cast": [
+        "shayan"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, seated posture, and background VIP gallery exactly as established.",
+      "gallery_description": "Preserve the exact background seated figures and warm lantern lighting from the first frame without adding anyone new."
+    },
+    "s071": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MCU",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "lyric_excerpt": "雷有两面，人有两难——",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s072": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MCU",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "lyric_excerpt": "白衣掌心翻黑水，俗人袖里，偏偏起金电！",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s073": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MCU",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "lyric_excerpt": "风云入局，分得出胜负，分不出冷暖，",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s074": {
+      "visible_cast": [
+        "b"
+      ],
+      "framing": "CU",
+      "camera": "locked",
+      "composition": "Keep the first-frame performer positions, costume, microphone hand and arena background. Only the people already in the first frame are present in the foreground.",
+      "gallery_description": "Preserve the packed audience exactly as established in the first frame: they stay seated in the tiered stands, softly out of focus, with warm spotlight beams and the bronze trigram ring. No new person walks onto the performance floor; no duplicate performer appears.",
+      "look_description": "Premium refined semi-realistic Chinese cinematic CG, detailed hair and fabric, broadcast stage lighting with warm amber spotlights, cool rim light, indigo night sky, jade and bronze architecture, shallow depth of field.",
+      "lens": "135"
+    },
+    "s075": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MCU",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "lyric_excerpt": "等这盏灯亮透了，",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s076": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "lyric_excerpt": "别急着，把谁看穿！",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s077": {
+      "visible_cast": [
+        "xia_he"
+      ],
+      "framing": "MCU",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s078": {
+      "visible_cast": [
+        "wang"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s079": {
+      "visible_cast": [
+        "zhi_jinhua"
+      ],
+      "framing": "MS",
+      "camera": "locked",
+      "composition": "Keep the first-frame subject coordinates, costume, and static background architecture; only the single defined subject is present in the frame.",
+      "gallery_description": "Preserve the exact static background architecture, carved stone pillars, bronze ring and warm lantern lighting from the first frame; the background behind the subject remains unchanged and uninhabited."
+    },
+    "s080": {
+      "visible_cast": [],
+      "framing": "WS",
+      "camera": "crane_up",
+      "composition": "Preserve the exact first-frame architectural symmetry, empty central taiji floor and distant gallery geometry. No person or silhouette enters the central stage.",
+      "camera_description": "a slow shallow backward pull-back and gentle rise from the empty taiji floor and bronze ring, keeping the central stage completely unobstructed",
+      "look_description": "Premium refined Chinese cinematic architectural rendering, carved indigo stone, jade railings, bronze trigram ring, warm temple lantern glow and moonlit mountain night atmosphere.",
+      "gallery_description": "The distant side galleries remain static in subdued warm lantern light as shown in the first frame; the central octagonal taiji stage floor stays completely empty and uninhabited.",
+      "acting_description": ""
+    }
+  },
+  "directing_plan": "direction.json",
+  "motion_library": "../../libraries/motions/battle_rap/catalog.json",
+  "audio_cast": {
+    "voices": {
+      "zhang_lingyu": {
+        "voice_id": "suno:lei-you-liang-mian:original:zhang_lingyu:v1",
+        "reference": "asset:voice.zhang_lingyu.ep02.suno.v1",
+        "vocals": "audio/zhang_lingyu_vocals.wav",
+        "routing_windows": [
+          [
+            24.5,
+            31.3
+          ],
+          [
+            36.8,
+            89.1
+          ],
+          [
+            168.5,
+            183.3
+          ]
+        ],
+        "is_clean_multispeaker_separation": false,
+        "direction": "cold male baritone，冷峻男中低音，念白后利落断奏说唱；与B分开。"
+      },
+      "zhang_chulan": {
+        "voice_id": "suno:lei-you-liang-mian:original:zhang_chulan:v1",
+        "reference": "asset:voice.zhang_chulan.ep02.suno.v1",
+        "vocals": "audio/zhang_chulan_vocals.wav",
+        "routing_windows": [
+          [
+            31.3,
+            36.8
+          ],
+          [
+            113.5,
+            168.5
+          ],
+          [
+            183.3,
+            217.3
+          ]
+        ],
+        "is_clean_multispeaker_separation": false,
+        "direction": "gritty male tenor，带颗粒的男高音，快速三连音与高速切分；末副歌只作短句ad-libs。"
+      },
+      "xia_he": {
+        "voice_id": "suno:lei-you-liang-mian:original:xia_he:v1",
+        "reference": "asset:voice.xia_he.ep02.suno.v1",
+        "vocals": "audio/xia_he_vocals.wav",
+        "routing_windows": [
+          [
+            0,
+            24.5
+          ],
+          [
+            91.5,
+            113.5
+          ],
+          [
+            217.3,
+            237.25
+          ]
+        ],
+        "is_clean_multispeaker_separation": false,
+        "direction": "ethereal cold female soprano，空灵清冷女高音；女声开场、主副歌、尾段副歌均为主唱。"
+      }
+    },
+    "review": {
+      "status": "approved",
+      "fingerprint": "d3a53f7dcf691de1f7b83f1b529dea06e8ee77eb95a3ea248c0531c78d307560",
+      "notes": "用户试听原曲中的张灵玉、张楚岚、夏禾片段后明确回复：确认沿用，声音区分满意。角色对应张灵玉=A、张楚岚=B、夏禾=女声副歌；保留用户提供的Suno原曲，不另行合成声音。此记录不代表字幕逐字或画面口型已经验收。"
+    }
+  },
+  "gallery_description": "Preserve the exact background population and placement established in the first frame. Add no new people or spectators. Keep the performance floor clear except for the explicitly defined performers. Existing spectators, if any, stay in their original gallery seats; no crowd materializes during the shot.",
+  "scene_reference": "asset:scene.venue_front.v1"
+}
