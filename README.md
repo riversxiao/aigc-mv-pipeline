@@ -100,6 +100,17 @@ aigc-mv ep render $E --res 480p    # 全长预演动画：占位画面 + 合成�
 
 预演动画里每个镜头的画面优先级：选定的生成片段 > `refs/plate_<单元>.png` / `refs/plate_<镜头>.png` > 占位画面。开着占位画面时，`refs/venue.png` 和定妆图这类通用参考图不会顶替占位画面；合成节拍按 timing 自动重建，改了歌词重跑 `ep analyze` 后不会用旧节拍。用真歌做 ASR 对齐时，如果有歌词跑出自己的段落，审核会给出 `section:` 提醒。登场段的主持词里要念出选手的名字（name_cn、aka 或外号），特写在念到名字时切入；改词后念不到名字，或者特写离名字超过 0.3 秒，审核会给出 `entrance:` 提醒。
 
+## Playbook · 制片纪律（跨项目）
+
+质感优化的**可复用流程**（焚诀对齐：先剪后生成、定妆、首尾帧硬检、默认 fl2va、场地圣经）：见 [`playbook/`](playbook/)。
+
+已挂载索引：
+
+- [`projects/yirenzhixia`](projects/yirenzhixia/) — 一人之下（含《雷有两面》等；可与 `wangye_vs_zhugeqing` 联用）
+- [`projects/world_celebrity_battle`](projects/world_celebrity_battle/) — 世界名人大乱斗 / 异人开麦
+
+大媒体与母带不进 Git；各项目 README 写 Drive / 本机路径。
+
 示例产出：[演员表](docs/examples/王也vs诸葛青_演员表.md) · [歌词初稿和待核对清单](docs/examples/王也vs诸葛青_歌词初稿.md) · [分镜表](docs/examples/王也vs诸葛青_分镜表.md) · [定妆图提示词](docs/examples/王也vs诸葛青_定妆图.md) · [Suno 栏](docs/examples/王也vs诸葛青_suno.md) · [对口型提示词](docs/examples/王也vs诸葛青_对口型提示词.txt) · [评委反应提示词](docs/examples/王也vs诸葛青_评委反应提示词.txt) · [灭灯揭晓提示词](docs/examples/王也vs诸葛青_灭灯揭晓提示词.txt) · [开场全景提示词](docs/examples/王也vs诸葛青_开场全景提示词.txt) · [主持提示词](docs/examples/王也vs诸葛青_主持提示词.txt)
 
 ## 模块
