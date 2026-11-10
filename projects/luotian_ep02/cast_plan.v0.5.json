@@ -1,0 +1,254 @@
+{
+  "version": "0.5",
+  "cast": {
+    "a": {
+      "character": "zhang_lingyu",
+      "name_cn": "张灵玉",
+      "name_en": "Zhang Lingyu",
+      "role": "rapper",
+      "side": "left",
+      "title_cn": "龙虎山天师府",
+      "voice": "cold male baritone，冷峻男中低音，念白后利落断奏说唱；与B分开。",
+      "listen_cn": "站得端正，目光落在对方身上；被说中时短暂垂眼，随后抬头。"
+    },
+    "b": {
+      "character": "zhang_chulan",
+      "name_cn": "张楚岚",
+      "name_en": "Zhang Chulan",
+      "role": "rapper",
+      "side": "right",
+      "title_cn": "哪都通",
+      "voice": "gritty male tenor，带颗粒的男高音，快速三连音与高速切分；末副歌只作短句ad-libs。",
+      "listen_cn": "嘴角带笑但不频繁耸肩；被问到来意时笑意收住，认真看向对方。"
+    },
+    "tianshi": {
+      "character": "zhang_zhiwei",
+      "name_cn": "张之维",
+      "aka": "老天师",
+      "nicknames": [
+        "天师"
+      ],
+      "role": "judge",
+      "side": "center",
+      "position_cn": "评委席中间的王座",
+      "title_cn": "龙虎山天师府 · 主评",
+      "listen_cn": "坐在王座上捋着白胡子，眯眼笑着点了一下头"
+    },
+    "lu_jin": {
+      "character": "lu_jin",
+      "name_cn": "陆瑾",
+      "nicknames": [
+        "陆老"
+      ],
+      "role": "judge",
+      "side": "center",
+      "position_cn": "评委席左边的王座",
+      "title_cn": "陆家 · 评委",
+      "listen_cn": "坐在王座上眼眶一下红了，拿白手帕擦眼泪，又板起脸装没事"
+    },
+    "feng_zhenghao": {
+      "character": "feng_zhenghao",
+      "name_cn": "风正豪",
+      "nicknames": [
+        "风会长"
+      ],
+      "role": "judge",
+      "side": "center",
+      "position_cn": "评委席右边的王座",
+      "title_cn": "天下会会长 · 评委",
+      "listen_cn": "坐在王座上十指交叉，眉毛一挑，嘴角绷住不笑"
+    },
+    "xu_si": {
+      "character": "xu_si",
+      "name_cn": "徐四",
+      "role": "host",
+      "side": "center",
+      "position_cn": "主持台，仅作反应；用户成曲中没有另加徐四口播。",
+      "title_cn": "哪都通 · 主持人",
+      "listen_cn": "靠在DJ台边上挂着痞笑，跟着节奏晃脑袋",
+      "voice": "独立主持念白，不并入双男主歌唱声线；待试听。"
+    },
+    "xu_san": {
+      "character": "xu_san",
+      "name_cn": "徐三",
+      "role": "dj",
+      "side": "center",
+      "position_cn": "DJ台后面",
+      "title_cn": "哪都通 · DJ",
+      "listen_cn": "戴着一边耳机，面无表情地跟着节奏点头"
+    },
+    "baobao": {
+      "character": "feng_baobao",
+      "name_cn": "冯宝宝",
+      "nicknames": [
+        "宝儿姐"
+      ],
+      "role": "cameo",
+      "side": "center",
+      "position_cn": "右侧贵宾席；本期不唱副歌",
+      "title_cn": "哪都通 · 特邀观众",
+      "listen_cn": "安静注视张楚岚，眼神清醒；不做卡通式夸张表情。"
+    },
+    "shayan": {
+      "character": "feng_shayan",
+      "name_cn": "风莎燕",
+      "nicknames": [
+        "莎燕"
+      ],
+      "role": "cameo",
+      "side": "center",
+      "position_cn": "天下会来宾席，与全性侧廊在地理上明确分开。",
+      "title_cn": "天下会 · 特邀观众",
+      "listen_cn": "目光锋利、神态自信；听到漂亮回应时嘴角略扬，不反复翻白眼或捂嘴。"
+    },
+    "qing": {
+      "character": "zhuge_qing",
+      "name_cn": "诸葛青",
+      "role": "cameo",
+      "side": "center",
+      "position_cn": "贵宾席",
+      "listen_cn": "嘴角略扬，认真听两人的回应。"
+    },
+    "wang": {
+      "character": "wang_ye",
+      "name_cn": "王也",
+      "role": "cameo",
+      "side": "center",
+      "position_cn": "左前侧安静琴台",
+      "listen_cn": "非演唱乐手；保持嘴部自然闭合。女声开场与器乐尾奏；不要把古琴拨弦误认成吉他独奏。",
+      "title_cn": "乐队 · 古琴"
+    },
+    "xia_he": {
+      "character": "xia_he",
+      "name_cn": "夏禾",
+      "role": "hook",
+      "side": "center",
+      "title_cn": "全性 · 开场与副歌主唱",
+      "position_cn": "全性侧廊相连的独立副歌表演台；两段副歌面向主舞台演唱。",
+      "listen_cn": "非演唱时留在副歌台，目光从容；张灵玉承认自身雷法时，短暂停顿后轻微认可。",
+      "voice": "ethereal cold female soprano，空灵清冷女高音；女声开场、主副歌、尾段副歌均为主唱。"
+    },
+    "lv_liang": {
+      "character": "lv_liang",
+      "name_cn": "吕良",
+      "role": "cameo",
+      "side": "center",
+      "title_cn": "全性 · 特邀来宾",
+      "position_cn": "全性侧廊夏禾后侧，不进入主角对峙轴线。",
+      "listen_cn": "张灵玉追问“哪一句是真的”后，短暂抬眼观察张楚岚；手停在扶手上，不连续推眼镜。"
+    },
+    "shen_chong": {
+      "character": "shen_chong",
+      "name_cn": "沈冲",
+      "role": "cameo",
+      "side": "center",
+      "title_cn": "全性 · 特邀来宾",
+      "position_cn": "全性侧廊另一侧，与吕良保留身高与轮廓差异。",
+      "listen_cn": "听到“人情当然能借力”时笑意略起，接“本事不能代替”后收住。"
+    },
+    "lu_linglong": {
+      "character": "lu_linglong",
+      "name_cn": "陆玲珑",
+      "role": "cameo",
+      "side": "center",
+      "title_cn": "乐队 · 鼓",
+      "position_cn": "后左鼓台",
+      "listen_cn": "非演唱乐手；保持嘴部自然闭合。鼓落点和过门短镜头，动作需鼓手参考，不套说唱摆手骨骼。"
+    },
+    "zhi_jinhua": {
+      "character": "zhi_jinhua",
+      "name_cn": "枳瑾花",
+      "role": "cameo",
+      "side": "center",
+      "title_cn": "乐队 · 键盘",
+      "position_cn": "后右键盘台",
+      "listen_cn": "非演唱乐手；保持嘴部自然闭合。铺底、旋律及余响；手势幅度小，键位、手指与发声段落一致。"
+    },
+    "feng_xingtong": {
+      "character": "feng_xingtong",
+      "name_cn": "风星潼",
+      "role": "cameo",
+      "side": "center",
+      "position_cn": "后中偏左",
+      "title_cn": "乐队 · 贝斯",
+      "listen_cn": "非演唱乐手；保持嘴部自然闭合。808低频的舞台化视觉安排；不是声称原录音由电贝斯录制。"
+    },
+    "jia_zhengliang": {
+      "character": "jia_zhengliang",
+      "name_cn": "贾正亮",
+      "role": "cameo",
+      "side": "center",
+      "position_cn": "后中偏右",
+      "title_cn": "乐队 · 吉他",
+      "listen_cn": "非演唱乐手；保持嘴部自然闭合。吉他镜头预备；Guitar分轨可能含古琴等拨弦，未听辨确认前不放成主奏近景。"
+    }
+  },
+  "band": [
+    {
+      "alias": "wang",
+      "character": "wang_ye",
+      "name": "王也",
+      "instrument": "guqin",
+      "instrument_cn": "古琴",
+      "frame": "wang_ye_guqin_firstframe_v1",
+      "placement": "左前侧安静琴台",
+      "guide": "audio/instrumental.wav",
+      "focus": "女声开场与器乐尾奏；不要把古琴拨弦误认成吉他独奏。",
+      "reference": "asset:composition.wang_ye.guqin.front.v1"
+    },
+    {
+      "alias": "lu_linglong",
+      "character": "lu_linglong",
+      "name": "陆玲珑",
+      "instrument": "drums",
+      "instrument_cn": "鼓",
+      "frame": "lu_linglong_drums_firstframe_v1",
+      "placement": "后左鼓台",
+      "guide": "audio/stems/drums.wav",
+      "focus": "鼓落点和过门短镜头，动作需鼓手参考，不套说唱摆手骨骼。",
+      "reference": "asset:composition.lu_linglong.drums.front.v1"
+    },
+    {
+      "alias": "zhi_jinhua",
+      "character": "zhi_jinhua",
+      "name": "枳瑾花",
+      "instrument": "keyboard",
+      "instrument_cn": "键盘",
+      "frame": "zhi_jinhua_keyboard_firstframe_v1",
+      "placement": "后右键盘台",
+      "guide": "audio/stems/keyboard.wav",
+      "focus": "铺底、旋律及余响；手势幅度小，键位、手指与发声段落一致。",
+      "reference": "asset:composition.zhi_jinhua.keyboard.front.v1"
+    },
+    {
+      "alias": "feng_xingtong",
+      "character": "feng_xingtong",
+      "name": "风星潼",
+      "instrument": "bass",
+      "instrument_cn": "贝斯",
+      "frame": "feng_xingtong_bass_firstframe_v1",
+      "placement": "后中偏左",
+      "guide": "audio/stems/bass.wav",
+      "focus": "808低频的舞台化视觉安排；不是声称原录音由电贝斯录制。",
+      "reference": "asset:composition.feng_xingtong.bass.front.v1"
+    },
+    {
+      "alias": "jia_zhengliang",
+      "character": "jia_zhengliang",
+      "name": "贾正亮",
+      "instrument": "guitar",
+      "instrument_cn": "吉他",
+      "frame": "jia_zhengliang_guitar_firstframe_v1",
+      "placement": "后中偏右",
+      "guide": "audio/stems/guitar.wav",
+      "focus": "吉他镜头预备；Guitar分轨可能含古琴等拨弦，未听辨确认前不放成主奏近景。",
+      "reference": "asset:composition.jia_zhengliang.guitar.front.v1"
+    }
+  ],
+  "singers": {
+    "a": "zhang_lingyu",
+    "b": "zhang_chulan",
+    "c": "xia_he"
+  },
+  "extra_host_vocal_in_current_song": false
+}

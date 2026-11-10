@@ -14,7 +14,8 @@ logo_bug: 罗天大醮有嘻哈
 show_notes: false
 subtitle_style: broadcast
 disclaimer: AI生成  仅供娱乐  ·  一人之下同人二创
-bpm_hint: 92
+# 真实 Suno 成曲实测 93.46 BPM（全曲和伴奏轨一致，鼓点漂移 < 20 ms），不是配方里写的 92
+bpm_hint: 93.5
 intro_bars: 0
 outro_bars: 1
 
@@ -157,15 +158,16 @@ crowd_cn: 看台上层层叠叠坐满了观众，挥着红色荧光棒
 end_question: 下一期|你想看谁和谁？
 
 verses:
+  # 真实成曲没有纯音乐前奏：0 到 1.7 秒只有观众声，1.8 秒主持人就开口了
   - kind: cold_open
-    bars: 2
+    bars: 1
     shot_cn: 场馆高位全景，黑色擂台上的太极八卦图案一圈圈亮起来，红色灯带依次点亮，远处是夜里的龙虎山
 
   - kind: host
     who: xu_si
     lines:
       - {text: 欢迎收看 罗天大醮有嘻哈, spoken: true, note: 节目名和期数另有片头字幕}
-      - {text: 今晚 奇门对奇门, who: xu_san, spoken: true}
+      - {text: 今晚 奇门对奇门, spoken: true, note: 真实成曲里全部主持词是同一个男声，没有单独的徐三声音，所以这句归徐四}
       - {text: 年轻一辈第一人 到底是谁, spoken: true}
 
   - kind: entrance
@@ -189,7 +191,7 @@ verses:
       - {text: 啦啦啦啦 奇门对上奇门, beats: 6, note: 诸葛青是武侯奇门，王也是风后奇门（Bangumi 角色页确认）}
       - {text: 你算我 我躲你 今晚见个高低, beats: 4}
 
-  # A 段 · 诸葛青（先唱、更短，约 55 秒）。一直押 ing / in / eng 韵：定、命、行、明、心、清、影、名、睛、赢、腥、青、醒
+  # A 段 · 诸葛青（先唱、更短；真实成曲约 35 秒）。一直押 ing / in / eng 韵：定、命、行、明、心、清、影、名、睛、赢、腥、青、醒
   - kind: verse
     who: a
     lines:
@@ -241,9 +243,9 @@ verses:
     bars: 3
     lines:
       - {text: 哒哒哒 嘟嘟嘟, beats: 6, note: 冯宝宝拟声当间奏}
-      - {text: 咚咚次 咚咚次, who: xu_san, beats: 6, note: 徐三在DJ台搓碟打拍子}
+      - {text: 咚咚次 咚咚次, beats: 6, note: 真实成曲里是同一个女声拟声（清唱，没有鼓），所以这句归冯宝宝；徐三在DJ台搓碟只做反应镜头}
 
-  # B 段 · 王也（后唱、更长，约 86 秒，赢家）。整段押 ang 韵：场、膀、慌、装、想、方、向、黄、响、王、阳、上、扛、八方、藏
+  # B 段 · 王也（后唱、更长，赢家；真实成曲约 60 秒）。整段押 ang 韵：场、膀、慌、装、想、方、向、黄、响、王、阳、上、扛、八方、藏
   # 大量引用诸葛青的原话（你说……）再反驳；情绪核心：王也根本不想赢，诸葛青背着家族的名字。
   - kind: verse
     who: b
@@ -336,10 +338,10 @@ verses:
         beats: 6
         note: 停顿揭晓的句式（句子原创）
       - text: 你自己
-        pause_beats: 4
+        pause_beats: 1
         beats: 2
         punch: true
-        note: 「医不自医，卜不自卜」的说法；原作里诸葛青推算王也时吃过亏【待核对】
+        note: 「医不自医，卜不自卜」的说法；原作里诸葛青推算王也时吃过亏【待核对】。真实成曲：142.9 秒起鼓全停（清唱），「叫做」和「你自己」之间只空了约 0.3 秒，不是 4 拍
 
   - kind: hook
     who: baobao

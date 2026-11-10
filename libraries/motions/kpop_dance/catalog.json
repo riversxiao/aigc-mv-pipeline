@@ -1,0 +1,734 @@
+{
+  "schema_version": 1,
+  "category": "kpop_dance",
+  "motions": {
+    "kpop_dance.kpop_dance_solochoreo_pack01.seg01.whitemodel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_solochoreo_pack01.seg01.whitemodel.v1.mp4",
+      "sha256": "4e0e435c11949dfddad230add73dec12322da34b15ca65e610a2da150b58613e",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "Jungkook_StandingNextToYou_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=cyRYwAPC8DM",
+      "source_interval_seconds": [
+        33.467,
+        36.508
+      ],
+      "source_audio_used": false,
+      "description": "K-pop solo center choreography (Jung Kook 'Standing Next to You' horizontal fancam): sharp beat-locked upper/full-body groove, standing-mic & solo dance isolation (seg01, 33.47s-36.50s) [3D Rigged White Mannequin + 3D Stage/Instrument Proxy]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "solo_choreo",
+        "jungkook",
+        "stage_fancam",
+        "full_body",
+        "white_model",
+        "rigged_3d_mannequin"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_SoloChoreo_Pack01_seg01_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "kpop_dance.kpop_dance_solochoreo_pack01.seg01.skel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_solochoreo_pack01.seg01.skel.v1.mp4",
+      "sha256": "efa259d5597af6f7e79ce56fe3c2056099b43081a244e7800c8393656a1e6118",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "Jungkook_StandingNextToYou_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=cyRYwAPC8DM",
+      "source_interval_seconds": [
+        33.467,
+        36.508
+      ],
+      "source_audio_used": false,
+      "description": "K-pop solo center choreography (Jung Kook 'Standing Next to You' horizontal fancam): sharp beat-locked upper/full-body groove, standing-mic & solo dance isolation (seg01, 33.47s-36.50s) [2D 133-KP Wholebody + 21-Joint Hand Skeleton]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "solo_choreo",
+        "jungkook",
+        "stage_fancam",
+        "full_body",
+        "skeleton_2d",
+        "rtmw_133kp"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_SoloChoreo_Pack01_seg01_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "kpop_dance.kpop_dance_solochoreo_pack01.seg02.whitemodel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_solochoreo_pack01.seg02.whitemodel.v1.mp4",
+      "sha256": "df3718b5ad7791e68ae37fd3eddf137114f0a9bc04f98b5994eea3f7c75d9c55",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "JHope_KillinItGirl_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=HvUoTzA6Smk",
+      "source_interval_seconds": [
+        7.007,
+        10.049
+      ],
+      "source_audio_used": false,
+      "description": "K-pop hip-hop stage choreography (j-hope 'Killin It Girl' horizontal fancam): fluid street-dance bounce, crisp arm/hand isolation, high-energy chorus groove (seg02, 7.01s-10.04s) [3D Rigged White Mannequin + 3D Stage/Instrument Proxy]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "hiphop_choreo",
+        "jhope",
+        "stage_fancam",
+        "full_body",
+        "white_model",
+        "rigged_3d_mannequin"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_SoloChoreo_Pack01_seg02_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "kpop_dance.kpop_dance_solochoreo_pack01.seg02.skel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_solochoreo_pack01.seg02.skel.v1.mp4",
+      "sha256": "44f9d5d4a80aca02f50aedd697fce9e79c8981b3f53d003924ecaf9a7117da30",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "JHope_KillinItGirl_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=HvUoTzA6Smk",
+      "source_interval_seconds": [
+        7.007,
+        10.049
+      ],
+      "source_audio_used": false,
+      "description": "K-pop hip-hop stage choreography (j-hope 'Killin It Girl' horizontal fancam): fluid street-dance bounce, crisp arm/hand isolation, high-energy chorus groove (seg02, 7.01s-10.04s) [2D 133-KP Wholebody + 21-Joint Hand Skeleton]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "hiphop_choreo",
+        "jhope",
+        "stage_fancam",
+        "full_body",
+        "skeleton_2d",
+        "rtmw_133kp"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_SoloChoreo_Pack01_seg02_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "kpop_dance.kpop_dance_solochoreo_pack01.seg03.whitemodel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_solochoreo_pack01.seg03.whitemodel.v1.mp4",
+      "sha256": "afe4a9c8a6e01b908b70b194b9153cc152b0c436710dee807743420c741e3a43",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "JHope_KillinItGirl_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=HvUoTzA6Smk",
+      "source_interval_seconds": [
+        12.513,
+        15.554
+      ],
+      "source_audio_used": false,
+      "description": "K-pop hip-hop stage choreography (j-hope 'Killin It Girl' horizontal fancam): fluid street-dance bounce, crisp arm/hand isolation, high-energy chorus groove (seg03, 12.51s-15.55s) [3D Rigged White Mannequin + 3D Stage/Instrument Proxy]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "hiphop_choreo",
+        "jhope",
+        "stage_fancam",
+        "full_body",
+        "white_model",
+        "rigged_3d_mannequin"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_SoloChoreo_Pack01_seg03_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "kpop_dance.kpop_dance_solochoreo_pack01.seg03.skel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_solochoreo_pack01.seg03.skel.v1.mp4",
+      "sha256": "ed646a9ccec8034d72dddbeffc5cd1d01275c2348d81ba32be9851e1c9dd268b",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "JHope_KillinItGirl_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=HvUoTzA6Smk",
+      "source_interval_seconds": [
+        12.513,
+        15.554
+      ],
+      "source_audio_used": false,
+      "description": "K-pop hip-hop stage choreography (j-hope 'Killin It Girl' horizontal fancam): fluid street-dance bounce, crisp arm/hand isolation, high-energy chorus groove (seg03, 12.51s-15.55s) [2D 133-KP Wholebody + 21-Joint Hand Skeleton]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "hiphop_choreo",
+        "jhope",
+        "stage_fancam",
+        "full_body",
+        "skeleton_2d",
+        "rtmw_133kp"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_SoloChoreo_Pack01_seg03_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "kpop_dance.kpop_dance_girlgroup_pack02.seg01.whitemodel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_girlgroup_pack02.seg01.whitemodel.v1.mp4",
+      "sha256": "8bfb6c97bbb36ce3d6bb40ddda0516a03fa58ad656f6273b6ab0533fd682cdb8",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "Jennie_Mantra_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=QwgtIjRSKvc",
+      "source_interval_seconds": [
+        22.489,
+        25.531
+      ],
+      "source_audio_used": false,
+      "description": "K-pop female solo stage choreography (JENNIE 'Mantra' horizontal fancam): expressive waist/shoulder isolation, sharp hand accents, charismatic stage posture (seg01, 22.49s-25.53s) [3D Rigged White Mannequin + 3D Stage/Instrument Proxy]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "female_solo",
+        "jennie",
+        "point_choreo",
+        "stage_fancam",
+        "white_model",
+        "rigged_3d_mannequin"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_GirlGroup_Pack02_seg01_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "kpop_dance.kpop_dance_girlgroup_pack02.seg01.skel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_girlgroup_pack02.seg01.skel.v1.mp4",
+      "sha256": "f3fc6e46e9d9f1c67981097db139a6d80eef3d5d3f0f06eec82116858aea2b64",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "Jennie_Mantra_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=QwgtIjRSKvc",
+      "source_interval_seconds": [
+        22.489,
+        25.531
+      ],
+      "source_audio_used": false,
+      "description": "K-pop female solo stage choreography (JENNIE 'Mantra' horizontal fancam): expressive waist/shoulder isolation, sharp hand accents, charismatic stage posture (seg01, 22.49s-25.53s) [2D 133-KP Wholebody + 21-Joint Hand Skeleton]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "female_solo",
+        "jennie",
+        "point_choreo",
+        "stage_fancam",
+        "skeleton_2d",
+        "rtmw_133kp"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_GirlGroup_Pack02_seg01_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "kpop_dance.kpop_dance_girlgroup_pack02.seg02.whitemodel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_girlgroup_pack02.seg02.whitemodel.v1.mp4",
+      "sha256": "f9654b4d3ee653b2cd9e10f7d02956d2d6aeb90f57b929f16cca203eaf371f28",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "Jennie_Mantra_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=QwgtIjRSKvc",
+      "source_interval_seconds": [
+        34.902,
+        37.943
+      ],
+      "source_audio_used": false,
+      "description": "K-pop female solo stage choreography (JENNIE 'Mantra' horizontal fancam): expressive waist/shoulder isolation, sharp hand accents, charismatic stage posture (seg02, 34.90s-37.94s) [3D Rigged White Mannequin + 3D Stage/Instrument Proxy]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "female_solo",
+        "jennie",
+        "point_choreo",
+        "stage_fancam",
+        "white_model",
+        "rigged_3d_mannequin"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_GirlGroup_Pack02_seg02_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "kpop_dance.kpop_dance_girlgroup_pack02.seg02.skel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_girlgroup_pack02.seg02.skel.v1.mp4",
+      "sha256": "556e16717c4602c8807b03f3c788aee63173b6902009070a97bb736b72b535ac",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "Jennie_Mantra_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=QwgtIjRSKvc",
+      "source_interval_seconds": [
+        34.902,
+        37.943
+      ],
+      "source_audio_used": false,
+      "description": "K-pop female solo stage choreography (JENNIE 'Mantra' horizontal fancam): expressive waist/shoulder isolation, sharp hand accents, charismatic stage posture (seg02, 34.90s-37.94s) [2D 133-KP Wholebody + 21-Joint Hand Skeleton]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "female_solo",
+        "jennie",
+        "point_choreo",
+        "stage_fancam",
+        "skeleton_2d",
+        "rtmw_133kp"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_GirlGroup_Pack02_seg02_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "kpop_dance.kpop_dance_girlgroup_pack02.seg03.whitemodel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_girlgroup_pack02.seg03.whitemodel.v1.mp4",
+      "sha256": "9de092de5201fbe4a214dab9cd8e00a1adf48f2418c2995a0130c6db68352271",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "Yeji_Air_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=GepAS6A2Qog",
+      "source_interval_seconds": [
+        5.506,
+        8.547
+      ],
+      "source_audio_used": false,
+      "description": "K-pop female solo performance (YEJI 'Air' horizontal fancam): powerful arm extensions, dynamic torso wave, razor-sharp beat hits (seg03, 5.51s-8.54s) [3D Rigged White Mannequin + 3D Stage/Instrument Proxy]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "female_solo",
+        "yeji",
+        "stage_fancam",
+        "high_energy",
+        "white_model",
+        "rigged_3d_mannequin"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_GirlGroup_Pack02_seg03_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "kpop_dance.kpop_dance_girlgroup_pack02.seg03.skel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_girlgroup_pack02.seg03.skel.v1.mp4",
+      "sha256": "3dfad054feab7c243f6090653dc9643bea097ef841073ea0eeceaa2c8b60fbb1",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "Yeji_Air_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=GepAS6A2Qog",
+      "source_interval_seconds": [
+        5.506,
+        8.547
+      ],
+      "source_audio_used": false,
+      "description": "K-pop female solo performance (YEJI 'Air' horizontal fancam): powerful arm extensions, dynamic torso wave, razor-sharp beat hits (seg03, 5.51s-8.54s) [2D 133-KP Wholebody + 21-Joint Hand Skeleton]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "female_solo",
+        "yeji",
+        "stage_fancam",
+        "high_energy",
+        "skeleton_2d",
+        "rtmw_133kp"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_GirlGroup_Pack02_seg03_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "kpop_dance.kpop_dance_girlgroup_pack02.seg04.whitemodel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_girlgroup_pack02.seg04.whitemodel.v1.mp4",
+      "sha256": "bd111c87a987baa2b90b92797edfdac816e9868174eb048ce700fe5ff32556eb",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "rigged_3d_white_mannequin",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "Yeji_Air_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=GepAS6A2Qog",
+      "source_interval_seconds": [
+        9.009,
+        12.051
+      ],
+      "source_audio_used": false,
+      "description": "K-pop female solo performance (YEJI 'Air' horizontal fancam): powerful arm extensions, dynamic torso wave, razor-sharp beat hits (seg04, 9.01s-12.05s) [3D Rigged White Mannequin + 3D Stage/Instrument Proxy]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "female_solo",
+        "yeji",
+        "stage_fancam",
+        "high_energy",
+        "white_model",
+        "rigged_3d_mannequin"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_GirlGroup_Pack02_seg04_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    },
+    "kpop_dance.kpop_dance_girlgroup_pack02.seg04.skel.v1": {
+      "kind": "pose_video",
+      "status": "ready",
+      "people": 1,
+      "path": "clips/v1/kpop_dance.kpop_dance_girlgroup_pack02.seg04.skel.v1.mp4",
+      "sha256": "e6b882164f4b48005ef79b7b6f35a711d877206a65f7d1327d2d033cc1231145",
+      "microphone_hand": "either",
+      "framings": [
+        "FS",
+        "MFS",
+        "MS",
+        "MCU"
+      ],
+      "views": [
+        "front",
+        "three_quarter"
+      ],
+      "pose_format": "2d_wholebody_skeleton_rtmw",
+      "instrument_type": "none",
+      "fps": 24,
+      "frames": 73,
+      "source_video": "Yeji_Air_8K_HorizFanCam.mp4",
+      "source_url": "https://www.youtube.com/watch?v=GepAS6A2Qog",
+      "source_interval_seconds": [
+        9.009,
+        12.051
+      ],
+      "source_audio_used": false,
+      "description": "K-pop female solo performance (YEJI 'Air' horizontal fancam): powerful arm extensions, dynamic torso wave, razor-sharp beat hits (seg04, 9.01s-12.05s) [2D 133-KP Wholebody + 21-Joint Hand Skeleton]",
+      "energy": "high",
+      "tags": [
+        "kpop",
+        "dance",
+        "female_solo",
+        "yeji",
+        "stage_fancam",
+        "high_energy",
+        "skeleton_2d",
+        "rtmw_133kp"
+      ],
+      "inspection_sheet": "clips/v1/qa_sheets/Kpop_Dance_GirlGroup_Pack02_seg04_inspection_sheet.png",
+      "media_check": {
+        "streams": 1,
+        "audio_streams": 0,
+        "fps": "24/1",
+        "frames": 73,
+        "duration": 3.041667,
+        "width": 1344,
+        "height": 768,
+        "pix_fmt": "yuv420p"
+      }
+    }
+  }
+}

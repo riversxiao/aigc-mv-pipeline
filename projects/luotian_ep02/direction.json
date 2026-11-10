@@ -1,0 +1,3099 @@
+{
+  "schema_version": 1,
+  "episode_sha256": "8fa864101490c14f96b9618d60494c0c1a73bee0cb674cfe53c999d3614964d0",
+  "board_sha256": "a8f982e93b58e2053163497ac6cd4b0f21027d1550007063b9bee7924c72baa9",
+  "reference_roles": {
+    "portraits": "identity_costume",
+    "first_frame": "composition_stage_light",
+    "motion": "body_only",
+    "audio": "target_guide_timing",
+    "camera": "shot_plan"
+  },
+  "floor_plan": "Packed taiji arena: Zhang Lingyu stage left, Zhang Chulan stage right, facing each other across the octagonal yin-yang floor under the bronze trigram ring; the audience stays seated in the tiers. Xia He centered at the jade balustrade; guqin at the quiet side platform. The camera stays south of the rival axis. Preserve each first frame's background occupancy; no one enters unannounced.",
+  "shots": {
+    "s001": {
+      "status": "ready",
+      "primary": null,
+      "framing": "WS",
+      "camera": "push_slow",
+      "camera_side": "south of the established stage axis",
+      "light": "fixed warm amber temple lanterns, moonlit indigo sky and spotlight beams on the central taiji floor",
+      "view": "front",
+      "blocking": {},
+      "emotion": "solemn anticipation and architectural scale",
+      "primary_action": "One slow steady architectural forward dolly toward the empty octagonal taiji stage floor; the central performance ring remains completely uninhabited.",
+      "ending": "settle on the unobstructed empty taiji stage floor with all temple architecture and lighting stable",
+      "beats": {
+        "prepare": "hold the initial wide architectural framing of the empty octagonal taiji stage floor",
+        "accent": "smooth steady forward camera progression toward the central yin-yang floor emblem",
+        "settle": "complete the camera move smoothly with the central stage floor completely empty"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s002": {
+      "status": "ready",
+      "primary": "wang_ye",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "seated at the quiet guqin platform",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "restrained attentive calm",
+      "primary_action": "Keep both hands resting at the exact guqin string positions; only quiet breathing and a small downward eye movement. Do not invent rapid plucking, fingering or instrument technique.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose; keep the lips closed during guide silence",
+        "accent": "one small breath or gaze emphasis at the phrase end, no random arm flailing",
+        "settle": "return to quiet breathing without changing stage position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s003": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene focused power",
+      "primary_action": "夏禾清冷女高音独唱；右手麦克风固定胸前，左手低位克制，长音用气息和视线表达。",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose; keep the lips closed during guide silence",
+        "accent": "one small breath or gaze emphasis at the phrase end, no random arm flailing",
+        "settle": "return to quiet breathing without changing stage position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s004": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene focused power",
+      "primary_action": "夏禾清冷女高音独唱；右手麦克风固定胸前，左手低位克制，长音用气息和视线表达。",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose; keep the lips closed during guide silence",
+        "accent": "one small breath or gaze emphasis at the phrase end, no random arm flailing",
+        "settle": "return to quiet breathing without changing stage position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s005": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene focused power",
+      "primary_action": "夏禾清冷女高音独唱；右手麦克风固定胸前，左手低位克制，长音用气息和视线表达。",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose; keep the lips closed during guide silence",
+        "accent": "one small breath or gaze emphasis at the phrase end, no random arm flailing",
+        "settle": "return to quiet breathing without changing stage position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s006": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene focused power",
+      "primary_action": "夏禾清冷女高音独唱；右手麦克风固定胸前，左手低位克制，长音用气息和视线表达。",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose; keep the lips closed during guide silence",
+        "accent": "one small breath or gaze emphasis at the phrase end, no random arm flailing",
+        "settle": "return to quiet breathing without changing stage position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s007": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.119_80.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s008": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "CU",
+      "camera": "push_slow",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.153_15.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 2.108
+      }
+    },
+    "s009": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene attentive poise",
+      "primary_action": "Stand poised at the chorus balustrade with lips continuously closed, listening to the arena resonance; keep the right hand steady at upper sternum as in the first frame, with only quiet breathing and a calm shift of gaze.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s010": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.124_08.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s011": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "MS",
+      "camera": "handheld",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.167_98.mirrored.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 3.775
+      }
+    },
+    "s012": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        },
+        "zhang_chulan": {
+          "position": "stage right, blurred foreground shoulder at the frame edge",
+          "facing": "back to the camera, facing the rival; face never seen",
+          "eyeline": "toward the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "zhang_chulan": "stay still as an out-of-focus foreground shoulder and back of the head; face unseen, no turning toward camera"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.254_45.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s013": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "CU",
+      "camera": "tele_float",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.50_95.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 2.733
+      }
+    },
+    "s014": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "MCU",
+      "camera": "low_push",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.264_10.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 3.608
+      }
+    },
+    "s015": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "MCU",
+      "camera": "handheld",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.42_03.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 3.15
+      }
+    },
+    "s016": {
+      "status": "ready",
+      "primary": "zhang_zhiwei",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "zhang_zhiwei": {
+          "position": "assigned named guest seat",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "venerable serene wisdom and quiet amusement",
+      "primary_action": "Sit upright on the carved central judge throne with lips continuously closed, listening to the offscreen verse; give one subtle knowing nod with serene clear eyes.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s017": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "2S",
+      "camera": "push_slow",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        },
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "zhang_chulan": "listen silently with the mouth closed, microphone lowered to chest, a slight jaw tension and steady stare"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.56_13.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s018": {
+      "status": "ready",
+      "primary": "lv_liang",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "lv_liang": {
+          "position": "assigned named guest seat",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "alert calculating curiosity",
+      "primary_action": "Watch the main stage from the side gallery with lips continuously closed; raise the eyes slightly behind round glasses with a faint controlled smile, hands staying below frame.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s019": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "MS",
+      "camera": "handheld",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.65_93.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s020": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "CU",
+      "camera": "push_slow",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.60_85.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s021": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        },
+        "zhang_chulan": {
+          "position": "stage right, blurred foreground shoulder at the frame edge",
+          "facing": "back to the camera, facing the rival; face never seen",
+          "eyeline": "toward the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "zhang_chulan": "stay still as an out-of-focus foreground shoulder and back of the head; face unseen, no turning toward camera"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.77_98.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s022": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "MCU",
+      "camera": "low_push",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.88_15.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 3.567
+      }
+    },
+    "s023": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.97_73.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s024": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MCU",
+      "camera": "handheld",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        },
+        "feng_baobao": {
+          "position": "behind Zhang Chulan, softly out of focus",
+          "facing": "toward the stage",
+          "eyeline": "watching Zhang Lingyu across the stage"
+        },
+        "xu_si": {
+          "position": "behind Zhang Chulan, softly out of focus",
+          "facing": "toward the stage",
+          "eyeline": "watching Zhang Lingyu across the stage"
+        }
+      },
+      "emotion": "tense attentive listening",
+      "primary_action": "Listen to the rival's line with the mouth continuously closed, microphone lowered to chest; a slow breath, a narrowing of the eyes and one small nod or head tilt on the punchline.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the mouth closed",
+        "accent": "one subtle reaction on the musical accent, mouth still closed",
+        "settle": "hold the steady stare without resetting"
+      },
+      "others": {
+        "feng_baobao": "stand calmly with a neutral unbothered gaze, mouth closed, arms relaxed",
+        "xu_si": "arms crossed with a faint smirk, mouth closed, tiny nod to the beat"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone held lowered at chest height in the right hand while listening"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s025": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "CU",
+      "camera": "push_slow",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.124_08.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 2.525
+      }
+    },
+    "s026": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "2S",
+      "camera": "arc_short",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        },
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "cold ascetic composure and piercing scrutiny",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "zhang_chulan": "listen silently with the mouth closed, microphone lowered to chest, a slight jaw tension and steady stare"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.119_80.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s027": {
+      "status": "ready",
+      "primary": "lu_linglong",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "lu_linglong": {
+          "position": "assigned named guest seat",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "bright focused musical concentration",
+      "primary_action": "Sit behind the drum kit with lips continuously closed, holding both drumsticks poised in their first-frame positions with only a subtle rhythmic head nod and breathing; do not invent wild arm swings.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s028": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene alluring poise and cool soprano command",
+      "primary_action": "Sing the Mandarin chorus phrase with composed grace; keep the right-hand wireless microphone steady at upper sternum well below unobstructed lips, left hand relaxed low, expressing sustained notes through breath and subtle eye focus.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the right-hand microphone below the chin and lips closed during guide silence",
+        "accent": "sing the soprano phrase smoothly on the vocal guide clock with a subtle breath and gaze emphasis",
+        "settle": "close the lips gently as the note ends while keeping the microphone steady at upper sternum"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s029": {
+      "status": "ready",
+      "primary": "lu_linglong",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "lu_linglong": {
+          "position": "assigned named guest seat",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "bright focused musical concentration",
+      "primary_action": "Sit behind the drum kit with lips continuously closed, holding both drumsticks poised in their first-frame positions with only a subtle rhythmic head nod and breathing; do not invent wild arm swings.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s030": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene alluring poise and cool soprano command",
+      "primary_action": "Sing the Mandarin chorus phrase with composed grace; keep the right-hand wireless microphone steady at upper sternum well below unobstructed lips, left hand relaxed low, expressing sustained notes through breath and subtle eye focus.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the right-hand microphone below the chin and lips closed during guide silence",
+        "accent": "sing the soprano phrase smoothly on the vocal guide clock with a subtle breath and gaze emphasis",
+        "settle": "close the lips gently as the note ends while keeping the microphone steady at upper sternum"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s031": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "CU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "tense attentive listening",
+      "primary_action": "Listen to the rival's line with the mouth continuously closed, microphone lowered to chest; a slow breath, a narrowing of the eyes and one small nod or head tilt on the punchline.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the mouth closed",
+        "accent": "one subtle reaction on the musical accent, mouth still closed",
+        "settle": "hold the steady stare without resetting"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone held lowered at chest height in the right hand while listening"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s032": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene alluring poise and cool soprano command",
+      "primary_action": "Sing the Mandarin chorus phrase with composed grace; keep the right-hand wireless microphone steady at upper sternum well below unobstructed lips, left hand relaxed low, expressing sustained notes through breath and subtle eye focus.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the right-hand microphone below the chin and lips closed during guide silence",
+        "accent": "sing the soprano phrase smoothly on the vocal guide clock with a subtle breath and gaze emphasis",
+        "settle": "close the lips gently as the note ends while keeping the microphone steady at upper sternum"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s033": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene alluring poise and cool soprano command",
+      "primary_action": "Sing the Mandarin chorus phrase with composed grace; keep the right-hand wireless microphone steady at upper sternum well below unobstructed lips, left hand relaxed low, expressing sustained notes through breath and subtle eye focus.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the right-hand microphone below the chin and lips closed during guide silence",
+        "accent": "sing the soprano phrase smoothly on the vocal guide clock with a subtle breath and gaze emphasis",
+        "settle": "close the lips gently as the note ends while keeping the microphone steady at upper sternum"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s034": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "CU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "tense attentive listening",
+      "primary_action": "Listen to the rival's line with the mouth continuously closed, microphone lowered to chest; a slow breath, a narrowing of the eyes and one small nod or head tilt on the punchline.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the mouth closed",
+        "accent": "one subtle reaction on the musical accent, mouth still closed",
+        "settle": "hold the steady stare without resetting"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone held lowered at chest height in the right hand while listening"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s035": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene alluring poise and cool soprano command",
+      "primary_action": "Sing the Mandarin chorus phrase with composed grace; keep the right-hand wireless microphone steady at upper sternum well below unobstructed lips, left hand relaxed low, expressing sustained notes through breath and subtle eye focus.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the right-hand microphone below the chin and lips closed during guide silence",
+        "accent": "sing the soprano phrase smoothly on the vocal guide clock with a subtle breath and gaze emphasis",
+        "settle": "close the lips gently as the note ends while keeping the microphone steady at upper sternum"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s036": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene alluring poise and cool soprano command",
+      "primary_action": "Sing the Mandarin chorus phrase with composed grace; keep the right-hand wireless microphone steady at upper sternum well below unobstructed lips, left hand relaxed low, expressing sustained notes through breath and subtle eye focus.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the right-hand microphone below the chin and lips closed during guide silence",
+        "accent": "sing the soprano phrase smoothly on the vocal guide clock with a subtle breath and gaze emphasis",
+        "settle": "close the lips gently as the note ends while keeping the microphone steady at upper sternum"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s037": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene alluring poise and cool soprano command",
+      "primary_action": "Sing the Mandarin chorus phrase with composed grace; keep the right-hand wireless microphone steady at upper sternum well below unobstructed lips, left hand relaxed low, expressing sustained notes through breath and subtle eye focus.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the right-hand microphone below the chin and lips closed during guide silence",
+        "accent": "sing the soprano phrase smoothly on the vocal guide clock with a subtle breath and gaze emphasis",
+        "settle": "close the lips gently as the note ends while keeping the microphone steady at upper sternum"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s038": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene attentive poise",
+      "primary_action": "Stand poised at the chorus balustrade with lips continuously closed, listening to the arena resonance; keep the right hand steady at upper sternum as in the first frame, with only quiet breathing and a calm shift of gaze.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s039": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MS",
+      "camera": "handheld",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.167_98.mirrored.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 3.817
+      }
+    },
+    "s040": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.153_15.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s041": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left, blurred foreground shoulder at the frame edge",
+          "facing": "back to the camera, facing the rival; face never seen",
+          "eyeline": "toward the rival"
+        },
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "zhang_lingyu": "stay still as an out-of-focus foreground shoulder and back of the head; face unseen, no turning toward camera"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.264_10.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s042": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "CU",
+      "camera": "push_slow",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.254_45.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s043": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "CU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "tense attentive listening",
+      "primary_action": "Listen to the rival's line with the mouth continuously closed, microphone lowered to chest; a slow breath, a narrowing of the eyes and one small nod or head tilt on the punchline.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the mouth closed",
+        "accent": "one subtle reaction on the musical accent, mouth still closed",
+        "settle": "hold the steady stare without resetting"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone held lowered at chest height in the right hand while listening"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s044": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MCU",
+      "camera": "handheld",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        },
+        "feng_baobao": {
+          "position": "behind Zhang Chulan, softly out of focus",
+          "facing": "toward the stage",
+          "eyeline": "watching Zhang Lingyu across the stage"
+        },
+        "xu_si": {
+          "position": "behind Zhang Chulan, softly out of focus",
+          "facing": "toward the stage",
+          "eyeline": "watching Zhang Lingyu across the stage"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "feng_baobao": "stand calmly with a neutral unbothered gaze, mouth closed, arms relaxed",
+        "xu_si": "arms crossed with a faint smirk, mouth closed, tiny nod to the beat"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.50_95.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 2.65
+      }
+    },
+    "s045": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "2S",
+      "camera": "push_slow",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        },
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "zhang_lingyu": "listen silently with the mouth closed, microphone lowered to chest, a slight jaw tension and steady stare"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.42_03.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s046": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MS",
+      "camera": "snap_zoom",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.88_15.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s047": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene attentive poise",
+      "primary_action": "Stand poised at the chorus balustrade with lips continuously closed, listening to the arena resonance; keep the right hand steady at upper sternum as in the first frame, with only quiet breathing and a calm shift of gaze.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s048": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "CU",
+      "camera": "tele_float",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.77_98.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s049": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left, blurred foreground shoulder at the frame edge",
+          "facing": "back to the camera, facing the rival; face never seen",
+          "eyeline": "toward the rival"
+        },
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "zhang_lingyu": "stay still as an out-of-focus foreground shoulder and back of the head; face unseen, no turning toward camera"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.56_13.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s050": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MCU",
+      "camera": "handheld",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.119_80.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 3.442
+      }
+    },
+    "s051": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MS",
+      "camera": "low_push",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.124_08.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s052": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        },
+        "feng_baobao": {
+          "position": "behind Zhang Chulan, softly out of focus",
+          "facing": "toward the stage",
+          "eyeline": "watching Zhang Lingyu across the stage"
+        },
+        "xu_si": {
+          "position": "behind Zhang Chulan, softly out of focus",
+          "facing": "toward the stage",
+          "eyeline": "watching Zhang Lingyu across the stage"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "feng_baobao": "stand calmly with a neutral unbothered gaze, mouth closed, arms relaxed",
+        "xu_si": "arms crossed with a faint smirk, mouth closed, tiny nod to the beat"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.254_45.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s053": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "CU",
+      "camera": "push_slow",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.153_15.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s054": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "2S",
+      "camera": "arc_short",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        },
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "sharp streetwise confidence and agile mockery",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "zhang_lingyu": "listen silently with the mouth closed, microphone lowered to chest, a slight jaw tension and steady stare"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.60_85.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s055": {
+      "status": "ready",
+      "primary": "wang_ye",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "seated at the quiet guqin platform",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene detached musical focus",
+      "primary_action": "Keep both hands resting at the exact guqin string positions from the first frame with lips continuously closed; only quiet breathing and a small downward eye movement. Do not invent rapid plucking, fingering or instrument technique.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s056": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "MCU",
+      "camera": "low_push",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "solemn self-recognition and resolved inner strength",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.65_93.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s057": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        },
+        "zhang_chulan": {
+          "position": "stage right, blurred foreground shoulder at the frame edge",
+          "facing": "back to the camera, facing the rival; face never seen",
+          "eyeline": "toward the rival"
+        }
+      },
+      "emotion": "solemn self-recognition and resolved inner strength",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "zhang_chulan": "stay still as an out-of-focus foreground shoulder and back of the head; face unseen, no turning toward camera"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.97_73.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s058": {
+      "status": "ready",
+      "primary": "zhang_lingyu",
+      "framing": "CU",
+      "camera": "push_slow",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "solemn self-recognition and resolved inner strength",
+      "primary_action": "Rap the Mandarin phrase with controlled cold intensity, the right hand keeping the microphone at chin level; the free left hand cuts the air on stressed syllables (chop, point toward the rival, open palm), shoulders and head driving the downbeats like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.167_98.mirrored.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 3.608
+      }
+    },
+    "s059": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left, blurred foreground shoulder at the frame edge",
+          "facing": "back to the camera, facing the rival; face never seen",
+          "eyeline": "toward the rival"
+        },
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "tense attentive listening",
+      "primary_action": "Listen to the rival's line with the mouth continuously closed, microphone lowered to chest; a slow breath, a narrowing of the eyes and one small nod or head tilt on the punchline.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the mouth closed",
+        "accent": "one subtle reaction on the musical accent, mouth still closed",
+        "settle": "hold the steady stare without resetting"
+      },
+      "others": {
+        "zhang_lingyu": "stay still as an out-of-focus foreground shoulder and back of the head; face unseen, no turning toward camera"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone held lowered at chest height in the right hand while listening"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s060": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "dropped smile, fierce protective resolve and unyielding sincerity",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.264_10.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 3.067
+      }
+    },
+    "s061": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MS",
+      "camera": "handheld",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "dropped smile, fierce protective resolve and unyielding sincerity",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.50_95.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 2.983
+      }
+    },
+    "s062": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "OTS",
+      "camera": "ots_drift",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left, blurred foreground shoulder at the frame edge",
+          "facing": "back to the camera, facing the rival; face never seen",
+          "eyeline": "toward the rival"
+        },
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "dropped smile, fierce protective resolve and unyielding sincerity",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "zhang_lingyu": "stay still as an out-of-focus foreground shoulder and back of the head; face unseen, no turning toward camera"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.42_03.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 3.525
+      }
+    },
+    "s063": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "CU",
+      "camera": "push_slow",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "dropped smile, fierce protective resolve and unyielding sincerity",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.88_15.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 3.65
+      }
+    },
+    "s064": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MCU",
+      "camera": "handheld",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        },
+        "feng_baobao": {
+          "position": "behind Zhang Chulan, softly out of focus",
+          "facing": "toward the stage",
+          "eyeline": "watching Zhang Lingyu across the stage"
+        },
+        "xu_si": {
+          "position": "behind Zhang Chulan, softly out of focus",
+          "facing": "toward the stage",
+          "eyeline": "watching Zhang Lingyu across the stage"
+        }
+      },
+      "emotion": "dropped smile, fierce protective resolve and unyielding sincerity",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "feng_baobao": "stand calmly with a neutral unbothered gaze, mouth closed, arms relaxed",
+        "xu_si": "arms crossed with a faint smirk, mouth closed, tiny nod to the beat"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.77_98.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 2.025
+      }
+    },
+    "s065": {
+      "status": "ready",
+      "primary": "feng_baobao",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "feng_baobao": {
+          "position": "assigned named guest seat",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "clear unbothered stillness and quiet focus",
+      "primary_action": "Watch Zhang Chulan from the guest area with lips continuously closed and a calm unblinking gaze; only a tiny natural breath and slight head tilt, no exaggerated expression.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s066": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MCU",
+      "camera": "tele_float",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "dropped smile, fierce protective resolve and unyielding sincerity",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.124_08.right.skel.v2",
+        "fit": "trim_hold",
+        "start": 0,
+        "end": 2.525
+      }
+    },
+    "s067": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "MS",
+      "camera": "snap_zoom",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "dropped smile, fierce protective resolve and unyielding sincerity",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.119_80.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s068": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene attentive poise",
+      "primary_action": "Stand poised at the chorus balustrade with lips continuously closed, listening to the arena resonance; keep the right hand steady at upper sternum as in the first frame, with only quiet breathing and a calm shift of gaze.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s069": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "2S",
+      "camera": "arc_short",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_lingyu": {
+          "position": "stage left",
+          "facing": "toward Zhang Chulan across the stage (screen-right)",
+          "eyeline": "locked on the rival"
+        },
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "dropped smile, fierce protective resolve and unyielding sincerity",
+      "primary_action": "Rap the fast Mandarin phrase with agile energy, the right hand keeping the microphone at chin level; the free left hand jabs, points and spreads open toward the rival on the triplet accents, body bouncing and leaning in on the beat like a real battle MC.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "hold the first-frame pose with lips closed during the initial guide silence",
+        "accent": "hit the lyric stresses with the free hand, head and shoulders exactly on the vocal guide clock",
+        "settle": "close the lips on the last syllable and hold an intense stare at the rival"
+      },
+      "others": {
+        "zhang_lingyu": "listen silently with the mouth closed, microphone lowered to chest, a slight jaw tension and steady stare"
+      },
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone in the right hand at chin level just below the lower lip; lips fully visible"
+      },
+      "motion": {
+        "required": true,
+        "asset_id": "battle_rap.wo8.56_13.right.skel.v2",
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s070": {
+      "status": "ready",
+      "primary": "feng_shayan",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "feng_shayan": {
+          "position": "assigned named guest seat",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "sharp confident composure",
+      "primary_action": "Sit poised in the VIP gallery chair with lips continuously closed, arms resting on the carved armrests as in the first frame; watch the stage with a subtle approving glint in the eyes.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s071": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene alluring poise and cool soprano command",
+      "primary_action": "Sing the Mandarin chorus phrase with composed grace; keep the right-hand wireless microphone steady at upper sternum well below unobstructed lips, left hand relaxed low, expressing sustained notes through breath and subtle eye focus.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the right-hand microphone below the chin and lips closed during guide silence",
+        "accent": "sing the soprano phrase smoothly on the vocal guide clock with a subtle breath and gaze emphasis",
+        "settle": "close the lips gently as the note ends while keeping the microphone steady at upper sternum"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s072": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene alluring poise and cool soprano command",
+      "primary_action": "Sing the Mandarin chorus phrase with composed grace; keep the right-hand wireless microphone steady at upper sternum well below unobstructed lips, left hand relaxed low, expressing sustained notes through breath and subtle eye focus.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the right-hand microphone below the chin and lips closed during guide silence",
+        "accent": "sing the soprano phrase smoothly on the vocal guide clock with a subtle breath and gaze emphasis",
+        "settle": "close the lips gently as the note ends while keeping the microphone steady at upper sternum"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s073": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene alluring poise and cool soprano command",
+      "primary_action": "Sing the Mandarin chorus phrase with composed grace; keep the right-hand wireless microphone steady at upper sternum well below unobstructed lips, left hand relaxed low, expressing sustained notes through breath and subtle eye focus.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the right-hand microphone below the chin and lips closed during guide silence",
+        "accent": "sing the soprano phrase smoothly on the vocal guide clock with a subtle breath and gaze emphasis",
+        "settle": "close the lips gently as the note ends while keeping the microphone steady at upper sternum"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s074": {
+      "status": "ready",
+      "primary": "zhang_chulan",
+      "framing": "CU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "warm amber spotlight key, cool blue rim on hair, arena practicals and lanterns in bokeh",
+      "view": "front",
+      "blocking": {
+        "zhang_chulan": {
+          "position": "stage right",
+          "facing": "toward Zhang Lingyu across the stage (screen-left)",
+          "eyeline": "locked on the rival"
+        }
+      },
+      "emotion": "tense attentive listening",
+      "primary_action": "Listen to the rival's line with the mouth continuously closed, microphone lowered to chest; a slow breath, a narrowing of the eyes and one small nod or head tilt on the punchline.",
+      "ending": "settle in the same framing without a pose reset, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the mouth closed",
+        "accent": "one subtle reaction on the musical accent, mouth still closed",
+        "settle": "hold the steady stare without resetting"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "matte-black wireless handheld microphone held lowered at chest height in the right hand while listening"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s075": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene alluring poise and cool soprano command",
+      "primary_action": "Sing the Mandarin chorus phrase with composed grace; keep the right-hand wireless microphone steady at upper sternum well below unobstructed lips, left hand relaxed low, expressing sustained notes through breath and subtle eye focus.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the right-hand microphone below the chin and lips closed during guide silence",
+        "accent": "sing the soprano phrase smoothly on the vocal guide clock with a subtle breath and gaze emphasis",
+        "settle": "close the lips gently as the note ends while keeping the microphone steady at upper sternum"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s076": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene alluring poise and cool soprano command",
+      "primary_action": "Sing the Mandarin chorus phrase with composed grace; keep the right-hand wireless microphone steady at upper sternum well below unobstructed lips, left hand relaxed low, expressing sustained notes through breath and subtle eye focus.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the first-frame pose with the right-hand microphone below the chin and lips closed during guide silence",
+        "accent": "sing the soprano phrase smoothly on the vocal guide clock with a subtle breath and gaze emphasis",
+        "settle": "close the lips gently as the note ends while keeping the microphone steady at upper sternum"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "handheld",
+        "hand": "right",
+        "position": "at upper sternum well below unobstructed lips"
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s077": {
+      "status": "ready",
+      "primary": "xia_he",
+      "framing": "MCU",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "xia_he": {
+          "position": "center at the jade balustrade",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene attentive poise",
+      "primary_action": "Stand poised at the chorus balustrade with lips continuously closed, listening to the arena resonance; keep the right hand steady at upper sternum as in the first frame, with only quiet breathing and a calm shift of gaze.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s078": {
+      "status": "ready",
+      "primary": "wang_ye",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "wang_ye": {
+          "position": "seated at the quiet guqin platform",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "serene detached musical focus",
+      "primary_action": "Keep both hands resting at the exact guqin string positions from the first frame with lips continuously closed; only quiet breathing and a small downward eye movement. Do not invent rapid plucking, fingering or instrument technique.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s079": {
+      "status": "ready",
+      "primary": "zhi_jinhua",
+      "framing": "MS",
+      "camera": "locked",
+      "camera_side": "south of the established stage axis",
+      "light": "flattering neutral face key, subtle cool rim, fixed warm amber lanterns",
+      "view": "front",
+      "blocking": {
+        "zhi_jinhua": {
+          "position": "assigned named guest seat",
+          "facing": "toward the established camera and performance axis",
+          "eyeline": "near camera while singing, otherwise toward the stage"
+        }
+      },
+      "emotion": "calm perceptive musical poise",
+      "primary_action": "Sit at the stage keyboard with lips continuously closed and both hands resting gently on the exact first-frame key positions as the final chord resonates; only quiet breathing and a calm slight smile, without inventing rapid finger motion.",
+      "ending": "settle without a pose reset, camera cut, added person or costume change",
+      "beats": {
+        "prepare": "preserve the exact first-frame posture and hand placement with the mouth closed",
+        "accent": "one subtle breath and attentive eye focus on the musical beat, mouth remaining closed",
+        "settle": "hold the quiet composed posture without resetting position"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    },
+    "s080": {
+      "status": "ready",
+      "primary": null,
+      "framing": "WS",
+      "camera": "crane_up",
+      "camera_side": "south of the established stage axis",
+      "light": "fixed warm amber temple lanterns, moonlit indigo sky and spotlight beams on the central taiji floor",
+      "view": "front",
+      "blocking": {},
+      "emotion": "solemn resonance and architectural scale",
+      "primary_action": "One slow steady architectural pull-back from the empty octagonal taiji stage floor under moonlight; the central performance ring remains completely uninhabited.",
+      "ending": "settle on the wide uninhabited taiji arena under moonlight with all architecture and lighting stable",
+      "beats": {
+        "prepare": "hold the wide architectural framing of the empty octagonal taiji stage floor",
+        "accent": "smooth steady backward camera progression revealing the full arena geometry",
+        "settle": "complete the camera pull-back smoothly with the central stage floor completely empty"
+      },
+      "others": {},
+      "microphone": {
+        "mode": "none",
+        "hand": "none",
+        "position": ""
+      },
+      "motion": {
+        "required": false,
+        "asset_id": null,
+        "fit": "retime",
+        "start": 0,
+        "end": null
+      }
+    }
+  }
+}
