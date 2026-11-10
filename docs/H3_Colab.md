@@ -189,6 +189,37 @@ python outputs/h3-mv-pilot/new-bundle/run_h3.py --dry-run
 每条结果保存原始视频、AV latent、实际工作流历史和输入校验值。
 提交结果不明时不会自动重复提交，须先核对 Comfy 队列和历史。
 
+## 渲染配置、种子与选条（稳定性）
+
+同一集所有镜头共用一套渲染配置 `model_profile`（素材库 `defaults` 或本集资产表里）：
+
+```json
+"model_profile": {
+  "name": "h3_scheme_a_cinematic_cg_v1",
+  "template_sha256": "<已验证工作流 JSON 的 SHA256>",
+  "steps": 12,
+  "lora_strengths": {"2": 0.0, "3": 0.0}
+}
+```
+
+- `template_sha256`：`ep h3-bundle` 只接受这个工作流文件，别的文件直接报错。schema 4 正式制作必须填。
+- `steps`：可选。填了以后 `--steps` 只能省略或填同一个值；不填时默认 12。
+- `lora_strengths`：可选，模板 2、3 号 LoRA 节点的强度，默认 0（和以前一样）。改了会生成新任务 ID。
+
+种子 = `seed_base` + 镜头号 + (take − 1) × 100000。take 1 和以前的公式一样，已有任务 ID 不变。
+同一 take 号重编译得到同一个种子和任务 ID，运行器会复用结果；要重抽就用 `--take 2`，
+新种子写进任务、`manifest.json` 的 `render_profile` 和导入后的候选记录。
+
+一个镜头有多条通过验收时，必须用 `aigc-mv ep h3-select <ep> <镜头> <任务ID>` 选定一条，
+否则剪辑报错，不再默认取最后一条。`aigc-mv ep render <ep> --h3-only` 在有镜头缺少通过的 H3 条时
+拒绝出片并列出镜头号（配合 `--test` 时只检查该时间段）。
+
+运镜描述里的人物用 `<Subject N>` 指代，和 `subject_definitions` 里绑定图片的标签一致，
+不再插入中文名。这会让用到人物名的运镜（`ots_drift`、`rack_focus`、`whip_in` 等）重新编译出新的任务 ID；
+已经通过验收的条仍按镜头时间进入剪辑，不受影响。
+
+agent 代跑时的固定步骤见仓库根目录 [AGENTS.md](../AGENTS.md)。
+
 ## 导入与验收
 
 ```sh

@@ -27,8 +27,61 @@ from aigc_mv.directing import REVIEW_CRITERIA, direction_readiness, render_direc
 from aigc_mv.motion_assets import prepare_motion
 
 
+DEFAULT_STEPS = 12
+LORA_NODES = ("2", "3")  # template LoRA loaders; strength 0 unless the model profile says otherwise
+TAKE_SEED_STRIDE = 100_000  # take N of a shot never collides with another shot's seed
+MAX_TAKE = 99
+
+
 def sha256(path: Path) -> str:
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def render_profile(cfg: dict, template_file: Path, steps: int | None = None) -> dict:
+    """Sampler settings every job of an episode shares, so shots differ only by their own inputs.
+
+    ``model_profile.template_sha256`` pins the validated Comfy workflow (required for schema 4
+    production); ``model_profile.steps`` fixes the step count, and ``model_profile.lora_strengths``
+    sets the template LoRA loaders (default 0.0, the previous fixed behaviour).
+    """
+    profile = cfg.get("model_profile") or {}
+    if not isinstance(profile, dict):
+        raise ValueError("model_profile must be a JSON object")
+    actual = sha256(template_file)
+    pinned = profile.get("template_sha256")
+    if pinned and pinned != actual:
+        raise ValueError(f"Workflow template {Path(template_file).name} (sha256 {actual[:12]}) is not the "
+                         f"model_profile template ({str(pinned)[:12]}); use the pinned file, or pin the new "
+                         "workflow in model_profile after validating it")
+    if not pinned and cfg.get("mode") == "production" and cfg.get("schema_version", 2) >= 4:
+        raise ValueError("Production needs model_profile.template_sha256 pinned to the validated workflow; "
+                         f"this template is {actual}")
+    fixed = profile.get("steps")
+    if fixed is not None:
+        if steps is not None and steps != fixed:
+            raise ValueError(f"model_profile fixes steps={fixed}; --steps {steps} would change the look between shots")
+        steps = fixed
+    steps = DEFAULT_STEPS if steps is None else steps
+    if isinstance(steps, bool) or not isinstance(steps, int) or not 1 <= steps <= 40:
+        raise ValueError("steps must be an integer from 1 to 40")
+    loras = {k: 0.0 for k in LORA_NODES}
+    raw = profile.get("lora_strengths") or {}
+    if not isinstance(raw, dict):
+        raise ValueError("model_profile.lora_strengths must map template node ids to strengths")
+    for node, value in raw.items():
+        if node not in LORA_NODES or isinstance(value, bool) or not isinstance(value, (int, float)) \
+                or not math.isfinite(value) or not 0 <= value <= 2:
+            raise ValueError(f"model_profile.lora_strengths: node {node!r} must be one of {LORA_NODES} "
+                             "with a strength from 0 to 2")
+        loras[node] = float(value)
+    return {"template_sha256": actual, "steps": steps, "lora_strengths": loras}
+
+
+def shot_seed(cfg: dict, shot_id: str, take: int = 1) -> int:
+    """Deterministic per shot and take: rerunning take N reproduces it; take N+1 is a recorded re-roll."""
+    if isinstance(take, bool) or not isinstance(take, int) or not 1 <= take <= MAX_TAKE:
+        raise ValueError(f"take must be an integer from 1 to {MAX_TAKE}")
+    return int(cfg.get("seed_base", 2026110500)) + int(shot_id.lstrip("s")) + (take - 1) * TAKE_SEED_STRIDE
 
 
 def frame_count(seconds: float, minimum: int = 90) -> int:
@@ -88,8 +141,8 @@ def graph_for(template: dict, job: dict) -> dict:
     ids = ["1", "2", "3", "4", "5", "6", "7", "8", "20", "21", "22", "23",
            "24", "25", "26", "27", "30", "31", "32", "34", "35"]
     graph = {k: copy.deepcopy(template[k]) for k in ids}
-    for k in ("2", "3"):
-        graph[k]["inputs"]["strength_model"] = 0.0
+    for k in LORA_NODES:
+        graph[k]["inputs"]["strength_model"] = job.get("lora_strengths", {}).get(k, 0.0)
     r2v = graph["20"]["inputs"]
     for key in list(r2v):
         if key.startswith(("ref_images.", "ref_audios.", "ref_videos.")):
@@ -147,9 +200,11 @@ def validate_graph(graph: dict) -> None:
 
 
 def export_bundle(ep_dir: Path, assets_file: Path, template_file: Path,
-                  out: Path, shots: list[str], steps: int = 12, *, allow_legacy_audio: bool = False) -> dict:
+                  out: Path, shots: list[str], steps: int | None = None, *, take: int = 1,
+                  allow_legacy_audio: bool = False) -> dict:
     if not shots or len(shots) != len(set(shots)):
         raise ValueError("Select unique shot ids explicitly")
+    shot_seed({}, "s1", take)  # validate the take number before any work
     if out.exists():
         raise FileExistsError(f"Refusing to overwrite bundle {out}")
     ep_dir, assets_file = Path(ep_dir).resolve(), Path(assets_file).resolve()
@@ -172,6 +227,8 @@ def export_bundle(ep_dir: Path, assets_file: Path, template_file: Path,
         if not directions["ready"]:
             raise ValueError("Direction preflight failed:\n" + "\n".join(directions["errors"]))
     board, timing = load_board(ep_dir), load_timing(ep_dir)
+    profile = render_profile(cfg, template_file, steps)
+    steps = profile["steps"]
     template = json.loads(Path(template_file).read_text())
     asset_root = assets_file.parent
 
@@ -288,7 +345,14 @@ def export_bundle(ep_dir: Path, assets_file: Path, template_file: Path,
         camera = override.get("camera", s.camera) if mode == "production" else "locked"
         if framing not in FRAMINGS or lens not in LENSES or camera not in MOVES:
             raise ValueError(f"{s.id}: unsupported framing, lens or camera")
-        who_name = ep.cast[s.singer].name_cn if s.singer in ep.cast else "the primary subject"
+        # Name people in the camera text by their subject label, the same token the
+        # subject definitions bind to a picture (a Chinese name here matched nothing).
+        if singer_index:
+            who_name = f"<Subject {singer_index}>"
+        elif visible:
+            who_name = "<Subject 1>"
+        else:
+            who_name = "the primary subject"
         other_name = "the rival"
         camera_text = MOVES[camera].en.format(who_en=who_name, other_en=other_name,
                        fg_en="the rival's blurred shoulder", reveal_en="the supporting teammates")
@@ -345,12 +409,17 @@ def export_bundle(ep_dir: Path, assets_file: Path, template_file: Path,
                   + gallery + " "
                   "No subtitles, text, logos or watermark.\n\noverall_soundscape:\n"
                   "Use the fixed guide vocal timing, no extra speech, harmony or sound effects.\n\nnon_diegetic_music:\nN/A")
-        seed = int(cfg.get("seed_base", 2026110500)) + int(s.id.lstrip("s"))
+        seed = shot_seed(cfg, s.id, take)
         identity = {"shot": s.id, "refs": refs, "keyframe": keyframe, "scene_reference": scene_reference,
                     "mode": mode,
                     "lock_guide_audio": bool(cfg.get("lock_guide_audio", False)),
                     "audio_sha256": files["input/" + audio], "frames": frames, "steps": steps,
-                    "seed": seed, "template_sha256": sha256(template_file), "prompt": prompt}
+                    "seed": seed, "template_sha256": profile["template_sha256"], "prompt": prompt}
+        # Only non-default settings enter the identity, so existing take-1 job ids stay valid.
+        if take != 1:
+            identity["take"] = take
+        if any(profile["lora_strengths"].values()):
+            identity["lora_strengths"] = profile["lora_strengths"]
         if direction:
             identity.update(direction_fingerprint=direction["fingerprint"], motion_video=motion_video,
                             motion_metadata=motion_metadata)
@@ -358,6 +427,7 @@ def export_bundle(ep_dir: Path, assets_file: Path, template_file: Path,
             # Include the executable graph (with output names normalized) and
             # conditioning implementation so new jobs cannot silently reuse old takes.
             draft = {**identity, "portraits": refs, "keyframe": keyframe, "audio": audio,
+                     "lora_strengths": profile["lora_strengths"],
                      "output_prefix": "__OUTPUT__", "checkpoint_name": "__CHECKPOINT__"}
             graph_signature = graph_for(template, draft)
             identity.update(workflow_sha256=hashlib.sha256(json.dumps(graph_signature, sort_keys=True).encode()).hexdigest(),
@@ -375,7 +445,8 @@ def export_bundle(ep_dir: Path, assets_file: Path, template_file: Path,
                "portraits": refs, "keyframe": keyframe, "audio": audio,
                "audio_meta": audio_meta, "song_t0": s.t0, "song_t1": s.t1,
                "clip_in": lead, "frames": frames, "fps": 24, "steps": steps,
-               "seed": seed, "output_prefix": "LuotianMV_" + job_id,
+               "seed": seed, "take": take, "lora_strengths": profile["lora_strengths"],
+               "output_prefix": "LuotianMV_" + job_id,
                "checkpoint_name": "LuotianMV_" + job_id + "_av.pt", "prompt": prompt,
                "visual_status": "unreviewed", "workflow": "workflows/" + job_id + ".json"}
         if direction:
@@ -393,6 +464,7 @@ def export_bundle(ep_dir: Path, assets_file: Path, template_file: Path,
         shutil.copy2(Path(__file__).with_name("h3_audio_lock.py"), node_file)
         files["h3_audio_lock.py"] = sha256(node_file)
     manifest = {"version": 2, "mode": mode, "title": ep.title, "jobs": jobs, "files": files,
+                "render_profile": {**profile, "take": take},
                 "audio_policy": "Original 48k master retained; guide is resampled, never tempo-stretched.",
                 "visual_acceptance_required": True}
     if library:
@@ -414,7 +486,9 @@ def ingest_shot_results(ep_dir: Path, bundle: Path, results: Path) -> dict:
         rec = state["jobs"].get(job["job_id"], {})
         if rec.get("status") != "complete":
             continue
-        video = next(f for f in rec["files"] if f["file"].endswith("_raw.mp4"))
+        video = next((f for f in rec.get("files", []) if f["file"].endswith("_raw.mp4")), None)
+        if video is None:
+            raise ValueError(f"{job['job_id']}: marked complete but has no _raw.mp4 in state.json")
         source = results / video["file"]
         if sha256(source) != video["sha256"]:
             raise ValueError("Result checksum mismatch: " + video["file"])
@@ -432,7 +506,7 @@ def ingest_shot_results(ep_dir: Path, bundle: Path, results: Path) -> dict:
             "sha256": video["sha256"], "src_in": job["clip_in"], "duration": job["frames"] / 24,
             "song_t0": job["song_t0"], "song_t1": job["song_t1"], "sung": job["sung"],
             "visual_status": "unreviewed", "identity_status": "unreviewed", "notes": "",
-            "mode": job.get("mode", "pilot"),
+            "mode": job.get("mode", "pilot"), "take": job.get("take", 1), "seed": job.get("seed"),
             "production_override": job.get("production_override", {}),
             "pilot_override": job.get("pilot_override", {})}
         if job.get("review_contract"):
@@ -461,9 +535,54 @@ def approved_shot_takes(ep_dir: Path) -> dict:
                     and r.get("mode", "production") == "production" and review_passed(r)]
         if not approved:
             continue
-        chosen = approved[-1]
+        selected = [r for r in approved if r.get("selected")]
+        if len(selected) > 1:
+            raise ValueError(f"{shot}: more than one selected H3 take")
+        if selected:
+            chosen = selected[0]
+        elif len(approved) == 1:
+            chosen = approved[0]
+        else:
+            # Never let file order decide which of several good takes reaches the cut.
+            raise ValueError(f"{shot}: {len(approved)} approved H3 takes "
+                             f"({', '.join(r['job_id'] for r in approved)}); choose one with "
+                             f"`aigc-mv ep h3-select <ep> {shot} <job_id>`")
         path = (ep_dir / chosen["file"]).resolve()
         if not path.is_relative_to(ep_dir.resolve()) or sha256(path) != chosen["sha256"]:
             raise ValueError("Approved H3 take changed: " + shot)
         out[shot] = chosen
     return out
+
+
+def select_shot_take(ep_dir: Path, shot: str, job_id: str) -> dict:
+    """Mark one approved take as the shot's pick; the others stay recorded but unused."""
+    from aigc_mv.shot_review import review_passed
+
+    ep_dir = Path(ep_dir)
+    index = ep_dir / "h3" / "shot_takes.json"
+    data = json.loads(index.read_text()) if index.exists() else {}
+    candidates = data.get(shot, [])
+    matches = [r for r in candidates if r["job_id"] == job_id]
+    if len(matches) != 1:
+        raise ValueError(f"{shot}: no single take with job id {job_id}")
+    take = matches[0]
+    if not (take.get("visual_status") == "pass" and take.get("identity_status") == "pass"
+            and not take.get("pilot_override") and take.get("mode", "production") == "production"
+            and review_passed(take)):
+        raise ValueError(f"{shot}: {job_id} is not an approved production take; review it with ep h3-review first")
+    path = (ep_dir / take["file"]).resolve()
+    if not path.is_relative_to(ep_dir.resolve()) or sha256(path) != take["sha256"]:
+        raise ValueError("The selected take changed: " + shot)
+    for r in candidates:
+        r.pop("selected", None)
+    take["selected"] = True
+    temporary = index.with_suffix(".partial")
+    temporary.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
+    temporary.replace(index)
+    return take
+
+
+def missing_h3_shots(ep_dir: Path, board) -> list[str]:
+    """Shots of the board that have no approved, selected H3 take (for an H3-only cut)."""
+    approved = approved_shot_takes(Path(ep_dir))
+    return [s.id for s in board.shots if s.id not in approved]

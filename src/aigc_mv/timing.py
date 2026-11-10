@@ -417,7 +417,11 @@ def _asr_chars(vocals: Path, prompt: str = "", cache: Path | None = None) -> lis
 def _key(c: str) -> str:
     try:
         from pypinyin import lazy_pinyin
-
+    except ImportError as exc:
+        # Without pinyin, homophones Suno sang differently stop matching and lyric times
+        # silently fall back to interpolation; fail instead of degrading the alignment.
+        raise RuntimeError("Lyric alignment needs pypinyin: pip install -e '.[asr]'") from exc
+    try:
         return lazy_pinyin(c)[0]
     except Exception:
         return c
