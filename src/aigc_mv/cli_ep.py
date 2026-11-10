@@ -30,7 +30,10 @@ def h3_bundle_cmd(
     template: Path = typer.Option(..., "--template", help="Validated Comfy H3 API workflow JSON"),
     out: Path = typer.Option(..., "--out"),
     shots: str = typer.Option(..., "--shots", help="Explicit comma-separated shot ids"),
-    steps: int = typer.Option(12, "--steps", min=1, max=40),
+    steps: Optional[int] = typer.Option(None, "--steps", min=1, max=40,
+                                        help="Default: model_profile.steps, else 12. Must match a fixed profile"),
+    take: int = typer.Option(1, "--take", min=1, max=99,
+                             help="Take number: same number = same seed (rerun); next number = recorded re-roll"),
     allow_legacy_audio: bool = typer.Option(False, "--allow-legacy-audio", help="Historical regeneration only; voice identity remains unverified"),
 ) -> None:
     """Compile independent H3 shot graphs and target audio locally; never starts Colab."""
@@ -39,17 +42,37 @@ def h3_bundle_cmd(
     try:
         result = export_bundle(ep_dir, assets, template, out,
                                [x.strip() for x in shots.split(",") if x.strip()], steps,
-                               allow_legacy_audio=allow_legacy_audio)
+                               take=take, allow_legacy_audio=allow_legacy_audio)
     except (ValueError, KeyError, FileNotFoundError, FileExistsError) as e:
         _fail(str(e))
+    p = result["render_profile"]
     typer.echo(f"H3 bundle: {len(result['jobs'])} jobs, {len(result['files'])} verified inputs → {out}")
+    typer.echo(f"  profile: template {p['template_sha256'][:12]} · steps {p['steps']} · "
+               f"LoRA {p['lora_strengths']} · take {p['take']}")
+    for job in result["jobs"]:
+        typer.echo(f"  {job['shot']}  {job['job_id']}  seed {job['seed']}  {job['frames']} frames")
+
+
+@app.command("h3-select")
+def h3_select_cmd(ep_dir: Path, shot: str, job_id: str) -> None:
+    """Pick which approved H3 take a shot uses in the cut (needed when a shot has several)."""
+    from aigc_mv.h3 import select_shot_take
+
+    try:
+        take = select_shot_take(ep_dir.resolve(), shot, job_id)
+    except ValueError as e:
+        _fail(str(e))
+    typer.echo(f"{shot}: selected {take['job_id']} ({take['file']})")
 
 
 @app.command("h3-ingest")
 def h3_ingest_cmd(ep_dir: Path, bundle: Path, results: Path) -> None:
     """Import H3 shot candidates; visual/identity review stays unreviewed."""
     from aigc_mv.h3 import ingest_shot_results
-    data = ingest_shot_results(ep_dir.resolve(), bundle, results)
+    try:
+        data = ingest_shot_results(ep_dir.resolve(), bundle, results)
+    except (ValueError, FileExistsError, FileNotFoundError, KeyError) as e:
+        _fail(str(e))
     typer.echo(f"Imported candidates for {len(data)} shots; visual acceptance is still required")
 
 
@@ -289,7 +312,7 @@ def analyze_cmd(
     ep = load_episode(ep_dir)
     try:
         t = analyze(ep_dir, ep, mode=mode, bpm=bpm, duration=duration)  # type: ignore[arg-type]
-    except (FileNotFoundError, ValueError) as e:
+    except (FileNotFoundError, ValueError, RuntimeError) as e:
         _fail(str(e))
     jsave(ep_dir / "analysis" / "timing.json", t)
     typer.echo(f"{t.grid.bpm} BPM · bar {t.grid.bar:.3f}s · {len(t.lines)} lines · {t.duration:.1f}s · align={t.mode}")
@@ -732,6 +755,8 @@ def render_cmd(
     no_text: bool = typer.Option(False, "--no-text"),
     previz: Optional[bool] = typer.Option(None, "--previz/--no-previz",
                                           help="Placeholder plates for shots without take / plate (default: on for shows)"),
+    h3_only: bool = typer.Option(False, "--h3-only",
+                                 help="Final cut: refuse to render unless every shot (in --test range) has an approved H3 take"),
 ) -> None:
     """Conform the cut (takes > plates > previz > cards), grade, subtitles, music → final/<title>.mp4."""
     from aigc_mv.edit import render
@@ -739,7 +764,19 @@ def render_cmd(
 
     ep = load_episode(ep_dir)
     rng = tuple(float(x) for x in test.split(":")) if test else None
-    out = render(ep_dir, ep, load_board(ep_dir), load_timing(ep_dir), resolution=res, test=rng,  # type: ignore[arg-type]
+    board = load_board(ep_dir)
+    if h3_only:
+        from aigc_mv.h3 import missing_h3_shots
+
+        try:
+            missing = missing_h3_shots(ep_dir, board)
+        except ValueError as e:
+            _fail(str(e))
+        if rng:
+            missing = [sid for sid in missing if board.shot(sid).t1 > rng[0] and board.shot(sid).t0 < rng[1]]
+        if missing:
+            _fail(f"{len(missing)} shots have no approved H3 take: " + ", ".join(missing))
+    out = render(ep_dir, ep, board, load_timing(ep_dir), resolution=res, test=rng,  # type: ignore[arg-type]
                  look=not no_look, overlays=not no_text, previz=previz)
     edl = json.loads((ep_dir / "edit" / "edl.json").read_text(encoding="utf-8"))
     src = {}

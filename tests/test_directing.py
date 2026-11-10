@@ -44,6 +44,10 @@ def template(series):
     data={k:{'class_type':'TestNode','inputs':{}} for k in ids}
     data['20']['class_type']='MiniMaxH3ReferenceToVideo'
     path=series.root/'template.json';write_json(path,data)
+    # Schema-4 production pins the validated workflow, as a real model_profile does.
+    cfg=json.loads(series.assets.read_text())
+    cfg.setdefault('model_profile',{})['template_sha256']=file_hash(path)
+    write_json(series.assets,cfg)
     return path
 
 
