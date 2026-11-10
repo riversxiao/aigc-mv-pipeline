@@ -109,6 +109,8 @@ aigc-mv ep render $E --res 480p    # 全长预演动画：占位画面 + 合成�
 - [`projects/yirenzhixia`](projects/yirenzhixia/) — 一人之下（含《雷有两面》等；可与 `wangye_vs_zhugeqing` 联用）
 - [`projects/world_celebrity_battle`](projects/world_celebrity_battle/) — 世界名人大乱斗 / 异人开麦
 
+中文广播剧配音方法见 [`playbook/AUDIO_RADIO_DRAMA.md`](playbook/AUDIO_RADIO_DRAMA.md)。
+
 大媒体与母带不进 Git；各项目 README 写 Drive / 本机路径。
 
 示例产出：[演员表](docs/examples/王也vs诸葛青_演员表.md) · [歌词初稿和待核对清单](docs/examples/王也vs诸葛青_歌词初稿.md) · [分镜表](docs/examples/王也vs诸葛青_分镜表.md) · [定妆图提示词](docs/examples/王也vs诸葛青_定妆图.md) · [Suno 栏](docs/examples/王也vs诸葛青_suno.md) · [对口型提示词](docs/examples/王也vs诸葛青_对口型提示词.txt) · [评委反应提示词](docs/examples/王也vs诸葛青_评委反应提示词.txt) · [灭灯揭晓提示词](docs/examples/王也vs诸葛青_灭灯揭晓提示词.txt) · [开场全景提示词](docs/examples/王也vs诸葛青_开场全景提示词.txt) · [主持提示词](docs/examples/王也vs诸葛青_主持提示词.txt)

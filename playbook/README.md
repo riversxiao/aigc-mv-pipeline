@@ -8,6 +8,8 @@
 
 共用同一套门禁；**角色、场地、曲目只挂在各自 `projects/<id>/`**。
 
+本 playbook 也覆盖中文广播剧 / 配音方法（ElevenLabs v3 标签、自然语速时间轴、EL 音效与配乐）。
+
 上游灵感：[MinLiBuilds「焚诀」/ copy-kakasi](https://github.com/limin112/min-skill/tree/main/skills/copy-kakasi)（我们只借七步纪律与 fl2va 优先，不照搬换脸复刻真人流程）。
 
 ## 一句话
@@ -29,6 +31,7 @@
 | [VENUE_BIBLE.md](VENUE_BIBLE.md) | 场地圣经模板（轴线 / 机位 / 灯光） |
 | [PROMPTS.md](PROMPTS.md) | H3 提示词骨架（Emotion / 运镜 / Continuity） |
 | [APPLY.md](APPLY.md) | 新片怎么挂到本 playbook |
+| [AUDIO_RADIO_DRAMA.md](AUDIO_RADIO_DRAMA.md) | 中文广播剧 / 配音（ElevenLabs v3 标签、自然语速时间轴、EL 音效与配乐） |
 
 ## 硬规则（全项目）
 
