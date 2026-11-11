@@ -33,22 +33,25 @@ BG_FRAMINGS = ("CU", "MCU", "MS", "OTS")
 NO_BG_STAGINGS = ("spot_cu",)  # the blackout: only the singer's face is lit
 
 ACTION = {
-    "cu_team_bg": "握着话筒对着对手唱，空着的手跟着重音比划，身后的队友跟着节奏点头",
-    "ots_hair": "盯着对手的眼睛唱，一字一句往前压",
-    "two_shot": "一个唱一个听，唱的人往前逼一步，听的人站着不动",
-    "point_lens": "转向镜头，伸手指着镜头唱",
-    "mic_to_lens": "开口前先把话筒往镜头前一递，再收回嘴边唱",
-    "faceoff_profile": "两人侧脸贴近，鼻尖几乎相碰，唱的人把最后几个字咬得很重，听的人一动不动",
-    "hook_mic": "站在立麦前唱副歌，双手扶着话筒架，身体跟着节奏轻轻晃",
+    "cu_team_bg": "握着话筒对着对手唱，空着的手随重音先抬手比划再下摆出画，身后的队友跟着节奏点头",
+    "ots_hair": "盯着对手的眼睛唱，重心一字一句往前压，空手随节拍切落",
+    "two_shot": "一个唱一个听，唱的人往前逼一步，听的人嘴一直闭着冷眼盯视",
+    "point_lens": "转向镜头前倾半步，空手从画外抬起直指镜头唱，尾拍干脆收手",
+    "mic_to_lens": "开口前先把话筒往镜头前一递，再收回嘴斜下方开唱",
+    "faceoff_profile": "两人侧脸贴近，鼻尖几乎相碰，唱的人把最后几个字咬得很重，听的人双唇紧闭一动不动",
+    "hook_mic": "站在立麦前唱副歌，高音长音处下颌自然大幅张开、苹果肌抬起，一手扶麦架一手随旋律起落",
     "dj_booth": "主持和DJ站在DJ台后面，说话的人对着镜头，另一个跟着节奏点头搓碟",
-    "dj_cu": "对着镜头说话，表情夸张，空着的手往台上一指",
+    "dj_cu": "对着镜头说话，表情鲜活，空着的手往台上一指再收回",
     "high_ws": "场馆高位全景：红黑配色的场馆，地上是节目的太极八卦图案，看台坐满了观众，台上灯光亮起",
     "split_entrance": "分屏：左右两队各三人并排走进场馆，选手走在最前面，队友跟在身后",
     "blackout_spot": "全场灯灭，只剩头顶一束追光打在唱的人身上，从背后拍，只看得到背影剪影",
     "empty_stage_ws": "灭灯后的空舞台，只有追光落在地板的八卦图案上，观众席一片黑",
     "head_down_cu": "低着头，嘴闭着，呼吸很重，停了一拍",
-    "spot_cu": "在追光里抬起头，看着对手轻轻说出最后一句",
+    "spot_cu": "在追光里抬起头，眼神骤亮，看着对手轻轻说出最后一句",
     "mic_to_crowd": "把话筒伸向观众，另一只手往上招，示意全场一起喊",
+    "barrier_interact": "走下擂台贴近前排护栏，俯身对着台下被点名的观众角色近距离唱，空手按节拍比划",
+    "instrument_stage": "角色亲自在舞台一侧击鼓或抚琴，全身发力带动衣袖翻飞，鼓槌或指尖精准卡在重音点上",
+    "morph_transition": "同轴跨年龄蜕变：起幅动作蓄势，气流翻涌掠过衣袍与发丝，落幅无缝化为新状态定格",
 }
 
 
@@ -190,8 +193,12 @@ class _ShowPlanner:
             who = [self.left, self.right]
         _, src0 = self.src(g[0])
         fr = cinema.SHOW_STAGINGS[stg].framing
+        act = src0.action
+        if not act:
+            act = (f"{ACTION[stg]}；{cinema.gesture_phase_cn(role, k)}"
+                   if stg in ("cu_team_bg", "ots_hair", "point_lens") else ACTION[stg])
         return dict(staging=stg, kind="perform", who=who, sung=True, role=role, camera=camera,
-                    action=src0.action or ACTION[stg],
+                    action=act,
                     background=self.ep.team(singer) if fr in BG_FRAMINGS else [],
                     note=f"前景是{self.name(rival)}虚化的头发和肩膀" if stg == "ots_hair" else "")
 

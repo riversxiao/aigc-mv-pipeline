@@ -1,0 +1,30 @@
+# 李慕玄 · 《一人之下》同人二创（腾讯动漫，米二）。全性宿老「恶童」，曾入三一门拜左若童，学得倒转八方。
+# 造型按官方 v3 定妆标准：老年态穿粗麻磨损破旧敞口布衣，青年说唱态保留桀骜眉眼与灰褐破布劲装；面部原创。
+id: li_muxuan
+display_name: 李慕玄 · 全性宿老
+age: 86
+canon_refs: []
+canon_look_cn: 老年态一头凌乱灰白蓬发配粗犷白胡茬，眼神桀骜沧桑，穿磨损破旧的灰褐色粗麻敞领短褐；青年回忆态约 24 岁，黑发微乱束起，眼神桀骜叛逆。
+signature_cn: 凌乱灰白蓬发与白胡茬 + 磨损灰褐粗麻破布衣 + 周身螺旋气劲波纹
+signature_en: unruly grey-white hair and coarse white stubble, tattered grey-brown coarse hemp coat, spiralling magnetic airflow ripples
+identity: >-
+  a Chinese man who looks about 86, lean and sinewy with broad shoulders, a sharp defiant face with deep laugh lines
+  and weathered wrinkles, unruly shoulder-length grey-white hair and coarse white stubble along the jaw, piercing dark
+  eyes with a rebellious glint, visible pores and sun spots on aged skin
+identity_short: a lean defiant Chinese man of about 86 with unruly grey-white hair and tattered hemp clothes
+identity_cn: 看上去约 86 岁的中国老人，身材精悍骨架硬朗，脸型棱角分明，眼角皱纹深，眼神桀骜不驯；凌乱的灰白中长发与下巴粗白胡茬；皮肤有真实皱纹、毛孔与风霜晒痕
+wardrobe_default: >-
+  a frayed tattered grey-brown coarse hemp martial coat with torn cuffs and patched seams, dark linen trousers wrapped
+  at the shins, worn straw-and-cloth shoes, no lettering
+wardrobe_cn: 磨损起毛边的灰褐色粗麻破旧短褐，袖口有撕裂与补丁痕迹，深色绑腿麻裤，没有任何文字和标志
+props_cn: 右手握一支银色有线话筒，左手随倒转八方气劲张合比划
+voice: gravelly raspy male rap voice, rebellious and weathered, forceful baritone
+forbidden:
+  - clean luxury suit
+  - plastic skin
+  - modern logos
+refs: []
+notes: >-
+  《一人之下》同人二创角色卡（三一门篇「恶童」李慕玄，成片 ep03 核心对手）。原创写实真人化定妆，无直接 Bangumi 单图引用，第一步用文生图生成锁定正面像。
+  老年开场与结尾对白必须保持苍老男声与破衣定妆，青年说唱段通过双关键帧跨龄蜕变切换至 24 岁桀骜黑发破衣态。
+  面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。

@@ -172,6 +172,15 @@ SHOW_STAGINGS: dict[str, Staging] = {st.id: st for st in [
     Staging("head_down_cu", "低头特写，嘴闭着", "close-up, head bowed, mouth closed", "CU", sung_ok=False),
     Staging("spot_cu", "追光下的特写，只有脸被照亮", "close-up in the follow spot, only the face lit", "CU"),
     Staging("mic_to_crowd", "把话筒伸向观众", "holding the microphone out to the audience", "MS"),
+    Staging("barrier_interact", "走下擂台贴近前排护栏，对着台下被点名的角色近距离唱",
+            "stepping down to the front audience barrier to rap face to face with a named audience character", "MCU",
+            max_per_film=2),
+    Staging("instrument_stage", "舞台实景器乐切镜：角色亲自在台上击鼓或抚琴，全身或半身入画，绝不只拍悬空双手",
+            "on-stage live instrument cutaway played by a cast character in waist-up or medium view, never disembodied hands",
+            "MS", max_per_film=4, sung_ok=False),
+    Staging("morph_transition", "同轴跨时空或跨年龄蜕变：起幅与落幅动作衔接，衣袍与发丝随气浪翻涌完成变身",
+            "co-axial cross-age or state transformation linking start and end poses through surging stage wind", "MCU",
+            max_per_film=2, sung_ok=False),
 ]}
 
 # Restrained camera: calm moves carry the show; accents are rationed; cranes only open and close it.
@@ -339,3 +348,106 @@ def lens_for(grammar: str, framing: str, i: int = 0) -> str:
 def banned_hits(text: str) -> list[str]:
     low = text.lower()
     return [w for w in BANNED_WORDS if w.lower() in low]
+
+
+# --------------------------------------------------------------------------- 6-layer biomechanical action & H3 routing
+# Distilled from 《火影有嘻哈 EP03》 (shot_012 / shot_022 / shot_034 / shot_056-058) + 《异人开麦 ep03》 v3->v6 ablation:
+# 1) Single-portrait fl2va locks Frame-0 pixels and freezes torso/hands when paired with H3LockGuideAudio;
+# 2) Free hands in reference battle MVs exit and re-enter the frame across 2-3 beats instead of hovering mid-air;
+# 3) High-register vocals need explicit jaw/cheek opening while hums ("哼") and listeners must stay closed-mouth.
+
+BIOMECH_SUNG_CN = (
+    "【肢体动态】六层发力连贯自然：1.重心随重拍前后压步转移；2.肩肘带动小臂传导发力；"
+    "3.空着的手在单镜内完成「起势比划→下摆出画→重音再抬手」两到三拍切换，绝不悬停僵在半空；"
+    "4.五指张合分明；5.衣袖与发丝慢半拍随惯性摆动；6.换气时胸廓起伏并带眨眼挑眉。"
+)
+
+VOCAL_REGISTER_CN = {
+    "belt": "高音与长音字下颌大幅张开、苹果肌抬起、脖颈发力清楚，绝不抿嘴小口型；",
+    "hum_closed": "鼻音「哼」或冷笑尾音全程双唇紧闭，只靠鼻翼微张、挑眉和下颌微昂表现情绪；",
+    "rap": "重音字嘴唇开合干脆有力，气口处自然换气收口；",
+}
+
+GESTURE_PHASES: dict[str, tuple[str, ...]] = {
+    "open": (
+        "空着的手先掌心向上勾指挑衅，重音处手腕下压甩出画外，尾拍重新抬手直指前方",
+        "身体随节拍前倾半步，空手先在胸前虚抓成拳，随后向侧下方挥开泄力",
+    ),
+    "mid": (
+        "重心从后脚压向前脚，空手先横掌切拍，半句气口自然垂落出画，下半句再抬手按拍点指",
+        "肩胯随鼓点微晃，空手先摊掌向外推开，随即屈肘收回胸前握拳定拍",
+        "上半身向对手方向逼近少许，空手食指随重音连点两下，尾音手掌下压收势",
+    ),
+    "punch": (
+        "重拍前先微撤半步蓄力，重音字猛然前踏半步，空手从画外快速抬起直指镜头后干脆收拳",
+        "下颌微压紧盯前方，空手先在身侧握拳蓄势，绝杀字处五指张开向前劈落定格半拍",
+    ),
+    "react": (
+        "嘴一直闭着，前1秒先微怔直视，随后眉梢轻挑并露出一丝无奈或冷峻的微表情转折",
+        "嘴一直闭着，先皱眉侧耳听梗，半秒后轻轻摇头或点头回应，胸口随呼吸自然起伏",
+    ),
+}
+
+
+def gesture_phase_cn(role: str, index: int = 0) -> str:
+    """Deterministic multi-beat free-hand / two-beat reaction progression so consecutive shots never freeze."""
+    pool = GESTURE_PHASES.get(role) or GESTURE_PHASES["mid"]
+    return pool[index % len(pool)]
+
+
+@dataclass(frozen=True)
+class H3Route:
+    """MiniMax-H3 + ControlNet Union 2.0 generation mode for a unit or shot."""
+
+    mode: str  # ref2va_pose | ref2va_depth | fl2va_morph
+    control_type: str  # pose_no_face | depth | dual_keyframe
+    control_strength: float
+    end_percent: float
+    lock_guide_audio: bool
+    rationale_cn: str
+
+    def to_dict(self) -> dict[str, object]:
+        return {
+            "mode": self.mode,
+            "control_type": self.control_type,
+            "control_strength": self.control_strength,
+            "end_percent": self.end_percent,
+            "lock_guide_audio": self.lock_guide_audio,
+            "rationale_cn": self.rationale_cn,
+        }
+
+
+def select_h3_route(unit_kind: str, stagings: list[str] | None = None, has_morph: bool = False) -> H3Route:
+    """Choose the verified H3 generation track (`ep03` v6 ablation):
+    - `fl2va_morph`: ONLY for explicit state/age transitions (`morph_transition`, `blackout_spot`) with distinct A->B poses;
+    - `ref2va_pose`: Default for `sung` performance units (21-joint DWPose without facial points so audio drives big mouth motion);
+    - `ref2va_depth`: Default for `motion` / cutaway / crowd / instrument units (3-plane parallax, `end_percent=0.82` avoids grayscale bleed).
+    """
+    stgs = set(stagings or [])
+    if has_morph or ("morph_transition" in stgs):
+        return H3Route(
+            mode="fl2va_morph",
+            control_type="dual_keyframe",
+            control_strength=1.0,
+            end_percent=1.0,
+            lock_guide_audio=unit_kind == "sung",
+            rationale_cn="跨年龄或状态蜕变镜头：使用首尾姿态显著不同的双关键帧 fl2va（禁止单张静态肖像复用）。",
+        )
+    if unit_kind == "sung":
+        return H3Route(
+            mode="ref2va_pose",
+            control_type="pose_no_face",
+            control_strength=0.72,
+            end_percent=0.84,
+            lock_guide_audio=True,
+            rationale_cn="主唱对口型单元：Ref2VA（角色定妆组图+舞台空镜）配去面部关键点的 21 点 DWPose 骨骼驱动与音频锁口型，消除锁首帧静帧感。",
+        )
+    return H3Route(
+        mode="ref2va_depth",
+        control_type="depth",
+        control_strength=0.68,
+        end_percent=0.82,
+        lock_guide_audio=False,
+        rationale_cn="动作/器乐/群像反应单元：Ref2VA 配深度视频驱动三层空间视差，end_percent=0.82 防止深度灰雾渗入成片。",
+    )
+

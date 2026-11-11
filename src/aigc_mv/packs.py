@@ -12,7 +12,7 @@ from pathlib import Path
 from PIL import Image
 
 from aigc_mv.board import Board
-from aigc_mv.cinema import banned_hits
+from aigc_mv.cinema import banned_hits, select_h3_route
 from aigc_mv.edit import SIZES
 from aigc_mv.episode import Episode
 from aigc_mv.prompts import characters, refs_plan, video_prompt
@@ -173,14 +173,21 @@ def write_packs(project_dir: Path, ep: Episode, board: Board, timing: Timing,
             first_frame = d / "首帧.png"
             _downscale(first, first_frame, size)
         audio = d / up.audio if up.audio else None
+        unit_shots = board.unit_shots(u)
+        route = select_h3_route(
+            u.kind,
+            stagings=[s.staging for s in unit_shots if s.staging],
+            has_morph=any(s.staging == "morph_transition" for s in unit_shots),
+        )
         req = VideoRequest(unit=u.id, prompt=up.text, duration=u.duration, images=[p.relative_to(project_dir) for p in images],
                            audio=audio.relative_to(project_dir) if audio else None,
                            first_frame=first_frame.relative_to(project_dir) if first_frame else None,
                            resolution=ep.resolution, aspect_ratio=ep.aspect)
         header = [
-            f"【单元】{u.id} · {'对口型' if u.kind == 'sung' else '无口型'} · 歌曲 {u.song_t0:.2f}s 起 · {len(board.unit_shots(u))} 个镜头",
+            f"【单元】{u.id} · {'对口型' if u.kind == 'sung' else '无口型'} · 歌曲 {u.song_t0:.2f}s 起 · {len(unit_shots)} 个镜头",
             "【上传】" + "、".join(f"图片{i}（{Path(f).stem}）" for i, (f, _) in enumerate(up.uploads, 1))
             + (f"、音频1（{up.audio}）" if up.audio else "") + ("、首帧.png（作为首帧）" if first_frame else ""),
+            f"【H3路由】{route.mode}（ControlNet: {route.control_type} strength={route.control_strength:.2f} end={route.end_percent:.2f}）· {route.rationale_cn}",
             f"【设置】{ep.aspect}，时长 {u.duration} 秒（和音频一样长），{ep.resolution}；先低清测试，满意后用「超清」放大同一条",
             "【下载】生成的视频存进本文件夹的 takes/ 子文件夹（take-1.mp4、take-2.mp4…），然后跑 aigc-mv ep sync",
         ]
@@ -192,6 +199,7 @@ def write_packs(project_dir: Path, ep: Episode, board: Board, timing: Timing,
                 "aspect_ratio": ep.aspect, "song_t0": u.song_t0, "images": [str(p) for p in req.images],
                 "audio": str(req.audio) if req.audio else None,
                 "first_frame": str(req.first_frame) if req.first_frame else None,
+                "h3_routing": route.to_dict(),
                 "prompt": up.text, "digest": req.digest()}
         (d / "request.json").write_text(json.dumps(reqd, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         warn = []
@@ -205,7 +213,7 @@ def write_packs(project_dir: Path, ep: Episode, board: Board, timing: Timing,
         if up.audio and not (d / up.audio).is_file():
             warn.append("audio window not written yet (needs audio/ files)")
         summary.append({"unit": u.id, "kind": u.kind, "duration": u.duration, "chars": len(up.text),
-                        "digest": reqd["digest"], "warnings": warn})
+                        "h3_mode": route.mode, "digest": reqd["digest"], "warnings": warn})
     (project_dir / "units" / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2) + "\n",
                                                         encoding="utf-8")
     return summary

@@ -28,8 +28,8 @@ AUDIO_RHYTHM_CN = (
 )
 LIPSYNC_CN = (
     "【口型】嘴型逐字对上 @音频1：每个字的开口和收口都和 @音频1 里的声音同时发生，不早不晚；"
-    "@音频1 没有声音的地方嘴自然闭上。唱的人嘴一直清楚可见，不被话筒、手、头发或道具挡住，"
-    "话筒拿在嘴的斜下方；一只手始终握着话筒，动作只用空着的那只手。"
+    "高音和长音字下颌自然大幅张开、苹果肌抬起，绝不抿嘴微动；鼻音「哼」或 @音频1 没有声音的地方双唇自然紧闭。"
+    "唱的人嘴一直清楚可见，不被话筒、手、头发或道具挡住，话筒拿在嘴的斜下方；一只手始终握着话筒，动作只用空着的那只手。"
 )
 CORE_CN = (
     "【要求】1. 人物的脸、年龄、发型、胡子、帽子、服装全程和参考图一致，不变形、不变年轻；画面里每个人只出现一次。"
@@ -320,6 +320,7 @@ def video_prompt(ep: Episode, board: Board, timing: Timing, u: Unit,
         else:
             goal = f"【目标】{loc_name}，{singer}在说唱对决里正面开火，一镜一句、动作照歌词字面演。"
         body = [AUDIO_COPY_CN, goal, ref_text, people_txt, "【分镜】", *timeline, LIPSYNC_CN,
+                cinema.BIOMECH_SUNG_CN,
                 "【画面】" + look.cn + cinema.realism_cn(ep.realism, sung=True),
                 CORE_CN + cinema.NO_TEXT_CN, AUDIO_COPY_CN]
     else:

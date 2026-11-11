@@ -135,7 +135,7 @@ class Episode(BaseModel):
     end_question: str = "下一场|你想看谁的对决？"
     watermark: str = ""
     disclaimer: str = "AI生成  仅供娱乐"
-    subtitle_style: Literal["broadcast", "gold"] = "broadcast"
+    subtitle_style: Literal["broadcast", "gold", "battle_hud"] = "broadcast"
     budget: Budget = Field(default_factory=Budget)
 
     @model_validator(mode="after")

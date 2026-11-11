@@ -103,16 +103,138 @@ class Sheet:
             img.alpha_composite(self._brush(int(wt + 46 * S), int(52 * S), seed), (int(x + wh - 20 * S), int(base - 34 * S)))
             d.text((x, base), head, font=fh, fill=GOLD, anchor="ls", stroke_width=int(3 * S), stroke_fill=INK)
             d.text((x + wh, base), tail, font=ft, fill=GOLD, anchor="ls", stroke_width=int(4 * S), stroke_fill=INK)
+        elif self.style == "battle_hud":
+            hans = [i for i, c in enumerate(shown) if "\u4e00" <= c <= "\u9fff"]
+            cut = hans[-2] if len(hans) >= 2 else 0
+            head, tail = shown[:cut], shown[cut:]
+            fh = self._fit(d, shown, "sans", 54, "Black", W - 280 * S)
+            ft = _font("brush", int(fh.size * 1.24))
+            wh, wt = d.textlength(head, font=fh), d.textlength(tail, font=ft)
+            total_w = wh + wt
+            base = int(H * (0.882 if note else 0.918))
+            x = (W - total_w) / 2
+            pad_x, bar_h = int(28 * S), int(70 * S)
+            hud = self.canvas()
+            hd = ImageDraw.Draw(hud)
+            bx0, by0 = int(x - pad_x), int(base - 52 * S)
+            bx1, by1 = int(x + total_w + pad_x), int(by0 + bar_h)
+            hd.rounded_rectangle([bx0, by0, bx1, by1], radius=int(10 * S), fill=(12, 14, 20, 178),
+                                 outline=(220, 38, 38, 210), width=max(1, int(2 * S)))
+            hd.rectangle([bx0, by0, bx0 + int(7 * S), by1], fill=(220, 38, 38, 245))
+            img.alpha_composite(hud)
+            img.alpha_composite(self._brush(int(wt + 36 * S), int(48 * S), seed),
+                                (int(x + wh - 14 * S), int(base - 36 * S)))
+            d.text((x, base), head, font=fh, fill=(255, 255, 255, 255), anchor="ls",
+                   stroke_width=max(2, int(3 * S)), stroke_fill=(10, 10, 14, 235))
+            d.text((x + wh, base + int(2 * S)), tail, font=ft, fill=GOLD, anchor="ls",
+                   stroke_width=max(2, int(4 * S)), stroke_fill=INK)
         else:
             f = self._fit(d, shown, "sans", 54, "Bold", W - 240 * S)
             base = int(H * (0.885 if note else 0.925))
             d.text((W / 2, base), shown, font=f, fill=(255, 255, 255, 255), anchor="ms",
                    stroke_width=max(2, int(3 * S)), stroke_fill=(10, 10, 10, 230))
         if note:
-            fn = self._fit(d, note, "sans", 30, "Medium", W - 200 * S)
-            d.text((W / 2, int(H * 0.955)), note, font=fn, fill=(235, 235, 235, 240), anchor="ms",
-                   stroke_width=max(1, int(2 * S)), stroke_fill=(0, 0, 0, 220))
+            label = f"◆ 典故  {note}" if self.style == "battle_hud" and not note.startswith("◆") else note
+            fn = self._fit(d, label, "sans", 28 if self.style == "battle_hud" else 30, "Medium", W - 200 * S)
+            if self.style == "battle_hud":
+                nw = d.textlength(label, font=fn)
+                pill = self.canvas()
+                pd = ImageDraw.Draw(pill)
+                py = int(H * 0.955)
+                pd.rounded_rectangle(
+                    [W / 2 - nw / 2 - 16 * S, py - 28 * S, W / 2 + nw / 2 + 16 * S, py + 8 * S],
+                    radius=int(8 * S), fill=(18, 18, 24, 195), outline=(255, 212, 92, 160), width=max(1, int(1.5 * S)),
+                )
+                img.alpha_composite(pill)
+            d.text((W / 2, int(H * 0.955)), label, font=fn,
+                   fill=(255, 232, 150, 245) if self.style == "battle_hud" else (235, 235, 235, 240),
+                   anchor="ms", stroke_width=max(1, int(2 * S)), stroke_fill=(0, 0, 0, 220))
         img.alpha_composite(self._shadow(layer, 4, 0.5))
+        return img
+
+    def lyric_karaoke(self, text: str, progress: float, singer: str = "",
+                      accent: tuple[int, int, int] = (220, 38, 38), note: str = "", seed: int = 0) -> Image.Image:
+        """24fps Battle-HUD kinetic karaoke subtitle: progressive gold wipe + 1.24x punchword pop + speaker tag."""
+        S, W, H = self.S, self.W, self.H
+        p = max(0.0, min(1.0, float(progress)))
+        shown = text.replace(" ", "  ")
+        hans = [i for i, c in enumerate(shown) if "\u4e00" <= c <= "\u9fff"]
+        cut = hans[-2] if len(hans) >= 2 else len(shown)
+        head, tail = shown[:cut], shown[cut:]
+
+        img, base_layer, hi_layer = self.canvas(), self.canvas(), self.canvas()
+        db, dh = ImageDraw.Draw(base_layer), ImageDraw.Draw(hi_layer)
+        fh = self._fit(db, shown, "sans", 54, "Black", W - 280 * S)
+        # Spring pop on the tail punchword once progress crosses 0.72
+        pop = 1.24 + (0.06 if 0.72 <= p <= 0.88 else 0.0)
+        ft = _font("brush", int(fh.size * pop))
+        wh, wt = db.textlength(head, font=fh), db.textlength(tail, font=ft)
+        total_w = wh + wt
+        base_y = int(H * (0.882 if note else 0.918))
+        x = (W - total_w) / 2
+
+        hud = self.canvas()
+        hd = ImageDraw.Draw(hud)
+        bx0, by0 = int(x - 28 * S), int(base_y - 52 * S)
+        bx1, by1 = int(x + total_w + 28 * S), int(by0 + 70 * S)
+        hd.rounded_rectangle([bx0, by0, bx1, by1], radius=int(10 * S), fill=(12, 14, 20, 182),
+                             outline=(*accent, 215), width=max(1, int(2 * S)))
+        hd.rectangle([bx0, by0, bx0 + int(8 * S), by1], fill=(*accent, 250))
+        if singer:
+            fs = _font("sans", int(24 * S), "Black")
+            sw = hd.textlength(singer, font=fs)
+            hd.rounded_rectangle([bx0, by0 - int(32 * S), bx0 + sw + int(24 * S), by0 - int(2 * S)],
+                                 radius=int(6 * S), fill=(*accent, 235))
+            hd.text((bx0 + int(12 * S), by0 - int(8 * S)), singer, font=fs, fill=(255, 255, 255, 255), anchor="ls")
+        img.alpha_composite(hud)
+        if tail:
+            img.alpha_composite(self._brush(int(wt + 36 * S), int(48 * S), seed),
+                                (int(x + wh - 14 * S), int(base_y - 36 * S)))
+
+        # Unsung base text (crisp silver-white) and sung highlight text (warm gold)
+        for drw, col_h, col_t in (
+            (db, (232, 236, 244, 245), (255, 242, 200, 250)),
+            (dh, GOLD, (255, 215, 64, 255)),
+        ):
+            drw.text((x, base_y), head, font=fh, fill=col_h, anchor="ls",
+                     stroke_width=max(2, int(3 * S)), stroke_fill=(10, 10, 14, 235))
+            if tail:
+                drw.text((x + wh, base_y + int(2 * S)), tail, font=ft, fill=col_t, anchor="ls",
+                         stroke_width=max(2, int(4 * S)), stroke_fill=INK)
+
+        wipe_x = int(x + total_w * p)
+        mask = Image.new("L", (W, H), 0)
+        ImageDraw.Draw(mask).rectangle([0, 0, wipe_x, H], fill=255)
+        merged_txt = Image.composite(hi_layer, base_layer, mask)
+        img.alpha_composite(self._shadow(merged_txt, 4, 0.5))
+        if note:
+            label = f"◆ 典故  {note}" if not note.startswith("◆") else note
+            fn = self._fit(ImageDraw.Draw(img), label, "sans", 28, "Medium", W - 200 * S)
+            ImageDraw.Draw(img).text((W / 2, int(H * 0.955)), label, font=fn, fill=(255, 232, 150, 245),
+                                     anchor="ms", stroke_width=max(1, int(2 * S)), stroke_fill=(0, 0, 0, 220))
+        return img
+
+    def seal_badge(self, name: str, faction: str = "", right: bool = False,
+                   accent: tuple[int, int, int] = (205, 28, 36)) -> Image.Image:
+        """Chinese seal + brush character entrance badge (`三一门 · 陆瑾` / `全性 · 李慕玄`)."""
+        S, W, H = self.S, self.W, self.H
+        img, layer = self.canvas(), self.canvas()
+        d = ImageDraw.Draw(layer)
+        fn = _font("brush", int(104 * S))
+        ff = _font("sans", int(30 * S), "Black")
+        x = W - int(130 * S) if right else int(130 * S)
+        anc = "rs" if right else "ls"
+        y = int(H * 0.74)
+        if faction:
+            fw = d.textlength(faction, font=ff)
+            sx0 = int(x - fw - 28 * S) if right else int(x)
+            sy0 = int(y - 128 * S)
+            d.rounded_rectangle([sx0, sy0, int(sx0 + fw + 28 * S), int(sy0 + 42 * S)],
+                                radius=int(6 * S), fill=(*accent, 235), outline=(255, 236, 185, 230),
+                                width=max(1, int(2 * S)))
+            d.text((sx0 + (fw + 28 * S) / 2, sy0 + 21 * S), faction, font=ff, fill=(255, 248, 230, 255), anchor="mm")
+        d.text((x, y), name, font=fn, fill=GOLD, anchor=anc, stroke_width=max(2, int(4 * S)), stroke_fill=INK)
+        img.alpha_composite(self._shadow(layer, 5, 0.6))
         return img
 
     def name(self, name: str, aka: str, right: bool) -> Image.Image:

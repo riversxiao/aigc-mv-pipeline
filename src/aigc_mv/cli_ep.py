@@ -310,3 +310,72 @@ def status_cmd(ep_dir: Path) -> None:
         b = load_board(ep_dir)
         done = sum(1 for u in b.units if any((ep_dir / "units" / u.id / "takes").glob("*.mp4")))
         typer.echo(f"takes: {done}/{len(b.units)} units have at least one take")
+
+
+@app.command("rea-audit")
+def rea_audit_cmd(
+    target: Path = typer.Argument(..., help="Episode dir, rendered MP4, or existing rea-video output dir/breakdown.json"),
+    rea_dir: Optional[Path] = typer.Option(None, "--rea-dir", help="Where to write/read rea-video decompose output"),
+    ref_rea: Optional[Path] = typer.Option(None, "--ref-rea", help="Optional reference rea-video dir/breakdown.json (e.g. 火影有嘻哈)"),
+    video: Optional[Path] = typer.Option(None, "--video", help="Optional MP4 path for optical-flow static-shot check"),
+    check_flow: bool = typer.Option(False, "--check-flow", help="Measure 160x90 motion flow per shot via ffmpeg"),
+    strict: bool = typer.Option(False, "--strict", help="Exit 1 when benchmark gaps remain"),
+) -> None:
+    """Audit a rendered MV or `rea-video` breakdown against 《火影有嘻哈》 gates & emit H3 repair recipes."""
+    from aigc_mv.rea_audit import (
+        audit_breakdown,
+        extract_metrics,
+        load_rea_breakdown,
+        measure_shot_motion_luma,
+        render_rea_audit_md,
+        run_rea_decompose,
+    )
+
+    out_report_dir = target / "edit" if (target.is_dir() and (target / "episode.yaml").is_file()) else (
+        target if target.is_dir() else target.parent
+    )
+    mp4: Path | None = video
+    if target.is_file() and target.suffix.lower() in (".mp4", ".mov", ".mkv"):
+        mp4 = mp4 or target
+        rdir = rea_dir or (target.parent / f"rea_{target.stem}")
+        bd_path = rdir / "breakdown.json"
+        if not bd_path.is_file():
+            typer.echo(f"running rea-video decompose on {target} → {rdir} ...")
+            bd_path = run_rea_decompose(target, rdir)
+        bd = load_rea_breakdown(bd_path)
+    elif target.is_dir() and (target / "episode.yaml").is_file():
+        ep = load_episode(target)
+        cand_mp4 = mp4 or (target / "final" / f"{ep.title}.mp4")
+        mp4 = cand_mp4 if cand_mp4.is_file() else None
+        rdir = rea_dir or (target / "edit" / "rea_out")
+        bd_path = rdir / "breakdown.json"
+        if not bd_path.is_file():
+            if mp4 is None:
+                _fail(f"no breakdown at {bd_path} and no rendered video at {cand_mp4}")
+            typer.echo(f"running rea-video decompose on {mp4} → {rdir} ...")
+            bd_path = run_rea_decompose(mp4, rdir)
+        bd = load_rea_breakdown(bd_path)
+    else:
+        bd = load_rea_breakdown(target)
+
+    flow = measure_shot_motion_luma(mp4, bd.get("shots") or []) if (check_flow and mp4 and mp4.is_file()) else None
+    rep = audit_breakdown(bd, motion_by_shot=flow)
+    ref_m = extract_metrics(load_rea_breakdown(ref_rea)) if ref_rea else None
+
+    out_report_dir.mkdir(parents=True, exist_ok=True)
+    json_out = out_report_dir / "rea_audit.json"
+    md_out = out_report_dir / "rea_audit.md"
+    jsave(json_out, rep)
+    md_out.write_text(render_rea_audit_md(rep, ref_m), encoding="utf-8")
+
+    typer.echo(
+        f"rea-audit: {'PASS' if rep.passed else 'NEEDS_REDO'} · "
+        f"shots={rep.metrics.shots} avg={rep.metrics.avg_shot_s:.2f}s "
+        f"still={rep.metrics.still_motion_ratio:.1%} moving={rep.metrics.moving_camera_ratio:.1%} "
+        f"jumps={rep.metrics.jump_cuts} redos={len(rep.redo_candidates)}"
+    )
+    for g in rep.gaps:
+        typer.echo(f"  ! {g}")
+    typer.echo(f"wrote {md_out}")
+    if strict and not rep.passed:
+        raise typer.Exit(code=1)

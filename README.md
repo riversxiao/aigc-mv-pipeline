@@ -39,6 +39,7 @@ aigc-mv ep sync $E u05              # 测量每条的口型延迟和跟丢位置
 aigc-mv ep pick $E u05 take-2       # 人眼选条
 aigc-mv ep render $E --test 0:15    # 先出一小段
 aigc-mv ep render $E --res 1080p    # final/<标题>.mp4
+aigc-mv ep rea-audit --video $E/final/<标题>.mp4 --rea-dir $E/edit/rea_out --check-flow  # rea-video 闭环对标火影有嘻哈基准
 ```
 
 没有素材的镜头会用首帧图按这个镜头的运镜做推拉摇移，连图也没有就放标注卡，所以花钱之前就能看到完整的动态分镜。
@@ -52,8 +53,8 @@ projects/<一期>/
   analysis/timing.json  节拍网格、每句 / 半句 / 每个字的时间、段落、每小节能量
   board/                board.json  board.md（分镜表）  audit.json
   refs/                 REFS.md + 你生成的 a_sheet.png  b_sheet.png  venue.png  loc_*.png  crowd.png  plate_u*.png
-  units/<id>/           prompt.txt  request.json  <id>_vocal.wav  takes/  takes.json
-  edit/                 edl.json  parts/  layers/
+  units/<id>/           prompt.txt  request.json（含 h3_routing）  <id>_vocal.wav  takes/  takes.json
+  edit/                 edl.json  parts/  layers/  rea_out/  rea_audit.md
   final/                成片
   ledger.jsonl  approvals.json
 ```
@@ -65,6 +66,7 @@ projects/<一期>/
 ```yaml
 grammar: hybrid        # show = 综艺擂台多机位 | mv = 叙事 MV | hybrid = 擂台用 show、叙事场景用 mv
 look: night_arena      # night_arena | palace_day | battlefield_dusk | tv_arena（见 cinema.LOOKS）
+subtitle_style: battle_hud  # broadcast | gold | battle_hud（24fps 逐字擦亮 + 尾字爆词弹跳 + 门派印章）
 verses:
   - who: a
     lines:
@@ -79,7 +81,7 @@ verses:
 
 ## 综艺节目格式（show）
 
-`format: show` 是照《火影有嘻哈03》逐镜头拆解（[docs/参考片拆解_火影有嘻哈03.md](docs/参考片拆解_火影有嘻哈03.md)）做的一档「说唱综艺」模板：一期 3 到 4 分钟，约 15 人（两位选手各带两个队友、三位评委、主持和 DJ、两位副歌歌手、观众席客串），段落依次是冷开场、主持开场、分屏入场、对峙、副歌、A 段、间奏、B 段、灭灯停顿揭晓、副歌回归、互动结尾。分镜器（`show.py`）一个镜头装一到两句（平均约 3 秒），运镜以固定和慢推为主，歌词点到谁就切谁的反应，灭灯只用一次。`realism: idol_show` 是「好看但像节目」的写实要求：上镜耐看的成年演员、真实皮肤不磨皮、原创面孔。
+`format: show` 是照《火影有嘻哈03》逐镜头拆解（[docs/参考片拆解_火影有嘻哈03.md](docs/参考片拆解_火影有嘻哈03.md) 与 [docs/火影有嘻哈_rea_video拉片与ep03实战演进.md](docs/火影有嘻哈_rea_video拉片与ep03实战演进.md)）做的一档「说唱综艺」模板：一期 3 到 4 分钟，约 15 人（两位选手各带两个队友、三位评委、主持和 DJ、两位副歌歌手、观众席客串），段落依次是冷开场（器乐须由在场角色本人演奏，严禁无人悬空手）、主持开场、分屏入场、对峙、副歌、A 段、间奏、B 段、灭灯停顿揭晓、副歌回归、互动结尾。分镜器（`show.py`）一个镜头装一到两句（平均约 2.7–3.2 秒），空手按六层生物力学在单镜内完成「起势→出画→重音再入画」两到三拍轮换，歌词点到谁就切谁的闭口两拍微表情反应，灭灯只用一次。`realism: idol_show` 是「好看但像节目」的写实要求：上镜耐看的成年演员、真实皮肤不磨皮、原创面孔。
 
 定妆分三步：原作图 → 真人正面像（即梦上传原作图当图1，Midjourney 用图片提示 `--iw`），再用正面像分别生成四分之三侧面、正侧面、半身和全身（Midjourney `--oref`，表情四宫格可选，只用来挑表情），最后 `ep sheets` 在五张齐了以后拼成每人一张组图（左全身、右 2x2），视频单元只传这一张。原作图请用即梦本地上传：Midjourney 上传的图会挂在它的服务器上，等于公开。详见 [docs/方法论.md](docs/方法论.md) 的「定妆：三步」。
 
@@ -92,7 +94,7 @@ aigc-mv ep board $E                # 分镜 + 审核（audit: PASS）
 aigc-mv ep canon $E --src <本地官方图文件夹>   # 原作图放进 refs/canon/（gitignore，不进 git）
 aigc-mv ep refs $E                 # 15 人三步定妆（原作图 → 正面像 → 五个角度）+ 场馆 / 评委席 / DJ台 / 观众的提示词
 aigc-mv ep sheets $E               # 第三步：把锁定的 face/34/profile/half/full 拼成 <key>_sheet.png
-aigc-mv ep prompts $E              # 每个生成单元的即梦提示词
+aigc-mv ep prompts $E              # 每个生成单元的提示词与 H3 双轨路由（ref2va_pose / ref2va_depth / fl2va_morph）
 aigc-mv ep suno $E                 # 多声部 Suno 栏（分段 Extend，主持念白）
 aigc-mv ep previz $E               # 占位画面联系表
 aigc-mv ep render $E --res 480p    # 全长预演动画：占位画面 + 合成节拍 + 字幕包装
@@ -100,14 +102,14 @@ aigc-mv ep render $E --res 480p    # 全长预演动画：占位画面 + 合成�
 
 预演动画里每个镜头的画面优先级：选定的生成片段 > `refs/plate_<单元>.png` / `refs/plate_<镜头>.png` > 占位画面。开着占位画面时，`refs/venue.png` 和定妆图这类通用参考图不会顶替占位画面；合成节拍按 timing 自动重建，改了歌词重跑 `ep analyze` 后不会用旧节拍。用真歌做 ASR 对齐时，如果有歌词跑出自己的段落，审核会给出 `section:` 提醒。登场段的主持词里要念出选手的名字（name_cn、aka 或外号），特写在念到名字时切入；改词后念不到名字，或者特写离名字超过 0.3 秒，审核会给出 `entrance:` 提醒。
 
-## Playbook · 制片纪律（跨项目）
+## Playbook · 制片纪律与 H3 双轨制（跨项目）
 
-质感优化的**可复用流程**（焚诀对齐：先剪后生成、定妆、首尾帧硬检、默认 fl2va、场地圣经）：见 [`playbook/`](playbook/)。
+质感优化的**可复用流程**（先剪后生成、三步定妆、H3 双轨制路由 `ref2va_pose` / `ref2va_depth` / `fl2va_morph`、六层生物力学手势、观众席图生图、`rea-video` 闭环对标）：见 [`playbook/`](playbook/) 与 [《火影有嘻哈》rea-video 拉片与 ep03 v3→v6 实战演进](docs/火影有嘻哈_rea_video拉片与ep03实战演进.md)。
 
 已挂载索引：
 
 - [`projects/yirenzhixia`](projects/yirenzhixia/) — 一人之下（含《雷有两面》等；可与 `wangye_vs_zhugeqing` 联用）
-- [`projects/world_celebrity_battle`](projects/world_celebrity_battle/) — 世界名人大乱斗 / 异人开麦
+- [`projects/world_celebrity_battle`](projects/world_celebrity_battle/) — 世界名人大乱斗 / 异人开麦（含 ep03《三重修在心里面》v6 实战闭环）
 
 大媒体与母带不进 Git；各项目 README 写 Drive / 本机路径。
 
@@ -117,15 +119,16 @@ aigc-mv ep render $E --res 480p    # 全长预演动画：占位画面 + 合成�
 
 | 模块 | 作用 |
 | --- | --- |
-| `episode.py` | episode.yaml 的数据模型和校验（站位必须一左一右、场景要先定义） |
+| `episode.py` | episode.yaml 的数据模型和校验（站位必须一左一右、场景要先定义、支持 `battle_hud` 字幕） |
 | `timing.py` | 节拍网格（相位搜索 + 每拍吸附到 ±30 ms 内的起音）、下拍、ASR / 网格两种对齐、段落 |
-| `cinema.py` | 景别、镜头、运镜库、画风预设、真实感规则、禁用词 |
-| `board.py` | 分镜规划、生成单元分组、审核、分镜表 |
-| `prompts.py` | Seedance 剧本式提示词、定妆图 / 首帧提示词、Suno 栏 |
+| `cinema.py` | 景别、镜头、运镜库、画风预设、真实感规则、禁用词、六层生物力学手势与 H3 双轨路由（`select_h3_route`） |
+| `board.py` / `show.py` | 分镜规划、生成单元分组、多拍手势轮换、审核、分镜表 |
+| `prompts.py` | Seedance / MiniMax-H3 剧本式提示词（含音区口型开合度与六层肢体动态）、定妆图 / 首帧提示词、Suno 栏 |
 | `windows.py` | 每个单元的人声 / 伴奏窗口 |
 | `sync.py` | 每条生成的延迟和同步区间测量 |
-| `edit.py` / `overlays.py` | EDL、按帧对齐渲染、逐镜头调色、胶片感、字幕 / 注释 / 名字卡 / 标题 |
-| `packs.py` | 写出每个单元的上传清单和请求；refs/REFS.md（综艺按人物和三步定妆分组） |
+| `edit.py` / `overlays.py` | EDL、按帧对齐渲染、逐镜头调色、胶片感、`broadcast` / `gold` / `battle_hud` 动态逐字擦亮字幕与门派印章 |
+| `rea_audit.py` | 调用 [rea-video](https://github.com/JuneYaooo/rea-video) 对标《火影有嘻哈》量化门禁（`still_motion<=3%`、`moving>=90%`、`jump<=1`、光流位移复核）并输出逐镜 H3 修复处方（`ep rea-audit`） |
+| `packs.py` | 写出每个单元的上传清单和请求（含 `h3_routing`）；refs/REFS.md（综艺按人物和三步定妆分组） |
 | `sheets.py` | `ep sheets`：把锁定的五个角度拼成每人一张定妆组图 |
 | `providers/` | 花钱闸门 + Dreamina / Suno 适配器（待接口，见 [docs/接口对接.md](docs/接口对接.md)） |
 

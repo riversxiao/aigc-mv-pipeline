@@ -1,0 +1,33 @@
+# 陆玲珑 · 《一人之下》同人二创（腾讯动漫，米二）。陆瑾曾孙女，全真俗家弟子，承担高音副歌 Hook 与舞台战鼓切镜。
+# 造型严守 ep03 红线：必须是玫瑰粉红发色配白色羽饰鹤氅舞台装，黑发女子严禁入成片；面部原创。
+id: lu_linglong
+display_name: 陆玲珑 · 陆家
+age: 21
+canon_refs:
+  - {site: bangumi, id: 42214, url: "https://bgm.tv/character/42214", note: 官方角色页，玫瑰粉红双辫发色与灵动神态}
+canon_look_cn: 官方图：鲜明的玫瑰粉红色长发，两侧编成细辫垂在胸前，齐刘海下杏眼明亮，神情爽朗认真。
+signature_cn: 玫瑰粉红色双辫长发 + 白色羽边鹤氅披风配浅粉中式立领舞台短装
+signature_en: rose-pink hair with two front braids, white feather-trimmed crane cloak over a pale pink Mandarin-collar stage top
+identity: >-
+  a Chinese woman who looks about 21, slender athletic posture, a bright expressive oval face with clear dark eyes and
+  natural eyebrows, distinctive rose-pink hair styled with soft bangs and two neat braids resting over the collarbone,
+  real skin texture with fine pores and light stage sheen
+identity_short: a Chinese woman of about 21 with rose-pink braided hair and a white feather-trimmed crane cloak
+identity_cn: 看上去约 21 岁的中国成年女性，身姿轻盈挺拔，鹅蛋脸，眼神清亮有神；标志性的玫瑰粉红色长发配轻薄刘海与胸前两条细编发；皮肤有真实细小毛孔与自然光泽，绝非黑发
+wardrobe_default: >-
+  a white woven crane cloak trimmed with soft white feathers draped over the shoulders, a pale rose-pink contemporary
+  Mandarin-collar stage top with silver frog buttons, white pleated culottes, no lettering
+wardrobe_cn: 肩披白色羽边织纹鹤氅披风，内穿浅玫瑰粉中式立领盘扣舞台短装与白色百褶裤裙，布料垂坠真实，没有任何文字
+props_cn: 副歌段站在立麦前高音开唱（下颌大幅张开），间奏鼓点段亲自在舞台红木战鼓前双手执槌击鼓
+voice: clear soaring female soprano hook vocal, bright high-note belting with emotional power
+forbidden:
+  - black hair
+  - disembodied hands on drums
+  - plastic skin
+  - modern logos
+refs: []
+notes: >-
+  原作依据（官方资料）：Bangumi 角色页 https://bgm.tv/character/42214 ：陆瑾曾孙女，全真教俗家弟子。
+  ep03 硬性视觉红线：发色必须锁定玫瑰粉红发配白色羽边鹤氅，黑发女子严禁进入成片；高音唱段必须大幅度张口带动苹果肌与脖颈发力；
+  间奏击鼓镜头必须由她本人在舞台实景击鼓，严禁出现无身体的悬空双手击鼓画面。
+  面部原创，不像任何真人演员，尤其不像真人剧《异人之下》的演员。
