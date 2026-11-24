@@ -12,6 +12,7 @@ import yaml
 
 from aigc_mv import __version__
 from aigc_mv.canon import DEFAULT_KNOWLEDGE_DIR, build_prompt, get_canon, list_character_ids
+from aigc_mv.douyin import DouyinDownloadError, download_douyin
 from aigc_mv.lore import get_lore, list_lore_ids, load_lore, render_lyric_brief
 from aigc_mv.pipeline.align import align_project
 from aigc_mv.pipeline.storyboard import storyboard_project
@@ -44,6 +45,22 @@ def main_callback(
     if version:
         typer.echo(__version__)
         raise typer.Exit()
+
+
+@app.command("download-douyin")
+def download_douyin_cmd(
+    source: str = typer.Argument(..., help="Douyin short link, video URL, or copied share text"),
+    output: Optional[Path] = typer.Option(
+        None, "--output", "-o", help="Destination MP4 (default: douyin-<video_id>.mp4)"
+    ),
+) -> None:
+    """Download a public Douyin reference video as an H.264 MP4."""
+    try:
+        destination = download_douyin(source, output)
+    except (DouyinDownloadError, OSError) as error:
+        typer.echo(str(error), err=True)
+        raise typer.Exit(code=1) from error
+    typer.echo(f"Downloaded: {destination}")
 
 
 @app.command("init-project")

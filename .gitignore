@@ -27,6 +27,10 @@ projects/*/clips/
 !projects/demo_og/brief.yaml
 !projects/demo_og/lyrics.txt
 
+# Downloaded reference videos
+douyin-*.mp4
+projects/*/refs/videos/
+
 # Episode pipeline outputs (episode.yaml is the only source file)
 projects/*/analysis/
 projects/*/board/

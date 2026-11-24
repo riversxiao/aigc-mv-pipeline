@@ -44,6 +44,15 @@ aigc-mv ep rea-audit --video $E/final/<标题>.mp4 --rea-dir $E/edit/rea_out --c
 
 没有素材的镜头会用首帧图按这个镜头的运镜做推拉摇移，连图也没有就放标注卡，所以花钱之前就能看到完整的动态分镜。
 
+### 下载抖音参考视频
+
+```bash
+aigc-mv download-douyin 'https://v.douyin.com/<分享码>/' \
+  -o projects/wangye_vs_zhugeqing/refs/videos/reference.mp4
+```
+
+也可以把完整的抖音分享文案用引号包起来，或者传入 `https://www.douyin.com/video/<视频ID>`。命令解析视频 ID，从抖音精选公开播放页选取分辨率最高的 H.264 MP4，再从官方 CDN 下载。省略 `-o` 时，文件保存到当前目录，命名为 `douyin-<视频ID>.mp4`。已存在的文件会保留。
+
 ## 一期的文件夹
 
 ```
